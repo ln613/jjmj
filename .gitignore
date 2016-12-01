@@ -1,0 +1,8 @@
+bin
+bld
+node_modules
+platforms
+plugins
+
+build.json
+nanli.keystore

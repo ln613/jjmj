@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<widget id="nanli.mj" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>国标麻将 番数计算器</name>
+  <description>
+    国标麻将规则解释及番数计算器。World Mahjong rules and points calculator.
+  </description>
+  <author email="ln613@hotmail.com">
+    Nan Li
+  </author>
+  <content src="index.html" />
+  <icon src="icons/icon.png" />
+  <plugin name="cordova-plugin-whitelist" spec="1" />
+  <access origin="*" />
+  <allow-intent href="http://*/*" />
+  <allow-intent href="https://*/*" />
+  <allow-intent href="tel:*" />
+  <allow-intent href="sms:*" />
+  <allow-intent href="mailto:*" />
+  <allow-intent href="geo:*" />
+  <preference name="Orientation" value="portrait" />
+  <platform name="android">
+    <allow-intent href="market:*" />
+  </platform>
+  <platform name="ios">
+    <allow-intent href="itms:*" />
+    <allow-intent href="itms-apps:*" />
+  </platform>
+  <plugin name="cordova-plugin-compat" version="1.0.0" />
+</widget>
