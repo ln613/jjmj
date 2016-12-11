@@ -88,3 +88,6 @@ body {
 .w33 {
   width: 33.33%;
 }
+.btn {
+  white-space: nowrap;
+}

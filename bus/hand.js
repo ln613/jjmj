@@ -32,6 +32,7 @@ const H = {
   isG: h => h.length === 4 && h[0] === h[1] && h[1] === h[2] && h[2] === h[3],
   isKG: h => H.isK(h) || H.isG(h),
   isDigitKG: h => H.isDigitH(h) && H.isKG(h),
+  isYKG: h => R.both(H.isKG, R.pipe(R.head, H.isYOrWord))(h),
   isSNColor: t => R.allPass([H.lenEq(3), R.pipe(H.arr(0), R.uniq, H.lenEq(t)), H.isDigitH, R.pipe(H.arrN(1), H.isSeq)]),
   isS: h => H.isSNColor(1)(h),
   isS3: h => H.isSNColor(3)(h),
@@ -56,7 +57,7 @@ const H = {
   isHalfPure: hs => R.allPass([R.all(H.isH), R.any(H.isWordH), R.pipe(R.filter(H.isDigitH), H.isPure)])(hs),
   isHSide: hs => R.pipe(H.getH, R.either(t => H.isYoung(t[0]) && t[1][1] === '3', t => H.isOld(t[0]) && t[1][1] === '7'))(hs),
   isHMid: hs => R.pipe(H.getH, x => H.isS(x[0]) && hs.h[1] === 1)(hs),
-  isHPair: hs => hs.h[0] === 4,
+  isHPair: hs => hs.h[0] === 4 && hs[4][0] === hs[4][1],
   isHSelf: hs => H.isA(hs[hs.h[0]]),
   is1Color: hs => R.pipe(H.byFColor, H.lenEq(1))(hs),
   is2Color: hs => R.pipe(H.byFColor, H.lenEq(2))(hs),
@@ -67,8 +68,8 @@ const H = {
   isNColorNSameS: n => R.pipe(H.byNumber, R.filter(H.lenGt(1)), R.any(R.pipe(H.getT1T, H.lenEq(n)))), // 2c2s, 3c3s
   isNSameK: n => R.pipe(R.filter(H.isDigitKG), R.flatten, H.maxByCountBy(R.nth(1)), R.nth(1), R.ifElse(x => n === 2, H.between(6, 8), H.gt(8))),
   is1Suit: hs => R.pipe(H.byGroup, H.lenEq(1))(hs),
-  is5Suits: hs => R.pipe(H.byGroup, H.lenEq(5))(hs),
-  isNColor3Sth: (n, t, f) => R.pipe(R.ifElse(x => n === 1, H.byColorN(t), H.byProd3(t)), R.any(R.both(H.isNotNil, R.pipe(H.getT1TN, f)) )),
+  is5Suits: hs => R.either(R.pipe(H.byGroup, H.lenEq(5)), R.both(H.is7Pairs, R.pipe(R.flatten, R.groupBy(R.head), R.toPairs, H.lenEq(5))))(hs),
+  isNColor3Sth: (n, t, f) => R.pipe(R.ifElse(x => n === 1, H.byColorN(t), H.byProd3(t)), R.any(R.both(H.isNotNil, R.pipe(H.arrN(0), H.sort, H.cl, f)) )),
   is4in1: hs => R.pipe(R.flatten, H.maxByCount, R.both(x => x[1] === 4, x => R.pipe(R.filter(R.contains(x[0])), H.lenGt(1))(hs)))(hs),
   is3Color2Dragon: hs => R.allPass([
     H.is3Color, 
@@ -147,26 +148,27 @@ const H = {
   ),
 
   isZigZag: hs => R.pipe(
-    R.partition(R.both(H.isS3, x => H.isBS(x[0]))),
+    R.partition(R.either(H.isH, R.all(H.isWord))),
     R.both(
       R.pipe(
-        x => x[0],
+        R.head,
         R.both(
-          H.lenEq(3),
-          R.pipe(
-            R.transpose,
-            R.flatten,
-            x => R.contains(x, H.toSep())
+          H.lenEq(2),
+          R.either(R.all(H.isH), x => H.is7Star(4, hs))
+        ),
+      ),
+      R.pipe(
+        R.last,
+        R.both(
+          R.pipe(H.arr(0), H.arr(0), R.uniq, H.lenEq(3)),
+          R.all(
+            R.allPass([
+              R.pipe(H.arr(0), R.uniq, H.lenEq(1)),
+              R.pipe(H.arr(1), R.join(''), x => R.contains(x, ['147', '258', '369']))
+            ])
           )
         )
       ),
-      R.pipe(
-        x => x[1],
-        R.both(
-          H.lenEq(2),
-          R.all(R.anyPass([H.isD, H.isK, H.isG, H.isS]))
-        )
-      )
     )
   )(hs),
 
@@ -207,8 +209,9 @@ const H = {
       H.is7Star(4),
       H.is7SeqPairs,
       H.is7Pairs,
+      H.isZigZag,
       R.both(
-        x => R.all(R.anyPass([H.isK, H.isG, H.isS]), x.slice(0, 4)),
+        R.pipe(R.init, R.all(H.isH)),
         R.pipe(R.last, H.isD)
       )
     ])
@@ -264,7 +267,7 @@ const H = {
   isSameSetOf: a => R.both(H.isSubSetOf(a), H.isSuperSetOf(a)),
   isDistinct: l => R.equals(l.length, R.pipe(R.uniq, R.length)(l)),
   isSeq: l => R.pipe(H.sort, R.both(H.isDistinct, x => R.last(x) - x[0] === x.length - 1))(l),
-  isSeq2: l => R.pipe(H.sort, R.both(H.isDistinct, x => R.last(x) - x[0] === (x.length - 1) * 2))(l),
+  isSeq2: l => R.pipe(H.sort, R.both(H.isDistinct, x => R.sum(x) == (x[0] + R.last(x)) * x.length / 2))(l),
   isSeq1or2: l => R.either(H.isSeq, H.isSeq2)(l),
   isNStep: n => R.both(H.isNotEmptyArray, R.pipe(R.uniq, H.sort, R.aperture(n), R.any(H.isSeq))),
 }

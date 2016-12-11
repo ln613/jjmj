@@ -8,7 +8,7 @@ export default p => {
       {t}
       <div className="f jcsb">
         {winds.map((x, i) =>
-          <div className={`btn c24 fc ${p.value === i + 1 ? 'Yellowgreen' : 'White'}`}
+          <div className={`btn c24 fc ${p.value === i + 1 ? 'hYellowgreen' : 'hWhite'}`}
             onClick={() => p.click(p.type, i + 1)}>{x}</div>
         )}
       </div>

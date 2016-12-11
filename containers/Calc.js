@@ -102,7 +102,7 @@ class Calc extends React.Component {
   calc = () => {
     const s = this.state;
     const hs = s.hand;
-    //const hs = [['w1', 'w2', 'w3'], ['w1', 'w2', 'w3'], ['w4', 'w5', 'w6'], ['w4', 'w5', 'w6'], ['w7', 'w7']];
+    //const hs = [['w1', 'w2', 'w3'], ['w2', 'w3', 'w4'], ['w3', 'w4', 'w5'], ['w7', 'w8', 'w9'], ['f2', 'f2']];
     //hs.h = [0, 0];
     if (!H.isValid(hs)) this.setError('诈和！\nNot a valid winning hand!');
     else if (!hs.h) this.setError('请先选择和牌的那张牌.\nPlease select the winning tile first.');
@@ -195,45 +195,45 @@ class Calc extends React.Component {
     const hs = s.hand;
     const l = ['w', 't', 'b'].map(x => R.range(1, 10).map(y => x + y)).concat([['ww', 'f1', 'f2', 'f3', 'f4', 'j1', 'j2', 'j3', 'ww']]);
     const pl = l.map(x =>
-      <div className={`fc ${wr1}`}>
+      <div className={`fc h25 pv1`}>
         {x.map(y =>
-          <div onClick={this.add.bind(this, y)}><img src={`./images/${y}.png`}
-            className={`usn ${H.has4(y)(this.state.hand) ? 'op25' : ''} w100`} /></div>
+          <div onClick={this.add.bind(this, y)} className="h100"><img src={`./images/${y}.png`}
+            className={`usn ${H.has4(y)(this.state.hand) ? 'op25' : ''} ${ratio > 0.6 ? (ratio > 0.8 ? (ratio > 1.1 ? 'w40' : 'w60') : 'w80') : 'w100'}`} /></div>
         )}
       </div>
     );
-    const ok = [<div className="btn Yellowgreen" onClick={this.clearError}>OK</div>];
-    const bst = (t, w) => `btn w${w === 0 ? 30 : 10} mh4 ${t === 0 ? 'Yellowgreen' : 'Orange'} ${old ? 'fs12' : ''}`;
+    const ok = [<div className="btn hYellowgreen" onClick={this.clearError}>OK</div>];
+    const bst = (t, w) => `btn w${w === 0 ? 30 : 10} mh4 ${t === 0 ? 'hYellowgreen' : 'hOrange'} ${old ? 'fs12' : ''}`;
 
     return (
       <div className="fv vh100">
         <Nav page="calc" navTo={() => hashHistory.push('/rule')} />
         {/*<div>w: {document.documentElement.clientWidth}, H: {document.documentElement.clientHeight}, r: {ratio}</div>*/}
-        <div className="fs0">
+        <div className="fs0 h50">
         {hs.map((x, i) =>
-          <div className="f f00a fs0 fg0 jcsa aic h10">
+          <div className="f f00a fs0 fg0 jcsa aic h20">
             <div className="flipc">
               <div className={`flipp ${x.g ? 'flipY' : ''}`} onClick={this.G.bind(this, i)}>
                 {x.g ?
-                  <div className="btn c36 mh8 fc Orange usn flipb">刻</div> :
-                  <div className={`btn ${H.isFilled(x) && H.isK(x) && (x.length === 4 || !H.has4(x[0])(hs)) ? '' : 'disabled'} c36 mh8 fc Yellowgreen usn`}>杠</div>
+                  <div className="btn c36 mh8 fc hOrange usn flipb">刻</div> :
+                  <div className={`btn ${H.isFilled(x) && H.isK(x) && (x.length === 4 || !H.has4(x[0])(hs)) ? '' : 'disabled'} c36 mh8 fc hYellowgreen usn`}>杠</div>
                 }
               </div>  
             </div>  
-            <div className="f jcc fg1 ph8">
+            <div className="f jcc fg1 ph8 h100">
               {x.map((y, j) =>
-                <div className={`${wr} highlight usn`} onClick={this.H.bind(this, i, j)}>
+                <div className={`highlight usn pv1`} onClick={this.H.bind(this, i, j)}>
                   {y === 'w' || x.m ? null : <div className="highlight-gray"/>}
                   {hs.h && i === hs.h[0] && j === hs.h[1] ? <div className="highlight-red"/> : null}
-                  <img src={`./images/${y}.png`} className={`${y === 'w' ? 'op20' : ''} w100`} />
+                  <img src={`./images/${y}.png`} className={`${y === 'w' ? 'op20' : ''} h100`} />
                 </div>
               )}
             </div>
             <div className="flipc">
               <div className={`flipp ${x.m ? 'flipY' : ''}`} onClick={this.M.bind(this, i)}>
                 {x.m ?
-                  <div className="btn c36 mh8 fc Lightgray flipb usn">暗</div> :
-                  <div className={`btn ${H.isFilled(x) && H.isH(x) ? '' : 'disabled'} c36 mh8 fc White usn`}>明</div>
+                  <div className="btn c36 mh8 fc hLightgray flipb usn">暗</div> :
+                  <div className={`btn ${H.isFilled(x) && H.isH(x) ? '' : 'disabled'} c36 mh8 fc hWhite usn`}>明</div>
                 }
               </div>
             </div>  
@@ -245,11 +245,11 @@ class Calc extends React.Component {
           <div className={bst(0, 0)} onClick={this.calc}>计算 Calc</div>
           <div className={bst(1, 0)} onClick={this.del}>删除 Del</div>
           <div className={bst(1, 0)} onClick={this.initHand}>清除 Clear</div>
-          <div className={bst(0, 1)} onClick={this.option}>...</div>
+          <div className={bst(0, 1)} onClick={this.option}>{ratio.toFixed(2)}</div>
         </div>
         <div className="spv16 f00a" />
-        <div className={`fv fg1 fs1 pr oxh ${s.result ? 'oys' : 'oyh'}`}>
-          <div className="pa w100"><div className="fv fc">{pl}</div></div>
+        <div className={`fv aic fg1 fs1 pr oxh ${s.result ? 'oys' : 'oyh'}`}>
+          <div className="pa h100 oyh"><div className="fv fc h100">{pl}</div></div>
           <div className={`pa fv w100 h100 White su ${s.result ? 'show' : ''}`}>
             <div className="fw8 fs24 tac">总番数 Total：{s.total}</div>
             <div>{(s.rs || []).map(x => <Rule x={x}/>)}</div>
