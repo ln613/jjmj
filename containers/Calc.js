@@ -222,7 +222,7 @@ class Calc extends React.Component {
             </div>  
             <div className="f jcc fg1 ph8 h100">
               {x.map((y, j) =>
-                <div className={`highlight usn pv1`} onClick={this.H.bind(this, i, j)}>
+                <div className={`highlight h100 usn pv1`} onClick={this.H.bind(this, i, j)}>
                   {y === 'w' || x.m ? null : <div className="highlight-gray"/>}
                   {hs.h && i === hs.h[0] && j === hs.h[1] ? <div className="highlight-red"/> : null}
                   <img src={`./images/${y}.png`} className={`${y === 'w' ? 'op20' : ''} h100`} />
@@ -245,7 +245,7 @@ class Calc extends React.Component {
           <div className={bst(0, 0)} onClick={this.calc}>计算 Calc</div>
           <div className={bst(1, 0)} onClick={this.del}>删除 Del</div>
           <div className={bst(1, 0)} onClick={this.initHand}>清除 Clear</div>
-          <div className={bst(0, 1)} onClick={this.option}>{ratio.toFixed(2)}</div>
+          <div className={bst(0, 1)} onClick={this.option}>...</div>
         </div>
         <div className="spv16 f00a" />
         <div className={`fv aic fg1 fs1 pr oxh ${s.result ? 'oys' : 'oyh'}`}>

@@ -1,7 +1,7 @@
 {
-  "name": "nba_video_play_by_play",
-  "version": "1.0.0",
-  "description": "Play all NBA game highlight videos (Video play by play) in a continuous way.",
+  "name": "world-mahjong-points-caculator",
+  "version": "1.1.0",
+  "description": "国标麻将规则解释及番数计算器。World Mahjong rules and points calculator.",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --progress --content-base www/",
