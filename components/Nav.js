@@ -1,22 +1,27 @@
 import React from 'react';
 import Dialog from 'material-ui/Dialog';
+import { tap } from '../util/util';
 
 export default class Nav extends React.Component {
+  closeAbout = () => {
+    this.setState({ about: false });
+  }
+
   render() {
     const p = this.props;
     const s = this.state || {};
     const isCalc = p.page === 'calc';
-    const ok = [<div className="btn hYellowgreen" onClick={() => this.setState({ about: false })}>OK</div>];
+    const ok = [<div className="btn hYellowgreen" onTouchTap={tap(this.closeAbout)}>OK</div>];
 
     return (
       <div className="nav f aic jcsb fs0">
-        <div className="fc btn c24 hOrange" onClick={p.navTo}>
+        <div className="fc btn c24 hOrange" onTouchTap={tap(p.navTo)}>
           <i className={`fa fa-${isCalc ? 'book' : 'calculator'}`} />
         </div>
         <div>国标麻将 - {isCalc ? '番数计算器' : '规则解释'}</div>
         <div className="fc btn c24 hOrange" onClick={() => this.setState({ about: true })}><i className="fa fa-question" /></div>
         <Dialog title="关于 About" actions={ok} modal={false} contentStyle={{ maxWidth: '400px' }}
-          className="dialog" open={s.about} onRequestClose={() => this.setState({ about: false })}>
+          className="dialog" open={s.about} onRequestClose={this.closeAbout}>
           <div className="fv">
             <div>国标麻将 World Mahjong</div>
             <div>番数计算器 Points Calculator</div>

@@ -11,6 +11,7 @@ import Rule from '../components/Rule';
 import Wind from '../components/Wind';
 import data from '../data';
 import H from '../bus/hand';
+import { tap } from '../util/util';
 
 const options = [44, 45, 46, 47, 58];
 
@@ -197,12 +198,12 @@ class Calc extends React.Component {
     const pl = l.map(x =>
       <div className={`fc h25 pv1`}>
         {x.map(y =>
-          <div onTouchTap={this.add.bind(this, y)} onClick={this.add.bind(this, y)} className="h100"><img src={`./images/${y}.png`}
+          <div onTouchTap={tap(this.add, y)} className="h100"><img src={`./images/${y}.png`}
             className={`usn ${H.has4(y)(this.state.hand) ? 'op25' : ''} ${ratio > 0.6 ? (ratio > 0.8 ? (ratio > 1.1 ? 'w40' : 'w60') : 'w80') : 'w100'}`} /></div>
         )}
       </div>
     );
-    const ok = [<div className="btn hYellowgreen" onClick={this.clearError}>OK</div>];
+    const ok = [<div className="btn hYellowgreen" onTouchTap={tap(this.clearError)}>OK</div>];
     const bst = (t, w) => `btn w${w === 0 ? 30 : 10} mh4 ${t === 0 ? 'hYellowgreen' : 'hOrange'} ${old ? 'fs12' : ''}`;
 
     return (
@@ -213,7 +214,7 @@ class Calc extends React.Component {
         {hs.map((x, i) =>
           <div className="f f00a fs0 fg0 jcsa aic h20">
             <div className="flipc">
-              <div className={`flipp ${x.g ? 'flipY' : ''}`} onClick={this.G.bind(this, i)}>
+              <div className={`flipp ${x.g ? 'flipY' : ''}`} onTouchTap={tap(this.G, i)}>
                 {x.g ?
                   <div className="btn c36 mh8 fc hOrange usn flipb">刻</div> :
                   <div className={`btn ${H.isFilled(x) && H.isK(x) && (x.length === 4 || !H.has4(x[0])(hs)) ? '' : 'disabled'} c36 mh8 fc hYellowgreen usn`}>杠</div>
@@ -222,7 +223,7 @@ class Calc extends React.Component {
             </div>  
             <div className="f jcc fg1 ph8 h100">
               {x.map((y, j) =>
-                <div className={`highlight h100 usn pv1`} onClick={this.H.bind(this, i, j)}>
+                <div className={`highlight h100 usn pv1`} onTouchTap={tap(this.H, i, j)}>
                   {y === 'w' || x.m ? null : <div className="highlight-gray"/>}
                   {hs.h && i === hs.h[0] && j === hs.h[1] ? <div className="highlight-red"/> : null}
                   <img src={`./images/${y}.png`} className={`${y === 'w' ? 'op20' : ''} h100`} />
@@ -230,7 +231,7 @@ class Calc extends React.Component {
               )}
             </div>
             <div className="flipc">
-              <div className={`flipp ${x.m ? 'flipY' : ''}`} onClick={this.M.bind(this, i)}>
+              <div className={`flipp ${x.m ? 'flipY' : ''}`} onTouchTap={tap(this.M, i)}>
                 {x.m ?
                   <div className="btn c36 mh8 fc hLightgray flipb usn">暗</div> :
                   <div className={`btn ${H.isFilled(x) && H.isH(x) ? '' : 'disabled'} c36 mh8 fc hWhite usn`}>明</div>
@@ -242,10 +243,10 @@ class Calc extends React.Component {
         </div>
         <div className="spv8 f00a" />
         <div className={`f f00a`}>
-          <div className={bst(0, 0)} onClick={this.calc}>计算 Calc</div>
-          <div className={bst(1, 0)} onClick={this.del}>删除 Del</div>
-          <div className={bst(1, 0)} onClick={this.initHand}>清除 Clear</div>
-          <div className={bst(0, 1)} onClick={this.option}>...</div>
+          <div className={bst(0, 0)} onTouchTap={tap(this.calc)}>计算 Calc</div>
+          <div className={bst(1, 0)} onTouchTap={tap(this.del)}>删除 Del</div>
+          <div className={bst(1, 0)} onTouchTap={tap(this.initHand)}>清除 Clear</div>
+          <div className={bst(0, 1)} onTouchTap={tap(this.option)}>...</div>
         </div>
         <div className="spv16 f00a" />
         <div className={`fv aic fg1 fs1 pr oxh ${s.result ? 'oys' : 'oyh'}`}>

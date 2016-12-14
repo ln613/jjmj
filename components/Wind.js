@@ -1,4 +1,5 @@
 import React from 'react';
+import { tap } from '../util/util';
 
 const winds = ['东', '南', '西', '北'];
 export default p => {
@@ -9,7 +10,7 @@ export default p => {
       <div className="f jcsb">
         {winds.map((x, i) =>
           <div className={`btn c24 fc ${p.value === i + 1 ? 'hYellowgreen' : 'hWhite'}`}
-            onClick={() => p.click(p.type, i + 1)}>{x}</div>
+            onTouchTap={tap(p.click, p.type, i + 1)}>{x}</div>
         )}
       </div>
     </div>
