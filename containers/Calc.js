@@ -197,7 +197,7 @@ class Calc extends React.Component {
     const pl = l.map(x =>
       <div className={`fc h25 pv1`}>
         {x.map(y =>
-          <div onClick={this.add.bind(this, y)} className="h100"><img src={`./images/${y}.png`}
+          <div onTouchTap={this.add.bind(this, y)} onClick={this.add.bind(this, y)} className="h100"><img src={`./images/${y}.png`}
             className={`usn ${H.has4(y)(this.state.hand) ? 'op25' : ''} ${ratio > 0.6 ? (ratio > 0.8 ? (ratio > 1.1 ? 'w40' : 'w60') : 'w80') : 'w100'}`} /></div>
         )}
       </div>
