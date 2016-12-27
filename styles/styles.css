@@ -91,3 +91,6 @@ body {
 .btn {
   white-space: nowrap;
 }
+#btns > div {
+  padding: 4px 1px;
+}

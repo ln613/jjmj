@@ -8194,27 +8194,27 @@
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
-	var _store = __webpack_require__(590);
+	var _store = __webpack_require__(591);
 	
 	var _store2 = _interopRequireDefault(_store);
 	
-	__webpack_require__(614);
+	__webpack_require__(615);
 	
-	__webpack_require__(618);
+	__webpack_require__(625);
 	
-	__webpack_require__(620);
+	__webpack_require__(627);
 	
-	var _reactRouterRedux = __webpack_require__(596);
+	var _reactRouterRedux = __webpack_require__(597);
 	
-	var _MuiThemeProvider = __webpack_require__(628);
+	var _MuiThemeProvider = __webpack_require__(629);
 	
 	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
 	
-	var _reactTapEventPlugin = __webpack_require__(756);
+	var _reactTapEventPlugin = __webpack_require__(757);
 	
 	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 	
-	var _util = __webpack_require__(762);
+	var _util = __webpack_require__(763);
 	
 	var _util2 = _interopRequireDefault(_util);
 	
@@ -35704,11 +35704,11 @@
 	
 	var _Jjmj2 = _interopRequireDefault(_Jjmj);
 	
-	var _Icon = __webpack_require__(576);
+	var _Icon = __webpack_require__(577);
 	
 	var _Icon2 = _interopRequireDefault(_Icon);
 	
-	var _Calc = __webpack_require__(577);
+	var _Calc = __webpack_require__(578);
 	
 	var _Calc2 = _interopRequireDefault(_Calc);
 	
@@ -35786,11 +35786,11 @@
 	
 	var _Nav2 = _interopRequireDefault(_Nav);
 	
-	var _Rule = __webpack_require__(573);
+	var _Rule = __webpack_require__(574);
 	
 	var _Rule2 = _interopRequireDefault(_Rule);
 	
-	var _data = __webpack_require__(574);
+	var _data = __webpack_require__(575);
 	
 	var _data2 = _interopRequireDefault(_data);
 	
@@ -55080,6 +55080,8 @@
 	
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 	
+	var _util = __webpack_require__(573);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -55092,9 +55094,19 @@
 	  _inherits(Nav, _React$Component);
 	
 	  function Nav() {
+	    var _ref;
+	
+	    var _temp, _this, _ret;
+	
 	    _classCallCheck(this, Nav);
 	
-	    return _possibleConstructorReturn(this, (Nav.__proto__ || Object.getPrototypeOf(Nav)).apply(this, arguments));
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+	
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Nav.__proto__ || Object.getPrototypeOf(Nav)).call.apply(_ref, [this].concat(args))), _this), _this.closeAbout = function () {
+	      _this.setState({ about: false });
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 	
 	  _createClass(Nav, [{
@@ -55107,9 +55119,7 @@
 	      var isCalc = p.page === 'calc';
 	      var ok = [_react2.default.createElement(
 	        'div',
-	        { className: 'btn hYellowgreen', onClick: function onClick() {
-	            return _this2.setState({ about: false });
-	          } },
+	        { className: 'btn hYellowgreen', onTouchTap: (0, _util.tap)(this.closeAbout) },
 	        'OK'
 	      )];
 	
@@ -55118,7 +55128,7 @@
 	        { className: 'nav f aic jcsb fs0' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'fc btn c24 hOrange', onClick: p.navTo },
+	          { className: 'fc btn c24 hOrange', onTouchTap: (0, _util.tap)(p.navTo) },
 	          _react2.default.createElement('i', { className: 'fa fa-' + (isCalc ? 'book' : 'calculator') })
 	        ),
 	        _react2.default.createElement(
@@ -55137,9 +55147,7 @@
 	        _react2.default.createElement(
 	          _Dialog2.default,
 	          { title: '\u5173\u4E8E About', actions: ok, modal: false, contentStyle: { maxWidth: '400px' },
-	            className: 'dialog', open: s.about, onRequestClose: function onRequestClose() {
-	              return _this2.setState({ about: false });
-	            } },
+	            className: 'dialog', open: s.about, onRequestClose: this.closeAbout },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'fv' },
@@ -57156,6 +57164,26 @@
 
 /***/ },
 /* 573 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var tap = exports.tap = function tap(f) {
+	  for (var _len = arguments.length, a = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	    a[_key - 1] = arguments[_key];
+	  }
+	
+	  return function (e) {
+	    e.preventDefault();
+	    f.apply(null, a);
+	  };
+	};
+
+/***/ },
+/* 574 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57167,6 +57195,8 @@
 	var _react = __webpack_require__(299);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _util = __webpack_require__(573);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -57180,7 +57210,7 @@
 	    null,
 	    _react2.default.createElement(
 	      'div',
-	      { className: 'f p8 li hand ' + (d ? 'Gold' : ''), onClick: c && c.bind(undefined, x) },
+	      { className: 'f p8 li hand ' + (d ? 'Gold' : ''), onTouchTap: (0, _util.tap)(c, x) },
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'w10' },
@@ -57207,7 +57237,7 @@
 	};
 
 /***/ },
-/* 574 */
+/* 575 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57220,18 +57250,18 @@
 	
 	var _ramda2 = _interopRequireDefault(_ramda);
 	
-	var _hand = __webpack_require__(575);
+	var _hand = __webpack_require__(576);
 	
 	var _hand2 = _interopRequireDefault(_hand);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	  rules: [[1, 88, '四风会', 'Big Four Winds', '和牌中，有东、南、西、北四副刻子（杠）', 'Pungs or Kongs of all four Wind Tiles.', [['f1', 'f1', 'f1'], ['f2', 'f2', 'f2'], ['f3', 'f3', 'f3'], ['f4', 'f4', 'f4']], [4, 0, _hand2.default.isWind], [38, 49, 60, 61, 73, 75]], [2, 88, '大三元', 'Big Three Dragons', '和牌中，有中、发、白三副刻子（杠）', 'Pungs or Kongs of all three Dragon Tiles', [['j1', 'j1', 'j1'], ['j2', 'j2', 'j2'], ['j3', 'j3', 'j3']], [3, 0, _hand2.default.isArrow], [54, 59, 73]], [3, 88, '绿一色', 'All Green', '由“23468”条及“发”字中的任何牌组成的和牌', 'A hand in which the chows, pungs and pair(s) are made up solely of "green" tiles: 2 Bam, 3 Bam, 4 Bam, 6 Bam, 8 Bam, and Green Dragon.', [['t2', 't2', 't2'], ['t6', 't6', 't6'], ['t8', 't8', 't8'], ['j2', 'j2', 'j2'], ['t3', 't3']], [0, 0, 't2t3t4t6t8j2']], [4, 88, '九莲宝灯', 'Nine Gates', '由一种花色序数牌按“1112345678999”组成的特定牌型，见同花色任何一张序数牌即成和牌（自摸加计不求人）', 'Holding the 1,1,1,2,3,4,5,6,7,8,9,9,9 tiles in any one of the suits, creating the nine-sided wait of 1,2,3,4,5,6,7,8,9. (Fully Concealed may be combined if Self-Drawn).', [['w1', 'w1'], ['w1', 'w2', 'w3'], ['w4', 'w5', 'w6'], ['w7', 'w8', 'w9'], ['w9', 'w9']], [_hand2.default.isLotus], [22, 62, 73]], [5, 88, '四杠', 'Four Kongs', '和牌中，有四副杠牌（暗杠加计）', 'Any hand that includes four kongs. They may be concealed or melded.', [['b3', 'b3', 'b3', 'b3'], ['t5', 't5', 't5', 't5'], ['w1', 'w1', 'w1', 'w1'], ['j1', 'j1', 'j1', 'j1']], [4, _hand2.default.isG], [17, 49, 57, 74, 79]], [6, 88, '连七对', 'Seven Shifted Pairs', '由一种花色序数相连的七个对子组成的和牌（自摸加计不求人）', 'A hand formed by seven pairs of the same suit, each shifted one up from the last. (Fully Concealed may be combined if Self-Drawn).', [['b2', 'b2'], ['b3', 'b3'], ['b4', 'b4'], ['b5', 'b5'], ['b6', 'b6'], ['b7', 'b7'], ['b8', 'b8']], [_hand2.default.is7SeqPairs], [19, 22, 62, 79]], [7, 88, '十三幺', 'Thirteen Orphans', '由三种序数牌的一、九牌、七种字牌及其中一对作将组成的和牌（自摸加计不求人）', 'A hand created by singles of any 12 of the 1, 9, and Honor tiles, along With a pair of the 13th. (Fully Concealed may be combined if Self-Drawn).', [['w1', 'w9', 't1'], ['t9', 'b1', 'b9'], ['f1', 'f2', 'f3', 'f4'], ['j1', 'j2', 'j3']], [_hand2.default.is13Y], [18, 52, 55, 62, 79]], [8, 64, '清幺九', 'All Terminals', '由序数牌一、九刻子（杠）、将牌组成的和牌', 'The pair(s), Pungs or Kongs are all made up of 1 or 9 Number Tiles, without Honor Tiles.', [['w1', 'w1', 'w1'], ['w9', 'w9', 'w9'], ['t1', 't1', 't1'], ['b9', 'b9', 'b9'], ['t9', 't9']], [0, 0, _hand2.default.isY], [49, 55, 73, 76]], [9, 64, '小四风会', 'Little Four Winds', '和牌中，有风牌的三副刻子（杠）、另一种风牌作将牌', 'A hand that includes three pungs or Kongs Of Wind Tiles, and a pair of the fourth Wind.', [['f1', 'f1', 'f1'], ['f2', 'f2', 'f2'], ['f3', 'f3', 'f3'], ['f4', 'f4']], [[3, 0, _hand2.default.isWind], [11, 0, _hand2.default.isWind]], [38, 73]], [10, 64, '小三元', 'Little Three Dragons', '和牌中，有箭牌的两副刻子（杠）、另一种箭牌作将牌', 'A hand that includes two Pungs or Kongs of the Dragon Tiles, and a pair of the third Dragon.', [['j1', 'j1', 'j1'], ['j2', 'j2', 'j2'], ['j3', 'j3']], [[2, 0, _hand2.default.isArrow], [11, 0, _hand2.default.isArrow]], [54, 59]], [11, 64, '字一色', 'All Honors', '由字牌的刻子（杠）、将牌组成的和牌', 'The pair(s), pungs or Kongs are all made up of Honor Tiles.', [['f1', 'f1', 'f1'], ['j2', 'j2', 'j2'], ['f3', 'f3', 'f3'], ['f4', 'f4', 'f4'], ['j1', 'j1']], [0, 0, _hand2.default.isWord], [49, 55, 73]], [12, 64, '四暗刻', 'Four Concealed Pungs', '和牌中，有四副暗刻（或暗杠；自摸加计不求人）', 'A hand that includes four Concealed Pungs or Kongs (achieved without melding). (Fully Concealed may be combined if Self-Drawn).', [['b3', 'b3', 'b3', -1], ['t5', 't5', 't5', -1], ['w1', 'w1', 'w1', -1], ['j1', 'j1', 'j1', -1]], [4, [_hand2.default.isA, _hand2.default.isKG]], [49, 62]], [13, 64, '一色双龙会', 'Pure Terminal Chows', '一种花色的两个老少副、5 作将牌', 'A hand consisting of two each of the lower and upper terminal Chows in one suit only, and a pair of fives in the same suit.', [['w1', 'w2', 'w3'], ['w1', 'w2', 'w3'], ['w5', 'w5'], ['w7', 'w8', 'w9'], ['w7', 'w8', 'w9']], [[_hand2.default.isPure], [2, _hand2.default.isYoung], [2, _hand2.default.isOld], [11, 0, _hand2.default.is5]], [19, 22, 63, 69, 72, 76]], [14, 48, '一色四同顺', 'Quadruple Chow', '一种花色四副序数相同的顺子', 'Four chows of the same continuous number sequence in the same suit.', [['w1', 'w2', 'w3'], ['w1', 'w2', 'w3'], ['w1', 'w2', 'w3'], ['w1', 'w2', 'w3']], [_hand2.default.is1ColorNSameS(4)], [23, 64, 69]], [15, 48, '一色四节高', 'Four Pure Shifted Pungs', '一种花色四副依次递增一个序数的刻子（杠）', 'Four Pungs (or Kongs) in the same suit, each shifted one up from the last.', [['w2', 'w2', 'w2'], ['w3', 'w3', 'w3'], ['w4', 'w4', 'w4'], ['w5', 'w5', 'w5']], [_hand2.default.isNColor3Sth(1, 2, _ramda2.default.both(_hand2.default.lenEq(4), _hand2.default.isSeq))], [24, 49]], [16, 32, '一色四步高', 'Four Pure Shifted Chows', '一种花色四副依次递增一个或两个序数的顺子', 'Four chows in one suit, each shifted up 1 or 2 numbers from the last, but not a combination of both.', [['w1', 'w2', 'w3'], ['w2', 'w3', 'w4'], ['w3', 'w4', 'w5'], ['w4', 'w5', 'w6'], ['ww'], ['w1', 'w2', 'w3'], ['w3', 'w4', 'w5'], ['w5', 'w6', 'w7'], ['w7', 'w8', 'w9']], [_hand2.default.isNColor3Sth(1, 1, _ramda2.default.both(_hand2.default.lenEq(4), _hand2.default.isSeq1or2))], [71, 72]], [17, 32, '三杠', 'Three Kongs', '和牌中，有三副杠牌（暗杠加计）', 'A hand containing three Kongs. (Points for concealment may be added).', [['b3', 'b3', 'b3', 'b3'], ['t5', 't5', 't5', 't5'], ['j1', 'j1', 'j1', 'j1']], [3, _hand2.default.isG], [57, 74]], [18, 32, '混幺九', 'All Terminals and Honors', '由字牌和序数牌一、九刻子（杠）、将牌组成的和牌', 'The pair(s), Pungs or Kongs are all made up of 1 or 9 Number Tiles and Honor Tiles.', [['w1', 'w1', 'w1'], ['b9', 'b9', 'b9'], ['t1', 't1', 't1'], ['f2', 'f2', 'f2'], ['t9', 't9']], [[0, 0, _hand2.default.isYOrWord], [-1, 0, _hand2.default.isY], [-1, 0, _hand2.default.isWord]], [49, 55, 73]], [19, 24, '七对', 'Seven Pairs', '由七个对子组成的和牌（自摸加计不求人）', 'A hand formed by seven pairs. (Fully Concealed may be combined if Self-Drawn).', [['w5', 'w5'], ['b8', 'b8'], ['t3', 't3'], ['f2', 'f2'], ['t9', 't9'], ['j1', 'j1'], ['w2', 'w2']], [_hand2.default.is7Pairs], [59, 60, 61, 62, 66, 73, 79]], [20, 24, '七星不靠', 'Greater Honors and Knitted Tiles', '必须有七个单张的东、南、西、北、中、发、白，加上三种花色数位按147、 258、369 中的七张序数牌组成的没有将牌的和牌（自摸加计不求人）', 'Formed by seven single honors and singles of suit tiles belonging to separate Knitted sequences (for example, 1-4-7 of Bamboos, 2-5-8 of Characters, and 3-6-9 of Dots). Fully Concealed may be combined if Self-Drawn.', [['f1', 'f2', 'f3', 'f4'], ['j1', 'j2', 'j3'], ['w2', 'w5', 'w8'], ['t1', 't4'], ['b3', 'b9']], [_hand2.default.is7Star(7)], [52, 62]], [21, 24, '全双刻', 'All Even Pungs', '由2、4、6、8 序数牌的刻子（杠）、将牌组成的和牌', 'A hand formed with Pungs or Kongs of 2, 4, 6, and 8 tiles, with a pair of the same.', [['w2', 'w2', 'w2'], ['t8', 't8', 't8'], ['b4', 'b4', 'b4'], ['b6', 'b6', 'b6'], ['w6', 'w6']], [0, 0, _hand2.default.isEven], [49, 68]], [22, 24, '清一色', 'Full Flush', '由一种花色序数牌组成的和牌', 'A hand formed entirely of a single suit.', [['w2', 'w3', 'w4'], ['w6', 'w6', 'w6'], ['w7', 'w8', 'w9'], ['w5', 'w5', 'w5'], ['w1', 'w1']], [_hand2.default.isPure], [76]], [23, 24, '一色三同顺', 'Pure Triple Chow', '和牌中，有一种花色三副序数相同的顺子', 'Three chows of the same numerical sequence and in the same suit.', [['w1', 'w2', 'w3'], ['w1', 'w2', 'w3'], ['w1', 'w2', 'w3']], [_hand2.default.is1ColorNSameS(3)], [69]], [24, 24, '一色三节高', 'Pure Shifted Pungs', '和牌中，有一种花色三副依次递增一个序数的刻子（杠）', 'Three Pungs or Kongs of the same suit, each shifted one up from the last.', [['w2', 'w2', 'w2'], ['w3', 'w3', 'w3'], ['w4', 'w4', 'w4']], [_hand2.default.isNColor3Sth(1, 2, _ramda2.default.pipe(_ramda2.default.aperture(3), _ramda2.default.any(_hand2.default.isSeq)))]], [25, 24, '全大', 'Upper Tiles', '由序数牌7、8、9 组成的和牌', 'A hand consisting entirely of 7, 8, and 9 tiles.', [['w7', 'w8', 'w9'], ['t7', 't8', 't9'], ['b8', 'b8', 'b8'], ['b9', 'b9', 'b9'], ['w8', 'w8']], [0, 0, _hand2.default.isBig], [36, 76]], [26, 24, '全中', 'Middle Tiles', '由序数牌4、5、6 组成的和牌', 'A hand consisting entirely of 4, 5, and 6 tiles.', [['w4', 'w5', 'w6'], ['t4', 't5', 't6'], ['b4', 'b5', 'b6'], ['b4', 'b5', 'b6'], ['w5', 'w5']], [0, 0, _hand2.default.isMid], [68, 76]], [27, 24, '全小', 'Lower Tiles', '由序数牌1、2、3 组成的和牌', 'A hand consisting entirely of l, 2, and 3 tiles.', [['w1', 'w2', 'w3'], ['t1', 't1', 't1'], ['b1', 'b2', 'b3'], ['b1', 'b2', 'b3'], ['w3', 'w3']], [0, 0, _hand2.default.isSmall], [37, 76]], [28, 16, '清龙', 'Pure Straight', '和牌中，有同花色123、456、789 相连的序数牌', 'A hand using one each of all the numbers 1 through 9 from any one suit, forming three consecutive chows.', [['w1', 'w2', 'w3'], ['w4', 'w5', 'w6'], ['w7', 'w8', 'w9']], [_hand2.default.isNColor3Sth(1, 1, _hand2.default.is1to9)], [71, 72]], [29, 16, '三色双龙会', 'Three-Suited Terminal Chows', '两种花色两个老少副、另一种花色5 作将的和牌', 'A hand consisting of 1-2-3 and 7-8-9 in one suit (Two Terminal Chows), 1-2-3 and 7-8-9 in another suit, and a pair of fives in the remaining suit.', [['w1', 'w2', 'w3'], ['w7', 'w8', 'w9'], ['t5', 't5'], ['b1', 'b2', 'b3'], ['b7', 'b8', 'b9']], [_hand2.default.is3Color2Dragon], [63, 70, 72, 76]], [30, 16, '一色三步高', 'Pure Shifted Chows', '和牌中，有一种花色三副依次递增一个或两个序数的顺子', 'Three chows in one suit, each shifted either one or two numbers up from the last, but not a combination of both.', [['w2', 'w3', 'w4'], ['w3', 'w4', 'w5'], ['w4', 'w5', 'w6'], ['ww'], ['w1', 'w2', 'w3'], ['w3', 'w4', 'w5'], ['w5', 'w6', 'w7']], [_hand2.default.isNColor3Sth(1, 1, _ramda2.default.pipe(_ramda2.default.aperture(3), _ramda2.default.any(_hand2.default.isSeq1or2)))]], [31, 16, '全带五', 'All Fives', '每副牌及将牌中必须有5 的序数牌', 'A hand in which every set (chow , pung, kong, pair) includes the number "5"', [['w5', 'w6', 'w7'], ['t3', 't4', 't5'], ['b5', 'b5', 'b5'], ['b4', 'b5', 'b6'], ['w5', 'w5']], [0, -1, _hand2.default.is5], [68]], [32, 16, '三同刻', 'Triple Pung', '和牌中，有三副序数相同的刻子（杠）', 'Three Pungs (or Kongs) of the same number in each suit.', [['w2', 'w2', 'w2'], ['t2', 't2', 't2'], ['b2', 'b2', 'b2']], [_hand2.default.isNSameK(3)]], [33, 16, '三暗刻', 'Three Concealed Pungs', '和牌中，有三副暗刻（暗杠）', 'Three Concealed pungs or Kongs (achieved without melding).', [['b3', 'b3', 'b3', -1], ['t5', 't5', 't5', -1], ['j1', 'j1', 'j1', -1]], [3, [_hand2.default.isA, _hand2.default.isKG]]], [34, 12, '全不靠', 'Lesser Honors and Knitted Tiles', '由三种花色147、258、369 不能错位的序数牌及东、南、西、北、中、发、白中任何十四张单张牌组成的和牌（自摸加计不求人）', 'Formed by single honors, and singles of suit tiles belonging to separate Knitted sequences (for example, 1-4-7 of Bamboo, 2-5-8 of Characters, and 3-6-9 of Dots - each of the 3 suits must belong to a different Knitted sequence, but not necessarily in this order). Fully Concealed may be combined if Self-Drawn.', [['f1', 'f2', 'f3'], ['j1', 'j2', 'j3'], ['w2', 'w5', 'w8'], ['t1', 't4', 't7'], ['b3', 'b9']], [_hand2.default.is7Star(4)], [52, 62]], [35, 12, '组合龙', 'Knitted Straight', '和牌中，有三种花色的147、258、369 不能错位的序数牌（特殊顺子）', 'A special Straight which is formed not with standard chows but with 3 different Knitted sequences. For example, 1-4-7 of Dots, 2-5-8 of Characters, and 3-6-9 of Bamboos - but not necessarily in the order in this example.', [['w1', 'w4', 'w7'], ['t2', 't5', 't8'], ['b3', 'b6', 'b9']], [_hand2.default.isZigZag]], [36, 12, '大于五', 'Upper Four', '由序数牌6、7、8、9 组成的和牌', 'A hand created with suit tiles 6 through 9.', [['w6', 'w7', 'w8'], ['t7', 't8', 't9'], ['b7', 'b7', 'b7'], ['b6', 'b7', 'b8'], ['w9', 'w9']], [0, 0, _hand2.default.is6789], [76]], [37, 12, '小于五', 'Lower Four', '由序数牌1、2、3、4 组成的和牌', 'A hand created with suit tiles I through 4.', [['w1', 'w2', 'w3'], ['t2', 't3', 't4'], ['b2', 'b2', 'b2'], ['b2', 'b3', 'b4'], ['w4', 'w4']], [0, 0, _hand2.default.is1234], [76]], [38, 12, '三风刻', 'Big Three Winds', '和牌中，有三副风刻（杠）', 'A hand that includes one pung (or kong) of each of the three winds.', [['f1', 'f1', 'f1'], ['f2', 'f2', 'f2'], ['f3', 'f3', 'f3']], [3, 0, _hand2.default.isWind]], [39, 8, '花龙', 'Mixed Straight', '和牌中，有三种花色的三副顺子连接成123、456、789', 'A straight (tiles 1 through 9) formed by chows from all three suits.', [['w1', 'w2', 'w3'], ['t4', 't5', 't6'], ['b7', 'b8', 'b9']], [_hand2.default.isNColor3Sth(3, 1, _hand2.default.is1to9)]], [40, 8, '推不倒', 'Reversible Tiles', '由牌面图形没有上下区别的牌组成的和牌。包括1234589饼、245689 条、白板', 'A hand created entirely with those tiles which are vertically symmetrical, which means the carved designs look the same if you turn them upside-down. These tiles are the 1, 2, 3, 4, 5, 8, and 9 Dots, the 2, 4, 5, 6, 8, and 9 Bams, and the White Dragon.', [['t4', 't4', 't4'], ['t8', 't8', 't8'], ['b1', 'b2', 'b3'], ['b5', 'b5', 'b5'], ['j3', 'j3']], [0, 0, 't2t4t5t6t8t9b1b2b3b4b5b8b9j3'], [75]], [41, 8, '三色三同顺', 'Mixed Triple Chow', '和牌中，有三种花色三副序数相同的顺子', 'Three chows of the same numerical sequence, one in each suit.', [['w2', 'w3', 'w4'], ['t2', 't3', 't4'], ['b2', 'b3', 'b4']], [_hand2.default.isNColorNSameS(3)]], [42, 8, '三色三节高', 'Mixed Shifted Pungs', '和牌中，有三种花色三副依次递增一个序数的刻子（杠）', 'Three pungs (or kongs), one in each suit, each shifted up one number from the last.', [['w2', 'w2', 'w2'], ['t3', 't3', 't3'], ['b4', 'b4', 'b4']], [_hand2.default.isNColor3Sth(3, 2, _hand2.default.isSeq)]], [43, 8, '无番和', 'Chicken Hand', '和牌后，数不出任何番种分（花牌不计算在内）', 'A hand that would otherwise earn 0 points (excluding the Flower Tiles).', []], [44, 8, '妙手回春', 'Last Tile Draw', '自摸牌墙上最后一张牌和牌（不计自摸）', 'Going out (making mahjong) on a pick of the very last tile of the wall. (Points for Self-Drawn may not be combined.)', []], [45, 8, '海底捞月', 'Last Tile Claim', '和打出的最后一张牌', 'Going out (making mahjong) off the discard which is the last tile in the game.', []], [46, 8, '杠上开花', 'Out With Replacement Tile', '杠牌时，从牌墙补上一张牌成和牌。杠牌加计，不计自摸；杠来花牌再补花成和不计杠上开花，可计自摸', 'Going out (making mahjong) on the replacement tile drawn after achieving a kong (not on a Flower replacement). When a Flower Tile is taken after Konging, and upon winning on the Flower replacement, points for Self-Drawn may be added (but Out With Replacement Tile does not apply in this case).', [['w2', 'w2', 'w2', 'w2', 3]]], [47, 8, '抢杠和', 'Robbing The Kong', '和他人自抓开明杠的牌（不计和绝张）', 'Winning off the tile that somebody adds to a melded pung (to create a Kong). (The points for Last Tile may not be combined.)', [['w2', 'w2', 'w2', 'w2', 3]]], [48, 8, '双暗杠', 'Two Concealed Kongs', '和牌中，有两副暗杠', 'A hand that includes two Concealed Kongs.', [['w2', 'w2', 'w2', 'w2', -1], ['t8', 't8', 't8', 't8', -1]], [2, [_hand2.default.isA, _hand2.default.isG]], [66]], [49, 6, '碰碰和', 'All Pungs', '由四副刻子（杠）、将牌组成的和牌', 'A hand formed by four Pungs (or Kongs) and one pair.', [['w2', 'w2', 'w2'], ['t4', 't4', 't4'], ['b7', 'b7', 'b7'], ['f3', 'f3', 'f3'], ['t9', 't9']], [4, _hand2.default.isKG]], [50, 6, '混一色', 'Half Flush', '由一种花色序数牌及字牌组成的和牌', 'A hand formed by tiles from any one of the three suits, in combination with Honor tiles.', [['w2', 'w3', 'w4'], ['w6', 'w6', 'w6'], ['w7', 'w8', 'w9'], ['j1', 'j1', 'j1'], ['w1', 'w1']], [_hand2.default.isHalfPure]], [51, 6, '三色三步高', 'Mixed Shifted Chows', '和牌中，有三种花色三副依次递增一个序数的顺子', 'Three chows, one in each suit, each shifted up one number from the last.', [['w2', 'w3', 'w4'], ['t3', 't4', 't5'], ['b4', 'b5', 'b6']], [_hand2.default.isNColor3Sth(3, 1, _hand2.default.isSeq)]], [52, 6, '五门齐', 'All Types', '由三种花色序数牌、风牌、箭牌组成的和牌', 'A hand in which each of the five sets (pungs, kongs, chows, pairs) is composed of a different type of tile (Characters, Bamboo, Dots, and Dragons).', [['w2', 'w2', 'w2'], ['t1', 't2', 't3'], ['b6', 'b7', 'b8'], ['j2', 'j2', 'j2'], ['f1', 'f1']], [_hand2.default.is5Suits]], [53, 6, '全求人', 'Melded Hand', '四副牌组全是吃、碰（明杠），和他人打出的牌', 'Every set in the hand (chow, pung, kong, and pair) must be completed with tiles discarded by other players. All sets must be exposed, and the player goes out on a single wait off another player.', [], [0, _hand2.default.isM], [79]], [54, 6, '双箭刻', 'Two Dragons Pungs', '和牌中，有两副箭刻（杠）', 'Two pungs (or kongs) of Dragon tiles.', [['j1', 'j1', 'j1'], ['j2', 'j2', 'j2']], [2, _hand2.default.isArrowKG]], [55, 4, '全带幺', 'Outside Hand', '每副牌及将牌中都有幺九牌', 'A hand that includes terminals and honors in each set, including the pair.', [['w1', 'w2', 'w3'], ['t7', 't8', 't9'], ['f2', 'f2', 'f2'], ['b1', 'b1', 'b1'], ['b9', 'b9']], [0, -1, _hand2.default.isYOrWord]], [56, 4, '不求人', 'Fully Concealed Hand', '没有吃牌、碰牌、明杠，自摸和牌', 'A hand that a player completes without any melds, and wins by Self-Draw.', [], [0, _hand2.default.isA], [62, 80]], [57, 4, '双明杠', 'Two Melded Kongs', '和牌中，有两副明杠（一明杠与一暗杠计6 分）', 'A hand that includes two Melded Kongs. One Melded Kong and one Concealed Kong are 6 points.', [['w2', 'w2', 'w2', 'w2'], ['t5', 't5', 't5', 't5']], [2, [_hand2.default.isM, _hand2.default.isG]]], [58, 4, '和绝张', 'Last Tile', '和牌池、桌面已亮明三张所剩的第四张相同的牌', 'Winning on a tile that is the last Of its kind. (It must be clear to all players based on the discards and exposures.)', [['w2', 'w2', 'w2', 'w2', 3]]], [59, 2, '箭刻', 'Dragon Pung', '由中、发、白三张相同的牌组成的刻子（杠）', 'A Pung or Kong of Dragon Tiles.', [['j2', 'j2', 'j2']], [1, _hand2.default.isArrowKG], [73]], [60, 2, '圈风刻', 'Prevalent Wind', '与圈风相同的风刻（杠）', 'A pung or Kong of the Wind Tile corresponding to the current Prevalent Wind.', [['f1', 'f1', 'f1']]], [61, 2, '门风刻', 'Seat Wind', '与本门风相同的风刻（杠）', 'A Pung or Kong of the Wind Tile corresponding to the player\'s Seat position at the table. (Dealer is East; proceeding counter-clockwise from the Dealer, other players\' seats are South, West, North.)', [['f1', 'f1', 'f1']]], [62, 2, '门前清', 'Concealed Hand', '没有吃牌、碰牌（明杠）的和牌', 'Having a concealed hand (no melded sets) and winning by discard.', [], [0, _hand2.default.isA]], [63, 2, '平和', 'All Chows', '由四副顺子及序数牌作将组成的和牌', 'A hand consisting of all chows, with no Honors.', [['w2', 'w3', 'w4'], ['t1', 't2', 't3'], ['b5', 'b6', 'b7'], ['t3', 't4', 't5'], ['b6', 'b6']], [[4, _hand2.default.isS], [11, 0, _hand2.default.isDigit]], [76]], [64, 2, '四归一', 'Tile Hog', '和牌中，有四张相同的牌（不包括杠牌）', 'Using all four of a single suit tile, without using them as a Kong.', [['w2', 'w2', 'w2'], ['w2', 'b3', 'b4']], [_hand2.default.is4in1]], [65, 2, '双同刻', 'Double Pung', '和牌中，有两副序数相同的刻子（杠）', 'Two Pungs (or Kongs) of the same number in two different suits.', [['w2', 'w2', 'w2'], ['t2', 't2', 't2']], [_hand2.default.isNSameK(2)]], [66, 2, '双暗刻', 'Two Concealed Pungs', '和牌中，有两副暗刻（暗杠）', 'Two Pungs achieved without melding.', [['w2', 'w2', 'w2', -1], ['t5', 't5', 't5', -1]], [2, [_hand2.default.isA, _hand2.default.isKG]]], [67, 2, '暗杠', 'Concealed Kong', '自抓四张相同的牌开杠', 'Created when four identical tiles, all self-drawn, are declared as a Kong.', [['w2', 'w2', 'w2', 'w2', -1]], [1, [_hand2.default.isA, _hand2.default.isG]]], [68, 2, '断幺', 'All Simples', '和牌中没有一、九及字牌', 'A hand formed without Terminal or Honor Tiles.', [['w2', 'w3', 'w4'], ['t4', 't5', 't6'], ['b5', 'b6', 'b7'], ['t3', 't4', 't5'], ['b6', 'b6']], [0, 0, _hand2.default.isNotYOrWord]], [69, 1, '一般高', 'Pure Double Chow', '由一种花色的序数相同的顺子组成', 'Two identical chows in the same suit.', [['w2', 'w3', 'w4'], ['w2', 'w3', 'w4']], [_hand2.default.is1ColorNSameS(2)]], [70, 1, '喜相逢', 'Mixed Double Chow', '由两种花色的序数相同的顺子组成', 'Two chows of the same numbers but in different suits.', [['w2', 'w3', 'w4'], ['t2', 't3', 't4']], [_hand2.default.isNColorNSameS(2)]], [71, 1, '连六', 'Short Straight', '由一种花色六张序数相连的顺子组成', 'Two chows in the same suit that run consecutively after one another to make a six-tile straight.', [['w2', 'w3', 'w4'], ['w5', 'w6', 'w7']], [_hand2.default.is6InARow]], [72, 1, '老少副', 'Two Terminal Chows', '由一种花色的123、789 的顺子组成', 'Chows of 1-2-3 and 7-8-9 in the same suit.', [['w1', 'w2', 'w3'], ['w7', 'w8', 'w9']], [[-1, _hand2.default.isYoung], [-1, _hand2.default.isOld], [_hand2.default.isUniqMoreThan(5)]]], [73, 1, '幺九刻', 'Pung of Teminals or Honors', '由三张相同的一、九序数牌、字牌组成的刻子', 'A pung or Kong of Ones, Nines, or Winds. (A dragon pung scores 2 points.)', [['w1', 'w1', 'w1'], ['b9', 'b9', 'b9'], ['f2', 'f2', 'f2'], ['j2', 'j2', 'j2']], [-1, _hand2.default.isYKG]], [74, 1, '明杠', 'Melded Kong', '他人打出一张与暗刻相同的牌开杠；或抓进一张与明刻相同的牌开杠', 'A kong that was claimed from another player or promoted from a melded pung.', [['w2', 'w2', 'w2', 'w2']], [1, [_hand2.default.isM, _hand2.default.isG]]], [75, 1, '缺一门', 'One Voided Suit', '和牌中缺少一种花色序数牌', 'A hand that uses tiles from only two of the three suits (it lacks any tiles from one of the three suits).', [['w2', 'w2', 'w2'], ['t1', 't2', 't3'], ['t3', 't4', 't5'], ['f3', 'f3', 'f3'], ['w6', 'w6']], [_hand2.default.is2Color]], [76, 1, '无字', 'No Honors', '和牌中没有字牌', 'A hand formed entirely of suit tiles, without Winds or Dragons.', [['w2', 'w2', 'w2'], ['t1', 't2', 't3'], ['b5', 'b6', 'b7'], ['t3', 't4', 't5'], ['b6', 'b6']], [0, 0, _hand2.default.isDigit]], [77, 1, '边张', 'Edge Wait', '只能听和123 的3 或789 的7', 'Waiting solely for a 3 to form a 1-2-3 chow, or solely for a 7 to form a 7-8-9 chow. Not valid if waiting for more than one tile. Not valid if the edge wait is combined with any other waits.', [['b1', 'b2', 'b3', 2], ['b7', 'b8', 'b9', 0]], [_hand2.default.isHSide]], [78, 1, '坎张', 'Closed Wait', '只能听和顺子中间的牌', 'Waiting solely for a tile whose number is "inside" (in the middle) to form a chow. Not valid if waiting for more than one tile. Not valid if the closed wait is combined with other waits.', [['b2', 'b3', 'b4', 1]], [_hand2.default.isHMid]], [79, 1, '单调将', 'Single Wait', '调单张牌作将和牌', 'Waiting solely for a tile to form a pair. Not valid if waiting for more than one tile (for example, holding 1-2-3-4 and waiting on the 1 and 4).', [['w5', 'w5', 1]], [_hand2.default.isHPair]], [80, 1, '自摸', 'Self-Drawn', '抓牌成和牌', 'Going out (making mahjong) with a fresh tile picked from the wall.', [], [_hand2.default.isHSelf]], [81, 1, '花牌', 'Flower Tiles', '每张花牌计1 分，不计在起和分内，和牌后才能计分。补花成和牌计自摸，不计杠上开花分；未补的花牌允许打出', 'Each tile carved with Chinese word for Spring, Summer, Autumn, Winter, Plum, Orchid, Bamboo or Chrysanthemum, will award you one point when you succeed in Hu. In case of “Hu” on a Flower replacement, the point for Self-Drawn can be added, but not the points for Out with Replacement Tile. Flower Tiles may be discarded (without taking a replacement).', [['h1', 'h2', 'h3', 'h4'], ['h5', 'h6', 'h7', 'h8']]]]
+	  rules: [[1, 88, '四风会', 'Big Four Winds', '和牌中，有东、南、西、北四副刻子（杠）', 'Pungs or Kongs of all four Wind Tiles.', [['f1', 'f1', 'f1'], ['f2', 'f2', 'f2'], ['f3', 'f3', 'f3'], ['f4', 'f4', 'f4']], [4, 0, _hand2.default.isWind], [38, 49, 60, 61, 73, 75]], [2, 88, '大三元', 'Big Three Dragons', '和牌中，有中、发、白三副刻子（杠）', 'Pungs or Kongs of all three Dragon Tiles', [['j1', 'j1', 'j1'], ['j2', 'j2', 'j2'], ['j3', 'j3', 'j3']], [3, 0, _hand2.default.isArrow], [54, 59, 73]], [3, 88, '绿一色', 'All Green', '由“23468”条及“发”字中的任何牌组成的和牌', 'A hand in which the chows, pungs and pair(s) are made up solely of "green" tiles: 2 Bam, 3 Bam, 4 Bam, 6 Bam, 8 Bam, and Green Dragon.', [['t2', 't2', 't2'], ['t6', 't6', 't6'], ['t8', 't8', 't8'], ['j2', 'j2', 'j2'], ['t3', 't3']], [0, 0, 't2t3t4t6t8j2']], [4, 88, '九莲宝灯', 'Nine Gates', '由一种花色序数牌按“1112345678999”组成的特定牌型，见同花色任何一张序数牌即成和牌（自摸加计不求人）', 'Holding the 1,1,1,2,3,4,5,6,7,8,9,9,9 tiles in any one of the suits, creating the nine-sided wait of 1,2,3,4,5,6,7,8,9. (Fully Concealed may be combined if Self-Drawn).', [['w1', 'w1'], ['w1', 'w2', 'w3'], ['w4', 'w5', 'w6'], ['w7', 'w8', 'w9'], ['w9', 'w9']], [_hand2.default.isLotus], [22, 62, 73]], [5, 88, '四杠', 'Four Kongs', '和牌中，有四副杠牌（暗杠加计）', 'Any hand that includes four kongs. They may be concealed or melded.', [['b3', 'b3', 'b3', 'b3'], ['t5', 't5', 't5', 't5'], ['w1', 'w1', 'w1', 'w1'], ['j1', 'j1', 'j1', 'j1']], [4, _hand2.default.isG], [17, 49, 57, 74, 79]], [6, 88, '连七对', 'Seven Shifted Pairs', '由一种花色序数相连的七个对子组成的和牌（自摸加计不求人）', 'A hand formed by seven pairs of the same suit, each shifted one up from the last. (Fully Concealed may be combined if Self-Drawn).', [['b2', 'b2'], ['b3', 'b3'], ['b4', 'b4'], ['b5', 'b5'], ['b6', 'b6'], ['b7', 'b7'], ['b8', 'b8']], [_hand2.default.is7SeqPairs], [19, 22, 62, 79]], [7, 88, '十三幺', 'Thirteen Orphans', '由三种序数牌的一、九牌、七种字牌及其中一对作将组成的和牌（自摸加计不求人）', 'A hand created by singles of any 12 of the 1, 9, and Honor tiles, along With a pair of the 13th. (Fully Concealed may be combined if Self-Drawn).', [['w1', 'w9', 't1'], ['t9', 'b1', 'b9'], ['f1', 'f2', 'f3', 'f4'], ['j1', 'j2', 'j3']], [_hand2.default.is13Y], [18, 52, 55, 62, 79]], [8, 64, '清幺九', 'All Terminals', '由序数牌一、九刻子（杠）、将牌组成的和牌', 'The pair(s), Pungs or Kongs are all made up of 1 or 9 Number Tiles, without Honor Tiles.', [['w1', 'w1', 'w1'], ['w9', 'w9', 'w9'], ['t1', 't1', 't1'], ['b9', 'b9', 'b9'], ['t9', 't9']], [0, 0, _hand2.default.isY], [49, 55, 73, 76]], [9, 64, '小四风会', 'Little Four Winds', '和牌中，有风牌的三副刻子（杠）、另一种风牌作将牌', 'A hand that includes three pungs or Kongs Of Wind Tiles, and a pair of the fourth Wind.', [['f1', 'f1', 'f1'], ['f2', 'f2', 'f2'], ['f3', 'f3', 'f3'], ['f4', 'f4']], [[3, 0, _hand2.default.isWind], [11, 0, _hand2.default.isWind]], [38, 73]], [10, 64, '小三元', 'Little Three Dragons', '和牌中，有箭牌的两副刻子（杠）、另一种箭牌作将牌', 'A hand that includes two Pungs or Kongs of the Dragon Tiles, and a pair of the third Dragon.', [['j1', 'j1', 'j1'], ['j2', 'j2', 'j2'], ['j3', 'j3']], [[2, 0, _hand2.default.isArrow], [11, 0, _hand2.default.isArrow]], [54, 59]], [11, 64, '字一色', 'All Honors', '由字牌的刻子（杠）、将牌组成的和牌', 'The pair(s), pungs or Kongs are all made up of Honor Tiles.', [['f1', 'f1', 'f1'], ['j2', 'j2', 'j2'], ['f3', 'f3', 'f3'], ['f4', 'f4', 'f4'], ['j1', 'j1']], [0, 0, _hand2.default.isWord], [49, 55, 73]], [12, 64, '四暗刻', 'Four Concealed Pungs', '和牌中，有四副暗刻（或暗杠；自摸加计不求人）', 'A hand that includes four Concealed Pungs or Kongs (achieved without melding). (Fully Concealed may be combined if Self-Drawn).', [['b3', 'b3', 'b3', -1], ['t5', 't5', 't5', -1], ['w1', 'w1', 'w1', -1], ['j1', 'j1', 'j1', -1]], [4, [_hand2.default.isA, _hand2.default.isKG]], [49, 62]], [13, 64, '一色双龙会', 'Pure Terminal Chows', '一种花色的两个老少副、5 作将牌', 'A hand consisting of two each of the lower and upper terminal Chows in one suit only, and a pair of fives in the same suit.', [['w1', 'w2', 'w3'], ['w1', 'w2', 'w3'], ['w5', 'w5'], ['w7', 'w8', 'w9'], ['w7', 'w8', 'w9']], [[_hand2.default.isPure], [2, _hand2.default.isYoung], [2, _hand2.default.isOld], [11, 0, _hand2.default.is5]], [19, 22, 63, 69, 72, 76]], [14, 48, '一色四同顺', 'Quadruple Chow', '一种花色四副序数相同的顺子', 'Four chows of the same continuous number sequence in the same suit.', [['w1', 'w2', 'w3'], ['w1', 'w2', 'w3'], ['w1', 'w2', 'w3'], ['w1', 'w2', 'w3']], [_hand2.default.is1ColorNSameS(4)], [23, 64, 69]], [15, 48, '一色四节高', 'Four Pure Shifted Pungs', '一种花色四副依次递增一个序数的刻子（杠）', 'Four Pungs (or Kongs) in the same suit, each shifted one up from the last.', [['w2', 'w2', 'w2'], ['w3', 'w3', 'w3'], ['w4', 'w4', 'w4'], ['w5', 'w5', 'w5']], [_hand2.default.isNColor3Sth(1, 2, _ramda2.default.both(_hand2.default.lenEq(4), _hand2.default.isSeq))], [24, 49]], [16, 32, '一色四步高', 'Four Pure Shifted Chows', '一种花色四副依次递增一个或两个序数的顺子', 'Four chows in one suit, each shifted up 1 or 2 numbers from the last, but not a combination of both.', [['w1', 'w2', 'w3'], ['w2', 'w3', 'w4'], ['w3', 'w4', 'w5'], ['w4', 'w5', 'w6'], ['ww'], ['w1', 'w2', 'w3'], ['w3', 'w4', 'w5'], ['w5', 'w6', 'w7'], ['w7', 'w8', 'w9']], [_hand2.default.isNColor3Sth(1, 1, _ramda2.default.both(_hand2.default.lenEq(4), _hand2.default.isSeq1or2))], [30, 71, 72]], [17, 32, '三杠', 'Three Kongs', '和牌中，有三副杠牌（暗杠加计）', 'A hand containing three Kongs. (Points for concealment may be added).', [['b3', 'b3', 'b3', 'b3'], ['t5', 't5', 't5', 't5'], ['j1', 'j1', 'j1', 'j1']], [3, _hand2.default.isG], [57, 74]], [18, 32, '混幺九', 'All Terminals and Honors', '由字牌和序数牌一、九刻子（杠）、将牌组成的和牌', 'The pair(s), Pungs or Kongs are all made up of 1 or 9 Number Tiles and Honor Tiles.', [['w1', 'w1', 'w1'], ['b9', 'b9', 'b9'], ['t1', 't1', 't1'], ['f2', 'f2', 'f2'], ['t9', 't9']], [[0, 0, _hand2.default.isYOrWord], [-1, 0, _hand2.default.isY], [-1, 0, _hand2.default.isWord]], [49, 55, 73]], [19, 24, '七对', 'Seven Pairs', '由七个对子组成的和牌（自摸加计不求人）', 'A hand formed by seven pairs. (Fully Concealed may be combined if Self-Drawn).', [['w5', 'w5'], ['b8', 'b8'], ['t3', 't3'], ['f2', 'f2'], ['t9', 't9'], ['j1', 'j1'], ['w2', 'w2']], [_hand2.default.is7Pairs], [59, 60, 61, 62, 66, 73, 79]], [20, 24, '七星不靠', 'Greater Honors and Knitted Tiles', '必须有七个单张的东、南、西、北、中、发、白，加上三种花色数位按147、 258、369 中的七张序数牌组成的没有将牌的和牌（自摸加计不求人）', 'Formed by seven single honors and singles of suit tiles belonging to separate Knitted sequences (for example, 1-4-7 of Bamboos, 2-5-8 of Characters, and 3-6-9 of Dots). Fully Concealed may be combined if Self-Drawn.', [['f1', 'f2', 'f3', 'f4'], ['j1', 'j2', 'j3'], ['w2', 'w5', 'w8'], ['t1', 't4'], ['b3', 'b9']], [_hand2.default.is7Star(7)], [52, 62]], [21, 24, '全双刻', 'All Even Pungs', '由2、4、6、8 序数牌的刻子（杠）、将牌组成的和牌', 'A hand formed with Pungs or Kongs of 2, 4, 6, and 8 tiles, with a pair of the same.', [['w2', 'w2', 'w2'], ['t8', 't8', 't8'], ['b4', 'b4', 'b4'], ['b6', 'b6', 'b6'], ['w6', 'w6']], [[0, 0, _hand2.default.isEven], [4, _hand2.default.isKG]], [49, 68]], [22, 24, '清一色', 'Full Flush', '由一种花色序数牌组成的和牌', 'A hand formed entirely of a single suit.', [['w2', 'w3', 'w4'], ['w6', 'w6', 'w6'], ['w7', 'w8', 'w9'], ['w5', 'w5', 'w5'], ['w1', 'w1']], [_hand2.default.isPure], [76]], [23, 24, '一色三同顺', 'Pure Triple Chow', '和牌中，有一种花色三副序数相同的顺子', 'Three chows of the same numerical sequence and in the same suit.', [['w1', 'w2', 'w3'], ['w1', 'w2', 'w3'], ['w1', 'w2', 'w3']], [_hand2.default.is1ColorNSameS(3)], [69]], [24, 24, '一色三节高', 'Pure Shifted Pungs', '和牌中，有一种花色三副依次递增一个序数的刻子（杠）', 'Three Pungs or Kongs of the same suit, each shifted one up from the last.', [['w2', 'w2', 'w2'], ['w3', 'w3', 'w3'], ['w4', 'w4', 'w4']], [_hand2.default.isNColor3Sth(1, 2, _ramda2.default.pipe(_ramda2.default.aperture(3), _ramda2.default.any(_hand2.default.isSeq)))]], [25, 24, '全大', 'Upper Tiles', '由序数牌7、8、9 组成的和牌', 'A hand consisting entirely of 7, 8, and 9 tiles.', [['w7', 'w8', 'w9'], ['t7', 't8', 't9'], ['b8', 'b8', 'b8'], ['b9', 'b9', 'b9'], ['w8', 'w8']], [0, 0, _hand2.default.isBig], [36, 76]], [26, 24, '全中', 'Middle Tiles', '由序数牌4、5、6 组成的和牌', 'A hand consisting entirely of 4, 5, and 6 tiles.', [['w4', 'w5', 'w6'], ['t4', 't5', 't6'], ['b4', 'b5', 'b6'], ['b4', 'b5', 'b6'], ['w5', 'w5']], [0, 0, _hand2.default.isMid], [68, 76]], [27, 24, '全小', 'Lower Tiles', '由序数牌1、2、3 组成的和牌', 'A hand consisting entirely of l, 2, and 3 tiles.', [['w1', 'w2', 'w3'], ['t1', 't1', 't1'], ['b1', 'b2', 'b3'], ['b1', 'b2', 'b3'], ['w3', 'w3']], [0, 0, _hand2.default.isSmall], [37, 76]], [28, 16, '清龙', 'Pure Straight', '和牌中，有同花色123、456、789 相连的序数牌', 'A hand using one each of all the numbers 1 through 9 from any one suit, forming three consecutive chows.', [['w1', 'w2', 'w3'], ['w4', 'w5', 'w6'], ['w7', 'w8', 'w9']], [_hand2.default.isNColor3Sth(1, 1, _hand2.default.is1to9)], [71, 72]], [29, 16, '三色双龙会', 'Three-Suited Terminal Chows', '两种花色两个老少副、另一种花色5 作将的和牌', 'A hand consisting of 1-2-3 and 7-8-9 in one suit (Two Terminal Chows), 1-2-3 and 7-8-9 in another suit, and a pair of fives in the remaining suit.', [['w1', 'w2', 'w3'], ['w7', 'w8', 'w9'], ['t5', 't5'], ['b1', 'b2', 'b3'], ['b7', 'b8', 'b9']], [_hand2.default.is3Color2Dragon], [63, 70, 72, 76]], [30, 16, '一色三步高', 'Pure Shifted Chows', '和牌中，有一种花色三副依次递增一个或两个序数的顺子', 'Three chows in one suit, each shifted either one or two numbers up from the last, but not a combination of both.', [['w2', 'w3', 'w4'], ['w3', 'w4', 'w5'], ['w4', 'w5', 'w6'], ['ww'], ['w1', 'w2', 'w3'], ['w3', 'w4', 'w5'], ['w5', 'w6', 'w7']], [_hand2.default.isNColor3Sth(1, 1, _ramda2.default.pipe(_ramda2.default.aperture(3), _ramda2.default.any(_hand2.default.isSeq1or2)))]], [31, 16, '全带五', 'All Fives', '每副牌及将牌中必须有5 的序数牌', 'A hand in which every set (chow , pung, kong, pair) includes the number "5"', [['w5', 'w6', 'w7'], ['t3', 't4', 't5'], ['b5', 'b5', 'b5'], ['b4', 'b5', 'b6'], ['w5', 'w5']], [0, -1, _hand2.default.is5], [68]], [32, 16, '三同刻', 'Triple Pung', '和牌中，有三副序数相同的刻子（杠）', 'Three Pungs (or Kongs) of the same number in each suit.', [['w2', 'w2', 'w2'], ['t2', 't2', 't2'], ['b2', 'b2', 'b2']], [_hand2.default.isNSameK(3)]], [33, 16, '三暗刻', 'Three Concealed Pungs', '和牌中，有三副暗刻（暗杠）', 'Three Concealed pungs or Kongs (achieved without melding).', [['b3', 'b3', 'b3', -1], ['t5', 't5', 't5', -1], ['j1', 'j1', 'j1', -1]], [3, [_hand2.default.isA, _hand2.default.isKG]]], [34, 12, '全不靠', 'Lesser Honors and Knitted Tiles', '由三种花色147、258、369 不能错位的序数牌及东、南、西、北、中、发、白中任何十四张单张牌组成的和牌（自摸加计不求人）', 'Formed by single honors, and singles of suit tiles belonging to separate Knitted sequences (for example, 1-4-7 of Bamboo, 2-5-8 of Characters, and 3-6-9 of Dots - each of the 3 suits must belong to a different Knitted sequence, but not necessarily in this order). Fully Concealed may be combined if Self-Drawn.', [['f1', 'f2', 'f3'], ['j1', 'j2', 'j3'], ['w2', 'w5', 'w8'], ['t1', 't4', 't7'], ['b3', 'b9']], [_hand2.default.is7Star(4)], [52, 62]], [35, 12, '组合龙', 'Knitted Straight', '和牌中，有三种花色的147、258、369 不能错位的序数牌（特殊顺子）', 'A special Straight which is formed not with standard chows but with 3 different Knitted sequences. For example, 1-4-7 of Dots, 2-5-8 of Characters, and 3-6-9 of Bamboos - but not necessarily in the order in this example.', [['w1', 'w4', 'w7'], ['t2', 't5', 't8'], ['b3', 'b6', 'b9']], [_hand2.default.isZigZag]], [36, 12, '大于五', 'Upper Four', '由序数牌6、7、8、9 组成的和牌', 'A hand created with suit tiles 6 through 9.', [['w6', 'w7', 'w8'], ['t7', 't8', 't9'], ['b7', 'b7', 'b7'], ['b6', 'b7', 'b8'], ['w9', 'w9']], [0, 0, _hand2.default.is6789], [76]], [37, 12, '小于五', 'Lower Four', '由序数牌1、2、3、4 组成的和牌', 'A hand created with suit tiles I through 4.', [['w1', 'w2', 'w3'], ['t2', 't3', 't4'], ['b2', 'b2', 'b2'], ['b2', 'b3', 'b4'], ['w4', 'w4']], [0, 0, _hand2.default.is1234], [76]], [38, 12, '三风刻', 'Big Three Winds', '和牌中，有三副风刻（杠）', 'A hand that includes one pung (or kong) of each of the three winds.', [['f1', 'f1', 'f1'], ['f2', 'f2', 'f2'], ['f3', 'f3', 'f3']], [3, 0, _hand2.default.isWind]], [39, 8, '花龙', 'Mixed Straight', '和牌中，有三种花色的三副顺子连接成123、456、789', 'A straight (tiles 1 through 9) formed by chows from all three suits.', [['w1', 'w2', 'w3'], ['t4', 't5', 't6'], ['b7', 'b8', 'b9']], [_hand2.default.isNColor3Sth(3, 1, _hand2.default.is1to9)]], [40, 8, '推不倒', 'Reversible Tiles', '由牌面图形没有上下区别的牌组成的和牌。包括1234589饼、245689 条、白板', 'A hand created entirely with those tiles which are vertically symmetrical, which means the carved designs look the same if you turn them upside-down. These tiles are the 1, 2, 3, 4, 5, 8, and 9 Dots, the 2, 4, 5, 6, 8, and 9 Bams, and the White Dragon.', [['t4', 't4', 't4'], ['t8', 't8', 't8'], ['b1', 'b2', 'b3'], ['b5', 'b5', 'b5'], ['j3', 'j3']], [0, 0, 't2t4t5t6t8t9b1b2b3b4b5b8b9j3'], [75]], [41, 8, '三色三同顺', 'Mixed Triple Chow', '和牌中，有三种花色三副序数相同的顺子', 'Three chows of the same numerical sequence, one in each suit.', [['w2', 'w3', 'w4'], ['t2', 't3', 't4'], ['b2', 'b3', 'b4']], [_hand2.default.isNColorNSameS(3)]], [42, 8, '三色三节高', 'Mixed Shifted Pungs', '和牌中，有三种花色三副依次递增一个序数的刻子（杠）', 'Three pungs (or kongs), one in each suit, each shifted up one number from the last.', [['w2', 'w2', 'w2'], ['t3', 't3', 't3'], ['b4', 'b4', 'b4']], [_hand2.default.isNColor3Sth(3, 2, _hand2.default.isSeq)]], [43, 8, '无番和', 'Chicken Hand', '和牌后，数不出任何番种分（花牌不计算在内）', 'A hand that would otherwise earn 0 points (excluding the Flower Tiles).', []], [44, 8, '妙手回春', 'Last Tile Draw', '自摸牌墙上最后一张牌和牌（不计自摸）', 'Going out (making mahjong) on a pick of the very last tile of the wall. (Points for Self-Drawn may not be combined.)', []], [45, 8, '海底捞月', 'Last Tile Claim', '和打出的最后一张牌', 'Going out (making mahjong) off the discard which is the last tile in the game.', []], [46, 8, '杠上开花', 'Out With Replacement Tile', '杠牌时，从牌墙补上一张牌成和牌。杠牌加计，不计自摸；杠来花牌再补花成和不计杠上开花，可计自摸', 'Going out (making mahjong) on the replacement tile drawn after achieving a kong (not on a Flower replacement). When a Flower Tile is taken after Konging, and upon winning on the Flower replacement, points for Self-Drawn may be added (but Out With Replacement Tile does not apply in this case).', [['w2', 'w2', 'w2', 'w2', 3]]], [47, 8, '抢杠和', 'Robbing The Kong', '和他人自抓开明杠的牌（不计和绝张）', 'Winning off the tile that somebody adds to a melded pung (to create a Kong). (The points for Last Tile may not be combined.)', [['w2', 'w2', 'w2', 'w2', 3]]], [48, 8, '双暗杠', 'Two Concealed Kongs', '和牌中，有两副暗杠', 'A hand that includes two Concealed Kongs.', [['w2', 'w2', 'w2', 'w2', -1], ['t8', 't8', 't8', 't8', -1]], [2, [_hand2.default.isA, _hand2.default.isG]], [66]], [49, 6, '碰碰和', 'All Pungs', '由四副刻子（杠）、将牌组成的和牌', 'A hand formed by four Pungs (or Kongs) and one pair.', [['w2', 'w2', 'w2'], ['t4', 't4', 't4'], ['b7', 'b7', 'b7'], ['f3', 'f3', 'f3'], ['t9', 't9']], [4, _hand2.default.isKG]], [50, 6, '混一色', 'Half Flush', '由一种花色序数牌及字牌组成的和牌', 'A hand formed by tiles from any one of the three suits, in combination with Honor tiles.', [['w2', 'w3', 'w4'], ['w6', 'w6', 'w6'], ['w7', 'w8', 'w9'], ['j1', 'j1', 'j1'], ['w1', 'w1']], [_hand2.default.isHalfPure]], [51, 6, '三色三步高', 'Mixed Shifted Chows', '和牌中，有三种花色三副依次递增一个序数的顺子', 'Three chows, one in each suit, each shifted up one number from the last.', [['w2', 'w3', 'w4'], ['t3', 't4', 't5'], ['b4', 'b5', 'b6']], [_hand2.default.isNColor3Sth(3, 1, _hand2.default.isSeq)]], [52, 6, '五门齐', 'All Types', '由三种花色序数牌、风牌、箭牌组成的和牌', 'A hand in which each of the five sets (pungs, kongs, chows, pairs) is composed of a different type of tile (Characters, Bamboo, Dots, and Dragons).', [['w2', 'w2', 'w2'], ['t1', 't2', 't3'], ['b6', 'b7', 'b8'], ['j2', 'j2', 'j2'], ['f1', 'f1']], [_hand2.default.is5Suits]], [53, 6, '全求人', 'Melded Hand', '四副牌组全是吃、碰（明杠），和他人打出的牌', 'Every set in the hand (chow, pung, kong, and pair) must be completed with tiles discarded by other players. All sets must be exposed, and the player goes out on a single wait off another player.', [], [0, _hand2.default.isM], [79]], [54, 6, '双箭刻', 'Two Dragons Pungs', '和牌中，有两副箭刻（杠）', 'Two pungs (or kongs) of Dragon tiles.', [['j1', 'j1', 'j1'], ['j2', 'j2', 'j2']], [2, _hand2.default.isArrowKG]], [55, 4, '全带幺', 'Outside Hand', '每副牌及将牌中都有幺九牌', 'A hand that includes terminals and honors in each set, including the pair.', [['w1', 'w2', 'w3'], ['t7', 't8', 't9'], ['f2', 'f2', 'f2'], ['b1', 'b1', 'b1'], ['b9', 'b9']], [0, -1, _hand2.default.isYOrWord]], [56, 4, '不求人', 'Fully Concealed Hand', '没有吃牌、碰牌、明杠，自摸和牌', 'A hand that a player completes without any melds, and wins by Self-Draw.', [], [0, _hand2.default.isA], [62, 80]], [57, 4, '双明杠', 'Two Melded Kongs', '和牌中，有两副明杠（一明杠与一暗杠计6 分）', 'A hand that includes two Melded Kongs. One Melded Kong and one Concealed Kong are 6 points.', [['w2', 'w2', 'w2', 'w2'], ['t5', 't5', 't5', 't5']], [2, [_hand2.default.isM, _hand2.default.isG]]], [58, 4, '和绝张', 'Last Tile', '和牌池、桌面已亮明三张所剩的第四张相同的牌', 'Winning on a tile that is the last Of its kind. (It must be clear to all players based on the discards and exposures.)', [['w2', 'w2', 'w2', 'w2', 3]]], [59, 2, '箭刻', 'Dragon Pung', '由中、发、白三张相同的牌组成的刻子（杠）', 'A Pung or Kong of Dragon Tiles.', [['j2', 'j2', 'j2']], [1, _hand2.default.isArrowKG], [73]], [60, 2, '圈风刻', 'Prevalent Wind', '与圈风相同的风刻（杠）', 'A pung or Kong of the Wind Tile corresponding to the current Prevalent Wind.', [['f1', 'f1', 'f1']]], [61, 2, '门风刻', 'Seat Wind', '与本门风相同的风刻（杠）', 'A Pung or Kong of the Wind Tile corresponding to the player\'s Seat position at the table. (Dealer is East; proceeding counter-clockwise from the Dealer, other players\' seats are South, West, North.)', [['f1', 'f1', 'f1']]], [62, 2, '门前清', 'Concealed Hand', '没有吃牌、碰牌（明杠）的和牌', 'Having a concealed hand (no melded sets) and winning by discard.', [], [0, _hand2.default.isA]], [63, 2, '平和', 'All Chows', '由四副顺子及序数牌作将组成的和牌', 'A hand consisting of all chows, with no Honors.', [['w2', 'w3', 'w4'], ['t1', 't2', 't3'], ['b5', 'b6', 'b7'], ['t3', 't4', 't5'], ['b6', 'b6']], [[4, _hand2.default.isS], [11, 0, _hand2.default.isDigit]], [76]], [64, 2, '四归一', 'Tile Hog', '和牌中，有四张相同的牌（不包括杠牌）', 'Using all four of a single suit tile, without using them as a Kong.', [['w2', 'w2', 'w2'], ['w2', 'b3', 'b4']], [_hand2.default.is4in1]], [65, 2, '双同刻', 'Double Pung', '和牌中，有两副序数相同的刻子（杠）', 'Two Pungs (or Kongs) of the same number in two different suits.', [['w2', 'w2', 'w2'], ['t2', 't2', 't2']], [_hand2.default.isNSameK(2)]], [66, 2, '双暗刻', 'Two Concealed Pungs', '和牌中，有两副暗刻（暗杠）', 'Two Pungs achieved without melding.', [['w2', 'w2', 'w2', -1], ['t5', 't5', 't5', -1]], [2, [_hand2.default.isA, _hand2.default.isKG]]], [67, 2, '暗杠', 'Concealed Kong', '自抓四张相同的牌开杠', 'Created when four identical tiles, all self-drawn, are declared as a Kong.', [['w2', 'w2', 'w2', 'w2', -1]], [1, [_hand2.default.isA, _hand2.default.isG]]], [68, 2, '断幺', 'All Simples', '和牌中没有一、九及字牌', 'A hand formed without Terminal or Honor Tiles.', [['w2', 'w3', 'w4'], ['t4', 't5', 't6'], ['b5', 'b6', 'b7'], ['t3', 't4', 't5'], ['b6', 'b6']], [0, 0, _hand2.default.isNotYOrWord]], [69, 1, '一般高', 'Pure Double Chow', '由一种花色的序数相同的顺子组成', 'Two identical chows in the same suit.', [['w2', 'w3', 'w4'], ['w2', 'w3', 'w4']], [_hand2.default.is1ColorNSameS(2)]], [70, 1, '喜相逢', 'Mixed Double Chow', '由两种花色的序数相同的顺子组成', 'Two chows of the same numbers but in different suits.', [['w2', 'w3', 'w4'], ['t2', 't3', 't4']], [_hand2.default.isNColorNSameS(2)]], [71, 1, '连六', 'Short Straight', '由一种花色六张序数相连的顺子组成', 'Two chows in the same suit that run consecutively after one another to make a six-tile straight.', [['w2', 'w3', 'w4'], ['w5', 'w6', 'w7']], [_hand2.default.is6InARow]], [72, 1, '老少副', 'Two Terminal Chows', '由一种花色的123、789 的顺子组成', 'Chows of 1-2-3 and 7-8-9 in the same suit.', [['w1', 'w2', 'w3'], ['w7', 'w8', 'w9']], [[-1, _hand2.default.isYoung], [-1, _hand2.default.isOld], [_hand2.default.isUniqMoreThan(5)]]], [73, 1, '幺九刻', 'Pung of Teminals or Honors', '由三张相同的一、九序数牌、字牌组成的刻子', 'A pung or Kong of Ones, Nines, or Winds. (A dragon pung scores 2 points.)', [['w1', 'w1', 'w1'], ['b9', 'b9', 'b9'], ['f2', 'f2', 'f2'], ['j2', 'j2', 'j2']], [-1, _hand2.default.isYKG]], [74, 1, '明杠', 'Melded Kong', '他人打出一张与暗刻相同的牌开杠；或抓进一张与明刻相同的牌开杠', 'A kong that was claimed from another player or promoted from a melded pung.', [['w2', 'w2', 'w2', 'w2']], [1, [_hand2.default.isM, _hand2.default.isG]]], [75, 1, '缺一门', 'One Voided Suit', '和牌中缺少一种花色序数牌', 'A hand that uses tiles from only two of the three suits (it lacks any tiles from one of the three suits).', [['w2', 'w2', 'w2'], ['t1', 't2', 't3'], ['t3', 't4', 't5'], ['f3', 'f3', 'f3'], ['w6', 'w6']], [_hand2.default.is2Color]], [76, 1, '无字', 'No Honors', '和牌中没有字牌', 'A hand formed entirely of suit tiles, without Winds or Dragons.', [['w2', 'w2', 'w2'], ['t1', 't2', 't3'], ['b5', 'b6', 'b7'], ['t3', 't4', 't5'], ['b6', 'b6']], [0, 0, _hand2.default.isDigit]], [77, 1, '边张', 'Edge Wait', '只能听和123 的3 或789 的7', 'Waiting solely for a 3 to form a 1-2-3 chow, or solely for a 7 to form a 7-8-9 chow. Not valid if waiting for more than one tile. Not valid if the edge wait is combined with any other waits.', [['b1', 'b2', 'b3', 2], ['b7', 'b8', 'b9', 0]], [_hand2.default.isHSide]], [78, 1, '坎张', 'Closed Wait', '只能听和顺子中间的牌', 'Waiting solely for a tile whose number is "inside" (in the middle) to form a chow. Not valid if waiting for more than one tile. Not valid if the closed wait is combined with other waits.', [['b2', 'b3', 'b4', 1]], [_hand2.default.isHMid]], [79, 1, '单调将', 'Single Wait', '调单张牌作将和牌', 'Waiting solely for a tile to form a pair. Not valid if waiting for more than one tile (for example, holding 1-2-3-4 and waiting on the 1 and 4).', [['w5', 'w5', 1]], [_hand2.default.isHPair]], [80, 1, '自摸', 'Self-Drawn', '抓牌成和牌', 'Going out (making mahjong) with a fresh tile picked from the wall.', [], [_hand2.default.isHSelf]], [81, 1, '花牌', 'Flower Tiles', '每张花牌计1 分，不计在起和分内，和牌后才能计分。补花成和牌计自摸，不计杠上开花分；未补的花牌允许打出', 'Each tile carved with Chinese word for Spring, Summer, Autumn, Winter, Plum, Orchid, Bamboo or Chrysanthemum, will award you one point when you succeed in Hu. In case of “Hu” on a Flower replacement, the point for Self-Drawn can be added, but not the points for Out with Replacement Tile. Flower Tiles may be discarded (without taking a replacement).', [['h1', 'h2', 'h3', 'h4'], ['h5', 'h6', 'h7', 'h8']]]]
 	};
 
 /***/ },
-/* 575 */
+/* 576 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57377,9 +57407,11 @@
 	      return _ramda2.default.is(Array, x) ? x[0][0] : x[0];
 	    }), _ramda2.default.toPairs, H.arr(1))(hs);
 	  },
+	
 	  byColor: function byColor(t) {
 	    return _ramda2.default.pipe(_ramda2.default.filter(H.isDigitH), t ? t === 1 ? _ramda2.default.filter(H.isS) : _ramda2.default.filter(H.isKG) : _ramda2.default.identity, H.byGroup);
 	  },
+	
 	  bySColor: function bySColor(hs) {
 	    return H.byColor(1)(hs);
 	  },
@@ -57394,6 +57426,7 @@
 	      return x[0][1];
 	    }), _ramda2.default.toPairs, H.arr(1))(hs);
 	  },
+	
 	  byColorN: function byColorN(t) {
 	    return _ramda2.default.pipe(H.byColor(t), function (x) {
 	      return x.map(function (y) {
@@ -57401,6 +57434,7 @@
 	      });
 	    });
 	  },
+	
 	  byProd3: function byProd3(t) {
 	    return _ramda2.default.pipe(H.byColorN(t), _ramda2.default.apply(H.xprod3));
 	  },
@@ -57467,11 +57501,13 @@
 	  is5Suits: function is5Suits(hs) {
 	    return _ramda2.default.either(_ramda2.default.pipe(H.byGroup, H.lenEq(5)), _ramda2.default.both(H.is7Pairs, _ramda2.default.pipe(_ramda2.default.flatten, _ramda2.default.groupBy(_ramda2.default.head), _ramda2.default.toPairs, H.lenEq(5))))(hs);
 	  },
+	
 	  isNColor3Sth: function isNColor3Sth(n, t, f) {
 	    return _ramda2.default.pipe(_ramda2.default.ifElse(function (x) {
 	      return n === 1;
-	    }, H.byColorN(t), H.byProd3(t)), _ramda2.default.any(_ramda2.default.both(H.isNotNil, _ramda2.default.pipe(H.arrN(0), H.sort, H.cl, f))));
+	    }, H.byColorN(t), H.byProd3(t)), _ramda2.default.any(_ramda2.default.both(H.isNotNil, _ramda2.default.pipe(H.arrN(0), H.sort, f))));
 	  },
+	
 	  is4in1: function is4in1(hs) {
 	    return _ramda2.default.pipe(_ramda2.default.flatten, H.maxByCount, _ramda2.default.both(function (x) {
 	      return x[1] === 4;
@@ -57654,7 +57690,7 @@
 	  },
 	  isSeq2: function isSeq2(l) {
 	    return _ramda2.default.pipe(H.sort, _ramda2.default.both(H.isDistinct, function (x) {
-	      return _ramda2.default.sum(x) == (x[0] + _ramda2.default.last(x)) * x.length / 2;
+	      return _ramda2.default.sum(x) == (x[0] + _ramda2.default.last(x)) * x.length / 2 && (_ramda2.default.last(x) - x[0]) / (x.length - 1) === 2;
 	    }))(l);
 	  },
 	  isSeq1or2: function isSeq1or2(l) {
@@ -57668,7 +57704,7 @@
 	exports.default = H;
 
 /***/ },
-/* 576 */
+/* 577 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57764,7 +57800,7 @@
 	};
 
 /***/ },
-/* 577 */
+/* 578 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57783,7 +57819,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _update4 = __webpack_require__(578);
+	var _update4 = __webpack_require__(579);
 	
 	var _update5 = _interopRequireDefault(_update4);
 	
@@ -57803,7 +57839,7 @@
 	
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 	
-	var _Toggle = __webpack_require__(579);
+	var _Toggle = __webpack_require__(580);
 	
 	var _Toggle2 = _interopRequireDefault(_Toggle);
 	
@@ -57811,21 +57847,23 @@
 	
 	var _Nav2 = _interopRequireDefault(_Nav);
 	
-	var _Rule = __webpack_require__(573);
+	var _Rule = __webpack_require__(574);
 	
 	var _Rule2 = _interopRequireDefault(_Rule);
 	
-	var _Wind = __webpack_require__(589);
+	var _Wind = __webpack_require__(590);
 	
 	var _Wind2 = _interopRequireDefault(_Wind);
 	
-	var _data = __webpack_require__(574);
+	var _data = __webpack_require__(575);
 	
 	var _data2 = _interopRequireDefault(_data);
 	
-	var _hand = __webpack_require__(575);
+	var _hand = __webpack_require__(576);
 	
 	var _hand2 = _interopRequireDefault(_hand);
+	
+	var _util = __webpack_require__(573);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -57867,8 +57905,7 @@
 	      if (_this.state.demo) _this.setState({ demo: null });else _this.setState({ demo: x });
 	    };
 	
-	    _this.add = function (t, e) {
-	      e.preventDefault();
+	    _this.add = function (t) {
 	      if (t === 'ww') return;
 	      if (_hand2.default.has4(t)(_this.state.hand)) return;
 	      var r = _this.state.r;
@@ -58047,6 +58084,16 @@
 	      var vw = document.documentElement.clientWidth;
 	      var vh = document.documentElement.clientHeight;
 	      var ratio = vw / vh;
+	      var ws = 114;
+	      var ir = 180 / 142;
+	      var w2 = (vw - 142) / 4;
+	      var h0 = vh * 0.55 - ws;
+	      var h2 = (vw - 16) / 9 * ir;
+	      var w1 = (h2 * 4 + 6 > h0 ? vh * 0.45 : vh - h2 * 4 - ws) / 5 / ir;
+	      w1 = w1 < w2 ? w1 : w2;
+	      var h3 = vh - (w1 * ir * 5 + 8) - ws;
+	      var h1 = h0 / 4;
+	      h1 = h1 < h2 ? h1 : h2;
 	      var wr = ratio < 0.6 ? 'w20' : ratio < 0.7 ? 'w15' : 'w12'; // < 0.6 = phone, > 0.7 = 10", 0.6 ~ 0.7 = 7"
 	      var wr1 = ratio < 0.6 ? 'w100' : ratio < 0.7 ? 'w90' : 'w85';
 	      var old = vw <= 320;
@@ -58062,45 +58109,41 @@
 	      var pl = l.map(function (x) {
 	        return _react2.default.createElement(
 	          'div',
-	          { className: 'fc h25 pv1' },
+	          { className: 'f jcsb pv1' },
 	          x.map(function (y) {
-	            return _react2.default.createElement(
-	              'div',
-	              { onTouchTap: _this3.add.bind(_this3, y), className: 'h100' },
-	              _react2.default.createElement('img', { src: './images/' + y + '.png',
-	                className: 'usn ' + (_hand2.default.has4(y)(_this3.state.hand) ? 'op25' : '') + ' ' + (ratio > 0.6 ? ratio > 0.8 ? ratio > 1.1 ? 'w40' : 'w60' : 'w80' : 'w100') })
-	            );
+	            return _react2.default.createElement('img', { src: './images/' + y + '.png', style: { height: h1.toFixed(2) + 'px' }, onTouchTap: (0, _util.tap)(_this3.add, y),
+	              className: 'usn ' + (_hand2.default.has4(y)(_this3.state.hand) ? 'op25' : '') });
 	          })
 	        );
 	      });
 	      var ok = [_react2.default.createElement(
 	        'div',
-	        { className: 'btn hYellowgreen', onClick: this.clearError },
+	        { className: 'btn hYellowgreen', onTouchTap: (0, _util.tap)(this.clearError) },
 	        'OK'
 	      )];
 	      var bst = function bst(t, w) {
-	        return 'btn w' + (w === 0 ? 30 : 10) + ' mh4 ' + (t === 0 ? 'hYellowgreen' : 'hOrange') + ' ' + (old ? 'fs12' : '');
+	        return 'btn w' + (w === 0 ? 30 : 10) + ' ph1 fs1 ' + (w === 0 ? 'mr4' : '') + ' ' + (t === 0 ? 'hYellowgreen' : 'hOrange') + ' ' + (old ? 'fs12' : '');
 	      };
 	
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'fv vh100' },
+	        { className: 'fv' },
 	        _react2.default.createElement(_Nav2.default, { page: 'calc', navTo: function navTo() {
 	            return _reactRouter.hashHistory.push('/rule');
 	          } }),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'fs0 h50' },
+	          { className: 'fs0 fg1 fv' },
 	          hs.map(function (x, i) {
 	            return _react2.default.createElement(
 	              'div',
-	              { className: 'f f00a fs0 fg0 jcsa aic h20' },
+	              { className: 'f fs0 fg1 jcsb aic' },
 	              _react2.default.createElement(
 	                'div',
 	                { className: 'flipc' },
 	                _react2.default.createElement(
 	                  'div',
-	                  { className: 'flipp ' + (x.g ? 'flipY' : ''), onClick: _this3.G.bind(_this3, i) },
+	                  { className: 'flipp ' + (x.g ? 'flipY' : ''), onTouchTap: (0, _util.tap)(_this3.G, i) },
 	                  x.g ? _react2.default.createElement(
 	                    'div',
 	                    { className: 'btn c36 mh8 fc hOrange usn flipb' },
@@ -58114,14 +58157,14 @@
 	              ),
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'f jcc fg1 ph8 h100' },
+	                { className: 'f jcc fg1 ph8' },
 	                x.map(function (y, j) {
 	                  return _react2.default.createElement(
 	                    'div',
-	                    { className: 'highlight h100 usn pv1', onClick: _this3.H.bind(_this3, i, j) },
+	                    { className: 'fv fc highlight usn pv1', onTouchTap: (0, _util.tap)(_this3.H, i, j) },
 	                    y === 'w' || x.m ? null : _react2.default.createElement('div', { className: 'highlight-gray' }),
 	                    hs.h && i === hs.h[0] && j === hs.h[1] ? _react2.default.createElement('div', { className: 'highlight-red' }) : null,
-	                    _react2.default.createElement('img', { src: './images/' + y + '.png', className: (y === 'w' ? 'op20' : '') + ' h100' })
+	                    _react2.default.createElement('img', { src: './images/' + y + '.png', className: '' + (y === 'w' ? 'op20' : ''), style: { width: w1.toFixed(2) + 'px' } })
 	                  );
 	                })
 	              ),
@@ -58130,7 +58173,7 @@
 	                { className: 'flipc' },
 	                _react2.default.createElement(
 	                  'div',
-	                  { className: 'flipp ' + (x.m ? 'flipY' : ''), onClick: _this3.M.bind(_this3, i) },
+	                  { className: 'flipp ' + (x.m ? 'flipY' : ''), onTouchTap: (0, _util.tap)(_this3.M, i) },
 	                  x.m ? _react2.default.createElement(
 	                    'div',
 	                    { className: 'btn c36 mh8 fc hLightgray flipb usn' },
@@ -58145,47 +58188,38 @@
 	            );
 	          })
 	        ),
-	        _react2.default.createElement('div', { className: 'spv8 f00a' }),
+	        _react2.default.createElement('div', { className: 'spv8' }),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'f f00a' },
+	          { className: 'f w100', id: 'btns' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: bst(0, 0), onClick: this.calc },
+	            { className: bst(0, 0), onTouchTap: (0, _util.tap)(this.calc) },
 	            '\u8BA1\u7B97 Calc'
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: bst(1, 0), onClick: this.del },
+	            { className: bst(1, 0), onTouchTap: (0, _util.tap)(this.del) },
 	            '\u5220\u9664 Del'
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: bst(1, 0), onClick: this.initHand },
+	            { className: bst(1, 0), onTouchTap: (0, _util.tap)(this.initHand) },
 	            '\u6E05\u9664 Clear'
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: bst(0, 1), onClick: this.option },
+	            { className: bst(0, 1), onTouchTap: (0, _util.tap)(this.option) },
 	            '...'
 	          )
 	        ),
-	        _react2.default.createElement('div', { className: 'spv16 f00a' }),
+	        _react2.default.createElement('div', { className: 'spv8' }),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'fv aic fg1 fs1 pr oxh ' + (s.result ? 'oys' : 'oyh') },
-	          _react2.default.createElement(
+	          { className: 'fv aic fg1 fs0 oxh ' + (s.result ? 'oys' : 'oyh') },
+	          s.result ? _react2.default.createElement(
 	            'div',
-	            { className: 'pa h100 oyh' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'fv fc h100' },
-	              pl
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'pa fv w100 h100 White su ' + (s.result ? 'show' : '') },
+	            { className: 'fv w100 White', style: { height: (h3 + 8).toFixed(2) + 'px' } },
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'fw8 fs24 tac' },
@@ -58199,7 +58233,7 @@
 	                return _react2.default.createElement(_Rule2.default, { x: x });
 	              })
 	            )
-	          )
+	          ) : pl
 	        ),
 	        _react2.default.createElement(
 	          _Dialog2.default,
@@ -58278,7 +58312,7 @@
 	})(Calc);
 
 /***/ },
-/* 578 */
+/* 579 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -58396,7 +58430,7 @@
 	module.exports = update;
 
 /***/ },
-/* 579 */
+/* 580 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58406,7 +58440,7 @@
 	});
 	exports.default = undefined;
 	
-	var _Toggle = __webpack_require__(580);
+	var _Toggle = __webpack_require__(581);
 	
 	var _Toggle2 = _interopRequireDefault(_Toggle);
 	
@@ -58415,7 +58449,7 @@
 	exports.default = _Toggle2.default;
 
 /***/ },
-/* 580 */
+/* 581 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58444,7 +58478,7 @@
 	
 	var _Paper2 = _interopRequireDefault(_Paper);
 	
-	var _EnhancedSwitch = __webpack_require__(581);
+	var _EnhancedSwitch = __webpack_require__(582);
 	
 	var _EnhancedSwitch2 = _interopRequireDefault(_EnhancedSwitch);
 	
@@ -58718,7 +58752,7 @@
 	exports.default = Toggle;
 
 /***/ },
-/* 581 */
+/* 582 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58751,11 +58785,11 @@
 	
 	var _transitions2 = _interopRequireDefault(_transitions);
 	
-	var _FocusRipple = __webpack_require__(582);
+	var _FocusRipple = __webpack_require__(583);
 	
 	var _FocusRipple2 = _interopRequireDefault(_FocusRipple);
 	
-	var _TouchRipple = __webpack_require__(587);
+	var _TouchRipple = __webpack_require__(588);
 	
 	var _TouchRipple2 = _interopRequireDefault(_TouchRipple);
 	
@@ -59161,7 +59195,7 @@
 	exports.default = EnhancedSwitch;
 
 /***/ },
-/* 582 */
+/* 583 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59184,11 +59218,11 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _shallowEqual = __webpack_require__(583);
+	var _shallowEqual = __webpack_require__(584);
 	
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 	
-	var _autoPrefix = __webpack_require__(584);
+	var _autoPrefix = __webpack_require__(585);
 	
 	var _autoPrefix2 = _interopRequireDefault(_autoPrefix);
 	
@@ -59196,7 +59230,7 @@
 	
 	var _transitions2 = _interopRequireDefault(_transitions);
 	
-	var _ScaleIn = __webpack_require__(585);
+	var _ScaleIn = __webpack_require__(586);
 	
 	var _ScaleIn2 = _interopRequireDefault(_ScaleIn);
 	
@@ -59350,7 +59384,7 @@
 	exports.default = FocusRipple;
 
 /***/ },
-/* 583 */
+/* 584 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59366,7 +59400,7 @@
 	exports.default = _shallowEqual2.default;
 
 /***/ },
-/* 584 */
+/* 585 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -59381,7 +59415,7 @@
 	};
 
 /***/ },
-/* 585 */
+/* 586 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59406,7 +59440,7 @@
 	
 	var _reactAddonsTransitionGroup2 = _interopRequireDefault(_reactAddonsTransitionGroup);
 	
-	var _ScaleInChild = __webpack_require__(586);
+	var _ScaleInChild = __webpack_require__(587);
 	
 	var _ScaleInChild2 = _interopRequireDefault(_ScaleInChild);
 	
@@ -59499,7 +59533,7 @@
 	exports.default = ScaleIn;
 
 /***/ },
-/* 586 */
+/* 587 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59524,7 +59558,7 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _autoPrefix = __webpack_require__(584);
+	var _autoPrefix = __webpack_require__(585);
 	
 	var _autoPrefix2 = _interopRequireDefault(_autoPrefix);
 	
@@ -59658,7 +59692,7 @@
 	exports.default = ScaleInChild;
 
 /***/ },
-/* 587 */
+/* 588 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59689,7 +59723,7 @@
 	
 	var _dom2 = _interopRequireDefault(_dom);
 	
-	var _CircleRipple = __webpack_require__(588);
+	var _CircleRipple = __webpack_require__(589);
 	
 	var _CircleRipple2 = _interopRequireDefault(_CircleRipple);
 	
@@ -59954,7 +59988,7 @@
 	exports.default = TouchRipple;
 
 /***/ },
-/* 588 */
+/* 589 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59979,11 +60013,11 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _shallowEqual = __webpack_require__(583);
+	var _shallowEqual = __webpack_require__(584);
 	
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 	
-	var _autoPrefix = __webpack_require__(584);
+	var _autoPrefix = __webpack_require__(585);
 	
 	var _autoPrefix2 = _interopRequireDefault(_autoPrefix);
 	
@@ -60115,7 +60149,7 @@
 	exports.default = CircleRipple;
 
 /***/ },
-/* 589 */
+/* 590 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60127,6 +60161,8 @@
 	var _react = __webpack_require__(299);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _util = __webpack_require__(573);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -60145,9 +60181,7 @@
 	        return _react2.default.createElement(
 	          'div',
 	          { className: 'btn c24 fc ' + (p.value === i + 1 ? 'hYellowgreen' : 'hWhite'),
-	            onClick: function onClick() {
-	              return p.click(p.type, i + 1);
-	            } },
+	            onTouchTap: (0, _util.tap)(p.click, p.type, i + 1) },
 	          x
 	        );
 	      })
@@ -60156,7 +60190,7 @@
 	};
 
 /***/ },
-/* 590 */
+/* 591 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60168,15 +60202,15 @@
 	
 	var _redux = __webpack_require__(467);
 	
-	var _reduxImmutableStateInvariant = __webpack_require__(591);
+	var _reduxImmutableStateInvariant = __webpack_require__(592);
 	
 	var _reduxImmutableStateInvariant2 = _interopRequireDefault(_reduxImmutableStateInvariant);
 	
-	var _reducers = __webpack_require__(595);
+	var _reducers = __webpack_require__(596);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
-	var _reduxSaga = __webpack_require__(602);
+	var _reduxSaga = __webpack_require__(603);
 	
 	var _reduxSaga2 = _interopRequireDefault(_reduxSaga);
 	
@@ -60206,7 +60240,7 @@
 	}
 
 /***/ },
-/* 591 */
+/* 592 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60222,15 +60256,15 @@
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _jsonStringifySafe = __webpack_require__(592);
+	var _jsonStringifySafe = __webpack_require__(593);
 	
 	var _jsonStringifySafe2 = _interopRequireDefault(_jsonStringifySafe);
 	
-	var _isImmutable = __webpack_require__(593);
+	var _isImmutable = __webpack_require__(594);
 	
 	var _isImmutable2 = _interopRequireDefault(_isImmutable);
 	
-	var _trackForMutations = __webpack_require__(594);
+	var _trackForMutations = __webpack_require__(595);
 	
 	var _trackForMutations2 = _interopRequireDefault(_trackForMutations);
 	
@@ -60278,7 +60312,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 592 */
+/* 593 */
 /***/ function(module, exports) {
 
 	exports = module.exports = stringify
@@ -60311,7 +60345,7 @@
 
 
 /***/ },
-/* 593 */
+/* 594 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -60328,7 +60362,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 594 */
+/* 595 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -60399,7 +60433,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 595 */
+/* 596 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60410,9 +60444,9 @@
 	
 	var _redux = __webpack_require__(467);
 	
-	var _reactRouterRedux = __webpack_require__(596);
+	var _reactRouterRedux = __webpack_require__(597);
 	
-	var _jjmjReducer = __webpack_require__(601);
+	var _jjmjReducer = __webpack_require__(602);
 	
 	var _jjmjReducer2 = _interopRequireDefault(_jjmjReducer);
 	
@@ -60424,7 +60458,7 @@
 	});
 
 /***/ },
-/* 596 */
+/* 597 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60434,7 +60468,7 @@
 	});
 	exports.routerMiddleware = exports.routerActions = exports.goForward = exports.goBack = exports.go = exports.replace = exports.push = exports.CALL_HISTORY_METHOD = exports.routerReducer = exports.LOCATION_CHANGE = exports.syncHistoryWithStore = undefined;
 	
-	var _reducer = __webpack_require__(597);
+	var _reducer = __webpack_require__(598);
 	
 	Object.defineProperty(exports, 'LOCATION_CHANGE', {
 	  enumerable: true,
@@ -60449,7 +60483,7 @@
 	  }
 	});
 	
-	var _actions = __webpack_require__(598);
+	var _actions = __webpack_require__(599);
 	
 	Object.defineProperty(exports, 'CALL_HISTORY_METHOD', {
 	  enumerable: true,
@@ -60494,11 +60528,11 @@
 	  }
 	});
 	
-	var _sync = __webpack_require__(599);
+	var _sync = __webpack_require__(600);
 	
 	var _sync2 = _interopRequireDefault(_sync);
 	
-	var _middleware = __webpack_require__(600);
+	var _middleware = __webpack_require__(601);
 	
 	var _middleware2 = _interopRequireDefault(_middleware);
 	
@@ -60508,7 +60542,7 @@
 	exports.routerMiddleware = _middleware2['default'];
 
 /***/ },
-/* 597 */
+/* 598 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -60552,7 +60586,7 @@
 	}
 
 /***/ },
-/* 598 */
+/* 599 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -60594,7 +60628,7 @@
 	var routerActions = exports.routerActions = { push: push, replace: replace, go: go, goBack: goBack, goForward: goForward };
 
 /***/ },
-/* 599 */
+/* 600 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60607,7 +60641,7 @@
 	
 	exports['default'] = syncHistoryWithStore;
 	
-	var _reducer = __webpack_require__(597);
+	var _reducer = __webpack_require__(598);
 	
 	var defaultSelectLocationState = function defaultSelectLocationState(state) {
 	  return state.routing;
@@ -60748,7 +60782,7 @@
 	}
 
 /***/ },
-/* 600 */
+/* 601 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60758,7 +60792,7 @@
 	});
 	exports['default'] = routerMiddleware;
 	
-	var _actions = __webpack_require__(598);
+	var _actions = __webpack_require__(599);
 	
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 	
@@ -60786,7 +60820,7 @@
 	}
 
 /***/ },
-/* 601 */
+/* 602 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -60826,7 +60860,7 @@
 	};
 
 /***/ },
-/* 602 */
+/* 603 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60836,7 +60870,7 @@
 	});
 	exports.utils = exports.effects = exports.CANCEL = exports.delay = exports.takeLatest = exports.takeEvery = exports.buffers = exports.channel = exports.eventChannel = exports.END = exports.runSaga = undefined;
 	
-	var _runSaga = __webpack_require__(603);
+	var _runSaga = __webpack_require__(604);
 	
 	Object.defineProperty(exports, 'runSaga', {
 	  enumerable: true,
@@ -60845,7 +60879,7 @@
 	  }
 	});
 	
-	var _channel = __webpack_require__(608);
+	var _channel = __webpack_require__(609);
 	
 	Object.defineProperty(exports, 'END', {
 	  enumerable: true,
@@ -60866,7 +60900,7 @@
 	  }
 	});
 	
-	var _buffers = __webpack_require__(609);
+	var _buffers = __webpack_require__(610);
 	
 	Object.defineProperty(exports, 'buffers', {
 	  enumerable: true,
@@ -60875,7 +60909,7 @@
 	  }
 	});
 	
-	var _sagaHelpers = __webpack_require__(610);
+	var _sagaHelpers = __webpack_require__(611);
 	
 	Object.defineProperty(exports, 'takeEvery', {
 	  enumerable: true,
@@ -60890,7 +60924,7 @@
 	  }
 	});
 	
-	var _utils = __webpack_require__(604);
+	var _utils = __webpack_require__(605);
 	
 	Object.defineProperty(exports, 'delay', {
 	  enumerable: true,
@@ -60905,15 +60939,15 @@
 	  }
 	});
 	
-	var _middleware = __webpack_require__(611);
+	var _middleware = __webpack_require__(612);
 	
 	var _middleware2 = _interopRequireDefault(_middleware);
 	
-	var _effects = __webpack_require__(612);
+	var _effects = __webpack_require__(613);
 	
 	var effects = _interopRequireWildcard(_effects);
 	
-	var _utils2 = __webpack_require__(613);
+	var _utils2 = __webpack_require__(614);
 	
 	var utils = _interopRequireWildcard(_utils2);
 	
@@ -60926,7 +60960,7 @@
 	exports.utils = utils;
 
 /***/ },
-/* 603 */
+/* 604 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60936,9 +60970,9 @@
 	});
 	exports.runSaga = runSaga;
 	
-	var _utils = __webpack_require__(604);
+	var _utils = __webpack_require__(605);
 	
-	var _proc = __webpack_require__(605);
+	var _proc = __webpack_require__(606);
 	
 	var _proc2 = _interopRequireDefault(_proc);
 	
@@ -60958,7 +60992,7 @@
 	}
 
 /***/ },
-/* 604 */
+/* 605 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -61160,7 +61194,7 @@
 	};
 
 /***/ },
-/* 605 */
+/* 606 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61171,17 +61205,17 @@
 	exports.TASK_CANCEL = exports.CHANNEL_END = exports.NOT_ITERATOR_ERROR = undefined;
 	exports.default = proc;
 	
-	var _utils = __webpack_require__(604);
+	var _utils = __webpack_require__(605);
 	
-	var _asap = __webpack_require__(606);
+	var _asap = __webpack_require__(607);
 	
 	var _asap2 = _interopRequireDefault(_asap);
 	
-	var _io = __webpack_require__(607);
+	var _io = __webpack_require__(608);
 	
-	var _channel = __webpack_require__(608);
+	var _channel = __webpack_require__(609);
 	
-	var _buffers = __webpack_require__(609);
+	var _buffers = __webpack_require__(610);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -61871,7 +61905,7 @@
 	}
 
 /***/ },
-/* 606 */
+/* 607 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -61905,7 +61939,7 @@
 	};
 
 /***/ },
-/* 607 */
+/* 608 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61932,7 +61966,7 @@
 	exports.actionChannel = actionChannel;
 	exports.cancelled = cancelled;
 	
-	var _utils = __webpack_require__(604);
+	var _utils = __webpack_require__(605);
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
@@ -62159,7 +62193,7 @@
 	};
 
 /***/ },
-/* 608 */
+/* 609 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62172,9 +62206,9 @@
 	exports.channel = channel;
 	exports.eventChannel = eventChannel;
 	
-	var _utils = __webpack_require__(604);
+	var _utils = __webpack_require__(605);
 	
-	var _buffers = __webpack_require__(609);
+	var _buffers = __webpack_require__(610);
 	
 	var CHANNEL_END_TYPE = '@@redux-saga/CHANNEL_END';
 	var END = exports.END = { type: CHANNEL_END_TYPE };
@@ -62330,7 +62364,7 @@
 	}
 
 /***/ },
-/* 609 */
+/* 610 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62340,7 +62374,7 @@
 	});
 	exports.buffers = exports.BUFFER_OVERFLOW = undefined;
 	
-	var _utils = __webpack_require__(604);
+	var _utils = __webpack_require__(605);
 	
 	var BUFFER_OVERFLOW = exports.BUFFER_OVERFLOW = 'Channel\'s Buffer overflow!';
 	
@@ -62409,7 +62443,7 @@
 	};
 
 /***/ },
-/* 610 */
+/* 611 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62423,11 +62457,11 @@
 	exports.takeEvery = takeEvery;
 	exports.takeLatest = takeLatest;
 	
-	var _channel = __webpack_require__(608);
+	var _channel = __webpack_require__(609);
 	
-	var _utils = __webpack_require__(604);
+	var _utils = __webpack_require__(605);
 	
-	var _io = __webpack_require__(607);
+	var _io = __webpack_require__(608);
 	
 	var done = { done: true, value: undefined };
 	var qEnd = {};
@@ -62539,7 +62573,7 @@
 	}
 
 /***/ },
-/* 611 */
+/* 612 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62549,13 +62583,13 @@
 	});
 	exports.default = sagaMiddlewareFactory;
 	
-	var _utils = __webpack_require__(604);
+	var _utils = __webpack_require__(605);
 	
-	var _proc = __webpack_require__(605);
+	var _proc = __webpack_require__(606);
 	
 	var _proc2 = _interopRequireDefault(_proc);
 	
-	var _channel = __webpack_require__(608);
+	var _channel = __webpack_require__(609);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -62614,7 +62648,7 @@
 	}
 
 /***/ },
-/* 612 */
+/* 613 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62623,7 +62657,7 @@
 	  value: true
 	});
 	
-	var _io = __webpack_require__(607);
+	var _io = __webpack_require__(608);
 	
 	Object.defineProperty(exports, 'take', {
 	  enumerable: true,
@@ -62711,7 +62745,7 @@
 	});
 
 /***/ },
-/* 613 */
+/* 614 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62720,7 +62754,7 @@
 	  value: true
 	});
 	
-	var _utils = __webpack_require__(604);
+	var _utils = __webpack_require__(605);
 	
 	Object.defineProperty(exports, 'TASK', {
 	  enumerable: true,
@@ -62759,7 +62793,7 @@
 	  }
 	});
 	
-	var _io = __webpack_require__(607);
+	var _io = __webpack_require__(608);
 	
 	Object.defineProperty(exports, 'asEffect', {
 	  enumerable: true,
@@ -62769,23 +62803,23 @@
 	});
 
 /***/ },
-/* 614 */
+/* 615 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(615);
+	var content = __webpack_require__(616);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(617)(content, {});
+	var update = __webpack_require__(624)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/postcss-loader/index.js!./styles.css", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/postcss-loader/index.js!./styles.css");
+			module.hot.accept("!!./../../css-loader/index.js!./../../postcss-loader/index.js!./font-awesome.css", function() {
+				var newContent = require("!!./../../css-loader/index.js!./../../postcss-loader/index.js!./font-awesome.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -62795,21 +62829,21 @@
 	}
 
 /***/ },
-/* 615 */
+/* 616 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(616)();
+	exports = module.exports = __webpack_require__(617)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "body {\n  font-family: Roboto, \"Microsoft YaHei\";\n}\n.vh100 {\n  height: 97vh;\n}\n.highlight {\n  position: relative;\n}\n.highlight > div {\n  position: absolute;\n  width: 100%;\n  height: 96%;\n  opacity: .5;\n  border-radius: 5px;\n}\n.highlight-red {\n  background-color: red;\n}\n.highlight-gray {\n  background-color: lightgray;\n}\n.flipc {\n  -webkit-perspective: 1000px;\n          perspective: 1000px;\n}\n.flipY, .flipb {\n  -webkit-transform: rotateY(180deg);\n          transform: rotateY(180deg);\n}\n.flipp {\n\t-webkit-transform-style: preserve-3d;\n\t        transform-style: preserve-3d;\n\tposition: relative;\n}\n.nav {\n  margin: -8px -8px 8px;\n  padding: 4px 8px;\n  /*background-color: yellowgreen;*/\n  background-color: rgb(240,240,240);\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  overflow: hidden;\n}\n.nav i {\n  width: 32px;\n  height: 32px;\n  text-align: center;\n  vertical-align: middle;\n  line-height: 32px;\n}\n.nav i:hover {\n  /*color: black;\n  background-color: rgb(174,225,70);\n  cursor: pointer;*/\n}\n.su {\n  -webkit-transition: all .5s;\n  transition: all .5s;\n  -webkit-transform: translateY(200px);\n          transform: translateY(200px);\n  display: none;\n  opacity: 0;\n  z-index: -100;\n}\n.su.show {\n  display: block;\n  visibility: visible;\n  opacity: 1;\n  -webkit-transform: translateY(0px);\n          transform: translateY(0px);\n  z-index: 100;\n}\n.pr {\n  position: relative;\n}\n.pa {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.dialog div {\n  font-family: Roboto, \"Microsoft YaHei\" !important;\n  margin: 1px 0;\n}\n.toggle {\n  width: auto !important;\n}\n.wind.mb4 {\n  margin-bottom: 4px;\n}\n.w12 {\n  width: 12%;\n}\n.w33 {\n  width: 33.33%;\n}\n.btn {\n  white-space: nowrap;\n}", ""]);
+	exports.push([module.id, "/*!\n *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome\n *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)\n */\n/* FONT PATH\n * -------------------------- */\n@font-face {\n  font-family: 'FontAwesome';\n  src: url(" + __webpack_require__(618) + ");\n  src: url(" + __webpack_require__(619) + "?#iefix&v=4.7.0) format('embedded-opentype'), url(" + __webpack_require__(620) + ") format('woff2'), url(" + __webpack_require__(621) + ") format('woff'), url(" + __webpack_require__(622) + ") format('truetype'), url(" + __webpack_require__(623) + "#fontawesomeregular) format('svg');\n  font-weight: normal;\n  font-style: normal;\n}\n.fa {\n  display: inline-block;\n  font: normal normal normal 14px/1 FontAwesome;\n  font-size: inherit;\n  text-rendering: auto;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n/* makes the font 33% larger relative to the icon container */\n.fa-lg {\n  font-size: 1.33333333em;\n  line-height: 0.75em;\n  vertical-align: -15%;\n}\n.fa-2x {\n  font-size: 2em;\n}\n.fa-3x {\n  font-size: 3em;\n}\n.fa-4x {\n  font-size: 4em;\n}\n.fa-5x {\n  font-size: 5em;\n}\n.fa-fw {\n  width: 1.28571429em;\n  text-align: center;\n}\n.fa-ul {\n  padding-left: 0;\n  margin-left: 2.14285714em;\n  list-style-type: none;\n}\n.fa-ul > li {\n  position: relative;\n}\n.fa-li {\n  position: absolute;\n  left: -2.14285714em;\n  width: 2.14285714em;\n  top: 0.14285714em;\n  text-align: center;\n}\n.fa-li.fa-lg {\n  left: -1.85714286em;\n}\n.fa-border {\n  padding: .2em .25em .15em;\n  border: solid 0.08em #eeeeee;\n  border-radius: .1em;\n}\n.fa-pull-left {\n  float: left;\n}\n.fa-pull-right {\n  float: right;\n}\n.fa.fa-pull-left {\n  margin-right: .3em;\n}\n.fa.fa-pull-right {\n  margin-left: .3em;\n}\n/* Deprecated as of 4.4.0 */\n.pull-right {\n  float: right;\n}\n.pull-left {\n  float: left;\n}\n.fa.pull-left {\n  margin-right: .3em;\n}\n.fa.pull-right {\n  margin-left: .3em;\n}\n.fa-spin {\n  -webkit-animation: fa-spin 2s infinite linear;\n  -moz-animation: fa-spin 2s infinite linear;\n       animation: fa-spin 2s infinite linear;\n}\n.fa-pulse {\n  -webkit-animation: fa-spin 1s infinite steps(8);\n  -moz-animation: fa-spin 1s infinite steps(8);\n       animation: fa-spin 1s infinite steps(8);\n}\n@-webkit-keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(359deg);\n    transform: rotate(359deg);\n  }\n}\n@-moz-keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n         transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(359deg);\n    -moz-transform: rotate(359deg);\n         transform: rotate(359deg);\n  }\n}\n@keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n         transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(359deg);\n    -moz-transform: rotate(359deg);\n         transform: rotate(359deg);\n  }\n}\n.fa-rotate-90 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=1)\";\n  -webkit-transform: rotate(90deg);\n  -ms-transform: rotate(90deg);\n  -moz-transform: rotate(90deg);\n       transform: rotate(90deg);\n}\n.fa-rotate-180 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2)\";\n  -webkit-transform: rotate(180deg);\n  -ms-transform: rotate(180deg);\n  -moz-transform: rotate(180deg);\n       transform: rotate(180deg);\n}\n.fa-rotate-270 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=3)\";\n  -webkit-transform: rotate(270deg);\n  -ms-transform: rotate(270deg);\n  -moz-transform: rotate(270deg);\n       transform: rotate(270deg);\n}\n.fa-flip-horizontal {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)\";\n  -webkit-transform: scale(-1, 1);\n  -ms-transform: scale(-1, 1);\n  -moz-transform: scale(-1, 1);\n       transform: scale(-1, 1);\n}\n.fa-flip-vertical {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)\";\n  -webkit-transform: scale(1, -1);\n  -ms-transform: scale(1, -1);\n  -moz-transform: scale(1, -1);\n       transform: scale(1, -1);\n}\n:root .fa-rotate-90,\n:root .fa-rotate-180,\n:root .fa-rotate-270,\n:root .fa-flip-horizontal,\n:root .fa-flip-vertical {\n  -webkit-filter: none;\n          filter: none;\n}\n.fa-stack {\n  position: relative;\n  display: inline-block;\n  width: 2em;\n  height: 2em;\n  line-height: 2em;\n  vertical-align: middle;\n}\n.fa-stack-1x,\n.fa-stack-2x {\n  position: absolute;\n  left: 0;\n  width: 100%;\n  text-align: center;\n}\n.fa-stack-1x {\n  line-height: inherit;\n}\n.fa-stack-2x {\n  font-size: 2em;\n}\n.fa-inverse {\n  color: #ffffff;\n}\n/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen\n   readers do not read off random characters that represent icons */\n.fa-glass:before {\n  content: \"\\F000\";\n}\n.fa-music:before {\n  content: \"\\F001\";\n}\n.fa-search:before {\n  content: \"\\F002\";\n}\n.fa-envelope-o:before {\n  content: \"\\F003\";\n}\n.fa-heart:before {\n  content: \"\\F004\";\n}\n.fa-star:before {\n  content: \"\\F005\";\n}\n.fa-star-o:before {\n  content: \"\\F006\";\n}\n.fa-user:before {\n  content: \"\\F007\";\n}\n.fa-film:before {\n  content: \"\\F008\";\n}\n.fa-th-large:before {\n  content: \"\\F009\";\n}\n.fa-th:before {\n  content: \"\\F00A\";\n}\n.fa-th-list:before {\n  content: \"\\F00B\";\n}\n.fa-check:before {\n  content: \"\\F00C\";\n}\n.fa-remove:before,\n.fa-close:before,\n.fa-times:before {\n  content: \"\\F00D\";\n}\n.fa-search-plus:before {\n  content: \"\\F00E\";\n}\n.fa-search-minus:before {\n  content: \"\\F010\";\n}\n.fa-power-off:before {\n  content: \"\\F011\";\n}\n.fa-signal:before {\n  content: \"\\F012\";\n}\n.fa-gear:before,\n.fa-cog:before {\n  content: \"\\F013\";\n}\n.fa-trash-o:before {\n  content: \"\\F014\";\n}\n.fa-home:before {\n  content: \"\\F015\";\n}\n.fa-file-o:before {\n  content: \"\\F016\";\n}\n.fa-clock-o:before {\n  content: \"\\F017\";\n}\n.fa-road:before {\n  content: \"\\F018\";\n}\n.fa-download:before {\n  content: \"\\F019\";\n}\n.fa-arrow-circle-o-down:before {\n  content: \"\\F01A\";\n}\n.fa-arrow-circle-o-up:before {\n  content: \"\\F01B\";\n}\n.fa-inbox:before {\n  content: \"\\F01C\";\n}\n.fa-play-circle-o:before {\n  content: \"\\F01D\";\n}\n.fa-rotate-right:before,\n.fa-repeat:before {\n  content: \"\\F01E\";\n}\n.fa-refresh:before {\n  content: \"\\F021\";\n}\n.fa-list-alt:before {\n  content: \"\\F022\";\n}\n.fa-lock:before {\n  content: \"\\F023\";\n}\n.fa-flag:before {\n  content: \"\\F024\";\n}\n.fa-headphones:before {\n  content: \"\\F025\";\n}\n.fa-volume-off:before {\n  content: \"\\F026\";\n}\n.fa-volume-down:before {\n  content: \"\\F027\";\n}\n.fa-volume-up:before {\n  content: \"\\F028\";\n}\n.fa-qrcode:before {\n  content: \"\\F029\";\n}\n.fa-barcode:before {\n  content: \"\\F02A\";\n}\n.fa-tag:before {\n  content: \"\\F02B\";\n}\n.fa-tags:before {\n  content: \"\\F02C\";\n}\n.fa-book:before {\n  content: \"\\F02D\";\n}\n.fa-bookmark:before {\n  content: \"\\F02E\";\n}\n.fa-print:before {\n  content: \"\\F02F\";\n}\n.fa-camera:before {\n  content: \"\\F030\";\n}\n.fa-font:before {\n  content: \"\\F031\";\n}\n.fa-bold:before {\n  content: \"\\F032\";\n}\n.fa-italic:before {\n  content: \"\\F033\";\n}\n.fa-text-height:before {\n  content: \"\\F034\";\n}\n.fa-text-width:before {\n  content: \"\\F035\";\n}\n.fa-align-left:before {\n  content: \"\\F036\";\n}\n.fa-align-center:before {\n  content: \"\\F037\";\n}\n.fa-align-right:before {\n  content: \"\\F038\";\n}\n.fa-align-justify:before {\n  content: \"\\F039\";\n}\n.fa-list:before {\n  content: \"\\F03A\";\n}\n.fa-dedent:before,\n.fa-outdent:before {\n  content: \"\\F03B\";\n}\n.fa-indent:before {\n  content: \"\\F03C\";\n}\n.fa-video-camera:before {\n  content: \"\\F03D\";\n}\n.fa-photo:before,\n.fa-image:before,\n.fa-picture-o:before {\n  content: \"\\F03E\";\n}\n.fa-pencil:before {\n  content: \"\\F040\";\n}\n.fa-map-marker:before {\n  content: \"\\F041\";\n}\n.fa-adjust:before {\n  content: \"\\F042\";\n}\n.fa-tint:before {\n  content: \"\\F043\";\n}\n.fa-edit:before,\n.fa-pencil-square-o:before {\n  content: \"\\F044\";\n}\n.fa-share-square-o:before {\n  content: \"\\F045\";\n}\n.fa-check-square-o:before {\n  content: \"\\F046\";\n}\n.fa-arrows:before {\n  content: \"\\F047\";\n}\n.fa-step-backward:before {\n  content: \"\\F048\";\n}\n.fa-fast-backward:before {\n  content: \"\\F049\";\n}\n.fa-backward:before {\n  content: \"\\F04A\";\n}\n.fa-play:before {\n  content: \"\\F04B\";\n}\n.fa-pause:before {\n  content: \"\\F04C\";\n}\n.fa-stop:before {\n  content: \"\\F04D\";\n}\n.fa-forward:before {\n  content: \"\\F04E\";\n}\n.fa-fast-forward:before {\n  content: \"\\F050\";\n}\n.fa-step-forward:before {\n  content: \"\\F051\";\n}\n.fa-eject:before {\n  content: \"\\F052\";\n}\n.fa-chevron-left:before {\n  content: \"\\F053\";\n}\n.fa-chevron-right:before {\n  content: \"\\F054\";\n}\n.fa-plus-circle:before {\n  content: \"\\F055\";\n}\n.fa-minus-circle:before {\n  content: \"\\F056\";\n}\n.fa-times-circle:before {\n  content: \"\\F057\";\n}\n.fa-check-circle:before {\n  content: \"\\F058\";\n}\n.fa-question-circle:before {\n  content: \"\\F059\";\n}\n.fa-info-circle:before {\n  content: \"\\F05A\";\n}\n.fa-crosshairs:before {\n  content: \"\\F05B\";\n}\n.fa-times-circle-o:before {\n  content: \"\\F05C\";\n}\n.fa-check-circle-o:before {\n  content: \"\\F05D\";\n}\n.fa-ban:before {\n  content: \"\\F05E\";\n}\n.fa-arrow-left:before {\n  content: \"\\F060\";\n}\n.fa-arrow-right:before {\n  content: \"\\F061\";\n}\n.fa-arrow-up:before {\n  content: \"\\F062\";\n}\n.fa-arrow-down:before {\n  content: \"\\F063\";\n}\n.fa-mail-forward:before,\n.fa-share:before {\n  content: \"\\F064\";\n}\n.fa-expand:before {\n  content: \"\\F065\";\n}\n.fa-compress:before {\n  content: \"\\F066\";\n}\n.fa-plus:before {\n  content: \"\\F067\";\n}\n.fa-minus:before {\n  content: \"\\F068\";\n}\n.fa-asterisk:before {\n  content: \"\\F069\";\n}\n.fa-exclamation-circle:before {\n  content: \"\\F06A\";\n}\n.fa-gift:before {\n  content: \"\\F06B\";\n}\n.fa-leaf:before {\n  content: \"\\F06C\";\n}\n.fa-fire:before {\n  content: \"\\F06D\";\n}\n.fa-eye:before {\n  content: \"\\F06E\";\n}\n.fa-eye-slash:before {\n  content: \"\\F070\";\n}\n.fa-warning:before,\n.fa-exclamation-triangle:before {\n  content: \"\\F071\";\n}\n.fa-plane:before {\n  content: \"\\F072\";\n}\n.fa-calendar:before {\n  content: \"\\F073\";\n}\n.fa-random:before {\n  content: \"\\F074\";\n}\n.fa-comment:before {\n  content: \"\\F075\";\n}\n.fa-magnet:before {\n  content: \"\\F076\";\n}\n.fa-chevron-up:before {\n  content: \"\\F077\";\n}\n.fa-chevron-down:before {\n  content: \"\\F078\";\n}\n.fa-retweet:before {\n  content: \"\\F079\";\n}\n.fa-shopping-cart:before {\n  content: \"\\F07A\";\n}\n.fa-folder:before {\n  content: \"\\F07B\";\n}\n.fa-folder-open:before {\n  content: \"\\F07C\";\n}\n.fa-arrows-v:before {\n  content: \"\\F07D\";\n}\n.fa-arrows-h:before {\n  content: \"\\F07E\";\n}\n.fa-bar-chart-o:before,\n.fa-bar-chart:before {\n  content: \"\\F080\";\n}\n.fa-twitter-square:before {\n  content: \"\\F081\";\n}\n.fa-facebook-square:before {\n  content: \"\\F082\";\n}\n.fa-camera-retro:before {\n  content: \"\\F083\";\n}\n.fa-key:before {\n  content: \"\\F084\";\n}\n.fa-gears:before,\n.fa-cogs:before {\n  content: \"\\F085\";\n}\n.fa-comments:before {\n  content: \"\\F086\";\n}\n.fa-thumbs-o-up:before {\n  content: \"\\F087\";\n}\n.fa-thumbs-o-down:before {\n  content: \"\\F088\";\n}\n.fa-star-half:before {\n  content: \"\\F089\";\n}\n.fa-heart-o:before {\n  content: \"\\F08A\";\n}\n.fa-sign-out:before {\n  content: \"\\F08B\";\n}\n.fa-linkedin-square:before {\n  content: \"\\F08C\";\n}\n.fa-thumb-tack:before {\n  content: \"\\F08D\";\n}\n.fa-external-link:before {\n  content: \"\\F08E\";\n}\n.fa-sign-in:before {\n  content: \"\\F090\";\n}\n.fa-trophy:before {\n  content: \"\\F091\";\n}\n.fa-github-square:before {\n  content: \"\\F092\";\n}\n.fa-upload:before {\n  content: \"\\F093\";\n}\n.fa-lemon-o:before {\n  content: \"\\F094\";\n}\n.fa-phone:before {\n  content: \"\\F095\";\n}\n.fa-square-o:before {\n  content: \"\\F096\";\n}\n.fa-bookmark-o:before {\n  content: \"\\F097\";\n}\n.fa-phone-square:before {\n  content: \"\\F098\";\n}\n.fa-twitter:before {\n  content: \"\\F099\";\n}\n.fa-facebook-f:before,\n.fa-facebook:before {\n  content: \"\\F09A\";\n}\n.fa-github:before {\n  content: \"\\F09B\";\n}\n.fa-unlock:before {\n  content: \"\\F09C\";\n}\n.fa-credit-card:before {\n  content: \"\\F09D\";\n}\n.fa-feed:before,\n.fa-rss:before {\n  content: \"\\F09E\";\n}\n.fa-hdd-o:before {\n  content: \"\\F0A0\";\n}\n.fa-bullhorn:before {\n  content: \"\\F0A1\";\n}\n.fa-bell:before {\n  content: \"\\F0F3\";\n}\n.fa-certificate:before {\n  content: \"\\F0A3\";\n}\n.fa-hand-o-right:before {\n  content: \"\\F0A4\";\n}\n.fa-hand-o-left:before {\n  content: \"\\F0A5\";\n}\n.fa-hand-o-up:before {\n  content: \"\\F0A6\";\n}\n.fa-hand-o-down:before {\n  content: \"\\F0A7\";\n}\n.fa-arrow-circle-left:before {\n  content: \"\\F0A8\";\n}\n.fa-arrow-circle-right:before {\n  content: \"\\F0A9\";\n}\n.fa-arrow-circle-up:before {\n  content: \"\\F0AA\";\n}\n.fa-arrow-circle-down:before {\n  content: \"\\F0AB\";\n}\n.fa-globe:before {\n  content: \"\\F0AC\";\n}\n.fa-wrench:before {\n  content: \"\\F0AD\";\n}\n.fa-tasks:before {\n  content: \"\\F0AE\";\n}\n.fa-filter:before {\n  content: \"\\F0B0\";\n}\n.fa-briefcase:before {\n  content: \"\\F0B1\";\n}\n.fa-arrows-alt:before {\n  content: \"\\F0B2\";\n}\n.fa-group:before,\n.fa-users:before {\n  content: \"\\F0C0\";\n}\n.fa-chain:before,\n.fa-link:before {\n  content: \"\\F0C1\";\n}\n.fa-cloud:before {\n  content: \"\\F0C2\";\n}\n.fa-flask:before {\n  content: \"\\F0C3\";\n}\n.fa-cut:before,\n.fa-scissors:before {\n  content: \"\\F0C4\";\n}\n.fa-copy:before,\n.fa-files-o:before {\n  content: \"\\F0C5\";\n}\n.fa-paperclip:before {\n  content: \"\\F0C6\";\n}\n.fa-save:before,\n.fa-floppy-o:before {\n  content: \"\\F0C7\";\n}\n.fa-square:before {\n  content: \"\\F0C8\";\n}\n.fa-navicon:before,\n.fa-reorder:before,\n.fa-bars:before {\n  content: \"\\F0C9\";\n}\n.fa-list-ul:before {\n  content: \"\\F0CA\";\n}\n.fa-list-ol:before {\n  content: \"\\F0CB\";\n}\n.fa-strikethrough:before {\n  content: \"\\F0CC\";\n}\n.fa-underline:before {\n  content: \"\\F0CD\";\n}\n.fa-table:before {\n  content: \"\\F0CE\";\n}\n.fa-magic:before {\n  content: \"\\F0D0\";\n}\n.fa-truck:before {\n  content: \"\\F0D1\";\n}\n.fa-pinterest:before {\n  content: \"\\F0D2\";\n}\n.fa-pinterest-square:before {\n  content: \"\\F0D3\";\n}\n.fa-google-plus-square:before {\n  content: \"\\F0D4\";\n}\n.fa-google-plus:before {\n  content: \"\\F0D5\";\n}\n.fa-money:before {\n  content: \"\\F0D6\";\n}\n.fa-caret-down:before {\n  content: \"\\F0D7\";\n}\n.fa-caret-up:before {\n  content: \"\\F0D8\";\n}\n.fa-caret-left:before {\n  content: \"\\F0D9\";\n}\n.fa-caret-right:before {\n  content: \"\\F0DA\";\n}\n.fa-columns:before {\n  content: \"\\F0DB\";\n}\n.fa-unsorted:before,\n.fa-sort:before {\n  content: \"\\F0DC\";\n}\n.fa-sort-down:before,\n.fa-sort-desc:before {\n  content: \"\\F0DD\";\n}\n.fa-sort-up:before,\n.fa-sort-asc:before {\n  content: \"\\F0DE\";\n}\n.fa-envelope:before {\n  content: \"\\F0E0\";\n}\n.fa-linkedin:before {\n  content: \"\\F0E1\";\n}\n.fa-rotate-left:before,\n.fa-undo:before {\n  content: \"\\F0E2\";\n}\n.fa-legal:before,\n.fa-gavel:before {\n  content: \"\\F0E3\";\n}\n.fa-dashboard:before,\n.fa-tachometer:before {\n  content: \"\\F0E4\";\n}\n.fa-comment-o:before {\n  content: \"\\F0E5\";\n}\n.fa-comments-o:before {\n  content: \"\\F0E6\";\n}\n.fa-flash:before,\n.fa-bolt:before {\n  content: \"\\F0E7\";\n}\n.fa-sitemap:before {\n  content: \"\\F0E8\";\n}\n.fa-umbrella:before {\n  content: \"\\F0E9\";\n}\n.fa-paste:before,\n.fa-clipboard:before {\n  content: \"\\F0EA\";\n}\n.fa-lightbulb-o:before {\n  content: \"\\F0EB\";\n}\n.fa-exchange:before {\n  content: \"\\F0EC\";\n}\n.fa-cloud-download:before {\n  content: \"\\F0ED\";\n}\n.fa-cloud-upload:before {\n  content: \"\\F0EE\";\n}\n.fa-user-md:before {\n  content: \"\\F0F0\";\n}\n.fa-stethoscope:before {\n  content: \"\\F0F1\";\n}\n.fa-suitcase:before {\n  content: \"\\F0F2\";\n}\n.fa-bell-o:before {\n  content: \"\\F0A2\";\n}\n.fa-coffee:before {\n  content: \"\\F0F4\";\n}\n.fa-cutlery:before {\n  content: \"\\F0F5\";\n}\n.fa-file-text-o:before {\n  content: \"\\F0F6\";\n}\n.fa-building-o:before {\n  content: \"\\F0F7\";\n}\n.fa-hospital-o:before {\n  content: \"\\F0F8\";\n}\n.fa-ambulance:before {\n  content: \"\\F0F9\";\n}\n.fa-medkit:before {\n  content: \"\\F0FA\";\n}\n.fa-fighter-jet:before {\n  content: \"\\F0FB\";\n}\n.fa-beer:before {\n  content: \"\\F0FC\";\n}\n.fa-h-square:before {\n  content: \"\\F0FD\";\n}\n.fa-plus-square:before {\n  content: \"\\F0FE\";\n}\n.fa-angle-double-left:before {\n  content: \"\\F100\";\n}\n.fa-angle-double-right:before {\n  content: \"\\F101\";\n}\n.fa-angle-double-up:before {\n  content: \"\\F102\";\n}\n.fa-angle-double-down:before {\n  content: \"\\F103\";\n}\n.fa-angle-left:before {\n  content: \"\\F104\";\n}\n.fa-angle-right:before {\n  content: \"\\F105\";\n}\n.fa-angle-up:before {\n  content: \"\\F106\";\n}\n.fa-angle-down:before {\n  content: \"\\F107\";\n}\n.fa-desktop:before {\n  content: \"\\F108\";\n}\n.fa-laptop:before {\n  content: \"\\F109\";\n}\n.fa-tablet:before {\n  content: \"\\F10A\";\n}\n.fa-mobile-phone:before,\n.fa-mobile:before {\n  content: \"\\F10B\";\n}\n.fa-circle-o:before {\n  content: \"\\F10C\";\n}\n.fa-quote-left:before {\n  content: \"\\F10D\";\n}\n.fa-quote-right:before {\n  content: \"\\F10E\";\n}\n.fa-spinner:before {\n  content: \"\\F110\";\n}\n.fa-circle:before {\n  content: \"\\F111\";\n}\n.fa-mail-reply:before,\n.fa-reply:before {\n  content: \"\\F112\";\n}\n.fa-github-alt:before {\n  content: \"\\F113\";\n}\n.fa-folder-o:before {\n  content: \"\\F114\";\n}\n.fa-folder-open-o:before {\n  content: \"\\F115\";\n}\n.fa-smile-o:before {\n  content: \"\\F118\";\n}\n.fa-frown-o:before {\n  content: \"\\F119\";\n}\n.fa-meh-o:before {\n  content: \"\\F11A\";\n}\n.fa-gamepad:before {\n  content: \"\\F11B\";\n}\n.fa-keyboard-o:before {\n  content: \"\\F11C\";\n}\n.fa-flag-o:before {\n  content: \"\\F11D\";\n}\n.fa-flag-checkered:before {\n  content: \"\\F11E\";\n}\n.fa-terminal:before {\n  content: \"\\F120\";\n}\n.fa-code:before {\n  content: \"\\F121\";\n}\n.fa-mail-reply-all:before,\n.fa-reply-all:before {\n  content: \"\\F122\";\n}\n.fa-star-half-empty:before,\n.fa-star-half-full:before,\n.fa-star-half-o:before {\n  content: \"\\F123\";\n}\n.fa-location-arrow:before {\n  content: \"\\F124\";\n}\n.fa-crop:before {\n  content: \"\\F125\";\n}\n.fa-code-fork:before {\n  content: \"\\F126\";\n}\n.fa-unlink:before,\n.fa-chain-broken:before {\n  content: \"\\F127\";\n}\n.fa-question:before {\n  content: \"\\F128\";\n}\n.fa-info:before {\n  content: \"\\F129\";\n}\n.fa-exclamation:before {\n  content: \"\\F12A\";\n}\n.fa-superscript:before {\n  content: \"\\F12B\";\n}\n.fa-subscript:before {\n  content: \"\\F12C\";\n}\n.fa-eraser:before {\n  content: \"\\F12D\";\n}\n.fa-puzzle-piece:before {\n  content: \"\\F12E\";\n}\n.fa-microphone:before {\n  content: \"\\F130\";\n}\n.fa-microphone-slash:before {\n  content: \"\\F131\";\n}\n.fa-shield:before {\n  content: \"\\F132\";\n}\n.fa-calendar-o:before {\n  content: \"\\F133\";\n}\n.fa-fire-extinguisher:before {\n  content: \"\\F134\";\n}\n.fa-rocket:before {\n  content: \"\\F135\";\n}\n.fa-maxcdn:before {\n  content: \"\\F136\";\n}\n.fa-chevron-circle-left:before {\n  content: \"\\F137\";\n}\n.fa-chevron-circle-right:before {\n  content: \"\\F138\";\n}\n.fa-chevron-circle-up:before {\n  content: \"\\F139\";\n}\n.fa-chevron-circle-down:before {\n  content: \"\\F13A\";\n}\n.fa-html5:before {\n  content: \"\\F13B\";\n}\n.fa-css3:before {\n  content: \"\\F13C\";\n}\n.fa-anchor:before {\n  content: \"\\F13D\";\n}\n.fa-unlock-alt:before {\n  content: \"\\F13E\";\n}\n.fa-bullseye:before {\n  content: \"\\F140\";\n}\n.fa-ellipsis-h:before {\n  content: \"\\F141\";\n}\n.fa-ellipsis-v:before {\n  content: \"\\F142\";\n}\n.fa-rss-square:before {\n  content: \"\\F143\";\n}\n.fa-play-circle:before {\n  content: \"\\F144\";\n}\n.fa-ticket:before {\n  content: \"\\F145\";\n}\n.fa-minus-square:before {\n  content: \"\\F146\";\n}\n.fa-minus-square-o:before {\n  content: \"\\F147\";\n}\n.fa-level-up:before {\n  content: \"\\F148\";\n}\n.fa-level-down:before {\n  content: \"\\F149\";\n}\n.fa-check-square:before {\n  content: \"\\F14A\";\n}\n.fa-pencil-square:before {\n  content: \"\\F14B\";\n}\n.fa-external-link-square:before {\n  content: \"\\F14C\";\n}\n.fa-share-square:before {\n  content: \"\\F14D\";\n}\n.fa-compass:before {\n  content: \"\\F14E\";\n}\n.fa-toggle-down:before,\n.fa-caret-square-o-down:before {\n  content: \"\\F150\";\n}\n.fa-toggle-up:before,\n.fa-caret-square-o-up:before {\n  content: \"\\F151\";\n}\n.fa-toggle-right:before,\n.fa-caret-square-o-right:before {\n  content: \"\\F152\";\n}\n.fa-euro:before,\n.fa-eur:before {\n  content: \"\\F153\";\n}\n.fa-gbp:before {\n  content: \"\\F154\";\n}\n.fa-dollar:before,\n.fa-usd:before {\n  content: \"\\F155\";\n}\n.fa-rupee:before,\n.fa-inr:before {\n  content: \"\\F156\";\n}\n.fa-cny:before,\n.fa-rmb:before,\n.fa-yen:before,\n.fa-jpy:before {\n  content: \"\\F157\";\n}\n.fa-ruble:before,\n.fa-rouble:before,\n.fa-rub:before {\n  content: \"\\F158\";\n}\n.fa-won:before,\n.fa-krw:before {\n  content: \"\\F159\";\n}\n.fa-bitcoin:before,\n.fa-btc:before {\n  content: \"\\F15A\";\n}\n.fa-file:before {\n  content: \"\\F15B\";\n}\n.fa-file-text:before {\n  content: \"\\F15C\";\n}\n.fa-sort-alpha-asc:before {\n  content: \"\\F15D\";\n}\n.fa-sort-alpha-desc:before {\n  content: \"\\F15E\";\n}\n.fa-sort-amount-asc:before {\n  content: \"\\F160\";\n}\n.fa-sort-amount-desc:before {\n  content: \"\\F161\";\n}\n.fa-sort-numeric-asc:before {\n  content: \"\\F162\";\n}\n.fa-sort-numeric-desc:before {\n  content: \"\\F163\";\n}\n.fa-thumbs-up:before {\n  content: \"\\F164\";\n}\n.fa-thumbs-down:before {\n  content: \"\\F165\";\n}\n.fa-youtube-square:before {\n  content: \"\\F166\";\n}\n.fa-youtube:before {\n  content: \"\\F167\";\n}\n.fa-xing:before {\n  content: \"\\F168\";\n}\n.fa-xing-square:before {\n  content: \"\\F169\";\n}\n.fa-youtube-play:before {\n  content: \"\\F16A\";\n}\n.fa-dropbox:before {\n  content: \"\\F16B\";\n}\n.fa-stack-overflow:before {\n  content: \"\\F16C\";\n}\n.fa-instagram:before {\n  content: \"\\F16D\";\n}\n.fa-flickr:before {\n  content: \"\\F16E\";\n}\n.fa-adn:before {\n  content: \"\\F170\";\n}\n.fa-bitbucket:before {\n  content: \"\\F171\";\n}\n.fa-bitbucket-square:before {\n  content: \"\\F172\";\n}\n.fa-tumblr:before {\n  content: \"\\F173\";\n}\n.fa-tumblr-square:before {\n  content: \"\\F174\";\n}\n.fa-long-arrow-down:before {\n  content: \"\\F175\";\n}\n.fa-long-arrow-up:before {\n  content: \"\\F176\";\n}\n.fa-long-arrow-left:before {\n  content: \"\\F177\";\n}\n.fa-long-arrow-right:before {\n  content: \"\\F178\";\n}\n.fa-apple:before {\n  content: \"\\F179\";\n}\n.fa-windows:before {\n  content: \"\\F17A\";\n}\n.fa-android:before {\n  content: \"\\F17B\";\n}\n.fa-linux:before {\n  content: \"\\F17C\";\n}\n.fa-dribbble:before {\n  content: \"\\F17D\";\n}\n.fa-skype:before {\n  content: \"\\F17E\";\n}\n.fa-foursquare:before {\n  content: \"\\F180\";\n}\n.fa-trello:before {\n  content: \"\\F181\";\n}\n.fa-female:before {\n  content: \"\\F182\";\n}\n.fa-male:before {\n  content: \"\\F183\";\n}\n.fa-gittip:before,\n.fa-gratipay:before {\n  content: \"\\F184\";\n}\n.fa-sun-o:before {\n  content: \"\\F185\";\n}\n.fa-moon-o:before {\n  content: \"\\F186\";\n}\n.fa-archive:before {\n  content: \"\\F187\";\n}\n.fa-bug:before {\n  content: \"\\F188\";\n}\n.fa-vk:before {\n  content: \"\\F189\";\n}\n.fa-weibo:before {\n  content: \"\\F18A\";\n}\n.fa-renren:before {\n  content: \"\\F18B\";\n}\n.fa-pagelines:before {\n  content: \"\\F18C\";\n}\n.fa-stack-exchange:before {\n  content: \"\\F18D\";\n}\n.fa-arrow-circle-o-right:before {\n  content: \"\\F18E\";\n}\n.fa-arrow-circle-o-left:before {\n  content: \"\\F190\";\n}\n.fa-toggle-left:before,\n.fa-caret-square-o-left:before {\n  content: \"\\F191\";\n}\n.fa-dot-circle-o:before {\n  content: \"\\F192\";\n}\n.fa-wheelchair:before {\n  content: \"\\F193\";\n}\n.fa-vimeo-square:before {\n  content: \"\\F194\";\n}\n.fa-turkish-lira:before,\n.fa-try:before {\n  content: \"\\F195\";\n}\n.fa-plus-square-o:before {\n  content: \"\\F196\";\n}\n.fa-space-shuttle:before {\n  content: \"\\F197\";\n}\n.fa-slack:before {\n  content: \"\\F198\";\n}\n.fa-envelope-square:before {\n  content: \"\\F199\";\n}\n.fa-wordpress:before {\n  content: \"\\F19A\";\n}\n.fa-openid:before {\n  content: \"\\F19B\";\n}\n.fa-institution:before,\n.fa-bank:before,\n.fa-university:before {\n  content: \"\\F19C\";\n}\n.fa-mortar-board:before,\n.fa-graduation-cap:before {\n  content: \"\\F19D\";\n}\n.fa-yahoo:before {\n  content: \"\\F19E\";\n}\n.fa-google:before {\n  content: \"\\F1A0\";\n}\n.fa-reddit:before {\n  content: \"\\F1A1\";\n}\n.fa-reddit-square:before {\n  content: \"\\F1A2\";\n}\n.fa-stumbleupon-circle:before {\n  content: \"\\F1A3\";\n}\n.fa-stumbleupon:before {\n  content: \"\\F1A4\";\n}\n.fa-delicious:before {\n  content: \"\\F1A5\";\n}\n.fa-digg:before {\n  content: \"\\F1A6\";\n}\n.fa-pied-piper-pp:before {\n  content: \"\\F1A7\";\n}\n.fa-pied-piper-alt:before {\n  content: \"\\F1A8\";\n}\n.fa-drupal:before {\n  content: \"\\F1A9\";\n}\n.fa-joomla:before {\n  content: \"\\F1AA\";\n}\n.fa-language:before {\n  content: \"\\F1AB\";\n}\n.fa-fax:before {\n  content: \"\\F1AC\";\n}\n.fa-building:before {\n  content: \"\\F1AD\";\n}\n.fa-child:before {\n  content: \"\\F1AE\";\n}\n.fa-paw:before {\n  content: \"\\F1B0\";\n}\n.fa-spoon:before {\n  content: \"\\F1B1\";\n}\n.fa-cube:before {\n  content: \"\\F1B2\";\n}\n.fa-cubes:before {\n  content: \"\\F1B3\";\n}\n.fa-behance:before {\n  content: \"\\F1B4\";\n}\n.fa-behance-square:before {\n  content: \"\\F1B5\";\n}\n.fa-steam:before {\n  content: \"\\F1B6\";\n}\n.fa-steam-square:before {\n  content: \"\\F1B7\";\n}\n.fa-recycle:before {\n  content: \"\\F1B8\";\n}\n.fa-automobile:before,\n.fa-car:before {\n  content: \"\\F1B9\";\n}\n.fa-cab:before,\n.fa-taxi:before {\n  content: \"\\F1BA\";\n}\n.fa-tree:before {\n  content: \"\\F1BB\";\n}\n.fa-spotify:before {\n  content: \"\\F1BC\";\n}\n.fa-deviantart:before {\n  content: \"\\F1BD\";\n}\n.fa-soundcloud:before {\n  content: \"\\F1BE\";\n}\n.fa-database:before {\n  content: \"\\F1C0\";\n}\n.fa-file-pdf-o:before {\n  content: \"\\F1C1\";\n}\n.fa-file-word-o:before {\n  content: \"\\F1C2\";\n}\n.fa-file-excel-o:before {\n  content: \"\\F1C3\";\n}\n.fa-file-powerpoint-o:before {\n  content: \"\\F1C4\";\n}\n.fa-file-photo-o:before,\n.fa-file-picture-o:before,\n.fa-file-image-o:before {\n  content: \"\\F1C5\";\n}\n.fa-file-zip-o:before,\n.fa-file-archive-o:before {\n  content: \"\\F1C6\";\n}\n.fa-file-sound-o:before,\n.fa-file-audio-o:before {\n  content: \"\\F1C7\";\n}\n.fa-file-movie-o:before,\n.fa-file-video-o:before {\n  content: \"\\F1C8\";\n}\n.fa-file-code-o:before {\n  content: \"\\F1C9\";\n}\n.fa-vine:before {\n  content: \"\\F1CA\";\n}\n.fa-codepen:before {\n  content: \"\\F1CB\";\n}\n.fa-jsfiddle:before {\n  content: \"\\F1CC\";\n}\n.fa-life-bouy:before,\n.fa-life-buoy:before,\n.fa-life-saver:before,\n.fa-support:before,\n.fa-life-ring:before {\n  content: \"\\F1CD\";\n}\n.fa-circle-o-notch:before {\n  content: \"\\F1CE\";\n}\n.fa-ra:before,\n.fa-resistance:before,\n.fa-rebel:before {\n  content: \"\\F1D0\";\n}\n.fa-ge:before,\n.fa-empire:before {\n  content: \"\\F1D1\";\n}\n.fa-git-square:before {\n  content: \"\\F1D2\";\n}\n.fa-git:before {\n  content: \"\\F1D3\";\n}\n.fa-y-combinator-square:before,\n.fa-yc-square:before,\n.fa-hacker-news:before {\n  content: \"\\F1D4\";\n}\n.fa-tencent-weibo:before {\n  content: \"\\F1D5\";\n}\n.fa-qq:before {\n  content: \"\\F1D6\";\n}\n.fa-wechat:before,\n.fa-weixin:before {\n  content: \"\\F1D7\";\n}\n.fa-send:before,\n.fa-paper-plane:before {\n  content: \"\\F1D8\";\n}\n.fa-send-o:before,\n.fa-paper-plane-o:before {\n  content: \"\\F1D9\";\n}\n.fa-history:before {\n  content: \"\\F1DA\";\n}\n.fa-circle-thin:before {\n  content: \"\\F1DB\";\n}\n.fa-header:before {\n  content: \"\\F1DC\";\n}\n.fa-paragraph:before {\n  content: \"\\F1DD\";\n}\n.fa-sliders:before {\n  content: \"\\F1DE\";\n}\n.fa-share-alt:before {\n  content: \"\\F1E0\";\n}\n.fa-share-alt-square:before {\n  content: \"\\F1E1\";\n}\n.fa-bomb:before {\n  content: \"\\F1E2\";\n}\n.fa-soccer-ball-o:before,\n.fa-futbol-o:before {\n  content: \"\\F1E3\";\n}\n.fa-tty:before {\n  content: \"\\F1E4\";\n}\n.fa-binoculars:before {\n  content: \"\\F1E5\";\n}\n.fa-plug:before {\n  content: \"\\F1E6\";\n}\n.fa-slideshare:before {\n  content: \"\\F1E7\";\n}\n.fa-twitch:before {\n  content: \"\\F1E8\";\n}\n.fa-yelp:before {\n  content: \"\\F1E9\";\n}\n.fa-newspaper-o:before {\n  content: \"\\F1EA\";\n}\n.fa-wifi:before {\n  content: \"\\F1EB\";\n}\n.fa-calculator:before {\n  content: \"\\F1EC\";\n}\n.fa-paypal:before {\n  content: \"\\F1ED\";\n}\n.fa-google-wallet:before {\n  content: \"\\F1EE\";\n}\n.fa-cc-visa:before {\n  content: \"\\F1F0\";\n}\n.fa-cc-mastercard:before {\n  content: \"\\F1F1\";\n}\n.fa-cc-discover:before {\n  content: \"\\F1F2\";\n}\n.fa-cc-amex:before {\n  content: \"\\F1F3\";\n}\n.fa-cc-paypal:before {\n  content: \"\\F1F4\";\n}\n.fa-cc-stripe:before {\n  content: \"\\F1F5\";\n}\n.fa-bell-slash:before {\n  content: \"\\F1F6\";\n}\n.fa-bell-slash-o:before {\n  content: \"\\F1F7\";\n}\n.fa-trash:before {\n  content: \"\\F1F8\";\n}\n.fa-copyright:before {\n  content: \"\\F1F9\";\n}\n.fa-at:before {\n  content: \"\\F1FA\";\n}\n.fa-eyedropper:before {\n  content: \"\\F1FB\";\n}\n.fa-paint-brush:before {\n  content: \"\\F1FC\";\n}\n.fa-birthday-cake:before {\n  content: \"\\F1FD\";\n}\n.fa-area-chart:before {\n  content: \"\\F1FE\";\n}\n.fa-pie-chart:before {\n  content: \"\\F200\";\n}\n.fa-line-chart:before {\n  content: \"\\F201\";\n}\n.fa-lastfm:before {\n  content: \"\\F202\";\n}\n.fa-lastfm-square:before {\n  content: \"\\F203\";\n}\n.fa-toggle-off:before {\n  content: \"\\F204\";\n}\n.fa-toggle-on:before {\n  content: \"\\F205\";\n}\n.fa-bicycle:before {\n  content: \"\\F206\";\n}\n.fa-bus:before {\n  content: \"\\F207\";\n}\n.fa-ioxhost:before {\n  content: \"\\F208\";\n}\n.fa-angellist:before {\n  content: \"\\F209\";\n}\n.fa-cc:before {\n  content: \"\\F20A\";\n}\n.fa-shekel:before,\n.fa-sheqel:before,\n.fa-ils:before {\n  content: \"\\F20B\";\n}\n.fa-meanpath:before {\n  content: \"\\F20C\";\n}\n.fa-buysellads:before {\n  content: \"\\F20D\";\n}\n.fa-connectdevelop:before {\n  content: \"\\F20E\";\n}\n.fa-dashcube:before {\n  content: \"\\F210\";\n}\n.fa-forumbee:before {\n  content: \"\\F211\";\n}\n.fa-leanpub:before {\n  content: \"\\F212\";\n}\n.fa-sellsy:before {\n  content: \"\\F213\";\n}\n.fa-shirtsinbulk:before {\n  content: \"\\F214\";\n}\n.fa-simplybuilt:before {\n  content: \"\\F215\";\n}\n.fa-skyatlas:before {\n  content: \"\\F216\";\n}\n.fa-cart-plus:before {\n  content: \"\\F217\";\n}\n.fa-cart-arrow-down:before {\n  content: \"\\F218\";\n}\n.fa-diamond:before {\n  content: \"\\F219\";\n}\n.fa-ship:before {\n  content: \"\\F21A\";\n}\n.fa-user-secret:before {\n  content: \"\\F21B\";\n}\n.fa-motorcycle:before {\n  content: \"\\F21C\";\n}\n.fa-street-view:before {\n  content: \"\\F21D\";\n}\n.fa-heartbeat:before {\n  content: \"\\F21E\";\n}\n.fa-venus:before {\n  content: \"\\F221\";\n}\n.fa-mars:before {\n  content: \"\\F222\";\n}\n.fa-mercury:before {\n  content: \"\\F223\";\n}\n.fa-intersex:before,\n.fa-transgender:before {\n  content: \"\\F224\";\n}\n.fa-transgender-alt:before {\n  content: \"\\F225\";\n}\n.fa-venus-double:before {\n  content: \"\\F226\";\n}\n.fa-mars-double:before {\n  content: \"\\F227\";\n}\n.fa-venus-mars:before {\n  content: \"\\F228\";\n}\n.fa-mars-stroke:before {\n  content: \"\\F229\";\n}\n.fa-mars-stroke-v:before {\n  content: \"\\F22A\";\n}\n.fa-mars-stroke-h:before {\n  content: \"\\F22B\";\n}\n.fa-neuter:before {\n  content: \"\\F22C\";\n}\n.fa-genderless:before {\n  content: \"\\F22D\";\n}\n.fa-facebook-official:before {\n  content: \"\\F230\";\n}\n.fa-pinterest-p:before {\n  content: \"\\F231\";\n}\n.fa-whatsapp:before {\n  content: \"\\F232\";\n}\n.fa-server:before {\n  content: \"\\F233\";\n}\n.fa-user-plus:before {\n  content: \"\\F234\";\n}\n.fa-user-times:before {\n  content: \"\\F235\";\n}\n.fa-hotel:before,\n.fa-bed:before {\n  content: \"\\F236\";\n}\n.fa-viacoin:before {\n  content: \"\\F237\";\n}\n.fa-train:before {\n  content: \"\\F238\";\n}\n.fa-subway:before {\n  content: \"\\F239\";\n}\n.fa-medium:before {\n  content: \"\\F23A\";\n}\n.fa-yc:before,\n.fa-y-combinator:before {\n  content: \"\\F23B\";\n}\n.fa-optin-monster:before {\n  content: \"\\F23C\";\n}\n.fa-opencart:before {\n  content: \"\\F23D\";\n}\n.fa-expeditedssl:before {\n  content: \"\\F23E\";\n}\n.fa-battery-4:before,\n.fa-battery:before,\n.fa-battery-full:before {\n  content: \"\\F240\";\n}\n.fa-battery-3:before,\n.fa-battery-three-quarters:before {\n  content: \"\\F241\";\n}\n.fa-battery-2:before,\n.fa-battery-half:before {\n  content: \"\\F242\";\n}\n.fa-battery-1:before,\n.fa-battery-quarter:before {\n  content: \"\\F243\";\n}\n.fa-battery-0:before,\n.fa-battery-empty:before {\n  content: \"\\F244\";\n}\n.fa-mouse-pointer:before {\n  content: \"\\F245\";\n}\n.fa-i-cursor:before {\n  content: \"\\F246\";\n}\n.fa-object-group:before {\n  content: \"\\F247\";\n}\n.fa-object-ungroup:before {\n  content: \"\\F248\";\n}\n.fa-sticky-note:before {\n  content: \"\\F249\";\n}\n.fa-sticky-note-o:before {\n  content: \"\\F24A\";\n}\n.fa-cc-jcb:before {\n  content: \"\\F24B\";\n}\n.fa-cc-diners-club:before {\n  content: \"\\F24C\";\n}\n.fa-clone:before {\n  content: \"\\F24D\";\n}\n.fa-balance-scale:before {\n  content: \"\\F24E\";\n}\n.fa-hourglass-o:before {\n  content: \"\\F250\";\n}\n.fa-hourglass-1:before,\n.fa-hourglass-start:before {\n  content: \"\\F251\";\n}\n.fa-hourglass-2:before,\n.fa-hourglass-half:before {\n  content: \"\\F252\";\n}\n.fa-hourglass-3:before,\n.fa-hourglass-end:before {\n  content: \"\\F253\";\n}\n.fa-hourglass:before {\n  content: \"\\F254\";\n}\n.fa-hand-grab-o:before,\n.fa-hand-rock-o:before {\n  content: \"\\F255\";\n}\n.fa-hand-stop-o:before,\n.fa-hand-paper-o:before {\n  content: \"\\F256\";\n}\n.fa-hand-scissors-o:before {\n  content: \"\\F257\";\n}\n.fa-hand-lizard-o:before {\n  content: \"\\F258\";\n}\n.fa-hand-spock-o:before {\n  content: \"\\F259\";\n}\n.fa-hand-pointer-o:before {\n  content: \"\\F25A\";\n}\n.fa-hand-peace-o:before {\n  content: \"\\F25B\";\n}\n.fa-trademark:before {\n  content: \"\\F25C\";\n}\n.fa-registered:before {\n  content: \"\\F25D\";\n}\n.fa-creative-commons:before {\n  content: \"\\F25E\";\n}\n.fa-gg:before {\n  content: \"\\F260\";\n}\n.fa-gg-circle:before {\n  content: \"\\F261\";\n}\n.fa-tripadvisor:before {\n  content: \"\\F262\";\n}\n.fa-odnoklassniki:before {\n  content: \"\\F263\";\n}\n.fa-odnoklassniki-square:before {\n  content: \"\\F264\";\n}\n.fa-get-pocket:before {\n  content: \"\\F265\";\n}\n.fa-wikipedia-w:before {\n  content: \"\\F266\";\n}\n.fa-safari:before {\n  content: \"\\F267\";\n}\n.fa-chrome:before {\n  content: \"\\F268\";\n}\n.fa-firefox:before {\n  content: \"\\F269\";\n}\n.fa-opera:before {\n  content: \"\\F26A\";\n}\n.fa-internet-explorer:before {\n  content: \"\\F26B\";\n}\n.fa-tv:before,\n.fa-television:before {\n  content: \"\\F26C\";\n}\n.fa-contao:before {\n  content: \"\\F26D\";\n}\n.fa-500px:before {\n  content: \"\\F26E\";\n}\n.fa-amazon:before {\n  content: \"\\F270\";\n}\n.fa-calendar-plus-o:before {\n  content: \"\\F271\";\n}\n.fa-calendar-minus-o:before {\n  content: \"\\F272\";\n}\n.fa-calendar-times-o:before {\n  content: \"\\F273\";\n}\n.fa-calendar-check-o:before {\n  content: \"\\F274\";\n}\n.fa-industry:before {\n  content: \"\\F275\";\n}\n.fa-map-pin:before {\n  content: \"\\F276\";\n}\n.fa-map-signs:before {\n  content: \"\\F277\";\n}\n.fa-map-o:before {\n  content: \"\\F278\";\n}\n.fa-map:before {\n  content: \"\\F279\";\n}\n.fa-commenting:before {\n  content: \"\\F27A\";\n}\n.fa-commenting-o:before {\n  content: \"\\F27B\";\n}\n.fa-houzz:before {\n  content: \"\\F27C\";\n}\n.fa-vimeo:before {\n  content: \"\\F27D\";\n}\n.fa-black-tie:before {\n  content: \"\\F27E\";\n}\n.fa-fonticons:before {\n  content: \"\\F280\";\n}\n.fa-reddit-alien:before {\n  content: \"\\F281\";\n}\n.fa-edge:before {\n  content: \"\\F282\";\n}\n.fa-credit-card-alt:before {\n  content: \"\\F283\";\n}\n.fa-codiepie:before {\n  content: \"\\F284\";\n}\n.fa-modx:before {\n  content: \"\\F285\";\n}\n.fa-fort-awesome:before {\n  content: \"\\F286\";\n}\n.fa-usb:before {\n  content: \"\\F287\";\n}\n.fa-product-hunt:before {\n  content: \"\\F288\";\n}\n.fa-mixcloud:before {\n  content: \"\\F289\";\n}\n.fa-scribd:before {\n  content: \"\\F28A\";\n}\n.fa-pause-circle:before {\n  content: \"\\F28B\";\n}\n.fa-pause-circle-o:before {\n  content: \"\\F28C\";\n}\n.fa-stop-circle:before {\n  content: \"\\F28D\";\n}\n.fa-stop-circle-o:before {\n  content: \"\\F28E\";\n}\n.fa-shopping-bag:before {\n  content: \"\\F290\";\n}\n.fa-shopping-basket:before {\n  content: \"\\F291\";\n}\n.fa-hashtag:before {\n  content: \"\\F292\";\n}\n.fa-bluetooth:before {\n  content: \"\\F293\";\n}\n.fa-bluetooth-b:before {\n  content: \"\\F294\";\n}\n.fa-percent:before {\n  content: \"\\F295\";\n}\n.fa-gitlab:before {\n  content: \"\\F296\";\n}\n.fa-wpbeginner:before {\n  content: \"\\F297\";\n}\n.fa-wpforms:before {\n  content: \"\\F298\";\n}\n.fa-envira:before {\n  content: \"\\F299\";\n}\n.fa-universal-access:before {\n  content: \"\\F29A\";\n}\n.fa-wheelchair-alt:before {\n  content: \"\\F29B\";\n}\n.fa-question-circle-o:before {\n  content: \"\\F29C\";\n}\n.fa-blind:before {\n  content: \"\\F29D\";\n}\n.fa-audio-description:before {\n  content: \"\\F29E\";\n}\n.fa-volume-control-phone:before {\n  content: \"\\F2A0\";\n}\n.fa-braille:before {\n  content: \"\\F2A1\";\n}\n.fa-assistive-listening-systems:before {\n  content: \"\\F2A2\";\n}\n.fa-asl-interpreting:before,\n.fa-american-sign-language-interpreting:before {\n  content: \"\\F2A3\";\n}\n.fa-deafness:before,\n.fa-hard-of-hearing:before,\n.fa-deaf:before {\n  content: \"\\F2A4\";\n}\n.fa-glide:before {\n  content: \"\\F2A5\";\n}\n.fa-glide-g:before {\n  content: \"\\F2A6\";\n}\n.fa-signing:before,\n.fa-sign-language:before {\n  content: \"\\F2A7\";\n}\n.fa-low-vision:before {\n  content: \"\\F2A8\";\n}\n.fa-viadeo:before {\n  content: \"\\F2A9\";\n}\n.fa-viadeo-square:before {\n  content: \"\\F2AA\";\n}\n.fa-snapchat:before {\n  content: \"\\F2AB\";\n}\n.fa-snapchat-ghost:before {\n  content: \"\\F2AC\";\n}\n.fa-snapchat-square:before {\n  content: \"\\F2AD\";\n}\n.fa-pied-piper:before {\n  content: \"\\F2AE\";\n}\n.fa-first-order:before {\n  content: \"\\F2B0\";\n}\n.fa-yoast:before {\n  content: \"\\F2B1\";\n}\n.fa-themeisle:before {\n  content: \"\\F2B2\";\n}\n.fa-google-plus-circle:before,\n.fa-google-plus-official:before {\n  content: \"\\F2B3\";\n}\n.fa-fa:before,\n.fa-font-awesome:before {\n  content: \"\\F2B4\";\n}\n.fa-handshake-o:before {\n  content: \"\\F2B5\";\n}\n.fa-envelope-open:before {\n  content: \"\\F2B6\";\n}\n.fa-envelope-open-o:before {\n  content: \"\\F2B7\";\n}\n.fa-linode:before {\n  content: \"\\F2B8\";\n}\n.fa-address-book:before {\n  content: \"\\F2B9\";\n}\n.fa-address-book-o:before {\n  content: \"\\F2BA\";\n}\n.fa-vcard:before,\n.fa-address-card:before {\n  content: \"\\F2BB\";\n}\n.fa-vcard-o:before,\n.fa-address-card-o:before {\n  content: \"\\F2BC\";\n}\n.fa-user-circle:before {\n  content: \"\\F2BD\";\n}\n.fa-user-circle-o:before {\n  content: \"\\F2BE\";\n}\n.fa-user-o:before {\n  content: \"\\F2C0\";\n}\n.fa-id-badge:before {\n  content: \"\\F2C1\";\n}\n.fa-drivers-license:before,\n.fa-id-card:before {\n  content: \"\\F2C2\";\n}\n.fa-drivers-license-o:before,\n.fa-id-card-o:before {\n  content: \"\\F2C3\";\n}\n.fa-quora:before {\n  content: \"\\F2C4\";\n}\n.fa-free-code-camp:before {\n  content: \"\\F2C5\";\n}\n.fa-telegram:before {\n  content: \"\\F2C6\";\n}\n.fa-thermometer-4:before,\n.fa-thermometer:before,\n.fa-thermometer-full:before {\n  content: \"\\F2C7\";\n}\n.fa-thermometer-3:before,\n.fa-thermometer-three-quarters:before {\n  content: \"\\F2C8\";\n}\n.fa-thermometer-2:before,\n.fa-thermometer-half:before {\n  content: \"\\F2C9\";\n}\n.fa-thermometer-1:before,\n.fa-thermometer-quarter:before {\n  content: \"\\F2CA\";\n}\n.fa-thermometer-0:before,\n.fa-thermometer-empty:before {\n  content: \"\\F2CB\";\n}\n.fa-shower:before {\n  content: \"\\F2CC\";\n}\n.fa-bathtub:before,\n.fa-s15:before,\n.fa-bath:before {\n  content: \"\\F2CD\";\n}\n.fa-podcast:before {\n  content: \"\\F2CE\";\n}\n.fa-window-maximize:before {\n  content: \"\\F2D0\";\n}\n.fa-window-minimize:before {\n  content: \"\\F2D1\";\n}\n.fa-window-restore:before {\n  content: \"\\F2D2\";\n}\n.fa-times-rectangle:before,\n.fa-window-close:before {\n  content: \"\\F2D3\";\n}\n.fa-times-rectangle-o:before,\n.fa-window-close-o:before {\n  content: \"\\F2D4\";\n}\n.fa-bandcamp:before {\n  content: \"\\F2D5\";\n}\n.fa-grav:before {\n  content: \"\\F2D6\";\n}\n.fa-etsy:before {\n  content: \"\\F2D7\";\n}\n.fa-imdb:before {\n  content: \"\\F2D8\";\n}\n.fa-ravelry:before {\n  content: \"\\F2D9\";\n}\n.fa-eercast:before {\n  content: \"\\F2DA\";\n}\n.fa-microchip:before {\n  content: \"\\F2DB\";\n}\n.fa-snowflake-o:before {\n  content: \"\\F2DC\";\n}\n.fa-superpowers:before {\n  content: \"\\F2DD\";\n}\n.fa-wpexplorer:before {\n  content: \"\\F2DE\";\n}\n.fa-meetup:before {\n  content: \"\\F2E0\";\n}\n.sr-only {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  border: 0;\n}\n.sr-only-focusable:active,\n.sr-only-focusable:focus {\n  position: static;\n  width: auto;\n  height: auto;\n  margin: 0;\n  overflow: visible;\n  clip: auto;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 616 */
+/* 617 */
 /***/ function(module, exports) {
 
 	/*
@@ -62865,7 +62899,43 @@
 
 
 /***/ },
-/* 617 */
+/* 618 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "674f50d287a8c48dc19ba404d20fe713.eot";
+
+/***/ },
+/* 619 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "674f50d287a8c48dc19ba404d20fe713.eot";
+
+/***/ },
+/* 620 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "af7ae505a9eed503f8b8e6982036873e.woff2";
+
+/***/ },
+/* 621 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "fee66e712a8a08eef5805a46892932ad.woff";
+
+/***/ },
+/* 622 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "b06871f281fee6b241d60582ae9369b9.ttf";
+
+/***/ },
+/* 623 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "912ec66d7572ff821749319396470bde.svg";
+
+/***/ },
+/* 624 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -63117,16 +63187,16 @@
 
 
 /***/ },
-/* 618 */
+/* 625 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(619);
+	var content = __webpack_require__(626);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(617)(content, {});
+	var update = __webpack_require__(624)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -63143,37 +63213,37 @@
 	}
 
 /***/ },
-/* 619 */
+/* 626 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(616)();
+	exports = module.exports = __webpack_require__(617)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, ".card {\r\n  min-width: 42px;\r\n  min-height: 42px;\r\n  font-size: 15px;\r\n  overflow: hidden;\r\n  -webkit-transition: all .5s;\r\n  transition: all .5s;\r\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);\r\n}\r\n.btn {\r\n  background-color: #d3d3d3;\r\n  border: 1px solid #d9d9d9;\r\n  border-radius: 2px;\r\n  outline: none;\r\n  font-size: 15px;\r\n  padding: 4px 8px;\r\n  text-align: center;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n  -webkit-transition: all .3s;\r\n  transition: all .3s;\r\n  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);\r\n}\r\n.btn:not(.disabled):hover {\r\n  background-color: #e7e7e7;\r\n  cursor: pointer;\r\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);\r\n}\r\n.btn:not(.disabled):active {\r\n  background-color: #bfbfbf;\r\n  -webkit-transform: translateY(2px);\r\n          transform: translateY(2px);\r\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);\r\n}\r\n.btn.disabled {\r\n  opacity: .5;\r\n}\r\n.txt {\r\n  border: none;\r\n  border-bottom: 2px solid rgba(0,0,0,.12);\r\n  outline: none;\r\n  font-size: 15px;\r\n  padding: 4px 0;\r\n  -webkit-transition: all .3s;\r\n  transition: all .3s;\r\n  background-color: transparent;\r\n}\r\n.txt:focus {\r\n  border-bottom: 2px solid blue;\r\n}\r\n.c12 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 12px;\r\n  height: 12px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c18 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 18px;\r\n  height: 18px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c24 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 24px;\r\n  height: 24px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c30 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 30px;\r\n  height: 30px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c36 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 36px;\r\n  height: 36px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c42 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 42px;\r\n  height: 42px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c48 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 48px;\r\n  height: 48px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c54 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 54px;\r\n  height: 54px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c60 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 60px;\r\n  height: 60px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c66 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 66px;\r\n  height: 66px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c72 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 72px;\r\n  height: 72px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c78 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 78px;\r\n  height: 78px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c84 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 84px;\r\n  height: 84px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c90 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 90px;\r\n  height: 90px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c96 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 96px;\r\n  height: 96px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c102 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 102px;\r\n  height: 102px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c108 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 108px;\r\n  height: 108px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c114 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 114px;\r\n  height: 114px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c120 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 120px;\r\n  height: 120px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c126 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 126px;\r\n  height: 126px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.w5 {\r\n  width: 5%;\r\n}\r\n.h5 {\r\n  height: 5%;\r\n}\r\n.w10 {\r\n  width: 10%;\r\n}\r\n.h10 {\r\n  height: 10%;\r\n}\r\n.w15 {\r\n  width: 15%;\r\n}\r\n.h15 {\r\n  height: 15%;\r\n}\r\n.w20 {\r\n  width: 20%;\r\n}\r\n.h20 {\r\n  height: 20%;\r\n}\r\n.w25 {\r\n  width: 25%;\r\n}\r\n.h25 {\r\n  height: 25%;\r\n}\r\n.w30 {\r\n  width: 30%;\r\n}\r\n.h30 {\r\n  height: 30%;\r\n}\r\n.w35 {\r\n  width: 35%;\r\n}\r\n.h35 {\r\n  height: 35%;\r\n}\r\n.w40 {\r\n  width: 40%;\r\n}\r\n.h40 {\r\n  height: 40%;\r\n}\r\n.w45 {\r\n  width: 45%;\r\n}\r\n.h45 {\r\n  height: 45%;\r\n}\r\n.w50 {\r\n  width: 50%;\r\n}\r\n.h50 {\r\n  height: 50%;\r\n}\r\n.w55 {\r\n  width: 55%;\r\n}\r\n.h55 {\r\n  height: 55%;\r\n}\r\n.w60 {\r\n  width: 60%;\r\n}\r\n.h60 {\r\n  height: 60%;\r\n}\r\n.w65 {\r\n  width: 65%;\r\n}\r\n.h65 {\r\n  height: 65%;\r\n}\r\n.w70 {\r\n  width: 70%;\r\n}\r\n.h70 {\r\n  height: 70%;\r\n}\r\n.w75 {\r\n  width: 75%;\r\n}\r\n.h75 {\r\n  height: 75%;\r\n}\r\n.w80 {\r\n  width: 80%;\r\n}\r\n.h80 {\r\n  height: 80%;\r\n}\r\n.w85 {\r\n  width: 85%;\r\n}\r\n.h85 {\r\n  height: 85%;\r\n}\r\n.w90 {\r\n  width: 90%;\r\n}\r\n.h90 {\r\n  height: 90%;\r\n}\r\n.w95 {\r\n  width: 95%;\r\n}\r\n.h95 {\r\n  height: 95%;\r\n}\r\n.w100 {\r\n  width: 100%;\r\n}\r\n.h100 {\r\n  height: 100%;\r\n}\r\n.w1-3 {\r\n  width: 33.33%;\r\n}\r\n.w2-3 {\r\n  width: 66.67%;\r\n}\r\n.w1-6 {\r\n  width: 16.67%;\r\n}\r\n.w5-6 {\r\n  width: 83.33%;\r\n}\r\n.w1-8 {\r\n  width: 12.50%;\r\n}\r\n.w3-8 {\r\n  width: 37.50%;\r\n}\r\n.w5-8 {\r\n  width: 62.50%;\r\n}\r\n.w7-8 {\r\n  width: 87.50%;\r\n}\r\n.w1-12 {\r\n  width: 8.33%;\r\n}\r\n.w5-12 {\r\n  width: 41.67%;\r\n}\r\n.w7-12 {\r\n  width: 58.33%;\r\n}\r\n.w11-12 {\r\n  width: 91.67%;\r\n}\r\n.fw1 {\r\n  font-weight: 100;\r\n}\r\n.fw2 {\r\n  font-weight: 200;\r\n}\r\n.fw3 {\r\n  font-weight: 300;\r\n}\r\n.fw4 {\r\n  font-weight: 400;\r\n}\r\n.fw5 {\r\n  font-weight: 500;\r\n}\r\n.fw6 {\r\n  font-weight: 600;\r\n}\r\n.fw7 {\r\n  font-weight: 700;\r\n}\r\n.fw8 {\r\n  font-weight: 800;\r\n}\r\n.fw9 {\r\n  font-weight: 900;\r\n}\r\n.fs6 {\r\n  font-size: 6px;\r\n}\r\n.fs8 {\r\n  font-size: 8px;\r\n}\r\n.fs10 {\r\n  font-size: 10px;\r\n}\r\n.fs12 {\r\n  font-size: 12px;\r\n}\r\n.fs15 {\r\n  font-size: 15px;\r\n}\r\n.fs18 {\r\n  font-size: 18px;\r\n}\r\n.fs21 {\r\n  font-size: 21px;\r\n}\r\n.fs24 {\r\n  font-size: 24px;\r\n}\r\n.fs30 {\r\n  font-size: 30px;\r\n}\r\n.fs36 {\r\n  font-size: 36px;\r\n}\r\n.fs42 {\r\n  font-size: 42px;\r\n}\r\n.fs48 {\r\n  font-size: 48px;\r\n}\r\n.fs64 {\r\n  font-size: 64px;\r\n}\r\n.fs128 {\r\n  font-size: 128px;\r\n}\r\n.m1 {\r\n  margin: 1px;\r\n}\r\n.ml1 {\r\n  margin-left: 1px;\r\n}\r\n.mr1 {\r\n  margin-right: 1px;\r\n}\r\n.mt1 {\r\n  margin-top: 1px;\r\n}\r\n.mb1 {\r\n  margin-bottom: 1px;\r\n}\r\n.mh1 {\r\n  margin-left: 1px;\r\n  margin-right: 1px;\r\n}\r\n.mv1 {\r\n  margin-top: 1px;\r\n  margin-bottom: 1px;\r\n}\r\n.m2 {\r\n  margin: 2px;\r\n}\r\n.ml2 {\r\n  margin-left: 2px;\r\n}\r\n.mr2 {\r\n  margin-right: 2px;\r\n}\r\n.mt2 {\r\n  margin-top: 2px;\r\n}\r\n.mb2 {\r\n  margin-bottom: 2px;\r\n}\r\n.mh2 {\r\n  margin-left: 2px;\r\n  margin-right: 2px;\r\n}\r\n.mv2 {\r\n  margin-top: 2px;\r\n  margin-bottom: 2px;\r\n}\r\n.m4 {\r\n  margin: 4px;\r\n}\r\n.ml4 {\r\n  margin-left: 4px;\r\n}\r\n.mr4 {\r\n  margin-right: 4px;\r\n}\r\n.mt4 {\r\n  margin-top: 4px;\r\n}\r\n.mb4 {\r\n  margin-bottom: 4px;\r\n}\r\n.mh4 {\r\n  margin-left: 4px;\r\n  margin-right: 4px;\r\n}\r\n.mv4 {\r\n  margin-top: 4px;\r\n  margin-bottom: 4px;\r\n}\r\n.m8 {\r\n  margin: 8px;\r\n}\r\n.ml8 {\r\n  margin-left: 8px;\r\n}\r\n.mr8 {\r\n  margin-right: 8px;\r\n}\r\n.mt8 {\r\n  margin-top: 8px;\r\n}\r\n.mb8 {\r\n  margin-bottom: 8px;\r\n}\r\n.mh8 {\r\n  margin-left: 8px;\r\n  margin-right: 8px;\r\n}\r\n.mv8 {\r\n  margin-top: 8px;\r\n  margin-bottom: 8px;\r\n}\r\n.m16 {\r\n  margin: 16px;\r\n}\r\n.ml16 {\r\n  margin-left: 16px;\r\n}\r\n.mr16 {\r\n  margin-right: 16px;\r\n}\r\n.mt16 {\r\n  margin-top: 16px;\r\n}\r\n.mb16 {\r\n  margin-bottom: 16px;\r\n}\r\n.mh16 {\r\n  margin-left: 16px;\r\n  margin-right: 16px;\r\n}\r\n.mv16 {\r\n  margin-top: 16px;\r\n  margin-bottom: 16px;\r\n}\r\n.m32 {\r\n  margin: 32px;\r\n}\r\n.ml32 {\r\n  margin-left: 32px;\r\n}\r\n.mr32 {\r\n  margin-right: 32px;\r\n}\r\n.mt32 {\r\n  margin-top: 32px;\r\n}\r\n.mb32 {\r\n  margin-bottom: 32px;\r\n}\r\n.mh32 {\r\n  margin-left: 32px;\r\n  margin-right: 32px;\r\n}\r\n.mv32 {\r\n  margin-top: 32px;\r\n  margin-bottom: 32px;\r\n}\r\n.m64 {\r\n  margin: 64px;\r\n}\r\n.ml64 {\r\n  margin-left: 64px;\r\n}\r\n.mr64 {\r\n  margin-right: 64px;\r\n}\r\n.mt64 {\r\n  margin-top: 64px;\r\n}\r\n.mb64 {\r\n  margin-bottom: 64px;\r\n}\r\n.mh64 {\r\n  margin-left: 64px;\r\n  margin-right: 64px;\r\n}\r\n.mv64 {\r\n  margin-top: 64px;\r\n  margin-bottom: 64px;\r\n}\r\n.m128 {\r\n  margin: 128px;\r\n}\r\n.ml128 {\r\n  margin-left: 128px;\r\n}\r\n.mr128 {\r\n  margin-right: 128px;\r\n}\r\n.mt128 {\r\n  margin-top: 128px;\r\n}\r\n.mb128 {\r\n  margin-bottom: 128px;\r\n}\r\n.mh128 {\r\n  margin-left: 128px;\r\n  margin-right: 128px;\r\n}\r\n.mv128 {\r\n  margin-top: 128px;\r\n  margin-bottom: 128px;\r\n}\r\n.p0 {\r\n  padding: 0;\r\n}\r\n.ph0 {\r\n  padding-left: 0;\r\n  padding-right: 0;\r\n}\r\n.pv0 {\r\n  padding-top: 0;\r\n  padding-bottom: 0;\r\n}\r\n.p1 {\r\n  padding: 1px;\r\n}\r\n.pl1 {\r\n  padding-left: 1px;\r\n}\r\n.pr1 {\r\n  padding-right: 1px;\r\n}\r\n.pt1 {\r\n  padding-top: 1px;\r\n}\r\n.pb1 {\r\n  padding-bottom: 1px;\r\n}\r\n.ph1 {\r\n  padding-left: 1px;\r\n  padding-right: 1px;\r\n}\r\n.pv1 {\r\n  padding-top: 1px;\r\n  padding-bottom: 1px;\r\n}\r\n.p2 {\r\n  padding: 2px;\r\n}\r\n.pl2 {\r\n  padding-left: 2px;\r\n}\r\n.pr2 {\r\n  padding-right: 2px;\r\n}\r\n.pt2 {\r\n  padding-top: 2px;\r\n}\r\n.pb2 {\r\n  padding-bottom: 2px;\r\n}\r\n.ph2 {\r\n  padding-left: 2px;\r\n  padding-right: 2px;\r\n}\r\n.pv2 {\r\n  padding-top: 2px;\r\n  padding-bottom: 2px;\r\n}\r\n.p4 {\r\n  padding: 4px;\r\n}\r\n.pl4 {\r\n  padding-left: 4px;\r\n}\r\n.pr4 {\r\n  padding-right: 4px;\r\n}\r\n.pt4 {\r\n  padding-top: 4px;\r\n}\r\n.pb4 {\r\n  padding-bottom: 4px;\r\n}\r\n.ph4 {\r\n  padding-left: 4px;\r\n  padding-right: 4px;\r\n}\r\n.pv4 {\r\n  padding-top: 4px;\r\n  padding-bottom: 4px;\r\n}\r\n.p8 {\r\n  padding: 8px;\r\n}\r\n.pl8 {\r\n  padding-left: 8px;\r\n}\r\n.pr8 {\r\n  padding-right: 8px;\r\n}\r\n.pt8 {\r\n  padding-top: 8px;\r\n}\r\n.pb8 {\r\n  padding-bottom: 8px;\r\n}\r\n.ph8 {\r\n  padding-left: 8px;\r\n  padding-right: 8px;\r\n}\r\n.pv8 {\r\n  padding-top: 8px;\r\n  padding-bottom: 8px;\r\n}\r\n.p16 {\r\n  padding: 16px;\r\n}\r\n.pl16 {\r\n  padding-left: 16px;\r\n}\r\n.pr16 {\r\n  padding-right: 16px;\r\n}\r\n.pt16 {\r\n  padding-top: 16px;\r\n}\r\n.pb16 {\r\n  padding-bottom: 16px;\r\n}\r\n.ph16 {\r\n  padding-left: 16px;\r\n  padding-right: 16px;\r\n}\r\n.pv16 {\r\n  padding-top: 16px;\r\n  padding-bottom: 16px;\r\n}\r\n.p32 {\r\n  padding: 32px;\r\n}\r\n.pl32 {\r\n  padding-left: 32px;\r\n}\r\n.pr32 {\r\n  padding-right: 32px;\r\n}\r\n.pt32 {\r\n  padding-top: 32px;\r\n}\r\n.pb32 {\r\n  padding-bottom: 32px;\r\n}\r\n.ph32 {\r\n  padding-left: 32px;\r\n  padding-right: 32px;\r\n}\r\n.pv32 {\r\n  padding-top: 32px;\r\n  padding-bottom: 32px;\r\n}\r\n.p64 {\r\n  padding: 64px;\r\n}\r\n.pl64 {\r\n  padding-left: 64px;\r\n}\r\n.pr64 {\r\n  padding-right: 64px;\r\n}\r\n.pt64 {\r\n  padding-top: 64px;\r\n}\r\n.pb64 {\r\n  padding-bottom: 64px;\r\n}\r\n.ph64 {\r\n  padding-left: 64px;\r\n  padding-right: 64px;\r\n}\r\n.pv64 {\r\n  padding-top: 64px;\r\n  padding-bottom: 64px;\r\n}\r\n.p128 {\r\n  padding: 128px;\r\n}\r\n.pl128 {\r\n  padding-left: 128px;\r\n}\r\n.pr128 {\r\n  padding-right: 128px;\r\n}\r\n.pt128 {\r\n  padding-top: 128px;\r\n}\r\n.pb128 {\r\n  padding-bottom: 128px;\r\n}\r\n.ph128 {\r\n  padding-left: 128px;\r\n  padding-right: 128px;\r\n}\r\n.pv128 {\r\n  padding-top: 128px;\r\n  padding-bottom: 128px;\r\n}\r\n.br1 {\r\n  border-radius: 1px;\r\n}\r\n.br2 {\r\n  border-radius: 2px;\r\n}\r\n.br3 {\r\n  border-radius: 3px;\r\n}\r\n.br4 {\r\n  border-radius: 4px;\r\n}\r\n.br5 {\r\n  border-radius: 5px;\r\n}\r\n.br6 {\r\n  border-radius: 6px;\r\n}\r\n.br7 {\r\n  border-radius: 7px;\r\n}\r\n.br8 {\r\n  border-radius: 8px;\r\n}\r\n.br9 {\r\n  border-radius: 9px;\r\n}\r\n.br10 {\r\n  border-radius: 10px;\r\n}\r\n.br11 {\r\n  border-radius: 11px;\r\n}\r\n.br12 {\r\n  border-radius: 12px;\r\n}\r\n.br13 {\r\n  border-radius: 13px;\r\n}\r\n.br14 {\r\n  border-radius: 14px;\r\n}\r\n.br15 {\r\n  border-radius: 15px;\r\n}\r\n.br16 {\r\n  border-radius: 16px;\r\n}\r\n.br50 {\r\n  border-radius: 50%;\r\n}\r\n.bw0 {\r\n  border-width: 0px;\r\n}\r\n.bw1 {\r\n  border-width: 1px;\r\n}\r\n.bw2 {\r\n  border-width: 2px;\r\n}\r\n.bw3 {\r\n  border-width: 3px;\r\n}\r\n.bw4 {\r\n  border-width: 4px;\r\n}\r\n.bw5 {\r\n  border-width: 5px;\r\n}\r\n.bw6 {\r\n  border-width: 6px;\r\n}\r\n.bw7 {\r\n  border-width: 7px;\r\n}\r\n.bw8 {\r\n  border-width: 8px;\r\n}\r\n.bw9 {\r\n  border-width: 9px;\r\n}\r\n.bw10 {\r\n  border-width: 10px;\r\n}\r\n.bw11 {\r\n  border-width: 11px;\r\n}\r\n.bw12 {\r\n  border-width: 12px;\r\n}\r\n.bw13 {\r\n  border-width: 13px;\r\n}\r\n.bw14 {\r\n  border-width: 14px;\r\n}\r\n.bw15 {\r\n  border-width: 15px;\r\n}\r\n.bw16 {\r\n  border-width: 16px;\r\n}\r\n.aliceblue {\r\n  color: #f0f8ff;\r\n}\r\n.Aliceblue {\r\n  background-color: #f0f8ff;\r\n}\r\n.hAliceblue {\r\n  background-color: #f0f8ff;\r\n}\r\n.hAliceblue:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hAliceblue:not(.disabled):active {\r\n  background-color: #dce4eb;\r\n}\r\n.antiquewhite {\r\n  color: #faebd7;\r\n}\r\n.Antiquewhite {\r\n  background-color: #faebd7;\r\n}\r\n.hAntiquewhite {\r\n  background-color: #faebd7;\r\n}\r\n.hAntiquewhite:not(.disabled):hover {\r\n  background-color: #ffffeb;\r\n}\r\n.hAntiquewhite:not(.disabled):active {\r\n  background-color: #e6d7c3;\r\n}\r\n.aqua {\r\n  color: #00ffff;\r\n}\r\n.Aqua {\r\n  background-color: #00ffff;\r\n}\r\n.hAqua {\r\n  background-color: #00ffff;\r\n}\r\n.hAqua:not(.disabled):hover {\r\n  background-color: #14ffff;\r\n}\r\n.hAqua:not(.disabled):active {\r\n  background-color: #00ebeb;\r\n}\r\n.aquamarine {\r\n  color: #7fffd4;\r\n}\r\n.Aquamarine {\r\n  background-color: #7fffd4;\r\n}\r\n.hAquamarine {\r\n  background-color: #7fffd4;\r\n}\r\n.hAquamarine:not(.disabled):hover {\r\n  background-color: #93ffe8;\r\n}\r\n.hAquamarine:not(.disabled):active {\r\n  background-color: #6bebc0;\r\n}\r\n.azure {\r\n  color: #f0ffff;\r\n}\r\n.Azure {\r\n  background-color: #f0ffff;\r\n}\r\n.hAzure {\r\n  background-color: #f0ffff;\r\n}\r\n.hAzure:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hAzure:not(.disabled):active {\r\n  background-color: #dcebeb;\r\n}\r\n.beige {\r\n  color: #f5f5dc;\r\n}\r\n.Beige {\r\n  background-color: #f5f5dc;\r\n}\r\n.hBeige {\r\n  background-color: #f5f5dc;\r\n}\r\n.hBeige:not(.disabled):hover {\r\n  background-color: #fffff0;\r\n}\r\n.hBeige:not(.disabled):active {\r\n  background-color: #e1e1c8;\r\n}\r\n.bisque {\r\n  color: #ffe4c4;\r\n}\r\n.Bisque {\r\n  background-color: #ffe4c4;\r\n}\r\n.hBisque {\r\n  background-color: #ffe4c4;\r\n}\r\n.hBisque:not(.disabled):hover {\r\n  background-color: #fff8d8;\r\n}\r\n.hBisque:not(.disabled):active {\r\n  background-color: #ebd0b0;\r\n}\r\n.black {\r\n  color: #000000;\r\n}\r\n.Black {\r\n  background-color: #000000;\r\n}\r\n.hBlack {\r\n  background-color: #000000;\r\n}\r\n.hBlack:not(.disabled):hover {\r\n  background-color: #141414;\r\n}\r\n.hBlack:not(.disabled):active {\r\n  background-color: #000000;\r\n}\r\n.blanchedalmond {\r\n  color: #ffebcd;\r\n}\r\n.Blanchedalmond {\r\n  background-color: #ffebcd;\r\n}\r\n.hBlanchedalmond {\r\n  background-color: #ffebcd;\r\n}\r\n.hBlanchedalmond:not(.disabled):hover {\r\n  background-color: #ffffe1;\r\n}\r\n.hBlanchedalmond:not(.disabled):active {\r\n  background-color: #ebd7b9;\r\n}\r\n.blue {\r\n  color: #0000ff;\r\n}\r\n.Blue {\r\n  background-color: #0000ff;\r\n}\r\n.hBlue {\r\n  background-color: #0000ff;\r\n}\r\n.hBlue:not(.disabled):hover {\r\n  background-color: #1414ff;\r\n}\r\n.hBlue:not(.disabled):active {\r\n  background-color: #0000eb;\r\n}\r\n.blueviolet {\r\n  color: #8a2be2;\r\n}\r\n.Blueviolet {\r\n  background-color: #8a2be2;\r\n}\r\n.hBlueviolet {\r\n  background-color: #8a2be2;\r\n}\r\n.hBlueviolet:not(.disabled):hover {\r\n  background-color: #9e3ff6;\r\n}\r\n.hBlueviolet:not(.disabled):active {\r\n  background-color: #7617ce;\r\n}\r\n.brown {\r\n  color: #a52a2a;\r\n}\r\n.Brown {\r\n  background-color: #a52a2a;\r\n}\r\n.hBrown {\r\n  background-color: #a52a2a;\r\n}\r\n.hBrown:not(.disabled):hover {\r\n  background-color: #b93e3e;\r\n}\r\n.hBrown:not(.disabled):active {\r\n  background-color: #911616;\r\n}\r\n.burlywood {\r\n  color: #deb887;\r\n}\r\n.Burlywood {\r\n  background-color: #deb887;\r\n}\r\n.hBurlywood {\r\n  background-color: #deb887;\r\n}\r\n.hBurlywood:not(.disabled):hover {\r\n  background-color: #f2cc9b;\r\n}\r\n.hBurlywood:not(.disabled):active {\r\n  background-color: #caa473;\r\n}\r\n.cadetblue {\r\n  color: #5f9ea0;\r\n}\r\n.Cadetblue {\r\n  background-color: #5f9ea0;\r\n}\r\n.hCadetblue {\r\n  background-color: #5f9ea0;\r\n}\r\n.hCadetblue:not(.disabled):hover {\r\n  background-color: #73b2b4;\r\n}\r\n.hCadetblue:not(.disabled):active {\r\n  background-color: #4b8a8c;\r\n}\r\n.chartreuse {\r\n  color: #7fff00;\r\n}\r\n.Chartreuse {\r\n  background-color: #7fff00;\r\n}\r\n.hChartreuse {\r\n  background-color: #7fff00;\r\n}\r\n.hChartreuse:not(.disabled):hover {\r\n  background-color: #93ff14;\r\n}\r\n.hChartreuse:not(.disabled):active {\r\n  background-color: #6beb00;\r\n}\r\n.chocolate {\r\n  color: #d2691e;\r\n}\r\n.Chocolate {\r\n  background-color: #d2691e;\r\n}\r\n.hChocolate {\r\n  background-color: #d2691e;\r\n}\r\n.hChocolate:not(.disabled):hover {\r\n  background-color: #e67d32;\r\n}\r\n.hChocolate:not(.disabled):active {\r\n  background-color: #be550a;\r\n}\r\n.coral {\r\n  color: #ff7f50;\r\n}\r\n.Coral {\r\n  background-color: #ff7f50;\r\n}\r\n.hCoral {\r\n  background-color: #ff7f50;\r\n}\r\n.hCoral:not(.disabled):hover {\r\n  background-color: #ff9364;\r\n}\r\n.hCoral:not(.disabled):active {\r\n  background-color: #eb6b3c;\r\n}\r\n.cornflowerblue {\r\n  color: #6495ed;\r\n}\r\n.Cornflowerblue {\r\n  background-color: #6495ed;\r\n}\r\n.hCornflowerblue {\r\n  background-color: #6495ed;\r\n}\r\n.hCornflowerblue:not(.disabled):hover {\r\n  background-color: #78a9ff;\r\n}\r\n.hCornflowerblue:not(.disabled):active {\r\n  background-color: #5081d9;\r\n}\r\n.cornsilk {\r\n  color: #fff8dc;\r\n}\r\n.Cornsilk {\r\n  background-color: #fff8dc;\r\n}\r\n.hCornsilk {\r\n  background-color: #fff8dc;\r\n}\r\n.hCornsilk:not(.disabled):hover {\r\n  background-color: #fffff0;\r\n}\r\n.hCornsilk:not(.disabled):active {\r\n  background-color: #ebe4c8;\r\n}\r\n.crimson {\r\n  color: #dc143c;\r\n}\r\n.Crimson {\r\n  background-color: #dc143c;\r\n}\r\n.hCrimson {\r\n  background-color: #dc143c;\r\n}\r\n.hCrimson:not(.disabled):hover {\r\n  background-color: #f02850;\r\n}\r\n.hCrimson:not(.disabled):active {\r\n  background-color: #c80028;\r\n}\r\n.cyan {\r\n  color: #00ffff;\r\n}\r\n.Cyan {\r\n  background-color: #00ffff;\r\n}\r\n.hCyan {\r\n  background-color: #00ffff;\r\n}\r\n.hCyan:not(.disabled):hover {\r\n  background-color: #14ffff;\r\n}\r\n.hCyan:not(.disabled):active {\r\n  background-color: #00ebeb;\r\n}\r\n.darkblue {\r\n  color: #00008b;\r\n}\r\n.Darkblue {\r\n  background-color: #00008b;\r\n}\r\n.hDarkblue {\r\n  background-color: #00008b;\r\n}\r\n.hDarkblue:not(.disabled):hover {\r\n  background-color: #14149f;\r\n}\r\n.hDarkblue:not(.disabled):active {\r\n  background-color: #000077;\r\n}\r\n.darkcyan {\r\n  color: #008b8b;\r\n}\r\n.Darkcyan {\r\n  background-color: #008b8b;\r\n}\r\n.hDarkcyan {\r\n  background-color: #008b8b;\r\n}\r\n.hDarkcyan:not(.disabled):hover {\r\n  background-color: #149f9f;\r\n}\r\n.hDarkcyan:not(.disabled):active {\r\n  background-color: #007777;\r\n}\r\n.darkgoldenrod {\r\n  color: #b8860b;\r\n}\r\n.Darkgoldenrod {\r\n  background-color: #b8860b;\r\n}\r\n.hDarkgoldenrod {\r\n  background-color: #b8860b;\r\n}\r\n.hDarkgoldenrod:not(.disabled):hover {\r\n  background-color: #cc9a1f;\r\n}\r\n.hDarkgoldenrod:not(.disabled):active {\r\n  background-color: #a47200;\r\n}\r\n.darkgray {\r\n  color: #a9a9a9;\r\n}\r\n.Darkgray {\r\n  background-color: #a9a9a9;\r\n}\r\n.hDarkgray {\r\n  background-color: #a9a9a9;\r\n}\r\n.hDarkgray:not(.disabled):hover {\r\n  background-color: #bdbdbd;\r\n}\r\n.hDarkgray:not(.disabled):active {\r\n  background-color: #959595;\r\n}\r\n.darkgreen {\r\n  color: #006400;\r\n}\r\n.Darkgreen {\r\n  background-color: #006400;\r\n}\r\n.hDarkgreen {\r\n  background-color: #006400;\r\n}\r\n.hDarkgreen:not(.disabled):hover {\r\n  background-color: #147814;\r\n}\r\n.hDarkgreen:not(.disabled):active {\r\n  background-color: #005000;\r\n}\r\n.darkkhaki {\r\n  color: #bdb76b;\r\n}\r\n.Darkkhaki {\r\n  background-color: #bdb76b;\r\n}\r\n.hDarkkhaki {\r\n  background-color: #bdb76b;\r\n}\r\n.hDarkkhaki:not(.disabled):hover {\r\n  background-color: #d1cb7f;\r\n}\r\n.hDarkkhaki:not(.disabled):active {\r\n  background-color: #a9a357;\r\n}\r\n.darkmagenta {\r\n  color: #8b008b;\r\n}\r\n.Darkmagenta {\r\n  background-color: #8b008b;\r\n}\r\n.hDarkmagenta {\r\n  background-color: #8b008b;\r\n}\r\n.hDarkmagenta:not(.disabled):hover {\r\n  background-color: #9f149f;\r\n}\r\n.hDarkmagenta:not(.disabled):active {\r\n  background-color: #770077;\r\n}\r\n.darkolivegreen {\r\n  color: #556b2f;\r\n}\r\n.Darkolivegreen {\r\n  background-color: #556b2f;\r\n}\r\n.hDarkolivegreen {\r\n  background-color: #556b2f;\r\n}\r\n.hDarkolivegreen:not(.disabled):hover {\r\n  background-color: #697f43;\r\n}\r\n.hDarkolivegreen:not(.disabled):active {\r\n  background-color: #41571b;\r\n}\r\n.darkorange {\r\n  color: #ff8c00;\r\n}\r\n.Darkorange {\r\n  background-color: #ff8c00;\r\n}\r\n.hDarkorange {\r\n  background-color: #ff8c00;\r\n}\r\n.hDarkorange:not(.disabled):hover {\r\n  background-color: #ffa014;\r\n}\r\n.hDarkorange:not(.disabled):active {\r\n  background-color: #eb7800;\r\n}\r\n.darkorchid {\r\n  color: #9932cc;\r\n}\r\n.Darkorchid {\r\n  background-color: #9932cc;\r\n}\r\n.hDarkorchid {\r\n  background-color: #9932cc;\r\n}\r\n.hDarkorchid:not(.disabled):hover {\r\n  background-color: #ad46e0;\r\n}\r\n.hDarkorchid:not(.disabled):active {\r\n  background-color: #851eb8;\r\n}\r\n.darkred {\r\n  color: #8b0000;\r\n}\r\n.Darkred {\r\n  background-color: #8b0000;\r\n}\r\n.hDarkred {\r\n  background-color: #8b0000;\r\n}\r\n.hDarkred:not(.disabled):hover {\r\n  background-color: #9f1414;\r\n}\r\n.hDarkred:not(.disabled):active {\r\n  background-color: #770000;\r\n}\r\n.darksalmon {\r\n  color: #e9967a;\r\n}\r\n.Darksalmon {\r\n  background-color: #e9967a;\r\n}\r\n.hDarksalmon {\r\n  background-color: #e9967a;\r\n}\r\n.hDarksalmon:not(.disabled):hover {\r\n  background-color: #fdaa8e;\r\n}\r\n.hDarksalmon:not(.disabled):active {\r\n  background-color: #d58266;\r\n}\r\n.darkseagreen {\r\n  color: #8fbc8f;\r\n}\r\n.Darkseagreen {\r\n  background-color: #8fbc8f;\r\n}\r\n.hDarkseagreen {\r\n  background-color: #8fbc8f;\r\n}\r\n.hDarkseagreen:not(.disabled):hover {\r\n  background-color: #a3d0a3;\r\n}\r\n.hDarkseagreen:not(.disabled):active {\r\n  background-color: #7ba87b;\r\n}\r\n.darkslateblue {\r\n  color: #483d8b;\r\n}\r\n.Darkslateblue {\r\n  background-color: #483d8b;\r\n}\r\n.hDarkslateblue {\r\n  background-color: #483d8b;\r\n}\r\n.hDarkslateblue:not(.disabled):hover {\r\n  background-color: #5c519f;\r\n}\r\n.hDarkslateblue:not(.disabled):active {\r\n  background-color: #342977;\r\n}\r\n.darkslategray {\r\n  color: #2f4f4f;\r\n}\r\n.Darkslategray {\r\n  background-color: #2f4f4f;\r\n}\r\n.hDarkslategray {\r\n  background-color: #2f4f4f;\r\n}\r\n.hDarkslategray:not(.disabled):hover {\r\n  background-color: #436363;\r\n}\r\n.hDarkslategray:not(.disabled):active {\r\n  background-color: #1b3b3b;\r\n}\r\n.darkturquoise {\r\n  color: #00ced1;\r\n}\r\n.Darkturquoise {\r\n  background-color: #00ced1;\r\n}\r\n.hDarkturquoise {\r\n  background-color: #00ced1;\r\n}\r\n.hDarkturquoise:not(.disabled):hover {\r\n  background-color: #14e2e5;\r\n}\r\n.hDarkturquoise:not(.disabled):active {\r\n  background-color: #00babd;\r\n}\r\n.darkviolet {\r\n  color: #9400d3;\r\n}\r\n.Darkviolet {\r\n  background-color: #9400d3;\r\n}\r\n.hDarkviolet {\r\n  background-color: #9400d3;\r\n}\r\n.hDarkviolet:not(.disabled):hover {\r\n  background-color: #a814e7;\r\n}\r\n.hDarkviolet:not(.disabled):active {\r\n  background-color: #8000bf;\r\n}\r\n.deeppink {\r\n  color: #ff1493;\r\n}\r\n.Deeppink {\r\n  background-color: #ff1493;\r\n}\r\n.hDeeppink {\r\n  background-color: #ff1493;\r\n}\r\n.hDeeppink:not(.disabled):hover {\r\n  background-color: #ff28a7;\r\n}\r\n.hDeeppink:not(.disabled):active {\r\n  background-color: #eb007f;\r\n}\r\n.deepskyblue {\r\n  color: #00bfff;\r\n}\r\n.Deepskyblue {\r\n  background-color: #00bfff;\r\n}\r\n.hDeepskyblue {\r\n  background-color: #00bfff;\r\n}\r\n.hDeepskyblue:not(.disabled):hover {\r\n  background-color: #14d3ff;\r\n}\r\n.hDeepskyblue:not(.disabled):active {\r\n  background-color: #00abeb;\r\n}\r\n.dimgray {\r\n  color: #696969;\r\n}\r\n.Dimgray {\r\n  background-color: #696969;\r\n}\r\n.hDimgray {\r\n  background-color: #696969;\r\n}\r\n.hDimgray:not(.disabled):hover {\r\n  background-color: #7d7d7d;\r\n}\r\n.hDimgray:not(.disabled):active {\r\n  background-color: #555555;\r\n}\r\n.dodgerblue {\r\n  color: #1e90ff;\r\n}\r\n.Dodgerblue {\r\n  background-color: #1e90ff;\r\n}\r\n.hDodgerblue {\r\n  background-color: #1e90ff;\r\n}\r\n.hDodgerblue:not(.disabled):hover {\r\n  background-color: #32a4ff;\r\n}\r\n.hDodgerblue:not(.disabled):active {\r\n  background-color: #0a7ceb;\r\n}\r\n.firebrick {\r\n  color: #b22222;\r\n}\r\n.Firebrick {\r\n  background-color: #b22222;\r\n}\r\n.hFirebrick {\r\n  background-color: #b22222;\r\n}\r\n.hFirebrick:not(.disabled):hover {\r\n  background-color: #c63636;\r\n}\r\n.hFirebrick:not(.disabled):active {\r\n  background-color: #9e0e0e;\r\n}\r\n.floralwhite {\r\n  color: #fffaf0;\r\n}\r\n.Floralwhite {\r\n  background-color: #fffaf0;\r\n}\r\n.hFloralwhite {\r\n  background-color: #fffaf0;\r\n}\r\n.hFloralwhite:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hFloralwhite:not(.disabled):active {\r\n  background-color: #ebe6dc;\r\n}\r\n.forestgreen {\r\n  color: #228b22;\r\n}\r\n.Forestgreen {\r\n  background-color: #228b22;\r\n}\r\n.hForestgreen {\r\n  background-color: #228b22;\r\n}\r\n.hForestgreen:not(.disabled):hover {\r\n  background-color: #369f36;\r\n}\r\n.hForestgreen:not(.disabled):active {\r\n  background-color: #0e770e;\r\n}\r\n.fuchsia {\r\n  color: #ff00ff;\r\n}\r\n.Fuchsia {\r\n  background-color: #ff00ff;\r\n}\r\n.hFuchsia {\r\n  background-color: #ff00ff;\r\n}\r\n.hFuchsia:not(.disabled):hover {\r\n  background-color: #ff14ff;\r\n}\r\n.hFuchsia:not(.disabled):active {\r\n  background-color: #eb00eb;\r\n}\r\n.gainsboro {\r\n  color: #dcdcdc;\r\n}\r\n.Gainsboro {\r\n  background-color: #dcdcdc;\r\n}\r\n.hGainsboro {\r\n  background-color: #dcdcdc;\r\n}\r\n.hGainsboro:not(.disabled):hover {\r\n  background-color: #f0f0f0;\r\n}\r\n.hGainsboro:not(.disabled):active {\r\n  background-color: #c8c8c8;\r\n}\r\n.ghostwhite {\r\n  color: #f8f8ff;\r\n}\r\n.Ghostwhite {\r\n  background-color: #f8f8ff;\r\n}\r\n.hGhostwhite {\r\n  background-color: #f8f8ff;\r\n}\r\n.hGhostwhite:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hGhostwhite:not(.disabled):active {\r\n  background-color: #e4e4eb;\r\n}\r\n.gold {\r\n  color: #ffd700;\r\n}\r\n.Gold {\r\n  background-color: #ffd700;\r\n}\r\n.hGold {\r\n  background-color: #ffd700;\r\n}\r\n.hGold:not(.disabled):hover {\r\n  background-color: #ffeb14;\r\n}\r\n.hGold:not(.disabled):active {\r\n  background-color: #ebc300;\r\n}\r\n.goldenrod {\r\n  color: #daa520;\r\n}\r\n.Goldenrod {\r\n  background-color: #daa520;\r\n}\r\n.hGoldenrod {\r\n  background-color: #daa520;\r\n}\r\n.hGoldenrod:not(.disabled):hover {\r\n  background-color: #eeb934;\r\n}\r\n.hGoldenrod:not(.disabled):active {\r\n  background-color: #c6910c;\r\n}\r\n.gray {\r\n  color: #808080;\r\n}\r\n.Gray {\r\n  background-color: #808080;\r\n}\r\n.hGray {\r\n  background-color: #808080;\r\n}\r\n.hGray:not(.disabled):hover {\r\n  background-color: #949494;\r\n}\r\n.hGray:not(.disabled):active {\r\n  background-color: #6c6c6c;\r\n}\r\n.green {\r\n  color: #008000;\r\n}\r\n.Green {\r\n  background-color: #008000;\r\n}\r\n.hGreen {\r\n  background-color: #008000;\r\n}\r\n.hGreen:not(.disabled):hover {\r\n  background-color: #149414;\r\n}\r\n.hGreen:not(.disabled):active {\r\n  background-color: #006c00;\r\n}\r\n.greenyellow {\r\n  color: #adff2f;\r\n}\r\n.Greenyellow {\r\n  background-color: #adff2f;\r\n}\r\n.hGreenyellow {\r\n  background-color: #adff2f;\r\n}\r\n.hGreenyellow:not(.disabled):hover {\r\n  background-color: #c1ff43;\r\n}\r\n.hGreenyellow:not(.disabled):active {\r\n  background-color: #99eb1b;\r\n}\r\n.honeydew {\r\n  color: #f0fff0;\r\n}\r\n.Honeydew {\r\n  background-color: #f0fff0;\r\n}\r\n.hHoneydew {\r\n  background-color: #f0fff0;\r\n}\r\n.hHoneydew:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hHoneydew:not(.disabled):active {\r\n  background-color: #dcebdc;\r\n}\r\n.hotpink {\r\n  color: #ff69b4;\r\n}\r\n.Hotpink {\r\n  background-color: #ff69b4;\r\n}\r\n.hHotpink {\r\n  background-color: #ff69b4;\r\n}\r\n.hHotpink:not(.disabled):hover {\r\n  background-color: #ff7dc8;\r\n}\r\n.hHotpink:not(.disabled):active {\r\n  background-color: #eb55a0;\r\n}\r\n.indianred  {\r\n  color: #cd5c5c;\r\n}\r\n.Indianred  {\r\n  background-color: #cd5c5c;\r\n}\r\n.hIndianred  {\r\n  background-color: #cd5c5c;\r\n}\r\n.hIndianred :not(.disabled):hover {\r\n  background-color: #e17070;\r\n}\r\n.hIndianred :not(.disabled):active {\r\n  background-color: #b94848;\r\n}\r\n.indigo {\r\n  color: #4b0082;\r\n}\r\n.Indigo {\r\n  background-color: #4b0082;\r\n}\r\n.hIndigo {\r\n  background-color: #4b0082;\r\n}\r\n.hIndigo:not(.disabled):hover {\r\n  background-color: #5f1496;\r\n}\r\n.hIndigo:not(.disabled):active {\r\n  background-color: #37006e;\r\n}\r\n.ivory {\r\n  color: #fffff0;\r\n}\r\n.Ivory {\r\n  background-color: #fffff0;\r\n}\r\n.hIvory {\r\n  background-color: #fffff0;\r\n}\r\n.hIvory:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hIvory:not(.disabled):active {\r\n  background-color: #ebebdc;\r\n}\r\n.khaki {\r\n  color: #f0e68c;\r\n}\r\n.Khaki {\r\n  background-color: #f0e68c;\r\n}\r\n.hKhaki {\r\n  background-color: #f0e68c;\r\n}\r\n.hKhaki:not(.disabled):hover {\r\n  background-color: #fffaa0;\r\n}\r\n.hKhaki:not(.disabled):active {\r\n  background-color: #dcd278;\r\n}\r\n.lavender {\r\n  color: #e6e6fa;\r\n}\r\n.Lavender {\r\n  background-color: #e6e6fa;\r\n}\r\n.hLavender {\r\n  background-color: #e6e6fa;\r\n}\r\n.hLavender:not(.disabled):hover {\r\n  background-color: #fafaff;\r\n}\r\n.hLavender:not(.disabled):active {\r\n  background-color: #d2d2e6;\r\n}\r\n.lavenderblush {\r\n  color: #fff0f5;\r\n}\r\n.Lavenderblush {\r\n  background-color: #fff0f5;\r\n}\r\n.hLavenderblush {\r\n  background-color: #fff0f5;\r\n}\r\n.hLavenderblush:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hLavenderblush:not(.disabled):active {\r\n  background-color: #ebdce1;\r\n}\r\n.lawngreen {\r\n  color: #7cfc00;\r\n}\r\n.Lawngreen {\r\n  background-color: #7cfc00;\r\n}\r\n.hLawngreen {\r\n  background-color: #7cfc00;\r\n}\r\n.hLawngreen:not(.disabled):hover {\r\n  background-color: #90ff14;\r\n}\r\n.hLawngreen:not(.disabled):active {\r\n  background-color: #68e800;\r\n}\r\n.lemonchiffon {\r\n  color: #fffacd;\r\n}\r\n.Lemonchiffon {\r\n  background-color: #fffacd;\r\n}\r\n.hLemonchiffon {\r\n  background-color: #fffacd;\r\n}\r\n.hLemonchiffon:not(.disabled):hover {\r\n  background-color: #ffffe1;\r\n}\r\n.hLemonchiffon:not(.disabled):active {\r\n  background-color: #ebe6b9;\r\n}\r\n.lightblue {\r\n  color: #add8e6;\r\n}\r\n.Lightblue {\r\n  background-color: #add8e6;\r\n}\r\n.hLightblue {\r\n  background-color: #add8e6;\r\n}\r\n.hLightblue:not(.disabled):hover {\r\n  background-color: #c1ecfa;\r\n}\r\n.hLightblue:not(.disabled):active {\r\n  background-color: #99c4d2;\r\n}\r\n.lightcoral {\r\n  color: #f08080;\r\n}\r\n.Lightcoral {\r\n  background-color: #f08080;\r\n}\r\n.hLightcoral {\r\n  background-color: #f08080;\r\n}\r\n.hLightcoral:not(.disabled):hover {\r\n  background-color: #ff9494;\r\n}\r\n.hLightcoral:not(.disabled):active {\r\n  background-color: #dc6c6c;\r\n}\r\n.lightcyan {\r\n  color: #e0ffff;\r\n}\r\n.Lightcyan {\r\n  background-color: #e0ffff;\r\n}\r\n.hLightcyan {\r\n  background-color: #e0ffff;\r\n}\r\n.hLightcyan:not(.disabled):hover {\r\n  background-color: #f4ffff;\r\n}\r\n.hLightcyan:not(.disabled):active {\r\n  background-color: #ccebeb;\r\n}\r\n.lightgoldenrodyellow {\r\n  color: #fafad2;\r\n}\r\n.Lightgoldenrodyellow {\r\n  background-color: #fafad2;\r\n}\r\n.hLightgoldenrodyellow {\r\n  background-color: #fafad2;\r\n}\r\n.hLightgoldenrodyellow:not(.disabled):hover {\r\n  background-color: #ffffe6;\r\n}\r\n.hLightgoldenrodyellow:not(.disabled):active {\r\n  background-color: #e6e6be;\r\n}\r\n.lightgray {\r\n  color: #d3d3d3;\r\n}\r\n.Lightgray {\r\n  background-color: #d3d3d3;\r\n}\r\n.hLightgray {\r\n  background-color: #d3d3d3;\r\n}\r\n.hLightgray:not(.disabled):hover {\r\n  background-color: #e7e7e7;\r\n}\r\n.hLightgray:not(.disabled):active {\r\n  background-color: #bfbfbf;\r\n}\r\n.lightgrey {\r\n  color: #d3d3d3;\r\n}\r\n.Lightgrey {\r\n  background-color: #d3d3d3;\r\n}\r\n.hLightgrey {\r\n  background-color: #d3d3d3;\r\n}\r\n.hLightgrey:not(.disabled):hover {\r\n  background-color: #e7e7e7;\r\n}\r\n.hLightgrey:not(.disabled):active {\r\n  background-color: #bfbfbf;\r\n}\r\n.lightgreen {\r\n  color: #90ee90;\r\n}\r\n.Lightgreen {\r\n  background-color: #90ee90;\r\n}\r\n.hLightgreen {\r\n  background-color: #90ee90;\r\n}\r\n.hLightgreen:not(.disabled):hover {\r\n  background-color: #a4ffa4;\r\n}\r\n.hLightgreen:not(.disabled):active {\r\n  background-color: #7cda7c;\r\n}\r\n.lightpink {\r\n  color: #ffb6c1;\r\n}\r\n.Lightpink {\r\n  background-color: #ffb6c1;\r\n}\r\n.hLightpink {\r\n  background-color: #ffb6c1;\r\n}\r\n.hLightpink:not(.disabled):hover {\r\n  background-color: #ffcad5;\r\n}\r\n.hLightpink:not(.disabled):active {\r\n  background-color: #eba2ad;\r\n}\r\n.lightsalmon {\r\n  color: #ffa07a;\r\n}\r\n.Lightsalmon {\r\n  background-color: #ffa07a;\r\n}\r\n.hLightsalmon {\r\n  background-color: #ffa07a;\r\n}\r\n.hLightsalmon:not(.disabled):hover {\r\n  background-color: #ffb48e;\r\n}\r\n.hLightsalmon:not(.disabled):active {\r\n  background-color: #eb8c66;\r\n}\r\n.lightseagreen {\r\n  color: #20b2aa;\r\n}\r\n.Lightseagreen {\r\n  background-color: #20b2aa;\r\n}\r\n.hLightseagreen {\r\n  background-color: #20b2aa;\r\n}\r\n.hLightseagreen:not(.disabled):hover {\r\n  background-color: #34c6be;\r\n}\r\n.hLightseagreen:not(.disabled):active {\r\n  background-color: #0c9e96;\r\n}\r\n.lightskyblue {\r\n  color: #87cefa;\r\n}\r\n.Lightskyblue {\r\n  background-color: #87cefa;\r\n}\r\n.hLightskyblue {\r\n  background-color: #87cefa;\r\n}\r\n.hLightskyblue:not(.disabled):hover {\r\n  background-color: #9be2ff;\r\n}\r\n.hLightskyblue:not(.disabled):active {\r\n  background-color: #73bae6;\r\n}\r\n.lightslategray {\r\n  color: #778899;\r\n}\r\n.Lightslategray {\r\n  background-color: #778899;\r\n}\r\n.hLightslategray {\r\n  background-color: #778899;\r\n}\r\n.hLightslategray:not(.disabled):hover {\r\n  background-color: #8b9cad;\r\n}\r\n.hLightslategray:not(.disabled):active {\r\n  background-color: #637485;\r\n}\r\n.lightsteelblue {\r\n  color: #b0c4de;\r\n}\r\n.Lightsteelblue {\r\n  background-color: #b0c4de;\r\n}\r\n.hLightsteelblue {\r\n  background-color: #b0c4de;\r\n}\r\n.hLightsteelblue:not(.disabled):hover {\r\n  background-color: #c4d8f2;\r\n}\r\n.hLightsteelblue:not(.disabled):active {\r\n  background-color: #9cb0ca;\r\n}\r\n.lightyellow {\r\n  color: #ffffe0;\r\n}\r\n.Lightyellow {\r\n  background-color: #ffffe0;\r\n}\r\n.hLightyellow {\r\n  background-color: #ffffe0;\r\n}\r\n.hLightyellow:not(.disabled):hover {\r\n  background-color: #fffff4;\r\n}\r\n.hLightyellow:not(.disabled):active {\r\n  background-color: #ebebcc;\r\n}\r\n.lime {\r\n  color: #00ff00;\r\n}\r\n.Lime {\r\n  background-color: #00ff00;\r\n}\r\n.hLime {\r\n  background-color: #00ff00;\r\n}\r\n.hLime:not(.disabled):hover {\r\n  background-color: #14ff14;\r\n}\r\n.hLime:not(.disabled):active {\r\n  background-color: #00eb00;\r\n}\r\n.limegreen {\r\n  color: #32cd32;\r\n}\r\n.Limegreen {\r\n  background-color: #32cd32;\r\n}\r\n.hLimegreen {\r\n  background-color: #32cd32;\r\n}\r\n.hLimegreen:not(.disabled):hover {\r\n  background-color: #46e146;\r\n}\r\n.hLimegreen:not(.disabled):active {\r\n  background-color: #1eb91e;\r\n}\r\n.linen {\r\n  color: #faf0e6;\r\n}\r\n.Linen {\r\n  background-color: #faf0e6;\r\n}\r\n.hLinen {\r\n  background-color: #faf0e6;\r\n}\r\n.hLinen:not(.disabled):hover {\r\n  background-color: #fffffa;\r\n}\r\n.hLinen:not(.disabled):active {\r\n  background-color: #e6dcd2;\r\n}\r\n.magenta {\r\n  color: #ff00ff;\r\n}\r\n.Magenta {\r\n  background-color: #ff00ff;\r\n}\r\n.hMagenta {\r\n  background-color: #ff00ff;\r\n}\r\n.hMagenta:not(.disabled):hover {\r\n  background-color: #ff14ff;\r\n}\r\n.hMagenta:not(.disabled):active {\r\n  background-color: #eb00eb;\r\n}\r\n.maroon {\r\n  color: #800000;\r\n}\r\n.Maroon {\r\n  background-color: #800000;\r\n}\r\n.hMaroon {\r\n  background-color: #800000;\r\n}\r\n.hMaroon:not(.disabled):hover {\r\n  background-color: #941414;\r\n}\r\n.hMaroon:not(.disabled):active {\r\n  background-color: #6c0000;\r\n}\r\n.mediumaquamarine {\r\n  color: #66cdaa;\r\n}\r\n.Mediumaquamarine {\r\n  background-color: #66cdaa;\r\n}\r\n.hMediumaquamarine {\r\n  background-color: #66cdaa;\r\n}\r\n.hMediumaquamarine:not(.disabled):hover {\r\n  background-color: #7ae1be;\r\n}\r\n.hMediumaquamarine:not(.disabled):active {\r\n  background-color: #52b996;\r\n}\r\n.mediumblue {\r\n  color: #0000cd;\r\n}\r\n.Mediumblue {\r\n  background-color: #0000cd;\r\n}\r\n.hMediumblue {\r\n  background-color: #0000cd;\r\n}\r\n.hMediumblue:not(.disabled):hover {\r\n  background-color: #1414e1;\r\n}\r\n.hMediumblue:not(.disabled):active {\r\n  background-color: #0000b9;\r\n}\r\n.mediumorchid {\r\n  color: #ba55d3;\r\n}\r\n.Mediumorchid {\r\n  background-color: #ba55d3;\r\n}\r\n.hMediumorchid {\r\n  background-color: #ba55d3;\r\n}\r\n.hMediumorchid:not(.disabled):hover {\r\n  background-color: #ce69e7;\r\n}\r\n.hMediumorchid:not(.disabled):active {\r\n  background-color: #a641bf;\r\n}\r\n.mediumpurple {\r\n  color: #9370d8;\r\n}\r\n.Mediumpurple {\r\n  background-color: #9370d8;\r\n}\r\n.hMediumpurple {\r\n  background-color: #9370d8;\r\n}\r\n.hMediumpurple:not(.disabled):hover {\r\n  background-color: #a784ec;\r\n}\r\n.hMediumpurple:not(.disabled):active {\r\n  background-color: #7f5cc4;\r\n}\r\n.mediumseagreen {\r\n  color: #3cb371;\r\n}\r\n.Mediumseagreen {\r\n  background-color: #3cb371;\r\n}\r\n.hMediumseagreen {\r\n  background-color: #3cb371;\r\n}\r\n.hMediumseagreen:not(.disabled):hover {\r\n  background-color: #50c785;\r\n}\r\n.hMediumseagreen:not(.disabled):active {\r\n  background-color: #289f5d;\r\n}\r\n.mediumslateblue {\r\n  color: #7b68ee;\r\n}\r\n.Mediumslateblue {\r\n  background-color: #7b68ee;\r\n}\r\n.hMediumslateblue {\r\n  background-color: #7b68ee;\r\n}\r\n.hMediumslateblue:not(.disabled):hover {\r\n  background-color: #8f7cff;\r\n}\r\n.hMediumslateblue:not(.disabled):active {\r\n  background-color: #6754da;\r\n}\r\n.mediumspringgreen {\r\n  color: #00fa9a;\r\n}\r\n.Mediumspringgreen {\r\n  background-color: #00fa9a;\r\n}\r\n.hMediumspringgreen {\r\n  background-color: #00fa9a;\r\n}\r\n.hMediumspringgreen:not(.disabled):hover {\r\n  background-color: #14ffae;\r\n}\r\n.hMediumspringgreen:not(.disabled):active {\r\n  background-color: #00e686;\r\n}\r\n.mediumturquoise {\r\n  color: #48d1cc;\r\n}\r\n.Mediumturquoise {\r\n  background-color: #48d1cc;\r\n}\r\n.hMediumturquoise {\r\n  background-color: #48d1cc;\r\n}\r\n.hMediumturquoise:not(.disabled):hover {\r\n  background-color: #5ce5e0;\r\n}\r\n.hMediumturquoise:not(.disabled):active {\r\n  background-color: #34bdb8;\r\n}\r\n.mediumvioletred {\r\n  color: #c71585;\r\n}\r\n.Mediumvioletred {\r\n  background-color: #c71585;\r\n}\r\n.hMediumvioletred {\r\n  background-color: #c71585;\r\n}\r\n.hMediumvioletred:not(.disabled):hover {\r\n  background-color: #db2999;\r\n}\r\n.hMediumvioletred:not(.disabled):active {\r\n  background-color: #b30171;\r\n}\r\n.midnightblue {\r\n  color: #191970;\r\n}\r\n.Midnightblue {\r\n  background-color: #191970;\r\n}\r\n.hMidnightblue {\r\n  background-color: #191970;\r\n}\r\n.hMidnightblue:not(.disabled):hover {\r\n  background-color: #2d2d84;\r\n}\r\n.hMidnightblue:not(.disabled):active {\r\n  background-color: #05055c;\r\n}\r\n.mintcream {\r\n  color: #f5fffa;\r\n}\r\n.Mintcream {\r\n  background-color: #f5fffa;\r\n}\r\n.hMintcream {\r\n  background-color: #f5fffa;\r\n}\r\n.hMintcream:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hMintcream:not(.disabled):active {\r\n  background-color: #e1ebe6;\r\n}\r\n.mistyrose {\r\n  color: #ffe4e1;\r\n}\r\n.Mistyrose {\r\n  background-color: #ffe4e1;\r\n}\r\n.hMistyrose {\r\n  background-color: #ffe4e1;\r\n}\r\n.hMistyrose:not(.disabled):hover {\r\n  background-color: #fff8f5;\r\n}\r\n.hMistyrose:not(.disabled):active {\r\n  background-color: #ebd0cd;\r\n}\r\n.moccasin {\r\n  color: #ffe4b5;\r\n}\r\n.Moccasin {\r\n  background-color: #ffe4b5;\r\n}\r\n.hMoccasin {\r\n  background-color: #ffe4b5;\r\n}\r\n.hMoccasin:not(.disabled):hover {\r\n  background-color: #fff8c9;\r\n}\r\n.hMoccasin:not(.disabled):active {\r\n  background-color: #ebd0a1;\r\n}\r\n.navajowhite {\r\n  color: #ffdead;\r\n}\r\n.Navajowhite {\r\n  background-color: #ffdead;\r\n}\r\n.hNavajowhite {\r\n  background-color: #ffdead;\r\n}\r\n.hNavajowhite:not(.disabled):hover {\r\n  background-color: #fff2c1;\r\n}\r\n.hNavajowhite:not(.disabled):active {\r\n  background-color: #ebca99;\r\n}\r\n.navy {\r\n  color: #000080;\r\n}\r\n.Navy {\r\n  background-color: #000080;\r\n}\r\n.hNavy {\r\n  background-color: #000080;\r\n}\r\n.hNavy:not(.disabled):hover {\r\n  background-color: #141494;\r\n}\r\n.hNavy:not(.disabled):active {\r\n  background-color: #00006c;\r\n}\r\n.oldlace {\r\n  color: #fdf5e6;\r\n}\r\n.Oldlace {\r\n  background-color: #fdf5e6;\r\n}\r\n.hOldlace {\r\n  background-color: #fdf5e6;\r\n}\r\n.hOldlace:not(.disabled):hover {\r\n  background-color: #fffffa;\r\n}\r\n.hOldlace:not(.disabled):active {\r\n  background-color: #e9e1d2;\r\n}\r\n.olive {\r\n  color: #808000;\r\n}\r\n.Olive {\r\n  background-color: #808000;\r\n}\r\n.hOlive {\r\n  background-color: #808000;\r\n}\r\n.hOlive:not(.disabled):hover {\r\n  background-color: #949414;\r\n}\r\n.hOlive:not(.disabled):active {\r\n  background-color: #6c6c00;\r\n}\r\n.olivedrab {\r\n  color: #6b8e23;\r\n}\r\n.Olivedrab {\r\n  background-color: #6b8e23;\r\n}\r\n.hOlivedrab {\r\n  background-color: #6b8e23;\r\n}\r\n.hOlivedrab:not(.disabled):hover {\r\n  background-color: #7fa237;\r\n}\r\n.hOlivedrab:not(.disabled):active {\r\n  background-color: #577a0f;\r\n}\r\n.orange {\r\n  color: #ffa500;\r\n}\r\n.Orange {\r\n  background-color: #ffa500;\r\n}\r\n.hOrange {\r\n  background-color: #ffa500;\r\n}\r\n.hOrange:not(.disabled):hover {\r\n  background-color: #ffb914;\r\n}\r\n.hOrange:not(.disabled):active {\r\n  background-color: #eb9100;\r\n}\r\n.orangered {\r\n  color: #ff4500;\r\n}\r\n.Orangered {\r\n  background-color: #ff4500;\r\n}\r\n.hOrangered {\r\n  background-color: #ff4500;\r\n}\r\n.hOrangered:not(.disabled):hover {\r\n  background-color: #ff5914;\r\n}\r\n.hOrangered:not(.disabled):active {\r\n  background-color: #eb3100;\r\n}\r\n.orchid {\r\n  color: #da70d6;\r\n}\r\n.Orchid {\r\n  background-color: #da70d6;\r\n}\r\n.hOrchid {\r\n  background-color: #da70d6;\r\n}\r\n.hOrchid:not(.disabled):hover {\r\n  background-color: #ee84ea;\r\n}\r\n.hOrchid:not(.disabled):active {\r\n  background-color: #c65cc2;\r\n}\r\n.palegoldenrod {\r\n  color: #eee8aa;\r\n}\r\n.Palegoldenrod {\r\n  background-color: #eee8aa;\r\n}\r\n.hPalegoldenrod {\r\n  background-color: #eee8aa;\r\n}\r\n.hPalegoldenrod:not(.disabled):hover {\r\n  background-color: #fffcbe;\r\n}\r\n.hPalegoldenrod:not(.disabled):active {\r\n  background-color: #dad496;\r\n}\r\n.palegreen {\r\n  color: #98fb98;\r\n}\r\n.Palegreen {\r\n  background-color: #98fb98;\r\n}\r\n.hPalegreen {\r\n  background-color: #98fb98;\r\n}\r\n.hPalegreen:not(.disabled):hover {\r\n  background-color: #acffac;\r\n}\r\n.hPalegreen:not(.disabled):active {\r\n  background-color: #84e784;\r\n}\r\n.paleturquoise {\r\n  color: #afeeee;\r\n}\r\n.Paleturquoise {\r\n  background-color: #afeeee;\r\n}\r\n.hPaleturquoise {\r\n  background-color: #afeeee;\r\n}\r\n.hPaleturquoise:not(.disabled):hover {\r\n  background-color: #c3ffff;\r\n}\r\n.hPaleturquoise:not(.disabled):active {\r\n  background-color: #9bdada;\r\n}\r\n.palevioletred {\r\n  color: #d87093;\r\n}\r\n.Palevioletred {\r\n  background-color: #d87093;\r\n}\r\n.hPalevioletred {\r\n  background-color: #d87093;\r\n}\r\n.hPalevioletred:not(.disabled):hover {\r\n  background-color: #ec84a7;\r\n}\r\n.hPalevioletred:not(.disabled):active {\r\n  background-color: #c45c7f;\r\n}\r\n.papayawhip {\r\n  color: #ffefd5;\r\n}\r\n.Papayawhip {\r\n  background-color: #ffefd5;\r\n}\r\n.hPapayawhip {\r\n  background-color: #ffefd5;\r\n}\r\n.hPapayawhip:not(.disabled):hover {\r\n  background-color: #ffffe9;\r\n}\r\n.hPapayawhip:not(.disabled):active {\r\n  background-color: #ebdbc1;\r\n}\r\n.peachpuff {\r\n  color: #ffdab9;\r\n}\r\n.Peachpuff {\r\n  background-color: #ffdab9;\r\n}\r\n.hPeachpuff {\r\n  background-color: #ffdab9;\r\n}\r\n.hPeachpuff:not(.disabled):hover {\r\n  background-color: #ffeecd;\r\n}\r\n.hPeachpuff:not(.disabled):active {\r\n  background-color: #ebc6a5;\r\n}\r\n.peru {\r\n  color: #cd853f;\r\n}\r\n.Peru {\r\n  background-color: #cd853f;\r\n}\r\n.hPeru {\r\n  background-color: #cd853f;\r\n}\r\n.hPeru:not(.disabled):hover {\r\n  background-color: #e19953;\r\n}\r\n.hPeru:not(.disabled):active {\r\n  background-color: #b9712b;\r\n}\r\n.pink {\r\n  color: #ffc0cb;\r\n}\r\n.Pink {\r\n  background-color: #ffc0cb;\r\n}\r\n.hPink {\r\n  background-color: #ffc0cb;\r\n}\r\n.hPink:not(.disabled):hover {\r\n  background-color: #ffd4df;\r\n}\r\n.hPink:not(.disabled):active {\r\n  background-color: #ebacb7;\r\n}\r\n.plum {\r\n  color: #dda0dd;\r\n}\r\n.Plum {\r\n  background-color: #dda0dd;\r\n}\r\n.hPlum {\r\n  background-color: #dda0dd;\r\n}\r\n.hPlum:not(.disabled):hover {\r\n  background-color: #f1b4f1;\r\n}\r\n.hPlum:not(.disabled):active {\r\n  background-color: #c98cc9;\r\n}\r\n.powderblue {\r\n  color: #b0e0e6;\r\n}\r\n.Powderblue {\r\n  background-color: #b0e0e6;\r\n}\r\n.hPowderblue {\r\n  background-color: #b0e0e6;\r\n}\r\n.hPowderblue:not(.disabled):hover {\r\n  background-color: #c4f4fa;\r\n}\r\n.hPowderblue:not(.disabled):active {\r\n  background-color: #9cccd2;\r\n}\r\n.purple {\r\n  color: #800080;\r\n}\r\n.Purple {\r\n  background-color: #800080;\r\n}\r\n.hPurple {\r\n  background-color: #800080;\r\n}\r\n.hPurple:not(.disabled):hover {\r\n  background-color: #941494;\r\n}\r\n.hPurple:not(.disabled):active {\r\n  background-color: #6c006c;\r\n}\r\n.red {\r\n  color: #ff0000;\r\n}\r\n.Red {\r\n  background-color: #ff0000;\r\n}\r\n.hRed {\r\n  background-color: #ff0000;\r\n}\r\n.hRed:not(.disabled):hover {\r\n  background-color: #ff1414;\r\n}\r\n.hRed:not(.disabled):active {\r\n  background-color: #eb0000;\r\n}\r\n.rosybrown {\r\n  color: #bc8f8f;\r\n}\r\n.Rosybrown {\r\n  background-color: #bc8f8f;\r\n}\r\n.hRosybrown {\r\n  background-color: #bc8f8f;\r\n}\r\n.hRosybrown:not(.disabled):hover {\r\n  background-color: #d0a3a3;\r\n}\r\n.hRosybrown:not(.disabled):active {\r\n  background-color: #a87b7b;\r\n}\r\n.royalblue {\r\n  color: #4169e1;\r\n}\r\n.Royalblue {\r\n  background-color: #4169e1;\r\n}\r\n.hRoyalblue {\r\n  background-color: #4169e1;\r\n}\r\n.hRoyalblue:not(.disabled):hover {\r\n  background-color: #557df5;\r\n}\r\n.hRoyalblue:not(.disabled):active {\r\n  background-color: #2d55cd;\r\n}\r\n.saddlebrown {\r\n  color: #8b4513;\r\n}\r\n.Saddlebrown {\r\n  background-color: #8b4513;\r\n}\r\n.hSaddlebrown {\r\n  background-color: #8b4513;\r\n}\r\n.hSaddlebrown:not(.disabled):hover {\r\n  background-color: #9f5927;\r\n}\r\n.hSaddlebrown:not(.disabled):active {\r\n  background-color: #773100;\r\n}\r\n.salmon {\r\n  color: #fa8072;\r\n}\r\n.Salmon {\r\n  background-color: #fa8072;\r\n}\r\n.hSalmon {\r\n  background-color: #fa8072;\r\n}\r\n.hSalmon:not(.disabled):hover {\r\n  background-color: #ff9486;\r\n}\r\n.hSalmon:not(.disabled):active {\r\n  background-color: #e66c5e;\r\n}\r\n.sandybrown {\r\n  color: #f4a460;\r\n}\r\n.Sandybrown {\r\n  background-color: #f4a460;\r\n}\r\n.hSandybrown {\r\n  background-color: #f4a460;\r\n}\r\n.hSandybrown:not(.disabled):hover {\r\n  background-color: #ffb874;\r\n}\r\n.hSandybrown:not(.disabled):active {\r\n  background-color: #e0904c;\r\n}\r\n.seagreen {\r\n  color: #2e8b57;\r\n}\r\n.Seagreen {\r\n  background-color: #2e8b57;\r\n}\r\n.hSeagreen {\r\n  background-color: #2e8b57;\r\n}\r\n.hSeagreen:not(.disabled):hover {\r\n  background-color: #429f6b;\r\n}\r\n.hSeagreen:not(.disabled):active {\r\n  background-color: #1a7743;\r\n}\r\n.seashell {\r\n  color: #fff5ee;\r\n}\r\n.Seashell {\r\n  background-color: #fff5ee;\r\n}\r\n.hSeashell {\r\n  background-color: #fff5ee;\r\n}\r\n.hSeashell:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hSeashell:not(.disabled):active {\r\n  background-color: #ebe1da;\r\n}\r\n.sienna {\r\n  color: #a0522d;\r\n}\r\n.Sienna {\r\n  background-color: #a0522d;\r\n}\r\n.hSienna {\r\n  background-color: #a0522d;\r\n}\r\n.hSienna:not(.disabled):hover {\r\n  background-color: #b46641;\r\n}\r\n.hSienna:not(.disabled):active {\r\n  background-color: #8c3e19;\r\n}\r\n.silver {\r\n  color: #c0c0c0;\r\n}\r\n.Silver {\r\n  background-color: #c0c0c0;\r\n}\r\n.hSilver {\r\n  background-color: #c0c0c0;\r\n}\r\n.hSilver:not(.disabled):hover {\r\n  background-color: #d4d4d4;\r\n}\r\n.hSilver:not(.disabled):active {\r\n  background-color: #acacac;\r\n}\r\n.skyblue {\r\n  color: #87ceeb;\r\n}\r\n.Skyblue {\r\n  background-color: #87ceeb;\r\n}\r\n.hSkyblue {\r\n  background-color: #87ceeb;\r\n}\r\n.hSkyblue:not(.disabled):hover {\r\n  background-color: #9be2ff;\r\n}\r\n.hSkyblue:not(.disabled):active {\r\n  background-color: #73bad7;\r\n}\r\n.slateblue {\r\n  color: #6a5acd;\r\n}\r\n.Slateblue {\r\n  background-color: #6a5acd;\r\n}\r\n.hSlateblue {\r\n  background-color: #6a5acd;\r\n}\r\n.hSlateblue:not(.disabled):hover {\r\n  background-color: #7e6ee1;\r\n}\r\n.hSlateblue:not(.disabled):active {\r\n  background-color: #5646b9;\r\n}\r\n.slategray {\r\n  color: #708090;\r\n}\r\n.Slategray {\r\n  background-color: #708090;\r\n}\r\n.hSlategray {\r\n  background-color: #708090;\r\n}\r\n.hSlategray:not(.disabled):hover {\r\n  background-color: #8494a4;\r\n}\r\n.hSlategray:not(.disabled):active {\r\n  background-color: #5c6c7c;\r\n}\r\n.snow {\r\n  color: #fffafa;\r\n}\r\n.Snow {\r\n  background-color: #fffafa;\r\n}\r\n.hSnow {\r\n  background-color: #fffafa;\r\n}\r\n.hSnow:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hSnow:not(.disabled):active {\r\n  background-color: #ebe6e6;\r\n}\r\n.springgreen {\r\n  color: #00ff7f;\r\n}\r\n.Springgreen {\r\n  background-color: #00ff7f;\r\n}\r\n.hSpringgreen {\r\n  background-color: #00ff7f;\r\n}\r\n.hSpringgreen:not(.disabled):hover {\r\n  background-color: #14ff93;\r\n}\r\n.hSpringgreen:not(.disabled):active {\r\n  background-color: #00eb6b;\r\n}\r\n.steelblue {\r\n  color: #4682b4;\r\n}\r\n.Steelblue {\r\n  background-color: #4682b4;\r\n}\r\n.hSteelblue {\r\n  background-color: #4682b4;\r\n}\r\n.hSteelblue:not(.disabled):hover {\r\n  background-color: #5a96c8;\r\n}\r\n.hSteelblue:not(.disabled):active {\r\n  background-color: #326ea0;\r\n}\r\n.tan {\r\n  color: #d2b48c;\r\n}\r\n.Tan {\r\n  background-color: #d2b48c;\r\n}\r\n.hTan {\r\n  background-color: #d2b48c;\r\n}\r\n.hTan:not(.disabled):hover {\r\n  background-color: #e6c8a0;\r\n}\r\n.hTan:not(.disabled):active {\r\n  background-color: #bea078;\r\n}\r\n.teal {\r\n  color: #008080;\r\n}\r\n.Teal {\r\n  background-color: #008080;\r\n}\r\n.hTeal {\r\n  background-color: #008080;\r\n}\r\n.hTeal:not(.disabled):hover {\r\n  background-color: #149494;\r\n}\r\n.hTeal:not(.disabled):active {\r\n  background-color: #006c6c;\r\n}\r\n.thistle {\r\n  color: #d8bfd8;\r\n}\r\n.Thistle {\r\n  background-color: #d8bfd8;\r\n}\r\n.hThistle {\r\n  background-color: #d8bfd8;\r\n}\r\n.hThistle:not(.disabled):hover {\r\n  background-color: #ecd3ec;\r\n}\r\n.hThistle:not(.disabled):active {\r\n  background-color: #c4abc4;\r\n}\r\n.tomato {\r\n  color: #ff6347;\r\n}\r\n.Tomato {\r\n  background-color: #ff6347;\r\n}\r\n.hTomato {\r\n  background-color: #ff6347;\r\n}\r\n.hTomato:not(.disabled):hover {\r\n  background-color: #ff775b;\r\n}\r\n.hTomato:not(.disabled):active {\r\n  background-color: #eb4f33;\r\n}\r\n.turquoise {\r\n  color: #40e0d0;\r\n}\r\n.Turquoise {\r\n  background-color: #40e0d0;\r\n}\r\n.hTurquoise {\r\n  background-color: #40e0d0;\r\n}\r\n.hTurquoise:not(.disabled):hover {\r\n  background-color: #54f4e4;\r\n}\r\n.hTurquoise:not(.disabled):active {\r\n  background-color: #2cccbc;\r\n}\r\n.violet {\r\n  color: #ee82ee;\r\n}\r\n.Violet {\r\n  background-color: #ee82ee;\r\n}\r\n.hViolet {\r\n  background-color: #ee82ee;\r\n}\r\n.hViolet:not(.disabled):hover {\r\n  background-color: #ff96ff;\r\n}\r\n.hViolet:not(.disabled):active {\r\n  background-color: #da6eda;\r\n}\r\n.wheat {\r\n  color: #f5deb3;\r\n}\r\n.Wheat {\r\n  background-color: #f5deb3;\r\n}\r\n.hWheat {\r\n  background-color: #f5deb3;\r\n}\r\n.hWheat:not(.disabled):hover {\r\n  background-color: #fff2c7;\r\n}\r\n.hWheat:not(.disabled):active {\r\n  background-color: #e1ca9f;\r\n}\r\n.white {\r\n  color: #ffffff;\r\n}\r\n.White {\r\n  background-color: #ffffff;\r\n}\r\n.hWhite {\r\n  background-color: #ffffff;\r\n}\r\n.hWhite:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hWhite:not(.disabled):active {\r\n  background-color: #ebebeb;\r\n}\r\n.whitesmoke {\r\n  color: #f5f5f5;\r\n}\r\n.Whitesmoke {\r\n  background-color: #f5f5f5;\r\n}\r\n.hWhitesmoke {\r\n  background-color: #f5f5f5;\r\n}\r\n.hWhitesmoke:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hWhitesmoke:not(.disabled):active {\r\n  background-color: #e1e1e1;\r\n}\r\n.yellow {\r\n  color: #ffff00;\r\n}\r\n.Yellow {\r\n  background-color: #ffff00;\r\n}\r\n.hYellow {\r\n  background-color: #ffff00;\r\n}\r\n.hYellow:not(.disabled):hover {\r\n  background-color: #ffff14;\r\n}\r\n.hYellow:not(.disabled):active {\r\n  background-color: #ebeb00;\r\n}\r\n.yellowgreen {\r\n  color: #9acd32;\r\n}\r\n.Yellowgreen {\r\n  background-color: #9acd32;\r\n}\r\n.hYellowgreen {\r\n  background-color: #9acd32;\r\n}\r\n.hYellowgreen:not(.disabled):hover {\r\n  background-color: #aee146;\r\n}\r\n.hYellowgreen:not(.disabled):active {\r\n  background-color: #86b91e;\r\n}\r\n.sp2 {\r\n  width: 2px;\r\n}\r\n.spv2 {\r\n  height: 2px;\r\n}\r\n.sp4 {\r\n  width: 4px;\r\n}\r\n.spv4 {\r\n  height: 4px;\r\n}\r\n.sp8 {\r\n  width: 8px;\r\n}\r\n.spv8 {\r\n  height: 8px;\r\n}\r\n.sp16 {\r\n  width: 16px;\r\n}\r\n.spv16 {\r\n  height: 16px;\r\n}\r\n.sp32 {\r\n  width: 32px;\r\n}\r\n.spv32 {\r\n  height: 32px;\r\n}\r\n.sp64 {\r\n  width: 64px;\r\n}\r\n.spv64 {\r\n  height: 64px;\r\n}\r\n.op5 {\r\n  opacity: .5;\r\n}\r\n.op10 {\r\n  opacity: .10;\r\n}\r\n.op15 {\r\n  opacity: .15;\r\n}\r\n.op20 {\r\n  opacity: .20;\r\n}\r\n.op25 {\r\n  opacity: .25;\r\n}\r\n.op30 {\r\n  opacity: .30;\r\n}\r\n.op35 {\r\n  opacity: .35;\r\n}\r\n.op40 {\r\n  opacity: .40;\r\n}\r\n.op45 {\r\n  opacity: .45;\r\n}\r\n.op50 {\r\n  opacity: .50;\r\n}\r\n.op55 {\r\n  opacity: .55;\r\n}\r\n.op60 {\r\n  opacity: .60;\r\n}\r\n.op65 {\r\n  opacity: .65;\r\n}\r\n.op70 {\r\n  opacity: .70;\r\n}\r\n.op75 {\r\n  opacity: .75;\r\n}\r\n.op80 {\r\n  opacity: .80;\r\n}\r\n.op85 {\r\n  opacity: .85;\r\n}\r\n.op90 {\r\n  opacity: .90;\r\n}\r\n.op95 {\r\n  opacity: .95;\r\n}\r\n.bs1 {\r\n  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);\r\n}\r\n.bs2 {\r\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);\r\n}\r\n.bs4 {\r\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);\r\n}\r\n.f {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n.fv {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-flow: column;\r\n      flex-flow: column;\r\n}\r\n.fw {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n}\r\n.fc {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  text-align: center;\r\n}\r\n.jcs {\r\n  -webkit-box-pack: start;\r\n      -ms-flex-pack: start;\r\n          justify-content: start;\r\n}\r\n.jce {\r\n  -webkit-box-pack: end;\r\n      -ms-flex-pack: end;\r\n          justify-content: end;\r\n}\r\n.jcc {\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n}\r\n.jcsb {\r\n  -webkit-box-pack: justify;\r\n      -ms-flex-pack: justify;\r\n          justify-content: space-between;\r\n}\r\n.jcsa {\r\n  -ms-flex-pack: distribute;\r\n      justify-content: space-around;\r\n}\r\n.aic {\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n}\r\n.aie {\r\n  -webkit-box-align: end;\r\n      -ms-flex-align: end;\r\n          align-items: flex-end;\r\n}\r\n.ait {\r\n  -webkit-box-align: stretch;\r\n      -ms-flex-align: stretch;\r\n          align-items: stretch;\r\n}\r\n.f00a {\r\n  -webkit-box-flex: 0;\r\n      -ms-flex: 0 0 auto;\r\n          flex: 0 0 auto;\r\n}\r\n.fg0 {\r\n  -webkit-box-flex: 0;\r\n      -ms-flex-positive: 0;\r\n          flex-grow: 0;\r\n}\r\n.fg1 {\r\n  -webkit-box-flex: 1;\r\n      -ms-flex-positive: 1;\r\n          flex-grow: 1;\r\n}\r\n.fs0 {\r\n  -ms-flex-negative: 0;\r\n      flex-shrink: 0;\r\n}\r\n.fs1 {\r\n  -ms-flex-negative: 1;\r\n      flex-shrink: 1;\r\n}\r\n.tac {\r\n  text-align: center;\r\n}\r\n.tar {\r\n  text-align: right;\r\n}\r\n.tdn {\r\n  text-decoration: none;\r\n}\r\n.hand {\r\n  cursor: pointer;\r\n}\r\n.usn {\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n}\r\n.hr {\r\n  border-color: rgba(250,250,250,.5);\r\n  width: 100%;\r\n  margin: 0;\r\n}\r\n.li:hover {\r\n  background-color: lavender;\r\n}\r\n.oxs {\r\n  overflow-x: scroll;\r\n}\r\n.oxh {\r\n  overflow-x: hidden;\r\n}\r\n.oys {\r\n  overflow-y: scroll;\r\n}\r\n.oyh {\r\n  overflow-y: hidden;\r\n}", ""]);
+	exports.push([module.id, ".card {\r\n  min-width: 42px;\r\n  min-height: 42px;\r\n  font-size: 15px;\r\n  overflow: hidden;\r\n  -webkit-transition: all .5s;\r\n  -moz-transition: all .5s;\r\n  transition: all .5s;\r\n}\r\n.btn {\r\n  background-color: #d3d3d3;\r\n  border: 1px solid #d9d9d9;\r\n  border-radius: 2px;\r\n  outline: none;\r\n  font-size: 15px;\r\n  padding: 4px 8px;\r\n  text-align: center;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n  -webkit-transition: all .3s;\r\n  -moz-transition: all .3s;\r\n  transition: all .3s;\r\n}\r\n.btn:not(.disabled):hover {\r\n  background-color: #e7e7e7;\r\n  cursor: pointer;\r\n}\r\n.btn.disabled {\r\n  opacity: .5;\r\n}\r\n.txt {\r\n  border: none;\r\n  border-bottom: 2px solid rgba(0,0,0,.12);\r\n  outline: none;\r\n  font-size: 15px;\r\n  padding: 4px 0;\r\n  -webkit-transition: all .3s;\r\n  -moz-transition: all .3s;\r\n  transition: all .3s;\r\n  background-color: transparent;\r\n}\r\n.txt:focus {\r\n  border-bottom: 2px solid blue;\r\n}\r\n.c12 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 12px;\r\n  height: 12px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c18 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 18px;\r\n  height: 18px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c24 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 24px;\r\n  height: 24px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c30 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 30px;\r\n  height: 30px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c36 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 36px;\r\n  height: 36px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c42 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 42px;\r\n  height: 42px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c48 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 48px;\r\n  height: 48px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c54 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 54px;\r\n  height: 54px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c60 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 60px;\r\n  height: 60px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c66 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 66px;\r\n  height: 66px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c72 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 72px;\r\n  height: 72px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c78 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 78px;\r\n  height: 78px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c84 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 84px;\r\n  height: 84px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c90 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 90px;\r\n  height: 90px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c96 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 96px;\r\n  height: 96px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c102 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 102px;\r\n  height: 102px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c108 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 108px;\r\n  height: 108px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c114 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 114px;\r\n  height: 114px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c120 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 120px;\r\n  height: 120px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.c126 {\r\n  min-width: 0;\r\n  min-height: 0;\r\n  width: 126px;\r\n  height: 126px;\r\n  border-radius: 50%;\r\n  padding: 0;\r\n}\r\n.w5 {\r\n  width: 5%;\r\n}\r\n.h5 {\r\n  height: 5%;\r\n}\r\n.w10 {\r\n  width: 10%;\r\n}\r\n.h10 {\r\n  height: 10%;\r\n}\r\n.w15 {\r\n  width: 15%;\r\n}\r\n.h15 {\r\n  height: 15%;\r\n}\r\n.w20 {\r\n  width: 20%;\r\n}\r\n.h20 {\r\n  height: 20%;\r\n}\r\n.w25 {\r\n  width: 25%;\r\n}\r\n.h25 {\r\n  height: 25%;\r\n}\r\n.w30 {\r\n  width: 30%;\r\n}\r\n.h30 {\r\n  height: 30%;\r\n}\r\n.w35 {\r\n  width: 35%;\r\n}\r\n.h35 {\r\n  height: 35%;\r\n}\r\n.w40 {\r\n  width: 40%;\r\n}\r\n.h40 {\r\n  height: 40%;\r\n}\r\n.w45 {\r\n  width: 45%;\r\n}\r\n.h45 {\r\n  height: 45%;\r\n}\r\n.w50 {\r\n  width: 50%;\r\n}\r\n.h50 {\r\n  height: 50%;\r\n}\r\n.w55 {\r\n  width: 55%;\r\n}\r\n.h55 {\r\n  height: 55%;\r\n}\r\n.w60 {\r\n  width: 60%;\r\n}\r\n.h60 {\r\n  height: 60%;\r\n}\r\n.w65 {\r\n  width: 65%;\r\n}\r\n.h65 {\r\n  height: 65%;\r\n}\r\n.w70 {\r\n  width: 70%;\r\n}\r\n.h70 {\r\n  height: 70%;\r\n}\r\n.w75 {\r\n  width: 75%;\r\n}\r\n.h75 {\r\n  height: 75%;\r\n}\r\n.w80 {\r\n  width: 80%;\r\n}\r\n.h80 {\r\n  height: 80%;\r\n}\r\n.w85 {\r\n  width: 85%;\r\n}\r\n.h85 {\r\n  height: 85%;\r\n}\r\n.w90 {\r\n  width: 90%;\r\n}\r\n.h90 {\r\n  height: 90%;\r\n}\r\n.w95 {\r\n  width: 95%;\r\n}\r\n.h95 {\r\n  height: 95%;\r\n}\r\n.w100 {\r\n  width: 100%;\r\n}\r\n.h100 {\r\n  height: 100%;\r\n}\r\n.w1-3 {\r\n  width: 33.33%;\r\n}\r\n.w2-3 {\r\n  width: 66.67%;\r\n}\r\n.w1-6 {\r\n  width: 16.67%;\r\n}\r\n.w5-6 {\r\n  width: 83.33%;\r\n}\r\n.w1-8 {\r\n  width: 12.50%;\r\n}\r\n.w3-8 {\r\n  width: 37.50%;\r\n}\r\n.w5-8 {\r\n  width: 62.50%;\r\n}\r\n.w7-8 {\r\n  width: 87.50%;\r\n}\r\n.w1-12 {\r\n  width: 8.33%;\r\n}\r\n.w5-12 {\r\n  width: 41.67%;\r\n}\r\n.w7-12 {\r\n  width: 58.33%;\r\n}\r\n.w11-12 {\r\n  width: 91.67%;\r\n}\r\n.fw1 {\r\n  font-weight: 100;\r\n}\r\n.fw2 {\r\n  font-weight: 200;\r\n}\r\n.fw3 {\r\n  font-weight: 300;\r\n}\r\n.fw4 {\r\n  font-weight: 400;\r\n}\r\n.fw5 {\r\n  font-weight: 500;\r\n}\r\n.fw6 {\r\n  font-weight: 600;\r\n}\r\n.fw7 {\r\n  font-weight: 700;\r\n}\r\n.fw8 {\r\n  font-weight: 800;\r\n}\r\n.fw9 {\r\n  font-weight: 900;\r\n}\r\n.fs6 {\r\n  font-size: 6px;\r\n}\r\n.fs8 {\r\n  font-size: 8px;\r\n}\r\n.fs10 {\r\n  font-size: 10px;\r\n}\r\n.fs12 {\r\n  font-size: 12px;\r\n}\r\n.fs15 {\r\n  font-size: 15px;\r\n}\r\n.fs18 {\r\n  font-size: 18px;\r\n}\r\n.fs21 {\r\n  font-size: 21px;\r\n}\r\n.fs24 {\r\n  font-size: 24px;\r\n}\r\n.fs30 {\r\n  font-size: 30px;\r\n}\r\n.fs36 {\r\n  font-size: 36px;\r\n}\r\n.fs42 {\r\n  font-size: 42px;\r\n}\r\n.fs48 {\r\n  font-size: 48px;\r\n}\r\n.fs64 {\r\n  font-size: 64px;\r\n}\r\n.fs128 {\r\n  font-size: 128px;\r\n}\r\n.m1 {\r\n  margin: 1px;\r\n}\r\n.ml1 {\r\n  margin-left: 1px;\r\n}\r\n.mr1 {\r\n  margin-right: 1px;\r\n}\r\n.mt1 {\r\n  margin-top: 1px;\r\n}\r\n.mb1 {\r\n  margin-bottom: 1px;\r\n}\r\n.mh1 {\r\n  margin-left: 1px;\r\n  margin-right: 1px;\r\n}\r\n.mv1 {\r\n  margin-top: 1px;\r\n  margin-bottom: 1px;\r\n}\r\n.m2 {\r\n  margin: 2px;\r\n}\r\n.ml2 {\r\n  margin-left: 2px;\r\n}\r\n.mr2 {\r\n  margin-right: 2px;\r\n}\r\n.mt2 {\r\n  margin-top: 2px;\r\n}\r\n.mb2 {\r\n  margin-bottom: 2px;\r\n}\r\n.mh2 {\r\n  margin-left: 2px;\r\n  margin-right: 2px;\r\n}\r\n.mv2 {\r\n  margin-top: 2px;\r\n  margin-bottom: 2px;\r\n}\r\n.m4 {\r\n  margin: 4px;\r\n}\r\n.ml4 {\r\n  margin-left: 4px;\r\n}\r\n.mr4 {\r\n  margin-right: 4px;\r\n}\r\n.mt4 {\r\n  margin-top: 4px;\r\n}\r\n.mb4 {\r\n  margin-bottom: 4px;\r\n}\r\n.mh4 {\r\n  margin-left: 4px;\r\n  margin-right: 4px;\r\n}\r\n.mv4 {\r\n  margin-top: 4px;\r\n  margin-bottom: 4px;\r\n}\r\n.m8 {\r\n  margin: 8px;\r\n}\r\n.ml8 {\r\n  margin-left: 8px;\r\n}\r\n.mr8 {\r\n  margin-right: 8px;\r\n}\r\n.mt8 {\r\n  margin-top: 8px;\r\n}\r\n.mb8 {\r\n  margin-bottom: 8px;\r\n}\r\n.mh8 {\r\n  margin-left: 8px;\r\n  margin-right: 8px;\r\n}\r\n.mv8 {\r\n  margin-top: 8px;\r\n  margin-bottom: 8px;\r\n}\r\n.m16 {\r\n  margin: 16px;\r\n}\r\n.ml16 {\r\n  margin-left: 16px;\r\n}\r\n.mr16 {\r\n  margin-right: 16px;\r\n}\r\n.mt16 {\r\n  margin-top: 16px;\r\n}\r\n.mb16 {\r\n  margin-bottom: 16px;\r\n}\r\n.mh16 {\r\n  margin-left: 16px;\r\n  margin-right: 16px;\r\n}\r\n.mv16 {\r\n  margin-top: 16px;\r\n  margin-bottom: 16px;\r\n}\r\n.m32 {\r\n  margin: 32px;\r\n}\r\n.ml32 {\r\n  margin-left: 32px;\r\n}\r\n.mr32 {\r\n  margin-right: 32px;\r\n}\r\n.mt32 {\r\n  margin-top: 32px;\r\n}\r\n.mb32 {\r\n  margin-bottom: 32px;\r\n}\r\n.mh32 {\r\n  margin-left: 32px;\r\n  margin-right: 32px;\r\n}\r\n.mv32 {\r\n  margin-top: 32px;\r\n  margin-bottom: 32px;\r\n}\r\n.m64 {\r\n  margin: 64px;\r\n}\r\n.ml64 {\r\n  margin-left: 64px;\r\n}\r\n.mr64 {\r\n  margin-right: 64px;\r\n}\r\n.mt64 {\r\n  margin-top: 64px;\r\n}\r\n.mb64 {\r\n  margin-bottom: 64px;\r\n}\r\n.mh64 {\r\n  margin-left: 64px;\r\n  margin-right: 64px;\r\n}\r\n.mv64 {\r\n  margin-top: 64px;\r\n  margin-bottom: 64px;\r\n}\r\n.m128 {\r\n  margin: 128px;\r\n}\r\n.ml128 {\r\n  margin-left: 128px;\r\n}\r\n.mr128 {\r\n  margin-right: 128px;\r\n}\r\n.mt128 {\r\n  margin-top: 128px;\r\n}\r\n.mb128 {\r\n  margin-bottom: 128px;\r\n}\r\n.mh128 {\r\n  margin-left: 128px;\r\n  margin-right: 128px;\r\n}\r\n.mv128 {\r\n  margin-top: 128px;\r\n  margin-bottom: 128px;\r\n}\r\n.p0 {\r\n  padding: 0;\r\n}\r\n.ph0 {\r\n  padding-left: 0;\r\n  padding-right: 0;\r\n}\r\n.pv0 {\r\n  padding-top: 0;\r\n  padding-bottom: 0;\r\n}\r\n.p1 {\r\n  padding: 1px;\r\n}\r\n.pl1 {\r\n  padding-left: 1px;\r\n}\r\n.pr1 {\r\n  padding-right: 1px;\r\n}\r\n.pt1 {\r\n  padding-top: 1px;\r\n}\r\n.pb1 {\r\n  padding-bottom: 1px;\r\n}\r\n.ph1 {\r\n  padding-left: 1px;\r\n  padding-right: 1px;\r\n}\r\n.pv1 {\r\n  padding-top: 1px;\r\n  padding-bottom: 1px;\r\n}\r\n.p2 {\r\n  padding: 2px;\r\n}\r\n.pl2 {\r\n  padding-left: 2px;\r\n}\r\n.pr2 {\r\n  padding-right: 2px;\r\n}\r\n.pt2 {\r\n  padding-top: 2px;\r\n}\r\n.pb2 {\r\n  padding-bottom: 2px;\r\n}\r\n.ph2 {\r\n  padding-left: 2px;\r\n  padding-right: 2px;\r\n}\r\n.pv2 {\r\n  padding-top: 2px;\r\n  padding-bottom: 2px;\r\n}\r\n.p4 {\r\n  padding: 4px;\r\n}\r\n.pl4 {\r\n  padding-left: 4px;\r\n}\r\n.pr4 {\r\n  padding-right: 4px;\r\n}\r\n.pt4 {\r\n  padding-top: 4px;\r\n}\r\n.pb4 {\r\n  padding-bottom: 4px;\r\n}\r\n.ph4 {\r\n  padding-left: 4px;\r\n  padding-right: 4px;\r\n}\r\n.pv4 {\r\n  padding-top: 4px;\r\n  padding-bottom: 4px;\r\n}\r\n.p8 {\r\n  padding: 8px;\r\n}\r\n.pl8 {\r\n  padding-left: 8px;\r\n}\r\n.pr8 {\r\n  padding-right: 8px;\r\n}\r\n.pt8 {\r\n  padding-top: 8px;\r\n}\r\n.pb8 {\r\n  padding-bottom: 8px;\r\n}\r\n.ph8 {\r\n  padding-left: 8px;\r\n  padding-right: 8px;\r\n}\r\n.pv8 {\r\n  padding-top: 8px;\r\n  padding-bottom: 8px;\r\n}\r\n.p16 {\r\n  padding: 16px;\r\n}\r\n.pl16 {\r\n  padding-left: 16px;\r\n}\r\n.pr16 {\r\n  padding-right: 16px;\r\n}\r\n.pt16 {\r\n  padding-top: 16px;\r\n}\r\n.pb16 {\r\n  padding-bottom: 16px;\r\n}\r\n.ph16 {\r\n  padding-left: 16px;\r\n  padding-right: 16px;\r\n}\r\n.pv16 {\r\n  padding-top: 16px;\r\n  padding-bottom: 16px;\r\n}\r\n.p32 {\r\n  padding: 32px;\r\n}\r\n.pl32 {\r\n  padding-left: 32px;\r\n}\r\n.pr32 {\r\n  padding-right: 32px;\r\n}\r\n.pt32 {\r\n  padding-top: 32px;\r\n}\r\n.pb32 {\r\n  padding-bottom: 32px;\r\n}\r\n.ph32 {\r\n  padding-left: 32px;\r\n  padding-right: 32px;\r\n}\r\n.pv32 {\r\n  padding-top: 32px;\r\n  padding-bottom: 32px;\r\n}\r\n.p64 {\r\n  padding: 64px;\r\n}\r\n.pl64 {\r\n  padding-left: 64px;\r\n}\r\n.pr64 {\r\n  padding-right: 64px;\r\n}\r\n.pt64 {\r\n  padding-top: 64px;\r\n}\r\n.pb64 {\r\n  padding-bottom: 64px;\r\n}\r\n.ph64 {\r\n  padding-left: 64px;\r\n  padding-right: 64px;\r\n}\r\n.pv64 {\r\n  padding-top: 64px;\r\n  padding-bottom: 64px;\r\n}\r\n.p128 {\r\n  padding: 128px;\r\n}\r\n.pl128 {\r\n  padding-left: 128px;\r\n}\r\n.pr128 {\r\n  padding-right: 128px;\r\n}\r\n.pt128 {\r\n  padding-top: 128px;\r\n}\r\n.pb128 {\r\n  padding-bottom: 128px;\r\n}\r\n.ph128 {\r\n  padding-left: 128px;\r\n  padding-right: 128px;\r\n}\r\n.pv128 {\r\n  padding-top: 128px;\r\n  padding-bottom: 128px;\r\n}\r\n.br1 {\r\n  border-radius: 1px;\r\n}\r\n.br2 {\r\n  border-radius: 2px;\r\n}\r\n.br3 {\r\n  border-radius: 3px;\r\n}\r\n.br4 {\r\n  border-radius: 4px;\r\n}\r\n.br5 {\r\n  border-radius: 5px;\r\n}\r\n.br6 {\r\n  border-radius: 6px;\r\n}\r\n.br7 {\r\n  border-radius: 7px;\r\n}\r\n.br8 {\r\n  border-radius: 8px;\r\n}\r\n.br9 {\r\n  border-radius: 9px;\r\n}\r\n.br10 {\r\n  border-radius: 10px;\r\n}\r\n.br11 {\r\n  border-radius: 11px;\r\n}\r\n.br12 {\r\n  border-radius: 12px;\r\n}\r\n.br13 {\r\n  border-radius: 13px;\r\n}\r\n.br14 {\r\n  border-radius: 14px;\r\n}\r\n.br15 {\r\n  border-radius: 15px;\r\n}\r\n.br16 {\r\n  border-radius: 16px;\r\n}\r\n.br50 {\r\n  border-radius: 50%;\r\n}\r\n.bw0 {\r\n  border-width: 0px;\r\n}\r\n.bw1 {\r\n  border-width: 1px;\r\n}\r\n.bw2 {\r\n  border-width: 2px;\r\n}\r\n.bw3 {\r\n  border-width: 3px;\r\n}\r\n.bw4 {\r\n  border-width: 4px;\r\n}\r\n.bw5 {\r\n  border-width: 5px;\r\n}\r\n.bw6 {\r\n  border-width: 6px;\r\n}\r\n.bw7 {\r\n  border-width: 7px;\r\n}\r\n.bw8 {\r\n  border-width: 8px;\r\n}\r\n.bw9 {\r\n  border-width: 9px;\r\n}\r\n.bw10 {\r\n  border-width: 10px;\r\n}\r\n.bw11 {\r\n  border-width: 11px;\r\n}\r\n.bw12 {\r\n  border-width: 12px;\r\n}\r\n.bw13 {\r\n  border-width: 13px;\r\n}\r\n.bw14 {\r\n  border-width: 14px;\r\n}\r\n.bw15 {\r\n  border-width: 15px;\r\n}\r\n.bw16 {\r\n  border-width: 16px;\r\n}\r\n.aliceblue {\r\n  color: #f0f8ff;\r\n}\r\n.Aliceblue {\r\n  background-color: #f0f8ff;\r\n}\r\n.hAliceblue {\r\n  background-color: #f0f8ff;\r\n}\r\n.hAliceblue:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hAliceblue:not(.disabled):active {\r\n  background-color: #dce4eb;\r\n}\r\n.antiquewhite {\r\n  color: #faebd7;\r\n}\r\n.Antiquewhite {\r\n  background-color: #faebd7;\r\n}\r\n.hAntiquewhite {\r\n  background-color: #faebd7;\r\n}\r\n.hAntiquewhite:not(.disabled):hover {\r\n  background-color: #ffffeb;\r\n}\r\n.hAntiquewhite:not(.disabled):active {\r\n  background-color: #e6d7c3;\r\n}\r\n.aqua {\r\n  color: #00ffff;\r\n}\r\n.Aqua {\r\n  background-color: #00ffff;\r\n}\r\n.hAqua {\r\n  background-color: #00ffff;\r\n}\r\n.hAqua:not(.disabled):hover {\r\n  background-color: #14ffff;\r\n}\r\n.hAqua:not(.disabled):active {\r\n  background-color: #00ebeb;\r\n}\r\n.aquamarine {\r\n  color: #7fffd4;\r\n}\r\n.Aquamarine {\r\n  background-color: #7fffd4;\r\n}\r\n.hAquamarine {\r\n  background-color: #7fffd4;\r\n}\r\n.hAquamarine:not(.disabled):hover {\r\n  background-color: #93ffe8;\r\n}\r\n.hAquamarine:not(.disabled):active {\r\n  background-color: #6bebc0;\r\n}\r\n.azure {\r\n  color: #f0ffff;\r\n}\r\n.Azure {\r\n  background-color: #f0ffff;\r\n}\r\n.hAzure {\r\n  background-color: #f0ffff;\r\n}\r\n.hAzure:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hAzure:not(.disabled):active {\r\n  background-color: #dcebeb;\r\n}\r\n.beige {\r\n  color: #f5f5dc;\r\n}\r\n.Beige {\r\n  background-color: #f5f5dc;\r\n}\r\n.hBeige {\r\n  background-color: #f5f5dc;\r\n}\r\n.hBeige:not(.disabled):hover {\r\n  background-color: #fffff0;\r\n}\r\n.hBeige:not(.disabled):active {\r\n  background-color: #e1e1c8;\r\n}\r\n.bisque {\r\n  color: #ffe4c4;\r\n}\r\n.Bisque {\r\n  background-color: #ffe4c4;\r\n}\r\n.hBisque {\r\n  background-color: #ffe4c4;\r\n}\r\n.hBisque:not(.disabled):hover {\r\n  background-color: #fff8d8;\r\n}\r\n.hBisque:not(.disabled):active {\r\n  background-color: #ebd0b0;\r\n}\r\n.black {\r\n  color: #000000;\r\n}\r\n.Black {\r\n  background-color: #000000;\r\n}\r\n.hBlack {\r\n  background-color: #000000;\r\n}\r\n.hBlack:not(.disabled):hover {\r\n  background-color: #141414;\r\n}\r\n.hBlack:not(.disabled):active {\r\n  background-color: #000000;\r\n}\r\n.blanchedalmond {\r\n  color: #ffebcd;\r\n}\r\n.Blanchedalmond {\r\n  background-color: #ffebcd;\r\n}\r\n.hBlanchedalmond {\r\n  background-color: #ffebcd;\r\n}\r\n.hBlanchedalmond:not(.disabled):hover {\r\n  background-color: #ffffe1;\r\n}\r\n.hBlanchedalmond:not(.disabled):active {\r\n  background-color: #ebd7b9;\r\n}\r\n.blue {\r\n  color: #0000ff;\r\n}\r\n.Blue {\r\n  background-color: #0000ff;\r\n}\r\n.hBlue {\r\n  background-color: #0000ff;\r\n}\r\n.hBlue:not(.disabled):hover {\r\n  background-color: #1414ff;\r\n}\r\n.hBlue:not(.disabled):active {\r\n  background-color: #0000eb;\r\n}\r\n.blueviolet {\r\n  color: #8a2be2;\r\n}\r\n.Blueviolet {\r\n  background-color: #8a2be2;\r\n}\r\n.hBlueviolet {\r\n  background-color: #8a2be2;\r\n}\r\n.hBlueviolet:not(.disabled):hover {\r\n  background-color: #9e3ff6;\r\n}\r\n.hBlueviolet:not(.disabled):active {\r\n  background-color: #7617ce;\r\n}\r\n.brown {\r\n  color: #a52a2a;\r\n}\r\n.Brown {\r\n  background-color: #a52a2a;\r\n}\r\n.hBrown {\r\n  background-color: #a52a2a;\r\n}\r\n.hBrown:not(.disabled):hover {\r\n  background-color: #b93e3e;\r\n}\r\n.hBrown:not(.disabled):active {\r\n  background-color: #911616;\r\n}\r\n.burlywood {\r\n  color: #deb887;\r\n}\r\n.Burlywood {\r\n  background-color: #deb887;\r\n}\r\n.hBurlywood {\r\n  background-color: #deb887;\r\n}\r\n.hBurlywood:not(.disabled):hover {\r\n  background-color: #f2cc9b;\r\n}\r\n.hBurlywood:not(.disabled):active {\r\n  background-color: #caa473;\r\n}\r\n.cadetblue {\r\n  color: #5f9ea0;\r\n}\r\n.Cadetblue {\r\n  background-color: #5f9ea0;\r\n}\r\n.hCadetblue {\r\n  background-color: #5f9ea0;\r\n}\r\n.hCadetblue:not(.disabled):hover {\r\n  background-color: #73b2b4;\r\n}\r\n.hCadetblue:not(.disabled):active {\r\n  background-color: #4b8a8c;\r\n}\r\n.chartreuse {\r\n  color: #7fff00;\r\n}\r\n.Chartreuse {\r\n  background-color: #7fff00;\r\n}\r\n.hChartreuse {\r\n  background-color: #7fff00;\r\n}\r\n.hChartreuse:not(.disabled):hover {\r\n  background-color: #93ff14;\r\n}\r\n.hChartreuse:not(.disabled):active {\r\n  background-color: #6beb00;\r\n}\r\n.chocolate {\r\n  color: #d2691e;\r\n}\r\n.Chocolate {\r\n  background-color: #d2691e;\r\n}\r\n.hChocolate {\r\n  background-color: #d2691e;\r\n}\r\n.hChocolate:not(.disabled):hover {\r\n  background-color: #e67d32;\r\n}\r\n.hChocolate:not(.disabled):active {\r\n  background-color: #be550a;\r\n}\r\n.coral {\r\n  color: #ff7f50;\r\n}\r\n.Coral {\r\n  background-color: #ff7f50;\r\n}\r\n.hCoral {\r\n  background-color: #ff7f50;\r\n}\r\n.hCoral:not(.disabled):hover {\r\n  background-color: #ff9364;\r\n}\r\n.hCoral:not(.disabled):active {\r\n  background-color: #eb6b3c;\r\n}\r\n.cornflowerblue {\r\n  color: #6495ed;\r\n}\r\n.Cornflowerblue {\r\n  background-color: #6495ed;\r\n}\r\n.hCornflowerblue {\r\n  background-color: #6495ed;\r\n}\r\n.hCornflowerblue:not(.disabled):hover {\r\n  background-color: #78a9ff;\r\n}\r\n.hCornflowerblue:not(.disabled):active {\r\n  background-color: #5081d9;\r\n}\r\n.cornsilk {\r\n  color: #fff8dc;\r\n}\r\n.Cornsilk {\r\n  background-color: #fff8dc;\r\n}\r\n.hCornsilk {\r\n  background-color: #fff8dc;\r\n}\r\n.hCornsilk:not(.disabled):hover {\r\n  background-color: #fffff0;\r\n}\r\n.hCornsilk:not(.disabled):active {\r\n  background-color: #ebe4c8;\r\n}\r\n.crimson {\r\n  color: #dc143c;\r\n}\r\n.Crimson {\r\n  background-color: #dc143c;\r\n}\r\n.hCrimson {\r\n  background-color: #dc143c;\r\n}\r\n.hCrimson:not(.disabled):hover {\r\n  background-color: #f02850;\r\n}\r\n.hCrimson:not(.disabled):active {\r\n  background-color: #c80028;\r\n}\r\n.cyan {\r\n  color: #00ffff;\r\n}\r\n.Cyan {\r\n  background-color: #00ffff;\r\n}\r\n.hCyan {\r\n  background-color: #00ffff;\r\n}\r\n.hCyan:not(.disabled):hover {\r\n  background-color: #14ffff;\r\n}\r\n.hCyan:not(.disabled):active {\r\n  background-color: #00ebeb;\r\n}\r\n.darkblue {\r\n  color: #00008b;\r\n}\r\n.Darkblue {\r\n  background-color: #00008b;\r\n}\r\n.hDarkblue {\r\n  background-color: #00008b;\r\n}\r\n.hDarkblue:not(.disabled):hover {\r\n  background-color: #14149f;\r\n}\r\n.hDarkblue:not(.disabled):active {\r\n  background-color: #000077;\r\n}\r\n.darkcyan {\r\n  color: #008b8b;\r\n}\r\n.Darkcyan {\r\n  background-color: #008b8b;\r\n}\r\n.hDarkcyan {\r\n  background-color: #008b8b;\r\n}\r\n.hDarkcyan:not(.disabled):hover {\r\n  background-color: #149f9f;\r\n}\r\n.hDarkcyan:not(.disabled):active {\r\n  background-color: #007777;\r\n}\r\n.darkgoldenrod {\r\n  color: #b8860b;\r\n}\r\n.Darkgoldenrod {\r\n  background-color: #b8860b;\r\n}\r\n.hDarkgoldenrod {\r\n  background-color: #b8860b;\r\n}\r\n.hDarkgoldenrod:not(.disabled):hover {\r\n  background-color: #cc9a1f;\r\n}\r\n.hDarkgoldenrod:not(.disabled):active {\r\n  background-color: #a47200;\r\n}\r\n.darkgray {\r\n  color: #a9a9a9;\r\n}\r\n.Darkgray {\r\n  background-color: #a9a9a9;\r\n}\r\n.hDarkgray {\r\n  background-color: #a9a9a9;\r\n}\r\n.hDarkgray:not(.disabled):hover {\r\n  background-color: #bdbdbd;\r\n}\r\n.hDarkgray:not(.disabled):active {\r\n  background-color: #959595;\r\n}\r\n.darkgreen {\r\n  color: #006400;\r\n}\r\n.Darkgreen {\r\n  background-color: #006400;\r\n}\r\n.hDarkgreen {\r\n  background-color: #006400;\r\n}\r\n.hDarkgreen:not(.disabled):hover {\r\n  background-color: #147814;\r\n}\r\n.hDarkgreen:not(.disabled):active {\r\n  background-color: #005000;\r\n}\r\n.darkkhaki {\r\n  color: #bdb76b;\r\n}\r\n.Darkkhaki {\r\n  background-color: #bdb76b;\r\n}\r\n.hDarkkhaki {\r\n  background-color: #bdb76b;\r\n}\r\n.hDarkkhaki:not(.disabled):hover {\r\n  background-color: #d1cb7f;\r\n}\r\n.hDarkkhaki:not(.disabled):active {\r\n  background-color: #a9a357;\r\n}\r\n.darkmagenta {\r\n  color: #8b008b;\r\n}\r\n.Darkmagenta {\r\n  background-color: #8b008b;\r\n}\r\n.hDarkmagenta {\r\n  background-color: #8b008b;\r\n}\r\n.hDarkmagenta:not(.disabled):hover {\r\n  background-color: #9f149f;\r\n}\r\n.hDarkmagenta:not(.disabled):active {\r\n  background-color: #770077;\r\n}\r\n.darkolivegreen {\r\n  color: #556b2f;\r\n}\r\n.Darkolivegreen {\r\n  background-color: #556b2f;\r\n}\r\n.hDarkolivegreen {\r\n  background-color: #556b2f;\r\n}\r\n.hDarkolivegreen:not(.disabled):hover {\r\n  background-color: #697f43;\r\n}\r\n.hDarkolivegreen:not(.disabled):active {\r\n  background-color: #41571b;\r\n}\r\n.darkorange {\r\n  color: #ff8c00;\r\n}\r\n.Darkorange {\r\n  background-color: #ff8c00;\r\n}\r\n.hDarkorange {\r\n  background-color: #ff8c00;\r\n}\r\n.hDarkorange:not(.disabled):hover {\r\n  background-color: #ffa014;\r\n}\r\n.hDarkorange:not(.disabled):active {\r\n  background-color: #eb7800;\r\n}\r\n.darkorchid {\r\n  color: #9932cc;\r\n}\r\n.Darkorchid {\r\n  background-color: #9932cc;\r\n}\r\n.hDarkorchid {\r\n  background-color: #9932cc;\r\n}\r\n.hDarkorchid:not(.disabled):hover {\r\n  background-color: #ad46e0;\r\n}\r\n.hDarkorchid:not(.disabled):active {\r\n  background-color: #851eb8;\r\n}\r\n.darkred {\r\n  color: #8b0000;\r\n}\r\n.Darkred {\r\n  background-color: #8b0000;\r\n}\r\n.hDarkred {\r\n  background-color: #8b0000;\r\n}\r\n.hDarkred:not(.disabled):hover {\r\n  background-color: #9f1414;\r\n}\r\n.hDarkred:not(.disabled):active {\r\n  background-color: #770000;\r\n}\r\n.darksalmon {\r\n  color: #e9967a;\r\n}\r\n.Darksalmon {\r\n  background-color: #e9967a;\r\n}\r\n.hDarksalmon {\r\n  background-color: #e9967a;\r\n}\r\n.hDarksalmon:not(.disabled):hover {\r\n  background-color: #fdaa8e;\r\n}\r\n.hDarksalmon:not(.disabled):active {\r\n  background-color: #d58266;\r\n}\r\n.darkseagreen {\r\n  color: #8fbc8f;\r\n}\r\n.Darkseagreen {\r\n  background-color: #8fbc8f;\r\n}\r\n.hDarkseagreen {\r\n  background-color: #8fbc8f;\r\n}\r\n.hDarkseagreen:not(.disabled):hover {\r\n  background-color: #a3d0a3;\r\n}\r\n.hDarkseagreen:not(.disabled):active {\r\n  background-color: #7ba87b;\r\n}\r\n.darkslateblue {\r\n  color: #483d8b;\r\n}\r\n.Darkslateblue {\r\n  background-color: #483d8b;\r\n}\r\n.hDarkslateblue {\r\n  background-color: #483d8b;\r\n}\r\n.hDarkslateblue:not(.disabled):hover {\r\n  background-color: #5c519f;\r\n}\r\n.hDarkslateblue:not(.disabled):active {\r\n  background-color: #342977;\r\n}\r\n.darkslategray {\r\n  color: #2f4f4f;\r\n}\r\n.Darkslategray {\r\n  background-color: #2f4f4f;\r\n}\r\n.hDarkslategray {\r\n  background-color: #2f4f4f;\r\n}\r\n.hDarkslategray:not(.disabled):hover {\r\n  background-color: #436363;\r\n}\r\n.hDarkslategray:not(.disabled):active {\r\n  background-color: #1b3b3b;\r\n}\r\n.darkturquoise {\r\n  color: #00ced1;\r\n}\r\n.Darkturquoise {\r\n  background-color: #00ced1;\r\n}\r\n.hDarkturquoise {\r\n  background-color: #00ced1;\r\n}\r\n.hDarkturquoise:not(.disabled):hover {\r\n  background-color: #14e2e5;\r\n}\r\n.hDarkturquoise:not(.disabled):active {\r\n  background-color: #00babd;\r\n}\r\n.darkviolet {\r\n  color: #9400d3;\r\n}\r\n.Darkviolet {\r\n  background-color: #9400d3;\r\n}\r\n.hDarkviolet {\r\n  background-color: #9400d3;\r\n}\r\n.hDarkviolet:not(.disabled):hover {\r\n  background-color: #a814e7;\r\n}\r\n.hDarkviolet:not(.disabled):active {\r\n  background-color: #8000bf;\r\n}\r\n.deeppink {\r\n  color: #ff1493;\r\n}\r\n.Deeppink {\r\n  background-color: #ff1493;\r\n}\r\n.hDeeppink {\r\n  background-color: #ff1493;\r\n}\r\n.hDeeppink:not(.disabled):hover {\r\n  background-color: #ff28a7;\r\n}\r\n.hDeeppink:not(.disabled):active {\r\n  background-color: #eb007f;\r\n}\r\n.deepskyblue {\r\n  color: #00bfff;\r\n}\r\n.Deepskyblue {\r\n  background-color: #00bfff;\r\n}\r\n.hDeepskyblue {\r\n  background-color: #00bfff;\r\n}\r\n.hDeepskyblue:not(.disabled):hover {\r\n  background-color: #14d3ff;\r\n}\r\n.hDeepskyblue:not(.disabled):active {\r\n  background-color: #00abeb;\r\n}\r\n.dimgray {\r\n  color: #696969;\r\n}\r\n.Dimgray {\r\n  background-color: #696969;\r\n}\r\n.hDimgray {\r\n  background-color: #696969;\r\n}\r\n.hDimgray:not(.disabled):hover {\r\n  background-color: #7d7d7d;\r\n}\r\n.hDimgray:not(.disabled):active {\r\n  background-color: #555555;\r\n}\r\n.dodgerblue {\r\n  color: #1e90ff;\r\n}\r\n.Dodgerblue {\r\n  background-color: #1e90ff;\r\n}\r\n.hDodgerblue {\r\n  background-color: #1e90ff;\r\n}\r\n.hDodgerblue:not(.disabled):hover {\r\n  background-color: #32a4ff;\r\n}\r\n.hDodgerblue:not(.disabled):active {\r\n  background-color: #0a7ceb;\r\n}\r\n.firebrick {\r\n  color: #b22222;\r\n}\r\n.Firebrick {\r\n  background-color: #b22222;\r\n}\r\n.hFirebrick {\r\n  background-color: #b22222;\r\n}\r\n.hFirebrick:not(.disabled):hover {\r\n  background-color: #c63636;\r\n}\r\n.hFirebrick:not(.disabled):active {\r\n  background-color: #9e0e0e;\r\n}\r\n.floralwhite {\r\n  color: #fffaf0;\r\n}\r\n.Floralwhite {\r\n  background-color: #fffaf0;\r\n}\r\n.hFloralwhite {\r\n  background-color: #fffaf0;\r\n}\r\n.hFloralwhite:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hFloralwhite:not(.disabled):active {\r\n  background-color: #ebe6dc;\r\n}\r\n.forestgreen {\r\n  color: #228b22;\r\n}\r\n.Forestgreen {\r\n  background-color: #228b22;\r\n}\r\n.hForestgreen {\r\n  background-color: #228b22;\r\n}\r\n.hForestgreen:not(.disabled):hover {\r\n  background-color: #369f36;\r\n}\r\n.hForestgreen:not(.disabled):active {\r\n  background-color: #0e770e;\r\n}\r\n.fuchsia {\r\n  color: #ff00ff;\r\n}\r\n.Fuchsia {\r\n  background-color: #ff00ff;\r\n}\r\n.hFuchsia {\r\n  background-color: #ff00ff;\r\n}\r\n.hFuchsia:not(.disabled):hover {\r\n  background-color: #ff14ff;\r\n}\r\n.hFuchsia:not(.disabled):active {\r\n  background-color: #eb00eb;\r\n}\r\n.gainsboro {\r\n  color: #dcdcdc;\r\n}\r\n.Gainsboro {\r\n  background-color: #dcdcdc;\r\n}\r\n.hGainsboro {\r\n  background-color: #dcdcdc;\r\n}\r\n.hGainsboro:not(.disabled):hover {\r\n  background-color: #f0f0f0;\r\n}\r\n.hGainsboro:not(.disabled):active {\r\n  background-color: #c8c8c8;\r\n}\r\n.ghostwhite {\r\n  color: #f8f8ff;\r\n}\r\n.Ghostwhite {\r\n  background-color: #f8f8ff;\r\n}\r\n.hGhostwhite {\r\n  background-color: #f8f8ff;\r\n}\r\n.hGhostwhite:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hGhostwhite:not(.disabled):active {\r\n  background-color: #e4e4eb;\r\n}\r\n.gold {\r\n  color: #ffd700;\r\n}\r\n.Gold {\r\n  background-color: #ffd700;\r\n}\r\n.hGold {\r\n  background-color: #ffd700;\r\n}\r\n.hGold:not(.disabled):hover {\r\n  background-color: #ffeb14;\r\n}\r\n.hGold:not(.disabled):active {\r\n  background-color: #ebc300;\r\n}\r\n.goldenrod {\r\n  color: #daa520;\r\n}\r\n.Goldenrod {\r\n  background-color: #daa520;\r\n}\r\n.hGoldenrod {\r\n  background-color: #daa520;\r\n}\r\n.hGoldenrod:not(.disabled):hover {\r\n  background-color: #eeb934;\r\n}\r\n.hGoldenrod:not(.disabled):active {\r\n  background-color: #c6910c;\r\n}\r\n.gray {\r\n  color: #808080;\r\n}\r\n.Gray {\r\n  background-color: #808080;\r\n}\r\n.hGray {\r\n  background-color: #808080;\r\n}\r\n.hGray:not(.disabled):hover {\r\n  background-color: #949494;\r\n}\r\n.hGray:not(.disabled):active {\r\n  background-color: #6c6c6c;\r\n}\r\n.green {\r\n  color: #008000;\r\n}\r\n.Green {\r\n  background-color: #008000;\r\n}\r\n.hGreen {\r\n  background-color: #008000;\r\n}\r\n.hGreen:not(.disabled):hover {\r\n  background-color: #149414;\r\n}\r\n.hGreen:not(.disabled):active {\r\n  background-color: #006c00;\r\n}\r\n.greenyellow {\r\n  color: #adff2f;\r\n}\r\n.Greenyellow {\r\n  background-color: #adff2f;\r\n}\r\n.hGreenyellow {\r\n  background-color: #adff2f;\r\n}\r\n.hGreenyellow:not(.disabled):hover {\r\n  background-color: #c1ff43;\r\n}\r\n.hGreenyellow:not(.disabled):active {\r\n  background-color: #99eb1b;\r\n}\r\n.honeydew {\r\n  color: #f0fff0;\r\n}\r\n.Honeydew {\r\n  background-color: #f0fff0;\r\n}\r\n.hHoneydew {\r\n  background-color: #f0fff0;\r\n}\r\n.hHoneydew:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hHoneydew:not(.disabled):active {\r\n  background-color: #dcebdc;\r\n}\r\n.hotpink {\r\n  color: #ff69b4;\r\n}\r\n.Hotpink {\r\n  background-color: #ff69b4;\r\n}\r\n.hHotpink {\r\n  background-color: #ff69b4;\r\n}\r\n.hHotpink:not(.disabled):hover {\r\n  background-color: #ff7dc8;\r\n}\r\n.hHotpink:not(.disabled):active {\r\n  background-color: #eb55a0;\r\n}\r\n.indianred  {\r\n  color: #cd5c5c;\r\n}\r\n.Indianred  {\r\n  background-color: #cd5c5c;\r\n}\r\n.hIndianred  {\r\n  background-color: #cd5c5c;\r\n}\r\n.hIndianred :not(.disabled):hover {\r\n  background-color: #e17070;\r\n}\r\n.hIndianred :not(.disabled):active {\r\n  background-color: #b94848;\r\n}\r\n.indigo {\r\n  color: #4b0082;\r\n}\r\n.Indigo {\r\n  background-color: #4b0082;\r\n}\r\n.hIndigo {\r\n  background-color: #4b0082;\r\n}\r\n.hIndigo:not(.disabled):hover {\r\n  background-color: #5f1496;\r\n}\r\n.hIndigo:not(.disabled):active {\r\n  background-color: #37006e;\r\n}\r\n.ivory {\r\n  color: #fffff0;\r\n}\r\n.Ivory {\r\n  background-color: #fffff0;\r\n}\r\n.hIvory {\r\n  background-color: #fffff0;\r\n}\r\n.hIvory:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hIvory:not(.disabled):active {\r\n  background-color: #ebebdc;\r\n}\r\n.khaki {\r\n  color: #f0e68c;\r\n}\r\n.Khaki {\r\n  background-color: #f0e68c;\r\n}\r\n.hKhaki {\r\n  background-color: #f0e68c;\r\n}\r\n.hKhaki:not(.disabled):hover {\r\n  background-color: #fffaa0;\r\n}\r\n.hKhaki:not(.disabled):active {\r\n  background-color: #dcd278;\r\n}\r\n.lavender {\r\n  color: #e6e6fa;\r\n}\r\n.Lavender {\r\n  background-color: #e6e6fa;\r\n}\r\n.hLavender {\r\n  background-color: #e6e6fa;\r\n}\r\n.hLavender:not(.disabled):hover {\r\n  background-color: #fafaff;\r\n}\r\n.hLavender:not(.disabled):active {\r\n  background-color: #d2d2e6;\r\n}\r\n.lavenderblush {\r\n  color: #fff0f5;\r\n}\r\n.Lavenderblush {\r\n  background-color: #fff0f5;\r\n}\r\n.hLavenderblush {\r\n  background-color: #fff0f5;\r\n}\r\n.hLavenderblush:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hLavenderblush:not(.disabled):active {\r\n  background-color: #ebdce1;\r\n}\r\n.lawngreen {\r\n  color: #7cfc00;\r\n}\r\n.Lawngreen {\r\n  background-color: #7cfc00;\r\n}\r\n.hLawngreen {\r\n  background-color: #7cfc00;\r\n}\r\n.hLawngreen:not(.disabled):hover {\r\n  background-color: #90ff14;\r\n}\r\n.hLawngreen:not(.disabled):active {\r\n  background-color: #68e800;\r\n}\r\n.lemonchiffon {\r\n  color: #fffacd;\r\n}\r\n.Lemonchiffon {\r\n  background-color: #fffacd;\r\n}\r\n.hLemonchiffon {\r\n  background-color: #fffacd;\r\n}\r\n.hLemonchiffon:not(.disabled):hover {\r\n  background-color: #ffffe1;\r\n}\r\n.hLemonchiffon:not(.disabled):active {\r\n  background-color: #ebe6b9;\r\n}\r\n.lightblue {\r\n  color: #add8e6;\r\n}\r\n.Lightblue {\r\n  background-color: #add8e6;\r\n}\r\n.hLightblue {\r\n  background-color: #add8e6;\r\n}\r\n.hLightblue:not(.disabled):hover {\r\n  background-color: #c1ecfa;\r\n}\r\n.hLightblue:not(.disabled):active {\r\n  background-color: #99c4d2;\r\n}\r\n.lightcoral {\r\n  color: #f08080;\r\n}\r\n.Lightcoral {\r\n  background-color: #f08080;\r\n}\r\n.hLightcoral {\r\n  background-color: #f08080;\r\n}\r\n.hLightcoral:not(.disabled):hover {\r\n  background-color: #ff9494;\r\n}\r\n.hLightcoral:not(.disabled):active {\r\n  background-color: #dc6c6c;\r\n}\r\n.lightcyan {\r\n  color: #e0ffff;\r\n}\r\n.Lightcyan {\r\n  background-color: #e0ffff;\r\n}\r\n.hLightcyan {\r\n  background-color: #e0ffff;\r\n}\r\n.hLightcyan:not(.disabled):hover {\r\n  background-color: #f4ffff;\r\n}\r\n.hLightcyan:not(.disabled):active {\r\n  background-color: #ccebeb;\r\n}\r\n.lightgoldenrodyellow {\r\n  color: #fafad2;\r\n}\r\n.Lightgoldenrodyellow {\r\n  background-color: #fafad2;\r\n}\r\n.hLightgoldenrodyellow {\r\n  background-color: #fafad2;\r\n}\r\n.hLightgoldenrodyellow:not(.disabled):hover {\r\n  background-color: #ffffe6;\r\n}\r\n.hLightgoldenrodyellow:not(.disabled):active {\r\n  background-color: #e6e6be;\r\n}\r\n.lightgray {\r\n  color: #d3d3d3;\r\n}\r\n.Lightgray {\r\n  background-color: #d3d3d3;\r\n}\r\n.hLightgray {\r\n  background-color: #d3d3d3;\r\n}\r\n.hLightgray:not(.disabled):hover {\r\n  background-color: #e7e7e7;\r\n}\r\n.hLightgray:not(.disabled):active {\r\n  background-color: #bfbfbf;\r\n}\r\n.lightgrey {\r\n  color: #d3d3d3;\r\n}\r\n.Lightgrey {\r\n  background-color: #d3d3d3;\r\n}\r\n.hLightgrey {\r\n  background-color: #d3d3d3;\r\n}\r\n.hLightgrey:not(.disabled):hover {\r\n  background-color: #e7e7e7;\r\n}\r\n.hLightgrey:not(.disabled):active {\r\n  background-color: #bfbfbf;\r\n}\r\n.lightgreen {\r\n  color: #90ee90;\r\n}\r\n.Lightgreen {\r\n  background-color: #90ee90;\r\n}\r\n.hLightgreen {\r\n  background-color: #90ee90;\r\n}\r\n.hLightgreen:not(.disabled):hover {\r\n  background-color: #a4ffa4;\r\n}\r\n.hLightgreen:not(.disabled):active {\r\n  background-color: #7cda7c;\r\n}\r\n.lightpink {\r\n  color: #ffb6c1;\r\n}\r\n.Lightpink {\r\n  background-color: #ffb6c1;\r\n}\r\n.hLightpink {\r\n  background-color: #ffb6c1;\r\n}\r\n.hLightpink:not(.disabled):hover {\r\n  background-color: #ffcad5;\r\n}\r\n.hLightpink:not(.disabled):active {\r\n  background-color: #eba2ad;\r\n}\r\n.lightsalmon {\r\n  color: #ffa07a;\r\n}\r\n.Lightsalmon {\r\n  background-color: #ffa07a;\r\n}\r\n.hLightsalmon {\r\n  background-color: #ffa07a;\r\n}\r\n.hLightsalmon:not(.disabled):hover {\r\n  background-color: #ffb48e;\r\n}\r\n.hLightsalmon:not(.disabled):active {\r\n  background-color: #eb8c66;\r\n}\r\n.lightseagreen {\r\n  color: #20b2aa;\r\n}\r\n.Lightseagreen {\r\n  background-color: #20b2aa;\r\n}\r\n.hLightseagreen {\r\n  background-color: #20b2aa;\r\n}\r\n.hLightseagreen:not(.disabled):hover {\r\n  background-color: #34c6be;\r\n}\r\n.hLightseagreen:not(.disabled):active {\r\n  background-color: #0c9e96;\r\n}\r\n.lightskyblue {\r\n  color: #87cefa;\r\n}\r\n.Lightskyblue {\r\n  background-color: #87cefa;\r\n}\r\n.hLightskyblue {\r\n  background-color: #87cefa;\r\n}\r\n.hLightskyblue:not(.disabled):hover {\r\n  background-color: #9be2ff;\r\n}\r\n.hLightskyblue:not(.disabled):active {\r\n  background-color: #73bae6;\r\n}\r\n.lightslategray {\r\n  color: #778899;\r\n}\r\n.Lightslategray {\r\n  background-color: #778899;\r\n}\r\n.hLightslategray {\r\n  background-color: #778899;\r\n}\r\n.hLightslategray:not(.disabled):hover {\r\n  background-color: #8b9cad;\r\n}\r\n.hLightslategray:not(.disabled):active {\r\n  background-color: #637485;\r\n}\r\n.lightsteelblue {\r\n  color: #b0c4de;\r\n}\r\n.Lightsteelblue {\r\n  background-color: #b0c4de;\r\n}\r\n.hLightsteelblue {\r\n  background-color: #b0c4de;\r\n}\r\n.hLightsteelblue:not(.disabled):hover {\r\n  background-color: #c4d8f2;\r\n}\r\n.hLightsteelblue:not(.disabled):active {\r\n  background-color: #9cb0ca;\r\n}\r\n.lightyellow {\r\n  color: #ffffe0;\r\n}\r\n.Lightyellow {\r\n  background-color: #ffffe0;\r\n}\r\n.hLightyellow {\r\n  background-color: #ffffe0;\r\n}\r\n.hLightyellow:not(.disabled):hover {\r\n  background-color: #fffff4;\r\n}\r\n.hLightyellow:not(.disabled):active {\r\n  background-color: #ebebcc;\r\n}\r\n.lime {\r\n  color: #00ff00;\r\n}\r\n.Lime {\r\n  background-color: #00ff00;\r\n}\r\n.hLime {\r\n  background-color: #00ff00;\r\n}\r\n.hLime:not(.disabled):hover {\r\n  background-color: #14ff14;\r\n}\r\n.hLime:not(.disabled):active {\r\n  background-color: #00eb00;\r\n}\r\n.limegreen {\r\n  color: #32cd32;\r\n}\r\n.Limegreen {\r\n  background-color: #32cd32;\r\n}\r\n.hLimegreen {\r\n  background-color: #32cd32;\r\n}\r\n.hLimegreen:not(.disabled):hover {\r\n  background-color: #46e146;\r\n}\r\n.hLimegreen:not(.disabled):active {\r\n  background-color: #1eb91e;\r\n}\r\n.linen {\r\n  color: #faf0e6;\r\n}\r\n.Linen {\r\n  background-color: #faf0e6;\r\n}\r\n.hLinen {\r\n  background-color: #faf0e6;\r\n}\r\n.hLinen:not(.disabled):hover {\r\n  background-color: #fffffa;\r\n}\r\n.hLinen:not(.disabled):active {\r\n  background-color: #e6dcd2;\r\n}\r\n.magenta {\r\n  color: #ff00ff;\r\n}\r\n.Magenta {\r\n  background-color: #ff00ff;\r\n}\r\n.hMagenta {\r\n  background-color: #ff00ff;\r\n}\r\n.hMagenta:not(.disabled):hover {\r\n  background-color: #ff14ff;\r\n}\r\n.hMagenta:not(.disabled):active {\r\n  background-color: #eb00eb;\r\n}\r\n.maroon {\r\n  color: #800000;\r\n}\r\n.Maroon {\r\n  background-color: #800000;\r\n}\r\n.hMaroon {\r\n  background-color: #800000;\r\n}\r\n.hMaroon:not(.disabled):hover {\r\n  background-color: #941414;\r\n}\r\n.hMaroon:not(.disabled):active {\r\n  background-color: #6c0000;\r\n}\r\n.mediumaquamarine {\r\n  color: #66cdaa;\r\n}\r\n.Mediumaquamarine {\r\n  background-color: #66cdaa;\r\n}\r\n.hMediumaquamarine {\r\n  background-color: #66cdaa;\r\n}\r\n.hMediumaquamarine:not(.disabled):hover {\r\n  background-color: #7ae1be;\r\n}\r\n.hMediumaquamarine:not(.disabled):active {\r\n  background-color: #52b996;\r\n}\r\n.mediumblue {\r\n  color: #0000cd;\r\n}\r\n.Mediumblue {\r\n  background-color: #0000cd;\r\n}\r\n.hMediumblue {\r\n  background-color: #0000cd;\r\n}\r\n.hMediumblue:not(.disabled):hover {\r\n  background-color: #1414e1;\r\n}\r\n.hMediumblue:not(.disabled):active {\r\n  background-color: #0000b9;\r\n}\r\n.mediumorchid {\r\n  color: #ba55d3;\r\n}\r\n.Mediumorchid {\r\n  background-color: #ba55d3;\r\n}\r\n.hMediumorchid {\r\n  background-color: #ba55d3;\r\n}\r\n.hMediumorchid:not(.disabled):hover {\r\n  background-color: #ce69e7;\r\n}\r\n.hMediumorchid:not(.disabled):active {\r\n  background-color: #a641bf;\r\n}\r\n.mediumpurple {\r\n  color: #9370d8;\r\n}\r\n.Mediumpurple {\r\n  background-color: #9370d8;\r\n}\r\n.hMediumpurple {\r\n  background-color: #9370d8;\r\n}\r\n.hMediumpurple:not(.disabled):hover {\r\n  background-color: #a784ec;\r\n}\r\n.hMediumpurple:not(.disabled):active {\r\n  background-color: #7f5cc4;\r\n}\r\n.mediumseagreen {\r\n  color: #3cb371;\r\n}\r\n.Mediumseagreen {\r\n  background-color: #3cb371;\r\n}\r\n.hMediumseagreen {\r\n  background-color: #3cb371;\r\n}\r\n.hMediumseagreen:not(.disabled):hover {\r\n  background-color: #50c785;\r\n}\r\n.hMediumseagreen:not(.disabled):active {\r\n  background-color: #289f5d;\r\n}\r\n.mediumslateblue {\r\n  color: #7b68ee;\r\n}\r\n.Mediumslateblue {\r\n  background-color: #7b68ee;\r\n}\r\n.hMediumslateblue {\r\n  background-color: #7b68ee;\r\n}\r\n.hMediumslateblue:not(.disabled):hover {\r\n  background-color: #8f7cff;\r\n}\r\n.hMediumslateblue:not(.disabled):active {\r\n  background-color: #6754da;\r\n}\r\n.mediumspringgreen {\r\n  color: #00fa9a;\r\n}\r\n.Mediumspringgreen {\r\n  background-color: #00fa9a;\r\n}\r\n.hMediumspringgreen {\r\n  background-color: #00fa9a;\r\n}\r\n.hMediumspringgreen:not(.disabled):hover {\r\n  background-color: #14ffae;\r\n}\r\n.hMediumspringgreen:not(.disabled):active {\r\n  background-color: #00e686;\r\n}\r\n.mediumturquoise {\r\n  color: #48d1cc;\r\n}\r\n.Mediumturquoise {\r\n  background-color: #48d1cc;\r\n}\r\n.hMediumturquoise {\r\n  background-color: #48d1cc;\r\n}\r\n.hMediumturquoise:not(.disabled):hover {\r\n  background-color: #5ce5e0;\r\n}\r\n.hMediumturquoise:not(.disabled):active {\r\n  background-color: #34bdb8;\r\n}\r\n.mediumvioletred {\r\n  color: #c71585;\r\n}\r\n.Mediumvioletred {\r\n  background-color: #c71585;\r\n}\r\n.hMediumvioletred {\r\n  background-color: #c71585;\r\n}\r\n.hMediumvioletred:not(.disabled):hover {\r\n  background-color: #db2999;\r\n}\r\n.hMediumvioletred:not(.disabled):active {\r\n  background-color: #b30171;\r\n}\r\n.midnightblue {\r\n  color: #191970;\r\n}\r\n.Midnightblue {\r\n  background-color: #191970;\r\n}\r\n.hMidnightblue {\r\n  background-color: #191970;\r\n}\r\n.hMidnightblue:not(.disabled):hover {\r\n  background-color: #2d2d84;\r\n}\r\n.hMidnightblue:not(.disabled):active {\r\n  background-color: #05055c;\r\n}\r\n.mintcream {\r\n  color: #f5fffa;\r\n}\r\n.Mintcream {\r\n  background-color: #f5fffa;\r\n}\r\n.hMintcream {\r\n  background-color: #f5fffa;\r\n}\r\n.hMintcream:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hMintcream:not(.disabled):active {\r\n  background-color: #e1ebe6;\r\n}\r\n.mistyrose {\r\n  color: #ffe4e1;\r\n}\r\n.Mistyrose {\r\n  background-color: #ffe4e1;\r\n}\r\n.hMistyrose {\r\n  background-color: #ffe4e1;\r\n}\r\n.hMistyrose:not(.disabled):hover {\r\n  background-color: #fff8f5;\r\n}\r\n.hMistyrose:not(.disabled):active {\r\n  background-color: #ebd0cd;\r\n}\r\n.moccasin {\r\n  color: #ffe4b5;\r\n}\r\n.Moccasin {\r\n  background-color: #ffe4b5;\r\n}\r\n.hMoccasin {\r\n  background-color: #ffe4b5;\r\n}\r\n.hMoccasin:not(.disabled):hover {\r\n  background-color: #fff8c9;\r\n}\r\n.hMoccasin:not(.disabled):active {\r\n  background-color: #ebd0a1;\r\n}\r\n.navajowhite {\r\n  color: #ffdead;\r\n}\r\n.Navajowhite {\r\n  background-color: #ffdead;\r\n}\r\n.hNavajowhite {\r\n  background-color: #ffdead;\r\n}\r\n.hNavajowhite:not(.disabled):hover {\r\n  background-color: #fff2c1;\r\n}\r\n.hNavajowhite:not(.disabled):active {\r\n  background-color: #ebca99;\r\n}\r\n.navy {\r\n  color: #000080;\r\n}\r\n.Navy {\r\n  background-color: #000080;\r\n}\r\n.hNavy {\r\n  background-color: #000080;\r\n}\r\n.hNavy:not(.disabled):hover {\r\n  background-color: #141494;\r\n}\r\n.hNavy:not(.disabled):active {\r\n  background-color: #00006c;\r\n}\r\n.oldlace {\r\n  color: #fdf5e6;\r\n}\r\n.Oldlace {\r\n  background-color: #fdf5e6;\r\n}\r\n.hOldlace {\r\n  background-color: #fdf5e6;\r\n}\r\n.hOldlace:not(.disabled):hover {\r\n  background-color: #fffffa;\r\n}\r\n.hOldlace:not(.disabled):active {\r\n  background-color: #e9e1d2;\r\n}\r\n.olive {\r\n  color: #808000;\r\n}\r\n.Olive {\r\n  background-color: #808000;\r\n}\r\n.hOlive {\r\n  background-color: #808000;\r\n}\r\n.hOlive:not(.disabled):hover {\r\n  background-color: #949414;\r\n}\r\n.hOlive:not(.disabled):active {\r\n  background-color: #6c6c00;\r\n}\r\n.olivedrab {\r\n  color: #6b8e23;\r\n}\r\n.Olivedrab {\r\n  background-color: #6b8e23;\r\n}\r\n.hOlivedrab {\r\n  background-color: #6b8e23;\r\n}\r\n.hOlivedrab:not(.disabled):hover {\r\n  background-color: #7fa237;\r\n}\r\n.hOlivedrab:not(.disabled):active {\r\n  background-color: #577a0f;\r\n}\r\n.orange {\r\n  color: #ffa500;\r\n}\r\n.Orange {\r\n  background-color: #ffa500;\r\n}\r\n.hOrange {\r\n  background-color: #ffa500;\r\n}\r\n.hOrange:not(.disabled):hover {\r\n  background-color: #ffb914;\r\n}\r\n.hOrange:not(.disabled):active {\r\n  background-color: #eb9100;\r\n}\r\n.orangered {\r\n  color: #ff4500;\r\n}\r\n.Orangered {\r\n  background-color: #ff4500;\r\n}\r\n.hOrangered {\r\n  background-color: #ff4500;\r\n}\r\n.hOrangered:not(.disabled):hover {\r\n  background-color: #ff5914;\r\n}\r\n.hOrangered:not(.disabled):active {\r\n  background-color: #eb3100;\r\n}\r\n.orchid {\r\n  color: #da70d6;\r\n}\r\n.Orchid {\r\n  background-color: #da70d6;\r\n}\r\n.hOrchid {\r\n  background-color: #da70d6;\r\n}\r\n.hOrchid:not(.disabled):hover {\r\n  background-color: #ee84ea;\r\n}\r\n.hOrchid:not(.disabled):active {\r\n  background-color: #c65cc2;\r\n}\r\n.palegoldenrod {\r\n  color: #eee8aa;\r\n}\r\n.Palegoldenrod {\r\n  background-color: #eee8aa;\r\n}\r\n.hPalegoldenrod {\r\n  background-color: #eee8aa;\r\n}\r\n.hPalegoldenrod:not(.disabled):hover {\r\n  background-color: #fffcbe;\r\n}\r\n.hPalegoldenrod:not(.disabled):active {\r\n  background-color: #dad496;\r\n}\r\n.palegreen {\r\n  color: #98fb98;\r\n}\r\n.Palegreen {\r\n  background-color: #98fb98;\r\n}\r\n.hPalegreen {\r\n  background-color: #98fb98;\r\n}\r\n.hPalegreen:not(.disabled):hover {\r\n  background-color: #acffac;\r\n}\r\n.hPalegreen:not(.disabled):active {\r\n  background-color: #84e784;\r\n}\r\n.paleturquoise {\r\n  color: #afeeee;\r\n}\r\n.Paleturquoise {\r\n  background-color: #afeeee;\r\n}\r\n.hPaleturquoise {\r\n  background-color: #afeeee;\r\n}\r\n.hPaleturquoise:not(.disabled):hover {\r\n  background-color: #c3ffff;\r\n}\r\n.hPaleturquoise:not(.disabled):active {\r\n  background-color: #9bdada;\r\n}\r\n.palevioletred {\r\n  color: #d87093;\r\n}\r\n.Palevioletred {\r\n  background-color: #d87093;\r\n}\r\n.hPalevioletred {\r\n  background-color: #d87093;\r\n}\r\n.hPalevioletred:not(.disabled):hover {\r\n  background-color: #ec84a7;\r\n}\r\n.hPalevioletred:not(.disabled):active {\r\n  background-color: #c45c7f;\r\n}\r\n.papayawhip {\r\n  color: #ffefd5;\r\n}\r\n.Papayawhip {\r\n  background-color: #ffefd5;\r\n}\r\n.hPapayawhip {\r\n  background-color: #ffefd5;\r\n}\r\n.hPapayawhip:not(.disabled):hover {\r\n  background-color: #ffffe9;\r\n}\r\n.hPapayawhip:not(.disabled):active {\r\n  background-color: #ebdbc1;\r\n}\r\n.peachpuff {\r\n  color: #ffdab9;\r\n}\r\n.Peachpuff {\r\n  background-color: #ffdab9;\r\n}\r\n.hPeachpuff {\r\n  background-color: #ffdab9;\r\n}\r\n.hPeachpuff:not(.disabled):hover {\r\n  background-color: #ffeecd;\r\n}\r\n.hPeachpuff:not(.disabled):active {\r\n  background-color: #ebc6a5;\r\n}\r\n.peru {\r\n  color: #cd853f;\r\n}\r\n.Peru {\r\n  background-color: #cd853f;\r\n}\r\n.hPeru {\r\n  background-color: #cd853f;\r\n}\r\n.hPeru:not(.disabled):hover {\r\n  background-color: #e19953;\r\n}\r\n.hPeru:not(.disabled):active {\r\n  background-color: #b9712b;\r\n}\r\n.pink {\r\n  color: #ffc0cb;\r\n}\r\n.Pink {\r\n  background-color: #ffc0cb;\r\n}\r\n.hPink {\r\n  background-color: #ffc0cb;\r\n}\r\n.hPink:not(.disabled):hover {\r\n  background-color: #ffd4df;\r\n}\r\n.hPink:not(.disabled):active {\r\n  background-color: #ebacb7;\r\n}\r\n.plum {\r\n  color: #dda0dd;\r\n}\r\n.Plum {\r\n  background-color: #dda0dd;\r\n}\r\n.hPlum {\r\n  background-color: #dda0dd;\r\n}\r\n.hPlum:not(.disabled):hover {\r\n  background-color: #f1b4f1;\r\n}\r\n.hPlum:not(.disabled):active {\r\n  background-color: #c98cc9;\r\n}\r\n.powderblue {\r\n  color: #b0e0e6;\r\n}\r\n.Powderblue {\r\n  background-color: #b0e0e6;\r\n}\r\n.hPowderblue {\r\n  background-color: #b0e0e6;\r\n}\r\n.hPowderblue:not(.disabled):hover {\r\n  background-color: #c4f4fa;\r\n}\r\n.hPowderblue:not(.disabled):active {\r\n  background-color: #9cccd2;\r\n}\r\n.purple {\r\n  color: #800080;\r\n}\r\n.Purple {\r\n  background-color: #800080;\r\n}\r\n.hPurple {\r\n  background-color: #800080;\r\n}\r\n.hPurple:not(.disabled):hover {\r\n  background-color: #941494;\r\n}\r\n.hPurple:not(.disabled):active {\r\n  background-color: #6c006c;\r\n}\r\n.red {\r\n  color: #ff0000;\r\n}\r\n.Red {\r\n  background-color: #ff0000;\r\n}\r\n.hRed {\r\n  background-color: #ff0000;\r\n}\r\n.hRed:not(.disabled):hover {\r\n  background-color: #ff1414;\r\n}\r\n.hRed:not(.disabled):active {\r\n  background-color: #eb0000;\r\n}\r\n.rosybrown {\r\n  color: #bc8f8f;\r\n}\r\n.Rosybrown {\r\n  background-color: #bc8f8f;\r\n}\r\n.hRosybrown {\r\n  background-color: #bc8f8f;\r\n}\r\n.hRosybrown:not(.disabled):hover {\r\n  background-color: #d0a3a3;\r\n}\r\n.hRosybrown:not(.disabled):active {\r\n  background-color: #a87b7b;\r\n}\r\n.royalblue {\r\n  color: #4169e1;\r\n}\r\n.Royalblue {\r\n  background-color: #4169e1;\r\n}\r\n.hRoyalblue {\r\n  background-color: #4169e1;\r\n}\r\n.hRoyalblue:not(.disabled):hover {\r\n  background-color: #557df5;\r\n}\r\n.hRoyalblue:not(.disabled):active {\r\n  background-color: #2d55cd;\r\n}\r\n.saddlebrown {\r\n  color: #8b4513;\r\n}\r\n.Saddlebrown {\r\n  background-color: #8b4513;\r\n}\r\n.hSaddlebrown {\r\n  background-color: #8b4513;\r\n}\r\n.hSaddlebrown:not(.disabled):hover {\r\n  background-color: #9f5927;\r\n}\r\n.hSaddlebrown:not(.disabled):active {\r\n  background-color: #773100;\r\n}\r\n.salmon {\r\n  color: #fa8072;\r\n}\r\n.Salmon {\r\n  background-color: #fa8072;\r\n}\r\n.hSalmon {\r\n  background-color: #fa8072;\r\n}\r\n.hSalmon:not(.disabled):hover {\r\n  background-color: #ff9486;\r\n}\r\n.hSalmon:not(.disabled):active {\r\n  background-color: #e66c5e;\r\n}\r\n.sandybrown {\r\n  color: #f4a460;\r\n}\r\n.Sandybrown {\r\n  background-color: #f4a460;\r\n}\r\n.hSandybrown {\r\n  background-color: #f4a460;\r\n}\r\n.hSandybrown:not(.disabled):hover {\r\n  background-color: #ffb874;\r\n}\r\n.hSandybrown:not(.disabled):active {\r\n  background-color: #e0904c;\r\n}\r\n.seagreen {\r\n  color: #2e8b57;\r\n}\r\n.Seagreen {\r\n  background-color: #2e8b57;\r\n}\r\n.hSeagreen {\r\n  background-color: #2e8b57;\r\n}\r\n.hSeagreen:not(.disabled):hover {\r\n  background-color: #429f6b;\r\n}\r\n.hSeagreen:not(.disabled):active {\r\n  background-color: #1a7743;\r\n}\r\n.seashell {\r\n  color: #fff5ee;\r\n}\r\n.Seashell {\r\n  background-color: #fff5ee;\r\n}\r\n.hSeashell {\r\n  background-color: #fff5ee;\r\n}\r\n.hSeashell:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hSeashell:not(.disabled):active {\r\n  background-color: #ebe1da;\r\n}\r\n.sienna {\r\n  color: #a0522d;\r\n}\r\n.Sienna {\r\n  background-color: #a0522d;\r\n}\r\n.hSienna {\r\n  background-color: #a0522d;\r\n}\r\n.hSienna:not(.disabled):hover {\r\n  background-color: #b46641;\r\n}\r\n.hSienna:not(.disabled):active {\r\n  background-color: #8c3e19;\r\n}\r\n.silver {\r\n  color: #c0c0c0;\r\n}\r\n.Silver {\r\n  background-color: #c0c0c0;\r\n}\r\n.hSilver {\r\n  background-color: #c0c0c0;\r\n}\r\n.hSilver:not(.disabled):hover {\r\n  background-color: #d4d4d4;\r\n}\r\n.hSilver:not(.disabled):active {\r\n  background-color: #acacac;\r\n}\r\n.skyblue {\r\n  color: #87ceeb;\r\n}\r\n.Skyblue {\r\n  background-color: #87ceeb;\r\n}\r\n.hSkyblue {\r\n  background-color: #87ceeb;\r\n}\r\n.hSkyblue:not(.disabled):hover {\r\n  background-color: #9be2ff;\r\n}\r\n.hSkyblue:not(.disabled):active {\r\n  background-color: #73bad7;\r\n}\r\n.slateblue {\r\n  color: #6a5acd;\r\n}\r\n.Slateblue {\r\n  background-color: #6a5acd;\r\n}\r\n.hSlateblue {\r\n  background-color: #6a5acd;\r\n}\r\n.hSlateblue:not(.disabled):hover {\r\n  background-color: #7e6ee1;\r\n}\r\n.hSlateblue:not(.disabled):active {\r\n  background-color: #5646b9;\r\n}\r\n.slategray {\r\n  color: #708090;\r\n}\r\n.Slategray {\r\n  background-color: #708090;\r\n}\r\n.hSlategray {\r\n  background-color: #708090;\r\n}\r\n.hSlategray:not(.disabled):hover {\r\n  background-color: #8494a4;\r\n}\r\n.hSlategray:not(.disabled):active {\r\n  background-color: #5c6c7c;\r\n}\r\n.snow {\r\n  color: #fffafa;\r\n}\r\n.Snow {\r\n  background-color: #fffafa;\r\n}\r\n.hSnow {\r\n  background-color: #fffafa;\r\n}\r\n.hSnow:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hSnow:not(.disabled):active {\r\n  background-color: #ebe6e6;\r\n}\r\n.springgreen {\r\n  color: #00ff7f;\r\n}\r\n.Springgreen {\r\n  background-color: #00ff7f;\r\n}\r\n.hSpringgreen {\r\n  background-color: #00ff7f;\r\n}\r\n.hSpringgreen:not(.disabled):hover {\r\n  background-color: #14ff93;\r\n}\r\n.hSpringgreen:not(.disabled):active {\r\n  background-color: #00eb6b;\r\n}\r\n.steelblue {\r\n  color: #4682b4;\r\n}\r\n.Steelblue {\r\n  background-color: #4682b4;\r\n}\r\n.hSteelblue {\r\n  background-color: #4682b4;\r\n}\r\n.hSteelblue:not(.disabled):hover {\r\n  background-color: #5a96c8;\r\n}\r\n.hSteelblue:not(.disabled):active {\r\n  background-color: #326ea0;\r\n}\r\n.tan {\r\n  color: #d2b48c;\r\n}\r\n.Tan {\r\n  background-color: #d2b48c;\r\n}\r\n.hTan {\r\n  background-color: #d2b48c;\r\n}\r\n.hTan:not(.disabled):hover {\r\n  background-color: #e6c8a0;\r\n}\r\n.hTan:not(.disabled):active {\r\n  background-color: #bea078;\r\n}\r\n.teal {\r\n  color: #008080;\r\n}\r\n.Teal {\r\n  background-color: #008080;\r\n}\r\n.hTeal {\r\n  background-color: #008080;\r\n}\r\n.hTeal:not(.disabled):hover {\r\n  background-color: #149494;\r\n}\r\n.hTeal:not(.disabled):active {\r\n  background-color: #006c6c;\r\n}\r\n.thistle {\r\n  color: #d8bfd8;\r\n}\r\n.Thistle {\r\n  background-color: #d8bfd8;\r\n}\r\n.hThistle {\r\n  background-color: #d8bfd8;\r\n}\r\n.hThistle:not(.disabled):hover {\r\n  background-color: #ecd3ec;\r\n}\r\n.hThistle:not(.disabled):active {\r\n  background-color: #c4abc4;\r\n}\r\n.tomato {\r\n  color: #ff6347;\r\n}\r\n.Tomato {\r\n  background-color: #ff6347;\r\n}\r\n.hTomato {\r\n  background-color: #ff6347;\r\n}\r\n.hTomato:not(.disabled):hover {\r\n  background-color: #ff775b;\r\n}\r\n.hTomato:not(.disabled):active {\r\n  background-color: #eb4f33;\r\n}\r\n.turquoise {\r\n  color: #40e0d0;\r\n}\r\n.Turquoise {\r\n  background-color: #40e0d0;\r\n}\r\n.hTurquoise {\r\n  background-color: #40e0d0;\r\n}\r\n.hTurquoise:not(.disabled):hover {\r\n  background-color: #54f4e4;\r\n}\r\n.hTurquoise:not(.disabled):active {\r\n  background-color: #2cccbc;\r\n}\r\n.violet {\r\n  color: #ee82ee;\r\n}\r\n.Violet {\r\n  background-color: #ee82ee;\r\n}\r\n.hViolet {\r\n  background-color: #ee82ee;\r\n}\r\n.hViolet:not(.disabled):hover {\r\n  background-color: #ff96ff;\r\n}\r\n.hViolet:not(.disabled):active {\r\n  background-color: #da6eda;\r\n}\r\n.wheat {\r\n  color: #f5deb3;\r\n}\r\n.Wheat {\r\n  background-color: #f5deb3;\r\n}\r\n.hWheat {\r\n  background-color: #f5deb3;\r\n}\r\n.hWheat:not(.disabled):hover {\r\n  background-color: #fff2c7;\r\n}\r\n.hWheat:not(.disabled):active {\r\n  background-color: #e1ca9f;\r\n}\r\n.white {\r\n  color: #ffffff;\r\n}\r\n.White {\r\n  background-color: #ffffff;\r\n}\r\n.hWhite {\r\n  background-color: #ffffff;\r\n}\r\n.hWhite:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hWhite:not(.disabled):active {\r\n  background-color: #ebebeb;\r\n}\r\n.whitesmoke {\r\n  color: #f5f5f5;\r\n}\r\n.Whitesmoke {\r\n  background-color: #f5f5f5;\r\n}\r\n.hWhitesmoke {\r\n  background-color: #f5f5f5;\r\n}\r\n.hWhitesmoke:not(.disabled):hover {\r\n  background-color: #ffffff;\r\n}\r\n.hWhitesmoke:not(.disabled):active {\r\n  background-color: #e1e1e1;\r\n}\r\n.yellow {\r\n  color: #ffff00;\r\n}\r\n.Yellow {\r\n  background-color: #ffff00;\r\n}\r\n.hYellow {\r\n  background-color: #ffff00;\r\n}\r\n.hYellow:not(.disabled):hover {\r\n  background-color: #ffff14;\r\n}\r\n.hYellow:not(.disabled):active {\r\n  background-color: #ebeb00;\r\n}\r\n.yellowgreen {\r\n  color: #9acd32;\r\n}\r\n.Yellowgreen {\r\n  background-color: #9acd32;\r\n}\r\n.hYellowgreen {\r\n  background-color: #9acd32;\r\n}\r\n.hYellowgreen:not(.disabled):hover {\r\n  background-color: #aee146;\r\n}\r\n.hYellowgreen:not(.disabled):active {\r\n  background-color: #86b91e;\r\n}\r\n.sp2 {\r\n  width: 2px;\r\n}\r\n.spv2 {\r\n  height: 2px;\r\n}\r\n.sp4 {\r\n  width: 4px;\r\n}\r\n.spv4 {\r\n  height: 4px;\r\n}\r\n.sp8 {\r\n  width: 8px;\r\n}\r\n.spv8 {\r\n  height: 8px;\r\n}\r\n.sp16 {\r\n  width: 16px;\r\n}\r\n.spv16 {\r\n  height: 16px;\r\n}\r\n.sp32 {\r\n  width: 32px;\r\n}\r\n.spv32 {\r\n  height: 32px;\r\n}\r\n.sp64 {\r\n  width: 64px;\r\n}\r\n.spv64 {\r\n  height: 64px;\r\n}\r\n.op5 {\r\n  opacity: .5;\r\n}\r\n.op10 {\r\n  opacity: .10;\r\n}\r\n.op15 {\r\n  opacity: .15;\r\n}\r\n.op20 {\r\n  opacity: .20;\r\n}\r\n.op25 {\r\n  opacity: .25;\r\n}\r\n.op30 {\r\n  opacity: .30;\r\n}\r\n.op35 {\r\n  opacity: .35;\r\n}\r\n.op40 {\r\n  opacity: .40;\r\n}\r\n.op45 {\r\n  opacity: .45;\r\n}\r\n.op50 {\r\n  opacity: .50;\r\n}\r\n.op55 {\r\n  opacity: .55;\r\n}\r\n.op60 {\r\n  opacity: .60;\r\n}\r\n.op65 {\r\n  opacity: .65;\r\n}\r\n.op70 {\r\n  opacity: .70;\r\n}\r\n.op75 {\r\n  opacity: .75;\r\n}\r\n.op80 {\r\n  opacity: .80;\r\n}\r\n.op85 {\r\n  opacity: .85;\r\n}\r\n.op90 {\r\n  opacity: .90;\r\n}\r\n.op95 {\r\n  opacity: .95;\r\n}\r\n.aic {\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n     -moz-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n}\r\n.aife {\r\n  -webkit-box-align: end;\r\n  -webkit-align-items: flex-end;\r\n     -moz-box-align: end;\r\n      -ms-flex-align: end;\r\n          align-items: flex-end;\r\n}\r\n.aifs {\r\n  -webkit-box-align: start;\r\n  -webkit-align-items: flex-start;\r\n     -moz-box-align: start;\r\n      -ms-flex-align: start;\r\n          align-items: flex-start;\r\n}\r\n.ais {\r\n  -webkit-box-align: stretch;\r\n  -webkit-align-items: stretch;\r\n     -moz-box-align: stretch;\r\n      -ms-flex-align: stretch;\r\n          align-items: stretch;\r\n}\r\n.cp {\r\n  cursor: pointer;\r\n}\r\n.f {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: -moz-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n}\r\n.f00a {\r\n  -webkit-box-flex: 0;\r\n  -webkit-flex: 0 0 auto;\r\n     -moz-box-flex: 0;\r\n      -ms-flex: 0 0 auto;\r\n          flex: 0 0 auto;\r\n}\r\n.fc {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: -moz-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n     -moz-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n  -webkit-justify-content: center;\r\n     -moz-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  text-align: center;\r\n}\r\n.fv {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: -moz-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -webkit-flex-direction: column;\r\n     -moz-box-orient: vertical;\r\n     -moz-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n}\r\n.fw {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: -moz-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-flex-wrap: wrap;\r\n      -ms-flex-wrap: wrap;\r\n          flex-wrap: wrap;\r\n}\r\n.fg0 {\r\n  -webkit-box-flex: 0;\r\n  -webkit-flex-grow: 0;\r\n     -moz-box-flex: 0;\r\n      -ms-flex-positive: 0;\r\n          flex-grow: 0;\r\n}\r\n.fg1 {\r\n  -webkit-box-flex: 1;\r\n  -webkit-flex-grow: 1;\r\n     -moz-box-flex: 1;\r\n      -ms-flex-positive: 1;\r\n          flex-grow: 1;\r\n}\r\n.fs0 {\r\n  -webkit-flex-shrink: 0;\r\n      -ms-flex-negative: 0;\r\n          flex-shrink: 0;\r\n}\r\n.fs1 {\r\n  -webkit-flex-shrink: 1;\r\n      -ms-flex-negative: 1;\r\n          flex-shrink: 1;\r\n}\r\n.jcs {\r\n  -webkit-box-pack: start;\r\n  -webkit-justify-content: start;\r\n     -moz-box-pack: start;\r\n      -ms-flex-pack: start;\r\n          justify-content: start;\r\n}\r\n.jce {\r\n  -webkit-box-pack: end;\r\n  -webkit-justify-content: end;\r\n     -moz-box-pack: end;\r\n      -ms-flex-pack: end;\r\n          justify-content: end;\r\n}\r\n.jcc {\r\n  -webkit-box-pack: center;\r\n  -webkit-justify-content: center;\r\n     -moz-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n}\r\n.jcsb {\r\n  -webkit-box-pack: justify;\r\n  -webkit-justify-content: space-between;\r\n     -moz-box-pack: justify;\r\n      -ms-flex-pack: justify;\r\n          justify-content: space-between;\r\n}\r\n.jcsa {\r\n  -webkit-justify-content: space-around;\r\n      -ms-flex-pack: distribute;\r\n          justify-content: space-around;\r\n}\r\n.oa {\r\n  overflow: auto;\r\n}\r\n.oh {\r\n  overflow: hidden;\r\n}\r\n.os {\r\n  overflow: scroll;\r\n}\r\n.ov {\r\n  overflow: visible;\r\n}\r\n.oxa {\r\n  overflow-x: auto;\r\n}\r\n.oxh {\r\n  overflow-x: hidden;\r\n}\r\n.oxs {\r\n  overflow-x: scroll;\r\n}\r\n.oxv {\r\n  overflow-x: visible;\r\n}\r\n.oya {\r\n  overflow-y: auto;\r\n}\r\n.oyh {\r\n  overflow-y: hidden;\r\n}\r\n.oys {\r\n  overflow-y: scroll;\r\n}\r\n.oyv {\r\n  overflow-y: visible;\r\n}\r\n.pa {\r\n  position: absolute;\r\n}\r\n.pf {\r\n  position: fixed;\r\n}\r\n.pr {\r\n  position: relative;\r\n}\r\n.ps {\r\n  position: static;\r\n}\r\n.tac {\r\n  text-align: center;\r\n}\r\n.tar {\r\n  text-align: right;\r\n}\r\n.tdn {\r\n  text-decoration: none;\r\n}\r\n.usn {\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n}\r\n.vab {\r\n  vertical-align: bottom;\r\n}\r\n.vabl {\r\n  vertical-align: baseline;\r\n}\r\n.vam {\r\n  vertical-align: middle;\r\n}\r\n.vat {\r\n  vertical-align: top;\r\n}\r\n.vatb {\r\n  vertical-align: text-bottom;\r\n}\r\n.vatt {\r\n  vertical-align: text-top;\r\n}\r\n.vc {\r\n  visibility: collapse;\r\n}\r\n.vh {\r\n  visibility: hidden;\r\n}\r\n.vv {\r\n  visibility: visible;\r\n}\r\n.hr {\r\n  border-color: rgba(250,250,250,.5);\r\n  width: 100%;\r\n  margin: 0;\r\n}\r\n.li:hover {\r\n  background-color: lavender;\r\n}", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 620 */
+/* 627 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(621);
+	var content = __webpack_require__(628);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(617)(content, {});
+	var update = __webpack_require__(624)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../css-loader/index.js!./../../postcss-loader/index.js!./font-awesome.css", function() {
-				var newContent = require("!!./../../css-loader/index.js!./../../postcss-loader/index.js!./font-awesome.css");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/postcss-loader/index.js!./styles.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/postcss-loader/index.js!./styles.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -63183,57 +63253,21 @@
 	}
 
 /***/ },
-/* 621 */
+/* 628 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(616)();
+	exports = module.exports = __webpack_require__(617)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "/*!\n *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome\n *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)\n */\n/* FONT PATH\n * -------------------------- */\n@font-face {\n  font-family: 'FontAwesome';\n  src: url(" + __webpack_require__(622) + ");\n  src: url(" + __webpack_require__(623) + "?#iefix&v=4.7.0) format('embedded-opentype'), url(" + __webpack_require__(624) + ") format('woff2'), url(" + __webpack_require__(625) + ") format('woff'), url(" + __webpack_require__(626) + ") format('truetype'), url(" + __webpack_require__(627) + "#fontawesomeregular) format('svg');\n  font-weight: normal;\n  font-style: normal;\n}\n.fa {\n  display: inline-block;\n  font: normal normal normal 14px/1 FontAwesome;\n  font-size: inherit;\n  text-rendering: auto;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n/* makes the font 33% larger relative to the icon container */\n.fa-lg {\n  font-size: 1.33333333em;\n  line-height: 0.75em;\n  vertical-align: -15%;\n}\n.fa-2x {\n  font-size: 2em;\n}\n.fa-3x {\n  font-size: 3em;\n}\n.fa-4x {\n  font-size: 4em;\n}\n.fa-5x {\n  font-size: 5em;\n}\n.fa-fw {\n  width: 1.28571429em;\n  text-align: center;\n}\n.fa-ul {\n  padding-left: 0;\n  margin-left: 2.14285714em;\n  list-style-type: none;\n}\n.fa-ul > li {\n  position: relative;\n}\n.fa-li {\n  position: absolute;\n  left: -2.14285714em;\n  width: 2.14285714em;\n  top: 0.14285714em;\n  text-align: center;\n}\n.fa-li.fa-lg {\n  left: -1.85714286em;\n}\n.fa-border {\n  padding: .2em .25em .15em;\n  border: solid 0.08em #eeeeee;\n  border-radius: .1em;\n}\n.fa-pull-left {\n  float: left;\n}\n.fa-pull-right {\n  float: right;\n}\n.fa.fa-pull-left {\n  margin-right: .3em;\n}\n.fa.fa-pull-right {\n  margin-left: .3em;\n}\n/* Deprecated as of 4.4.0 */\n.pull-right {\n  float: right;\n}\n.pull-left {\n  float: left;\n}\n.fa.pull-left {\n  margin-right: .3em;\n}\n.fa.pull-right {\n  margin-left: .3em;\n}\n.fa-spin {\n  -webkit-animation: fa-spin 2s infinite linear;\n  animation: fa-spin 2s infinite linear;\n}\n.fa-pulse {\n  -webkit-animation: fa-spin 1s infinite steps(8);\n  animation: fa-spin 1s infinite steps(8);\n}\n@-webkit-keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(359deg);\n    transform: rotate(359deg);\n  }\n}\n@keyframes fa-spin {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(359deg);\n    transform: rotate(359deg);\n  }\n}\n.fa-rotate-90 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=1)\";\n  -webkit-transform: rotate(90deg);\n  transform: rotate(90deg);\n}\n.fa-rotate-180 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2)\";\n  -webkit-transform: rotate(180deg);\n  transform: rotate(180deg);\n}\n.fa-rotate-270 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=3)\";\n  -webkit-transform: rotate(270deg);\n  transform: rotate(270deg);\n}\n.fa-flip-horizontal {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)\";\n  -webkit-transform: scale(-1, 1);\n  transform: scale(-1, 1);\n}\n.fa-flip-vertical {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)\";\n  -webkit-transform: scale(1, -1);\n  transform: scale(1, -1);\n}\n:root .fa-rotate-90,\n:root .fa-rotate-180,\n:root .fa-rotate-270,\n:root .fa-flip-horizontal,\n:root .fa-flip-vertical {\n  -webkit-filter: none;\n          filter: none;\n}\n.fa-stack {\n  position: relative;\n  display: inline-block;\n  width: 2em;\n  height: 2em;\n  line-height: 2em;\n  vertical-align: middle;\n}\n.fa-stack-1x,\n.fa-stack-2x {\n  position: absolute;\n  left: 0;\n  width: 100%;\n  text-align: center;\n}\n.fa-stack-1x {\n  line-height: inherit;\n}\n.fa-stack-2x {\n  font-size: 2em;\n}\n.fa-inverse {\n  color: #ffffff;\n}\n/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen\n   readers do not read off random characters that represent icons */\n.fa-glass:before {\n  content: \"\\F000\";\n}\n.fa-music:before {\n  content: \"\\F001\";\n}\n.fa-search:before {\n  content: \"\\F002\";\n}\n.fa-envelope-o:before {\n  content: \"\\F003\";\n}\n.fa-heart:before {\n  content: \"\\F004\";\n}\n.fa-star:before {\n  content: \"\\F005\";\n}\n.fa-star-o:before {\n  content: \"\\F006\";\n}\n.fa-user:before {\n  content: \"\\F007\";\n}\n.fa-film:before {\n  content: \"\\F008\";\n}\n.fa-th-large:before {\n  content: \"\\F009\";\n}\n.fa-th:before {\n  content: \"\\F00A\";\n}\n.fa-th-list:before {\n  content: \"\\F00B\";\n}\n.fa-check:before {\n  content: \"\\F00C\";\n}\n.fa-remove:before,\n.fa-close:before,\n.fa-times:before {\n  content: \"\\F00D\";\n}\n.fa-search-plus:before {\n  content: \"\\F00E\";\n}\n.fa-search-minus:before {\n  content: \"\\F010\";\n}\n.fa-power-off:before {\n  content: \"\\F011\";\n}\n.fa-signal:before {\n  content: \"\\F012\";\n}\n.fa-gear:before,\n.fa-cog:before {\n  content: \"\\F013\";\n}\n.fa-trash-o:before {\n  content: \"\\F014\";\n}\n.fa-home:before {\n  content: \"\\F015\";\n}\n.fa-file-o:before {\n  content: \"\\F016\";\n}\n.fa-clock-o:before {\n  content: \"\\F017\";\n}\n.fa-road:before {\n  content: \"\\F018\";\n}\n.fa-download:before {\n  content: \"\\F019\";\n}\n.fa-arrow-circle-o-down:before {\n  content: \"\\F01A\";\n}\n.fa-arrow-circle-o-up:before {\n  content: \"\\F01B\";\n}\n.fa-inbox:before {\n  content: \"\\F01C\";\n}\n.fa-play-circle-o:before {\n  content: \"\\F01D\";\n}\n.fa-rotate-right:before,\n.fa-repeat:before {\n  content: \"\\F01E\";\n}\n.fa-refresh:before {\n  content: \"\\F021\";\n}\n.fa-list-alt:before {\n  content: \"\\F022\";\n}\n.fa-lock:before {\n  content: \"\\F023\";\n}\n.fa-flag:before {\n  content: \"\\F024\";\n}\n.fa-headphones:before {\n  content: \"\\F025\";\n}\n.fa-volume-off:before {\n  content: \"\\F026\";\n}\n.fa-volume-down:before {\n  content: \"\\F027\";\n}\n.fa-volume-up:before {\n  content: \"\\F028\";\n}\n.fa-qrcode:before {\n  content: \"\\F029\";\n}\n.fa-barcode:before {\n  content: \"\\F02A\";\n}\n.fa-tag:before {\n  content: \"\\F02B\";\n}\n.fa-tags:before {\n  content: \"\\F02C\";\n}\n.fa-book:before {\n  content: \"\\F02D\";\n}\n.fa-bookmark:before {\n  content: \"\\F02E\";\n}\n.fa-print:before {\n  content: \"\\F02F\";\n}\n.fa-camera:before {\n  content: \"\\F030\";\n}\n.fa-font:before {\n  content: \"\\F031\";\n}\n.fa-bold:before {\n  content: \"\\F032\";\n}\n.fa-italic:before {\n  content: \"\\F033\";\n}\n.fa-text-height:before {\n  content: \"\\F034\";\n}\n.fa-text-width:before {\n  content: \"\\F035\";\n}\n.fa-align-left:before {\n  content: \"\\F036\";\n}\n.fa-align-center:before {\n  content: \"\\F037\";\n}\n.fa-align-right:before {\n  content: \"\\F038\";\n}\n.fa-align-justify:before {\n  content: \"\\F039\";\n}\n.fa-list:before {\n  content: \"\\F03A\";\n}\n.fa-dedent:before,\n.fa-outdent:before {\n  content: \"\\F03B\";\n}\n.fa-indent:before {\n  content: \"\\F03C\";\n}\n.fa-video-camera:before {\n  content: \"\\F03D\";\n}\n.fa-photo:before,\n.fa-image:before,\n.fa-picture-o:before {\n  content: \"\\F03E\";\n}\n.fa-pencil:before {\n  content: \"\\F040\";\n}\n.fa-map-marker:before {\n  content: \"\\F041\";\n}\n.fa-adjust:before {\n  content: \"\\F042\";\n}\n.fa-tint:before {\n  content: \"\\F043\";\n}\n.fa-edit:before,\n.fa-pencil-square-o:before {\n  content: \"\\F044\";\n}\n.fa-share-square-o:before {\n  content: \"\\F045\";\n}\n.fa-check-square-o:before {\n  content: \"\\F046\";\n}\n.fa-arrows:before {\n  content: \"\\F047\";\n}\n.fa-step-backward:before {\n  content: \"\\F048\";\n}\n.fa-fast-backward:before {\n  content: \"\\F049\";\n}\n.fa-backward:before {\n  content: \"\\F04A\";\n}\n.fa-play:before {\n  content: \"\\F04B\";\n}\n.fa-pause:before {\n  content: \"\\F04C\";\n}\n.fa-stop:before {\n  content: \"\\F04D\";\n}\n.fa-forward:before {\n  content: \"\\F04E\";\n}\n.fa-fast-forward:before {\n  content: \"\\F050\";\n}\n.fa-step-forward:before {\n  content: \"\\F051\";\n}\n.fa-eject:before {\n  content: \"\\F052\";\n}\n.fa-chevron-left:before {\n  content: \"\\F053\";\n}\n.fa-chevron-right:before {\n  content: \"\\F054\";\n}\n.fa-plus-circle:before {\n  content: \"\\F055\";\n}\n.fa-minus-circle:before {\n  content: \"\\F056\";\n}\n.fa-times-circle:before {\n  content: \"\\F057\";\n}\n.fa-check-circle:before {\n  content: \"\\F058\";\n}\n.fa-question-circle:before {\n  content: \"\\F059\";\n}\n.fa-info-circle:before {\n  content: \"\\F05A\";\n}\n.fa-crosshairs:before {\n  content: \"\\F05B\";\n}\n.fa-times-circle-o:before {\n  content: \"\\F05C\";\n}\n.fa-check-circle-o:before {\n  content: \"\\F05D\";\n}\n.fa-ban:before {\n  content: \"\\F05E\";\n}\n.fa-arrow-left:before {\n  content: \"\\F060\";\n}\n.fa-arrow-right:before {\n  content: \"\\F061\";\n}\n.fa-arrow-up:before {\n  content: \"\\F062\";\n}\n.fa-arrow-down:before {\n  content: \"\\F063\";\n}\n.fa-mail-forward:before,\n.fa-share:before {\n  content: \"\\F064\";\n}\n.fa-expand:before {\n  content: \"\\F065\";\n}\n.fa-compress:before {\n  content: \"\\F066\";\n}\n.fa-plus:before {\n  content: \"\\F067\";\n}\n.fa-minus:before {\n  content: \"\\F068\";\n}\n.fa-asterisk:before {\n  content: \"\\F069\";\n}\n.fa-exclamation-circle:before {\n  content: \"\\F06A\";\n}\n.fa-gift:before {\n  content: \"\\F06B\";\n}\n.fa-leaf:before {\n  content: \"\\F06C\";\n}\n.fa-fire:before {\n  content: \"\\F06D\";\n}\n.fa-eye:before {\n  content: \"\\F06E\";\n}\n.fa-eye-slash:before {\n  content: \"\\F070\";\n}\n.fa-warning:before,\n.fa-exclamation-triangle:before {\n  content: \"\\F071\";\n}\n.fa-plane:before {\n  content: \"\\F072\";\n}\n.fa-calendar:before {\n  content: \"\\F073\";\n}\n.fa-random:before {\n  content: \"\\F074\";\n}\n.fa-comment:before {\n  content: \"\\F075\";\n}\n.fa-magnet:before {\n  content: \"\\F076\";\n}\n.fa-chevron-up:before {\n  content: \"\\F077\";\n}\n.fa-chevron-down:before {\n  content: \"\\F078\";\n}\n.fa-retweet:before {\n  content: \"\\F079\";\n}\n.fa-shopping-cart:before {\n  content: \"\\F07A\";\n}\n.fa-folder:before {\n  content: \"\\F07B\";\n}\n.fa-folder-open:before {\n  content: \"\\F07C\";\n}\n.fa-arrows-v:before {\n  content: \"\\F07D\";\n}\n.fa-arrows-h:before {\n  content: \"\\F07E\";\n}\n.fa-bar-chart-o:before,\n.fa-bar-chart:before {\n  content: \"\\F080\";\n}\n.fa-twitter-square:before {\n  content: \"\\F081\";\n}\n.fa-facebook-square:before {\n  content: \"\\F082\";\n}\n.fa-camera-retro:before {\n  content: \"\\F083\";\n}\n.fa-key:before {\n  content: \"\\F084\";\n}\n.fa-gears:before,\n.fa-cogs:before {\n  content: \"\\F085\";\n}\n.fa-comments:before {\n  content: \"\\F086\";\n}\n.fa-thumbs-o-up:before {\n  content: \"\\F087\";\n}\n.fa-thumbs-o-down:before {\n  content: \"\\F088\";\n}\n.fa-star-half:before {\n  content: \"\\F089\";\n}\n.fa-heart-o:before {\n  content: \"\\F08A\";\n}\n.fa-sign-out:before {\n  content: \"\\F08B\";\n}\n.fa-linkedin-square:before {\n  content: \"\\F08C\";\n}\n.fa-thumb-tack:before {\n  content: \"\\F08D\";\n}\n.fa-external-link:before {\n  content: \"\\F08E\";\n}\n.fa-sign-in:before {\n  content: \"\\F090\";\n}\n.fa-trophy:before {\n  content: \"\\F091\";\n}\n.fa-github-square:before {\n  content: \"\\F092\";\n}\n.fa-upload:before {\n  content: \"\\F093\";\n}\n.fa-lemon-o:before {\n  content: \"\\F094\";\n}\n.fa-phone:before {\n  content: \"\\F095\";\n}\n.fa-square-o:before {\n  content: \"\\F096\";\n}\n.fa-bookmark-o:before {\n  content: \"\\F097\";\n}\n.fa-phone-square:before {\n  content: \"\\F098\";\n}\n.fa-twitter:before {\n  content: \"\\F099\";\n}\n.fa-facebook-f:before,\n.fa-facebook:before {\n  content: \"\\F09A\";\n}\n.fa-github:before {\n  content: \"\\F09B\";\n}\n.fa-unlock:before {\n  content: \"\\F09C\";\n}\n.fa-credit-card:before {\n  content: \"\\F09D\";\n}\n.fa-feed:before,\n.fa-rss:before {\n  content: \"\\F09E\";\n}\n.fa-hdd-o:before {\n  content: \"\\F0A0\";\n}\n.fa-bullhorn:before {\n  content: \"\\F0A1\";\n}\n.fa-bell:before {\n  content: \"\\F0F3\";\n}\n.fa-certificate:before {\n  content: \"\\F0A3\";\n}\n.fa-hand-o-right:before {\n  content: \"\\F0A4\";\n}\n.fa-hand-o-left:before {\n  content: \"\\F0A5\";\n}\n.fa-hand-o-up:before {\n  content: \"\\F0A6\";\n}\n.fa-hand-o-down:before {\n  content: \"\\F0A7\";\n}\n.fa-arrow-circle-left:before {\n  content: \"\\F0A8\";\n}\n.fa-arrow-circle-right:before {\n  content: \"\\F0A9\";\n}\n.fa-arrow-circle-up:before {\n  content: \"\\F0AA\";\n}\n.fa-arrow-circle-down:before {\n  content: \"\\F0AB\";\n}\n.fa-globe:before {\n  content: \"\\F0AC\";\n}\n.fa-wrench:before {\n  content: \"\\F0AD\";\n}\n.fa-tasks:before {\n  content: \"\\F0AE\";\n}\n.fa-filter:before {\n  content: \"\\F0B0\";\n}\n.fa-briefcase:before {\n  content: \"\\F0B1\";\n}\n.fa-arrows-alt:before {\n  content: \"\\F0B2\";\n}\n.fa-group:before,\n.fa-users:before {\n  content: \"\\F0C0\";\n}\n.fa-chain:before,\n.fa-link:before {\n  content: \"\\F0C1\";\n}\n.fa-cloud:before {\n  content: \"\\F0C2\";\n}\n.fa-flask:before {\n  content: \"\\F0C3\";\n}\n.fa-cut:before,\n.fa-scissors:before {\n  content: \"\\F0C4\";\n}\n.fa-copy:before,\n.fa-files-o:before {\n  content: \"\\F0C5\";\n}\n.fa-paperclip:before {\n  content: \"\\F0C6\";\n}\n.fa-save:before,\n.fa-floppy-o:before {\n  content: \"\\F0C7\";\n}\n.fa-square:before {\n  content: \"\\F0C8\";\n}\n.fa-navicon:before,\n.fa-reorder:before,\n.fa-bars:before {\n  content: \"\\F0C9\";\n}\n.fa-list-ul:before {\n  content: \"\\F0CA\";\n}\n.fa-list-ol:before {\n  content: \"\\F0CB\";\n}\n.fa-strikethrough:before {\n  content: \"\\F0CC\";\n}\n.fa-underline:before {\n  content: \"\\F0CD\";\n}\n.fa-table:before {\n  content: \"\\F0CE\";\n}\n.fa-magic:before {\n  content: \"\\F0D0\";\n}\n.fa-truck:before {\n  content: \"\\F0D1\";\n}\n.fa-pinterest:before {\n  content: \"\\F0D2\";\n}\n.fa-pinterest-square:before {\n  content: \"\\F0D3\";\n}\n.fa-google-plus-square:before {\n  content: \"\\F0D4\";\n}\n.fa-google-plus:before {\n  content: \"\\F0D5\";\n}\n.fa-money:before {\n  content: \"\\F0D6\";\n}\n.fa-caret-down:before {\n  content: \"\\F0D7\";\n}\n.fa-caret-up:before {\n  content: \"\\F0D8\";\n}\n.fa-caret-left:before {\n  content: \"\\F0D9\";\n}\n.fa-caret-right:before {\n  content: \"\\F0DA\";\n}\n.fa-columns:before {\n  content: \"\\F0DB\";\n}\n.fa-unsorted:before,\n.fa-sort:before {\n  content: \"\\F0DC\";\n}\n.fa-sort-down:before,\n.fa-sort-desc:before {\n  content: \"\\F0DD\";\n}\n.fa-sort-up:before,\n.fa-sort-asc:before {\n  content: \"\\F0DE\";\n}\n.fa-envelope:before {\n  content: \"\\F0E0\";\n}\n.fa-linkedin:before {\n  content: \"\\F0E1\";\n}\n.fa-rotate-left:before,\n.fa-undo:before {\n  content: \"\\F0E2\";\n}\n.fa-legal:before,\n.fa-gavel:before {\n  content: \"\\F0E3\";\n}\n.fa-dashboard:before,\n.fa-tachometer:before {\n  content: \"\\F0E4\";\n}\n.fa-comment-o:before {\n  content: \"\\F0E5\";\n}\n.fa-comments-o:before {\n  content: \"\\F0E6\";\n}\n.fa-flash:before,\n.fa-bolt:before {\n  content: \"\\F0E7\";\n}\n.fa-sitemap:before {\n  content: \"\\F0E8\";\n}\n.fa-umbrella:before {\n  content: \"\\F0E9\";\n}\n.fa-paste:before,\n.fa-clipboard:before {\n  content: \"\\F0EA\";\n}\n.fa-lightbulb-o:before {\n  content: \"\\F0EB\";\n}\n.fa-exchange:before {\n  content: \"\\F0EC\";\n}\n.fa-cloud-download:before {\n  content: \"\\F0ED\";\n}\n.fa-cloud-upload:before {\n  content: \"\\F0EE\";\n}\n.fa-user-md:before {\n  content: \"\\F0F0\";\n}\n.fa-stethoscope:before {\n  content: \"\\F0F1\";\n}\n.fa-suitcase:before {\n  content: \"\\F0F2\";\n}\n.fa-bell-o:before {\n  content: \"\\F0A2\";\n}\n.fa-coffee:before {\n  content: \"\\F0F4\";\n}\n.fa-cutlery:before {\n  content: \"\\F0F5\";\n}\n.fa-file-text-o:before {\n  content: \"\\F0F6\";\n}\n.fa-building-o:before {\n  content: \"\\F0F7\";\n}\n.fa-hospital-o:before {\n  content: \"\\F0F8\";\n}\n.fa-ambulance:before {\n  content: \"\\F0F9\";\n}\n.fa-medkit:before {\n  content: \"\\F0FA\";\n}\n.fa-fighter-jet:before {\n  content: \"\\F0FB\";\n}\n.fa-beer:before {\n  content: \"\\F0FC\";\n}\n.fa-h-square:before {\n  content: \"\\F0FD\";\n}\n.fa-plus-square:before {\n  content: \"\\F0FE\";\n}\n.fa-angle-double-left:before {\n  content: \"\\F100\";\n}\n.fa-angle-double-right:before {\n  content: \"\\F101\";\n}\n.fa-angle-double-up:before {\n  content: \"\\F102\";\n}\n.fa-angle-double-down:before {\n  content: \"\\F103\";\n}\n.fa-angle-left:before {\n  content: \"\\F104\";\n}\n.fa-angle-right:before {\n  content: \"\\F105\";\n}\n.fa-angle-up:before {\n  content: \"\\F106\";\n}\n.fa-angle-down:before {\n  content: \"\\F107\";\n}\n.fa-desktop:before {\n  content: \"\\F108\";\n}\n.fa-laptop:before {\n  content: \"\\F109\";\n}\n.fa-tablet:before {\n  content: \"\\F10A\";\n}\n.fa-mobile-phone:before,\n.fa-mobile:before {\n  content: \"\\F10B\";\n}\n.fa-circle-o:before {\n  content: \"\\F10C\";\n}\n.fa-quote-left:before {\n  content: \"\\F10D\";\n}\n.fa-quote-right:before {\n  content: \"\\F10E\";\n}\n.fa-spinner:before {\n  content: \"\\F110\";\n}\n.fa-circle:before {\n  content: \"\\F111\";\n}\n.fa-mail-reply:before,\n.fa-reply:before {\n  content: \"\\F112\";\n}\n.fa-github-alt:before {\n  content: \"\\F113\";\n}\n.fa-folder-o:before {\n  content: \"\\F114\";\n}\n.fa-folder-open-o:before {\n  content: \"\\F115\";\n}\n.fa-smile-o:before {\n  content: \"\\F118\";\n}\n.fa-frown-o:before {\n  content: \"\\F119\";\n}\n.fa-meh-o:before {\n  content: \"\\F11A\";\n}\n.fa-gamepad:before {\n  content: \"\\F11B\";\n}\n.fa-keyboard-o:before {\n  content: \"\\F11C\";\n}\n.fa-flag-o:before {\n  content: \"\\F11D\";\n}\n.fa-flag-checkered:before {\n  content: \"\\F11E\";\n}\n.fa-terminal:before {\n  content: \"\\F120\";\n}\n.fa-code:before {\n  content: \"\\F121\";\n}\n.fa-mail-reply-all:before,\n.fa-reply-all:before {\n  content: \"\\F122\";\n}\n.fa-star-half-empty:before,\n.fa-star-half-full:before,\n.fa-star-half-o:before {\n  content: \"\\F123\";\n}\n.fa-location-arrow:before {\n  content: \"\\F124\";\n}\n.fa-crop:before {\n  content: \"\\F125\";\n}\n.fa-code-fork:before {\n  content: \"\\F126\";\n}\n.fa-unlink:before,\n.fa-chain-broken:before {\n  content: \"\\F127\";\n}\n.fa-question:before {\n  content: \"\\F128\";\n}\n.fa-info:before {\n  content: \"\\F129\";\n}\n.fa-exclamation:before {\n  content: \"\\F12A\";\n}\n.fa-superscript:before {\n  content: \"\\F12B\";\n}\n.fa-subscript:before {\n  content: \"\\F12C\";\n}\n.fa-eraser:before {\n  content: \"\\F12D\";\n}\n.fa-puzzle-piece:before {\n  content: \"\\F12E\";\n}\n.fa-microphone:before {\n  content: \"\\F130\";\n}\n.fa-microphone-slash:before {\n  content: \"\\F131\";\n}\n.fa-shield:before {\n  content: \"\\F132\";\n}\n.fa-calendar-o:before {\n  content: \"\\F133\";\n}\n.fa-fire-extinguisher:before {\n  content: \"\\F134\";\n}\n.fa-rocket:before {\n  content: \"\\F135\";\n}\n.fa-maxcdn:before {\n  content: \"\\F136\";\n}\n.fa-chevron-circle-left:before {\n  content: \"\\F137\";\n}\n.fa-chevron-circle-right:before {\n  content: \"\\F138\";\n}\n.fa-chevron-circle-up:before {\n  content: \"\\F139\";\n}\n.fa-chevron-circle-down:before {\n  content: \"\\F13A\";\n}\n.fa-html5:before {\n  content: \"\\F13B\";\n}\n.fa-css3:before {\n  content: \"\\F13C\";\n}\n.fa-anchor:before {\n  content: \"\\F13D\";\n}\n.fa-unlock-alt:before {\n  content: \"\\F13E\";\n}\n.fa-bullseye:before {\n  content: \"\\F140\";\n}\n.fa-ellipsis-h:before {\n  content: \"\\F141\";\n}\n.fa-ellipsis-v:before {\n  content: \"\\F142\";\n}\n.fa-rss-square:before {\n  content: \"\\F143\";\n}\n.fa-play-circle:before {\n  content: \"\\F144\";\n}\n.fa-ticket:before {\n  content: \"\\F145\";\n}\n.fa-minus-square:before {\n  content: \"\\F146\";\n}\n.fa-minus-square-o:before {\n  content: \"\\F147\";\n}\n.fa-level-up:before {\n  content: \"\\F148\";\n}\n.fa-level-down:before {\n  content: \"\\F149\";\n}\n.fa-check-square:before {\n  content: \"\\F14A\";\n}\n.fa-pencil-square:before {\n  content: \"\\F14B\";\n}\n.fa-external-link-square:before {\n  content: \"\\F14C\";\n}\n.fa-share-square:before {\n  content: \"\\F14D\";\n}\n.fa-compass:before {\n  content: \"\\F14E\";\n}\n.fa-toggle-down:before,\n.fa-caret-square-o-down:before {\n  content: \"\\F150\";\n}\n.fa-toggle-up:before,\n.fa-caret-square-o-up:before {\n  content: \"\\F151\";\n}\n.fa-toggle-right:before,\n.fa-caret-square-o-right:before {\n  content: \"\\F152\";\n}\n.fa-euro:before,\n.fa-eur:before {\n  content: \"\\F153\";\n}\n.fa-gbp:before {\n  content: \"\\F154\";\n}\n.fa-dollar:before,\n.fa-usd:before {\n  content: \"\\F155\";\n}\n.fa-rupee:before,\n.fa-inr:before {\n  content: \"\\F156\";\n}\n.fa-cny:before,\n.fa-rmb:before,\n.fa-yen:before,\n.fa-jpy:before {\n  content: \"\\F157\";\n}\n.fa-ruble:before,\n.fa-rouble:before,\n.fa-rub:before {\n  content: \"\\F158\";\n}\n.fa-won:before,\n.fa-krw:before {\n  content: \"\\F159\";\n}\n.fa-bitcoin:before,\n.fa-btc:before {\n  content: \"\\F15A\";\n}\n.fa-file:before {\n  content: \"\\F15B\";\n}\n.fa-file-text:before {\n  content: \"\\F15C\";\n}\n.fa-sort-alpha-asc:before {\n  content: \"\\F15D\";\n}\n.fa-sort-alpha-desc:before {\n  content: \"\\F15E\";\n}\n.fa-sort-amount-asc:before {\n  content: \"\\F160\";\n}\n.fa-sort-amount-desc:before {\n  content: \"\\F161\";\n}\n.fa-sort-numeric-asc:before {\n  content: \"\\F162\";\n}\n.fa-sort-numeric-desc:before {\n  content: \"\\F163\";\n}\n.fa-thumbs-up:before {\n  content: \"\\F164\";\n}\n.fa-thumbs-down:before {\n  content: \"\\F165\";\n}\n.fa-youtube-square:before {\n  content: \"\\F166\";\n}\n.fa-youtube:before {\n  content: \"\\F167\";\n}\n.fa-xing:before {\n  content: \"\\F168\";\n}\n.fa-xing-square:before {\n  content: \"\\F169\";\n}\n.fa-youtube-play:before {\n  content: \"\\F16A\";\n}\n.fa-dropbox:before {\n  content: \"\\F16B\";\n}\n.fa-stack-overflow:before {\n  content: \"\\F16C\";\n}\n.fa-instagram:before {\n  content: \"\\F16D\";\n}\n.fa-flickr:before {\n  content: \"\\F16E\";\n}\n.fa-adn:before {\n  content: \"\\F170\";\n}\n.fa-bitbucket:before {\n  content: \"\\F171\";\n}\n.fa-bitbucket-square:before {\n  content: \"\\F172\";\n}\n.fa-tumblr:before {\n  content: \"\\F173\";\n}\n.fa-tumblr-square:before {\n  content: \"\\F174\";\n}\n.fa-long-arrow-down:before {\n  content: \"\\F175\";\n}\n.fa-long-arrow-up:before {\n  content: \"\\F176\";\n}\n.fa-long-arrow-left:before {\n  content: \"\\F177\";\n}\n.fa-long-arrow-right:before {\n  content: \"\\F178\";\n}\n.fa-apple:before {\n  content: \"\\F179\";\n}\n.fa-windows:before {\n  content: \"\\F17A\";\n}\n.fa-android:before {\n  content: \"\\F17B\";\n}\n.fa-linux:before {\n  content: \"\\F17C\";\n}\n.fa-dribbble:before {\n  content: \"\\F17D\";\n}\n.fa-skype:before {\n  content: \"\\F17E\";\n}\n.fa-foursquare:before {\n  content: \"\\F180\";\n}\n.fa-trello:before {\n  content: \"\\F181\";\n}\n.fa-female:before {\n  content: \"\\F182\";\n}\n.fa-male:before {\n  content: \"\\F183\";\n}\n.fa-gittip:before,\n.fa-gratipay:before {\n  content: \"\\F184\";\n}\n.fa-sun-o:before {\n  content: \"\\F185\";\n}\n.fa-moon-o:before {\n  content: \"\\F186\";\n}\n.fa-archive:before {\n  content: \"\\F187\";\n}\n.fa-bug:before {\n  content: \"\\F188\";\n}\n.fa-vk:before {\n  content: \"\\F189\";\n}\n.fa-weibo:before {\n  content: \"\\F18A\";\n}\n.fa-renren:before {\n  content: \"\\F18B\";\n}\n.fa-pagelines:before {\n  content: \"\\F18C\";\n}\n.fa-stack-exchange:before {\n  content: \"\\F18D\";\n}\n.fa-arrow-circle-o-right:before {\n  content: \"\\F18E\";\n}\n.fa-arrow-circle-o-left:before {\n  content: \"\\F190\";\n}\n.fa-toggle-left:before,\n.fa-caret-square-o-left:before {\n  content: \"\\F191\";\n}\n.fa-dot-circle-o:before {\n  content: \"\\F192\";\n}\n.fa-wheelchair:before {\n  content: \"\\F193\";\n}\n.fa-vimeo-square:before {\n  content: \"\\F194\";\n}\n.fa-turkish-lira:before,\n.fa-try:before {\n  content: \"\\F195\";\n}\n.fa-plus-square-o:before {\n  content: \"\\F196\";\n}\n.fa-space-shuttle:before {\n  content: \"\\F197\";\n}\n.fa-slack:before {\n  content: \"\\F198\";\n}\n.fa-envelope-square:before {\n  content: \"\\F199\";\n}\n.fa-wordpress:before {\n  content: \"\\F19A\";\n}\n.fa-openid:before {\n  content: \"\\F19B\";\n}\n.fa-institution:before,\n.fa-bank:before,\n.fa-university:before {\n  content: \"\\F19C\";\n}\n.fa-mortar-board:before,\n.fa-graduation-cap:before {\n  content: \"\\F19D\";\n}\n.fa-yahoo:before {\n  content: \"\\F19E\";\n}\n.fa-google:before {\n  content: \"\\F1A0\";\n}\n.fa-reddit:before {\n  content: \"\\F1A1\";\n}\n.fa-reddit-square:before {\n  content: \"\\F1A2\";\n}\n.fa-stumbleupon-circle:before {\n  content: \"\\F1A3\";\n}\n.fa-stumbleupon:before {\n  content: \"\\F1A4\";\n}\n.fa-delicious:before {\n  content: \"\\F1A5\";\n}\n.fa-digg:before {\n  content: \"\\F1A6\";\n}\n.fa-pied-piper-pp:before {\n  content: \"\\F1A7\";\n}\n.fa-pied-piper-alt:before {\n  content: \"\\F1A8\";\n}\n.fa-drupal:before {\n  content: \"\\F1A9\";\n}\n.fa-joomla:before {\n  content: \"\\F1AA\";\n}\n.fa-language:before {\n  content: \"\\F1AB\";\n}\n.fa-fax:before {\n  content: \"\\F1AC\";\n}\n.fa-building:before {\n  content: \"\\F1AD\";\n}\n.fa-child:before {\n  content: \"\\F1AE\";\n}\n.fa-paw:before {\n  content: \"\\F1B0\";\n}\n.fa-spoon:before {\n  content: \"\\F1B1\";\n}\n.fa-cube:before {\n  content: \"\\F1B2\";\n}\n.fa-cubes:before {\n  content: \"\\F1B3\";\n}\n.fa-behance:before {\n  content: \"\\F1B4\";\n}\n.fa-behance-square:before {\n  content: \"\\F1B5\";\n}\n.fa-steam:before {\n  content: \"\\F1B6\";\n}\n.fa-steam-square:before {\n  content: \"\\F1B7\";\n}\n.fa-recycle:before {\n  content: \"\\F1B8\";\n}\n.fa-automobile:before,\n.fa-car:before {\n  content: \"\\F1B9\";\n}\n.fa-cab:before,\n.fa-taxi:before {\n  content: \"\\F1BA\";\n}\n.fa-tree:before {\n  content: \"\\F1BB\";\n}\n.fa-spotify:before {\n  content: \"\\F1BC\";\n}\n.fa-deviantart:before {\n  content: \"\\F1BD\";\n}\n.fa-soundcloud:before {\n  content: \"\\F1BE\";\n}\n.fa-database:before {\n  content: \"\\F1C0\";\n}\n.fa-file-pdf-o:before {\n  content: \"\\F1C1\";\n}\n.fa-file-word-o:before {\n  content: \"\\F1C2\";\n}\n.fa-file-excel-o:before {\n  content: \"\\F1C3\";\n}\n.fa-file-powerpoint-o:before {\n  content: \"\\F1C4\";\n}\n.fa-file-photo-o:before,\n.fa-file-picture-o:before,\n.fa-file-image-o:before {\n  content: \"\\F1C5\";\n}\n.fa-file-zip-o:before,\n.fa-file-archive-o:before {\n  content: \"\\F1C6\";\n}\n.fa-file-sound-o:before,\n.fa-file-audio-o:before {\n  content: \"\\F1C7\";\n}\n.fa-file-movie-o:before,\n.fa-file-video-o:before {\n  content: \"\\F1C8\";\n}\n.fa-file-code-o:before {\n  content: \"\\F1C9\";\n}\n.fa-vine:before {\n  content: \"\\F1CA\";\n}\n.fa-codepen:before {\n  content: \"\\F1CB\";\n}\n.fa-jsfiddle:before {\n  content: \"\\F1CC\";\n}\n.fa-life-bouy:before,\n.fa-life-buoy:before,\n.fa-life-saver:before,\n.fa-support:before,\n.fa-life-ring:before {\n  content: \"\\F1CD\";\n}\n.fa-circle-o-notch:before {\n  content: \"\\F1CE\";\n}\n.fa-ra:before,\n.fa-resistance:before,\n.fa-rebel:before {\n  content: \"\\F1D0\";\n}\n.fa-ge:before,\n.fa-empire:before {\n  content: \"\\F1D1\";\n}\n.fa-git-square:before {\n  content: \"\\F1D2\";\n}\n.fa-git:before {\n  content: \"\\F1D3\";\n}\n.fa-y-combinator-square:before,\n.fa-yc-square:before,\n.fa-hacker-news:before {\n  content: \"\\F1D4\";\n}\n.fa-tencent-weibo:before {\n  content: \"\\F1D5\";\n}\n.fa-qq:before {\n  content: \"\\F1D6\";\n}\n.fa-wechat:before,\n.fa-weixin:before {\n  content: \"\\F1D7\";\n}\n.fa-send:before,\n.fa-paper-plane:before {\n  content: \"\\F1D8\";\n}\n.fa-send-o:before,\n.fa-paper-plane-o:before {\n  content: \"\\F1D9\";\n}\n.fa-history:before {\n  content: \"\\F1DA\";\n}\n.fa-circle-thin:before {\n  content: \"\\F1DB\";\n}\n.fa-header:before {\n  content: \"\\F1DC\";\n}\n.fa-paragraph:before {\n  content: \"\\F1DD\";\n}\n.fa-sliders:before {\n  content: \"\\F1DE\";\n}\n.fa-share-alt:before {\n  content: \"\\F1E0\";\n}\n.fa-share-alt-square:before {\n  content: \"\\F1E1\";\n}\n.fa-bomb:before {\n  content: \"\\F1E2\";\n}\n.fa-soccer-ball-o:before,\n.fa-futbol-o:before {\n  content: \"\\F1E3\";\n}\n.fa-tty:before {\n  content: \"\\F1E4\";\n}\n.fa-binoculars:before {\n  content: \"\\F1E5\";\n}\n.fa-plug:before {\n  content: \"\\F1E6\";\n}\n.fa-slideshare:before {\n  content: \"\\F1E7\";\n}\n.fa-twitch:before {\n  content: \"\\F1E8\";\n}\n.fa-yelp:before {\n  content: \"\\F1E9\";\n}\n.fa-newspaper-o:before {\n  content: \"\\F1EA\";\n}\n.fa-wifi:before {\n  content: \"\\F1EB\";\n}\n.fa-calculator:before {\n  content: \"\\F1EC\";\n}\n.fa-paypal:before {\n  content: \"\\F1ED\";\n}\n.fa-google-wallet:before {\n  content: \"\\F1EE\";\n}\n.fa-cc-visa:before {\n  content: \"\\F1F0\";\n}\n.fa-cc-mastercard:before {\n  content: \"\\F1F1\";\n}\n.fa-cc-discover:before {\n  content: \"\\F1F2\";\n}\n.fa-cc-amex:before {\n  content: \"\\F1F3\";\n}\n.fa-cc-paypal:before {\n  content: \"\\F1F4\";\n}\n.fa-cc-stripe:before {\n  content: \"\\F1F5\";\n}\n.fa-bell-slash:before {\n  content: \"\\F1F6\";\n}\n.fa-bell-slash-o:before {\n  content: \"\\F1F7\";\n}\n.fa-trash:before {\n  content: \"\\F1F8\";\n}\n.fa-copyright:before {\n  content: \"\\F1F9\";\n}\n.fa-at:before {\n  content: \"\\F1FA\";\n}\n.fa-eyedropper:before {\n  content: \"\\F1FB\";\n}\n.fa-paint-brush:before {\n  content: \"\\F1FC\";\n}\n.fa-birthday-cake:before {\n  content: \"\\F1FD\";\n}\n.fa-area-chart:before {\n  content: \"\\F1FE\";\n}\n.fa-pie-chart:before {\n  content: \"\\F200\";\n}\n.fa-line-chart:before {\n  content: \"\\F201\";\n}\n.fa-lastfm:before {\n  content: \"\\F202\";\n}\n.fa-lastfm-square:before {\n  content: \"\\F203\";\n}\n.fa-toggle-off:before {\n  content: \"\\F204\";\n}\n.fa-toggle-on:before {\n  content: \"\\F205\";\n}\n.fa-bicycle:before {\n  content: \"\\F206\";\n}\n.fa-bus:before {\n  content: \"\\F207\";\n}\n.fa-ioxhost:before {\n  content: \"\\F208\";\n}\n.fa-angellist:before {\n  content: \"\\F209\";\n}\n.fa-cc:before {\n  content: \"\\F20A\";\n}\n.fa-shekel:before,\n.fa-sheqel:before,\n.fa-ils:before {\n  content: \"\\F20B\";\n}\n.fa-meanpath:before {\n  content: \"\\F20C\";\n}\n.fa-buysellads:before {\n  content: \"\\F20D\";\n}\n.fa-connectdevelop:before {\n  content: \"\\F20E\";\n}\n.fa-dashcube:before {\n  content: \"\\F210\";\n}\n.fa-forumbee:before {\n  content: \"\\F211\";\n}\n.fa-leanpub:before {\n  content: \"\\F212\";\n}\n.fa-sellsy:before {\n  content: \"\\F213\";\n}\n.fa-shirtsinbulk:before {\n  content: \"\\F214\";\n}\n.fa-simplybuilt:before {\n  content: \"\\F215\";\n}\n.fa-skyatlas:before {\n  content: \"\\F216\";\n}\n.fa-cart-plus:before {\n  content: \"\\F217\";\n}\n.fa-cart-arrow-down:before {\n  content: \"\\F218\";\n}\n.fa-diamond:before {\n  content: \"\\F219\";\n}\n.fa-ship:before {\n  content: \"\\F21A\";\n}\n.fa-user-secret:before {\n  content: \"\\F21B\";\n}\n.fa-motorcycle:before {\n  content: \"\\F21C\";\n}\n.fa-street-view:before {\n  content: \"\\F21D\";\n}\n.fa-heartbeat:before {\n  content: \"\\F21E\";\n}\n.fa-venus:before {\n  content: \"\\F221\";\n}\n.fa-mars:before {\n  content: \"\\F222\";\n}\n.fa-mercury:before {\n  content: \"\\F223\";\n}\n.fa-intersex:before,\n.fa-transgender:before {\n  content: \"\\F224\";\n}\n.fa-transgender-alt:before {\n  content: \"\\F225\";\n}\n.fa-venus-double:before {\n  content: \"\\F226\";\n}\n.fa-mars-double:before {\n  content: \"\\F227\";\n}\n.fa-venus-mars:before {\n  content: \"\\F228\";\n}\n.fa-mars-stroke:before {\n  content: \"\\F229\";\n}\n.fa-mars-stroke-v:before {\n  content: \"\\F22A\";\n}\n.fa-mars-stroke-h:before {\n  content: \"\\F22B\";\n}\n.fa-neuter:before {\n  content: \"\\F22C\";\n}\n.fa-genderless:before {\n  content: \"\\F22D\";\n}\n.fa-facebook-official:before {\n  content: \"\\F230\";\n}\n.fa-pinterest-p:before {\n  content: \"\\F231\";\n}\n.fa-whatsapp:before {\n  content: \"\\F232\";\n}\n.fa-server:before {\n  content: \"\\F233\";\n}\n.fa-user-plus:before {\n  content: \"\\F234\";\n}\n.fa-user-times:before {\n  content: \"\\F235\";\n}\n.fa-hotel:before,\n.fa-bed:before {\n  content: \"\\F236\";\n}\n.fa-viacoin:before {\n  content: \"\\F237\";\n}\n.fa-train:before {\n  content: \"\\F238\";\n}\n.fa-subway:before {\n  content: \"\\F239\";\n}\n.fa-medium:before {\n  content: \"\\F23A\";\n}\n.fa-yc:before,\n.fa-y-combinator:before {\n  content: \"\\F23B\";\n}\n.fa-optin-monster:before {\n  content: \"\\F23C\";\n}\n.fa-opencart:before {\n  content: \"\\F23D\";\n}\n.fa-expeditedssl:before {\n  content: \"\\F23E\";\n}\n.fa-battery-4:before,\n.fa-battery:before,\n.fa-battery-full:before {\n  content: \"\\F240\";\n}\n.fa-battery-3:before,\n.fa-battery-three-quarters:before {\n  content: \"\\F241\";\n}\n.fa-battery-2:before,\n.fa-battery-half:before {\n  content: \"\\F242\";\n}\n.fa-battery-1:before,\n.fa-battery-quarter:before {\n  content: \"\\F243\";\n}\n.fa-battery-0:before,\n.fa-battery-empty:before {\n  content: \"\\F244\";\n}\n.fa-mouse-pointer:before {\n  content: \"\\F245\";\n}\n.fa-i-cursor:before {\n  content: \"\\F246\";\n}\n.fa-object-group:before {\n  content: \"\\F247\";\n}\n.fa-object-ungroup:before {\n  content: \"\\F248\";\n}\n.fa-sticky-note:before {\n  content: \"\\F249\";\n}\n.fa-sticky-note-o:before {\n  content: \"\\F24A\";\n}\n.fa-cc-jcb:before {\n  content: \"\\F24B\";\n}\n.fa-cc-diners-club:before {\n  content: \"\\F24C\";\n}\n.fa-clone:before {\n  content: \"\\F24D\";\n}\n.fa-balance-scale:before {\n  content: \"\\F24E\";\n}\n.fa-hourglass-o:before {\n  content: \"\\F250\";\n}\n.fa-hourglass-1:before,\n.fa-hourglass-start:before {\n  content: \"\\F251\";\n}\n.fa-hourglass-2:before,\n.fa-hourglass-half:before {\n  content: \"\\F252\";\n}\n.fa-hourglass-3:before,\n.fa-hourglass-end:before {\n  content: \"\\F253\";\n}\n.fa-hourglass:before {\n  content: \"\\F254\";\n}\n.fa-hand-grab-o:before,\n.fa-hand-rock-o:before {\n  content: \"\\F255\";\n}\n.fa-hand-stop-o:before,\n.fa-hand-paper-o:before {\n  content: \"\\F256\";\n}\n.fa-hand-scissors-o:before {\n  content: \"\\F257\";\n}\n.fa-hand-lizard-o:before {\n  content: \"\\F258\";\n}\n.fa-hand-spock-o:before {\n  content: \"\\F259\";\n}\n.fa-hand-pointer-o:before {\n  content: \"\\F25A\";\n}\n.fa-hand-peace-o:before {\n  content: \"\\F25B\";\n}\n.fa-trademark:before {\n  content: \"\\F25C\";\n}\n.fa-registered:before {\n  content: \"\\F25D\";\n}\n.fa-creative-commons:before {\n  content: \"\\F25E\";\n}\n.fa-gg:before {\n  content: \"\\F260\";\n}\n.fa-gg-circle:before {\n  content: \"\\F261\";\n}\n.fa-tripadvisor:before {\n  content: \"\\F262\";\n}\n.fa-odnoklassniki:before {\n  content: \"\\F263\";\n}\n.fa-odnoklassniki-square:before {\n  content: \"\\F264\";\n}\n.fa-get-pocket:before {\n  content: \"\\F265\";\n}\n.fa-wikipedia-w:before {\n  content: \"\\F266\";\n}\n.fa-safari:before {\n  content: \"\\F267\";\n}\n.fa-chrome:before {\n  content: \"\\F268\";\n}\n.fa-firefox:before {\n  content: \"\\F269\";\n}\n.fa-opera:before {\n  content: \"\\F26A\";\n}\n.fa-internet-explorer:before {\n  content: \"\\F26B\";\n}\n.fa-tv:before,\n.fa-television:before {\n  content: \"\\F26C\";\n}\n.fa-contao:before {\n  content: \"\\F26D\";\n}\n.fa-500px:before {\n  content: \"\\F26E\";\n}\n.fa-amazon:before {\n  content: \"\\F270\";\n}\n.fa-calendar-plus-o:before {\n  content: \"\\F271\";\n}\n.fa-calendar-minus-o:before {\n  content: \"\\F272\";\n}\n.fa-calendar-times-o:before {\n  content: \"\\F273\";\n}\n.fa-calendar-check-o:before {\n  content: \"\\F274\";\n}\n.fa-industry:before {\n  content: \"\\F275\";\n}\n.fa-map-pin:before {\n  content: \"\\F276\";\n}\n.fa-map-signs:before {\n  content: \"\\F277\";\n}\n.fa-map-o:before {\n  content: \"\\F278\";\n}\n.fa-map:before {\n  content: \"\\F279\";\n}\n.fa-commenting:before {\n  content: \"\\F27A\";\n}\n.fa-commenting-o:before {\n  content: \"\\F27B\";\n}\n.fa-houzz:before {\n  content: \"\\F27C\";\n}\n.fa-vimeo:before {\n  content: \"\\F27D\";\n}\n.fa-black-tie:before {\n  content: \"\\F27E\";\n}\n.fa-fonticons:before {\n  content: \"\\F280\";\n}\n.fa-reddit-alien:before {\n  content: \"\\F281\";\n}\n.fa-edge:before {\n  content: \"\\F282\";\n}\n.fa-credit-card-alt:before {\n  content: \"\\F283\";\n}\n.fa-codiepie:before {\n  content: \"\\F284\";\n}\n.fa-modx:before {\n  content: \"\\F285\";\n}\n.fa-fort-awesome:before {\n  content: \"\\F286\";\n}\n.fa-usb:before {\n  content: \"\\F287\";\n}\n.fa-product-hunt:before {\n  content: \"\\F288\";\n}\n.fa-mixcloud:before {\n  content: \"\\F289\";\n}\n.fa-scribd:before {\n  content: \"\\F28A\";\n}\n.fa-pause-circle:before {\n  content: \"\\F28B\";\n}\n.fa-pause-circle-o:before {\n  content: \"\\F28C\";\n}\n.fa-stop-circle:before {\n  content: \"\\F28D\";\n}\n.fa-stop-circle-o:before {\n  content: \"\\F28E\";\n}\n.fa-shopping-bag:before {\n  content: \"\\F290\";\n}\n.fa-shopping-basket:before {\n  content: \"\\F291\";\n}\n.fa-hashtag:before {\n  content: \"\\F292\";\n}\n.fa-bluetooth:before {\n  content: \"\\F293\";\n}\n.fa-bluetooth-b:before {\n  content: \"\\F294\";\n}\n.fa-percent:before {\n  content: \"\\F295\";\n}\n.fa-gitlab:before {\n  content: \"\\F296\";\n}\n.fa-wpbeginner:before {\n  content: \"\\F297\";\n}\n.fa-wpforms:before {\n  content: \"\\F298\";\n}\n.fa-envira:before {\n  content: \"\\F299\";\n}\n.fa-universal-access:before {\n  content: \"\\F29A\";\n}\n.fa-wheelchair-alt:before {\n  content: \"\\F29B\";\n}\n.fa-question-circle-o:before {\n  content: \"\\F29C\";\n}\n.fa-blind:before {\n  content: \"\\F29D\";\n}\n.fa-audio-description:before {\n  content: \"\\F29E\";\n}\n.fa-volume-control-phone:before {\n  content: \"\\F2A0\";\n}\n.fa-braille:before {\n  content: \"\\F2A1\";\n}\n.fa-assistive-listening-systems:before {\n  content: \"\\F2A2\";\n}\n.fa-asl-interpreting:before,\n.fa-american-sign-language-interpreting:before {\n  content: \"\\F2A3\";\n}\n.fa-deafness:before,\n.fa-hard-of-hearing:before,\n.fa-deaf:before {\n  content: \"\\F2A4\";\n}\n.fa-glide:before {\n  content: \"\\F2A5\";\n}\n.fa-glide-g:before {\n  content: \"\\F2A6\";\n}\n.fa-signing:before,\n.fa-sign-language:before {\n  content: \"\\F2A7\";\n}\n.fa-low-vision:before {\n  content: \"\\F2A8\";\n}\n.fa-viadeo:before {\n  content: \"\\F2A9\";\n}\n.fa-viadeo-square:before {\n  content: \"\\F2AA\";\n}\n.fa-snapchat:before {\n  content: \"\\F2AB\";\n}\n.fa-snapchat-ghost:before {\n  content: \"\\F2AC\";\n}\n.fa-snapchat-square:before {\n  content: \"\\F2AD\";\n}\n.fa-pied-piper:before {\n  content: \"\\F2AE\";\n}\n.fa-first-order:before {\n  content: \"\\F2B0\";\n}\n.fa-yoast:before {\n  content: \"\\F2B1\";\n}\n.fa-themeisle:before {\n  content: \"\\F2B2\";\n}\n.fa-google-plus-circle:before,\n.fa-google-plus-official:before {\n  content: \"\\F2B3\";\n}\n.fa-fa:before,\n.fa-font-awesome:before {\n  content: \"\\F2B4\";\n}\n.fa-handshake-o:before {\n  content: \"\\F2B5\";\n}\n.fa-envelope-open:before {\n  content: \"\\F2B6\";\n}\n.fa-envelope-open-o:before {\n  content: \"\\F2B7\";\n}\n.fa-linode:before {\n  content: \"\\F2B8\";\n}\n.fa-address-book:before {\n  content: \"\\F2B9\";\n}\n.fa-address-book-o:before {\n  content: \"\\F2BA\";\n}\n.fa-vcard:before,\n.fa-address-card:before {\n  content: \"\\F2BB\";\n}\n.fa-vcard-o:before,\n.fa-address-card-o:before {\n  content: \"\\F2BC\";\n}\n.fa-user-circle:before {\n  content: \"\\F2BD\";\n}\n.fa-user-circle-o:before {\n  content: \"\\F2BE\";\n}\n.fa-user-o:before {\n  content: \"\\F2C0\";\n}\n.fa-id-badge:before {\n  content: \"\\F2C1\";\n}\n.fa-drivers-license:before,\n.fa-id-card:before {\n  content: \"\\F2C2\";\n}\n.fa-drivers-license-o:before,\n.fa-id-card-o:before {\n  content: \"\\F2C3\";\n}\n.fa-quora:before {\n  content: \"\\F2C4\";\n}\n.fa-free-code-camp:before {\n  content: \"\\F2C5\";\n}\n.fa-telegram:before {\n  content: \"\\F2C6\";\n}\n.fa-thermometer-4:before,\n.fa-thermometer:before,\n.fa-thermometer-full:before {\n  content: \"\\F2C7\";\n}\n.fa-thermometer-3:before,\n.fa-thermometer-three-quarters:before {\n  content: \"\\F2C8\";\n}\n.fa-thermometer-2:before,\n.fa-thermometer-half:before {\n  content: \"\\F2C9\";\n}\n.fa-thermometer-1:before,\n.fa-thermometer-quarter:before {\n  content: \"\\F2CA\";\n}\n.fa-thermometer-0:before,\n.fa-thermometer-empty:before {\n  content: \"\\F2CB\";\n}\n.fa-shower:before {\n  content: \"\\F2CC\";\n}\n.fa-bathtub:before,\n.fa-s15:before,\n.fa-bath:before {\n  content: \"\\F2CD\";\n}\n.fa-podcast:before {\n  content: \"\\F2CE\";\n}\n.fa-window-maximize:before {\n  content: \"\\F2D0\";\n}\n.fa-window-minimize:before {\n  content: \"\\F2D1\";\n}\n.fa-window-restore:before {\n  content: \"\\F2D2\";\n}\n.fa-times-rectangle:before,\n.fa-window-close:before {\n  content: \"\\F2D3\";\n}\n.fa-times-rectangle-o:before,\n.fa-window-close-o:before {\n  content: \"\\F2D4\";\n}\n.fa-bandcamp:before {\n  content: \"\\F2D5\";\n}\n.fa-grav:before {\n  content: \"\\F2D6\";\n}\n.fa-etsy:before {\n  content: \"\\F2D7\";\n}\n.fa-imdb:before {\n  content: \"\\F2D8\";\n}\n.fa-ravelry:before {\n  content: \"\\F2D9\";\n}\n.fa-eercast:before {\n  content: \"\\F2DA\";\n}\n.fa-microchip:before {\n  content: \"\\F2DB\";\n}\n.fa-snowflake-o:before {\n  content: \"\\F2DC\";\n}\n.fa-superpowers:before {\n  content: \"\\F2DD\";\n}\n.fa-wpexplorer:before {\n  content: \"\\F2DE\";\n}\n.fa-meetup:before {\n  content: \"\\F2E0\";\n}\n.sr-only {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  border: 0;\n}\n.sr-only-focusable:active,\n.sr-only-focusable:focus {\n  position: static;\n  width: auto;\n  height: auto;\n  margin: 0;\n  overflow: visible;\n  clip: auto;\n}\n", ""]);
+	exports.push([module.id, "body {\n  font-family: Roboto, \"Microsoft YaHei\";\n}\n.vh100 {\n  height: 97vh;\n}\n.highlight {\n  position: relative;\n}\n.highlight > div {\n  position: absolute;\n  width: 100%;\n  height: 96%;\n  opacity: .5;\n  border-radius: 5px;\n}\n.highlight-red {\n  background-color: red;\n}\n.highlight-gray {\n  background-color: lightgray;\n}\n.flipc {\n  -webkit-perspective: 1000px;\n     -moz-perspective: 1000px;\n          perspective: 1000px;\n}\n.flipY, .flipb {\n  -webkit-transform: rotateY(180deg);\n     -moz-transform: rotateY(180deg);\n          transform: rotateY(180deg);\n}\n.flipp {\n\t-webkit-transform-style: preserve-3d;\n\t   -moz-transform-style: preserve-3d;\n\t        transform-style: preserve-3d;\n\tposition: relative;\n}\n.nav {\n  margin: -8px -8px 8px;\n  padding: 4px 8px;\n  /*background-color: yellowgreen;*/\n  background-color: rgb(240,240,240);\n  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  overflow: hidden;\n}\n.nav i {\n  width: 32px;\n  height: 32px;\n  text-align: center;\n  vertical-align: middle;\n  line-height: 32px;\n}\n.nav i:hover {\n  /*color: black;\n  background-color: rgb(174,225,70);\n  cursor: pointer;*/\n}\n.su {\n  -webkit-transition: all .5s;\n  -moz-transition: all .5s;\n  transition: all .5s;\n  -webkit-transform: translateY(200px);\n     -moz-transform: translateY(200px);\n      -ms-transform: translateY(200px);\n          transform: translateY(200px);\n  display: none;\n  opacity: 0;\n  z-index: -100;\n}\n.su.show {\n  display: block;\n  visibility: visible;\n  opacity: 1;\n  -webkit-transform: translateY(0px);\n     -moz-transform: translateY(0px);\n      -ms-transform: translateY(0px);\n          transform: translateY(0px);\n  z-index: 100;\n}\n.pr {\n  position: relative;\n}\n.pa {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n.dialog div {\n  font-family: Roboto, \"Microsoft YaHei\" !important;\n  margin: 1px 0;\n}\n.toggle {\n  width: auto !important;\n}\n.wind.mb4 {\n  margin-bottom: 4px;\n}\n.w12 {\n  width: 12%;\n}\n.w33 {\n  width: 33.33%;\n}\n.btn {\n  white-space: nowrap;\n}\n#btns > div {\n  padding: 4px 1px;\n}", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 622 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "674f50d287a8c48dc19ba404d20fe713.eot";
-
-/***/ },
-/* 623 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "674f50d287a8c48dc19ba404d20fe713.eot";
-
-/***/ },
-/* 624 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "af7ae505a9eed503f8b8e6982036873e.woff2";
-
-/***/ },
-/* 625 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "fee66e712a8a08eef5805a46892932ad.woff";
-
-/***/ },
-/* 626 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "b06871f281fee6b241d60582ae9369b9.ttf";
-
-/***/ },
-/* 627 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "912ec66d7572ff821749319396470bde.svg";
-
-/***/ },
-/* 628 */
+/* 629 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63246,7 +63280,7 @@
 	
 	var _react = __webpack_require__(299);
 	
-	var _getMuiTheme = __webpack_require__(629);
+	var _getMuiTheme = __webpack_require__(630);
 	
 	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 	
@@ -63294,7 +63328,7 @@
 	exports.default = MuiThemeProvider;
 
 /***/ },
-/* 629 */
+/* 630 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -63304,41 +63338,41 @@
 	});
 	exports.default = getMuiTheme;
 	
-	var _merge = __webpack_require__(630);
+	var _merge = __webpack_require__(631);
 	
 	var _merge2 = _interopRequireDefault(_merge);
 	
-	var _colorManipulator = __webpack_require__(715);
+	var _colorManipulator = __webpack_require__(716);
 	
-	var _lightBaseTheme = __webpack_require__(716);
+	var _lightBaseTheme = __webpack_require__(717);
 	
 	var _lightBaseTheme2 = _interopRequireDefault(_lightBaseTheme);
 	
-	var _zIndex = __webpack_require__(719);
+	var _zIndex = __webpack_require__(720);
 	
 	var _zIndex2 = _interopRequireDefault(_zIndex);
 	
-	var _autoprefixer = __webpack_require__(720);
+	var _autoprefixer = __webpack_require__(721);
 	
 	var _autoprefixer2 = _interopRequireDefault(_autoprefixer);
 	
-	var _callOnce = __webpack_require__(752);
+	var _callOnce = __webpack_require__(753);
 	
 	var _callOnce2 = _interopRequireDefault(_callOnce);
 	
-	var _rtl = __webpack_require__(753);
+	var _rtl = __webpack_require__(754);
 	
 	var _rtl2 = _interopRequireDefault(_rtl);
 	
-	var _compose = __webpack_require__(754);
+	var _compose = __webpack_require__(755);
 	
 	var _compose2 = _interopRequireDefault(_compose);
 	
-	var _typography = __webpack_require__(755);
+	var _typography = __webpack_require__(756);
 	
 	var _typography2 = _interopRequireDefault(_typography);
 	
-	var _colors = __webpack_require__(717);
+	var _colors = __webpack_require__(718);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -63674,11 +63708,11 @@
 	}
 
 /***/ },
-/* 630 */
+/* 631 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseMerge = __webpack_require__(631),
-	    createAssigner = __webpack_require__(705);
+	var baseMerge = __webpack_require__(632),
+	    createAssigner = __webpack_require__(706);
 	
 	/**
 	 * This method is like `_.assign` except that it recursively merges own and
@@ -63719,15 +63753,15 @@
 
 
 /***/ },
-/* 631 */
+/* 632 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Stack = __webpack_require__(632),
-	    assignMergeValue = __webpack_require__(670),
-	    baseFor = __webpack_require__(673),
-	    baseMergeDeep = __webpack_require__(675),
-	    isObject = __webpack_require__(650),
-	    keysIn = __webpack_require__(699);
+	var Stack = __webpack_require__(633),
+	    assignMergeValue = __webpack_require__(671),
+	    baseFor = __webpack_require__(674),
+	    baseMergeDeep = __webpack_require__(676),
+	    isObject = __webpack_require__(651),
+	    keysIn = __webpack_require__(700);
 	
 	/**
 	 * The base implementation of `_.merge` without support for multiple sources.
@@ -63766,15 +63800,15 @@
 
 
 /***/ },
-/* 632 */
+/* 633 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ListCache = __webpack_require__(633),
-	    stackClear = __webpack_require__(641),
-	    stackDelete = __webpack_require__(642),
-	    stackGet = __webpack_require__(643),
-	    stackHas = __webpack_require__(644),
-	    stackSet = __webpack_require__(645);
+	var ListCache = __webpack_require__(634),
+	    stackClear = __webpack_require__(642),
+	    stackDelete = __webpack_require__(643),
+	    stackGet = __webpack_require__(644),
+	    stackHas = __webpack_require__(645),
+	    stackSet = __webpack_require__(646);
 	
 	/**
 	 * Creates a stack cache object to store key-value pairs.
@@ -63799,14 +63833,14 @@
 
 
 /***/ },
-/* 633 */
+/* 634 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var listCacheClear = __webpack_require__(634),
-	    listCacheDelete = __webpack_require__(635),
-	    listCacheGet = __webpack_require__(638),
-	    listCacheHas = __webpack_require__(639),
-	    listCacheSet = __webpack_require__(640);
+	var listCacheClear = __webpack_require__(635),
+	    listCacheDelete = __webpack_require__(636),
+	    listCacheGet = __webpack_require__(639),
+	    listCacheHas = __webpack_require__(640),
+	    listCacheSet = __webpack_require__(641);
 	
 	/**
 	 * Creates an list cache object.
@@ -63837,7 +63871,7 @@
 
 
 /***/ },
-/* 634 */
+/* 635 */
 /***/ function(module, exports) {
 
 	/**
@@ -63856,10 +63890,10 @@
 
 
 /***/ },
-/* 635 */
+/* 636 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(636);
+	var assocIndexOf = __webpack_require__(637);
 	
 	/** Used for built-in method references. */
 	var arrayProto = Array.prototype;
@@ -63897,10 +63931,10 @@
 
 
 /***/ },
-/* 636 */
+/* 637 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(637);
+	var eq = __webpack_require__(638);
 	
 	/**
 	 * Gets the index at which the `key` is found in `array` of key-value pairs.
@@ -63924,7 +63958,7 @@
 
 
 /***/ },
-/* 637 */
+/* 638 */
 /***/ function(module, exports) {
 
 	/**
@@ -63967,10 +64001,10 @@
 
 
 /***/ },
-/* 638 */
+/* 639 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(636);
+	var assocIndexOf = __webpack_require__(637);
 	
 	/**
 	 * Gets the list cache value for `key`.
@@ -63992,10 +64026,10 @@
 
 
 /***/ },
-/* 639 */
+/* 640 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(636);
+	var assocIndexOf = __webpack_require__(637);
 	
 	/**
 	 * Checks if a list cache value for `key` exists.
@@ -64014,10 +64048,10 @@
 
 
 /***/ },
-/* 640 */
+/* 641 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assocIndexOf = __webpack_require__(636);
+	var assocIndexOf = __webpack_require__(637);
 	
 	/**
 	 * Sets the list cache `key` to `value`.
@@ -64046,10 +64080,10 @@
 
 
 /***/ },
-/* 641 */
+/* 642 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ListCache = __webpack_require__(633);
+	var ListCache = __webpack_require__(634);
 	
 	/**
 	 * Removes all key-value entries from the stack.
@@ -64067,7 +64101,7 @@
 
 
 /***/ },
-/* 642 */
+/* 643 */
 /***/ function(module, exports) {
 
 	/**
@@ -64091,7 +64125,7 @@
 
 
 /***/ },
-/* 643 */
+/* 644 */
 /***/ function(module, exports) {
 
 	/**
@@ -64111,7 +64145,7 @@
 
 
 /***/ },
-/* 644 */
+/* 645 */
 /***/ function(module, exports) {
 
 	/**
@@ -64131,12 +64165,12 @@
 
 
 /***/ },
-/* 645 */
+/* 646 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ListCache = __webpack_require__(633),
-	    Map = __webpack_require__(646),
-	    MapCache = __webpack_require__(655);
+	var ListCache = __webpack_require__(634),
+	    Map = __webpack_require__(647),
+	    MapCache = __webpack_require__(656);
 	
 	/** Used as the size to enable large array optimizations. */
 	var LARGE_ARRAY_SIZE = 200;
@@ -64171,10 +64205,10 @@
 
 
 /***/ },
-/* 646 */
+/* 647 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(647),
+	var getNative = __webpack_require__(648),
 	    root = __webpack_require__(472);
 	
 	/* Built-in method references that are verified to be native. */
@@ -64184,11 +64218,11 @@
 
 
 /***/ },
-/* 647 */
+/* 648 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsNative = __webpack_require__(648),
-	    getValue = __webpack_require__(654);
+	var baseIsNative = __webpack_require__(649),
+	    getValue = __webpack_require__(655);
 	
 	/**
 	 * Gets the native function at `key` of `object`.
@@ -64207,13 +64241,13 @@
 
 
 /***/ },
-/* 648 */
+/* 649 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(649),
-	    isMasked = __webpack_require__(651),
-	    isObject = __webpack_require__(650),
-	    toSource = __webpack_require__(653);
+	var isFunction = __webpack_require__(650),
+	    isMasked = __webpack_require__(652),
+	    isObject = __webpack_require__(651),
+	    toSource = __webpack_require__(654);
 	
 	/**
 	 * Used to match `RegExp`
@@ -64260,11 +64294,11 @@
 
 
 /***/ },
-/* 649 */
+/* 650 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var baseGetTag = __webpack_require__(470),
-	    isObject = __webpack_require__(650);
+	    isObject = __webpack_require__(651);
 	
 	/** `Object#toString` result references. */
 	var asyncTag = '[object AsyncFunction]',
@@ -64303,7 +64337,7 @@
 
 
 /***/ },
-/* 650 */
+/* 651 */
 /***/ function(module, exports) {
 
 	/**
@@ -64340,10 +64374,10 @@
 
 
 /***/ },
-/* 651 */
+/* 652 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var coreJsData = __webpack_require__(652);
+	var coreJsData = __webpack_require__(653);
 	
 	/** Used to detect methods masquerading as native. */
 	var maskSrcKey = (function() {
@@ -64366,7 +64400,7 @@
 
 
 /***/ },
-/* 652 */
+/* 653 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var root = __webpack_require__(472);
@@ -64378,7 +64412,7 @@
 
 
 /***/ },
-/* 653 */
+/* 654 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -64410,7 +64444,7 @@
 
 
 /***/ },
-/* 654 */
+/* 655 */
 /***/ function(module, exports) {
 
 	/**
@@ -64429,14 +64463,14 @@
 
 
 /***/ },
-/* 655 */
+/* 656 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var mapCacheClear = __webpack_require__(656),
-	    mapCacheDelete = __webpack_require__(664),
-	    mapCacheGet = __webpack_require__(667),
-	    mapCacheHas = __webpack_require__(668),
-	    mapCacheSet = __webpack_require__(669);
+	var mapCacheClear = __webpack_require__(657),
+	    mapCacheDelete = __webpack_require__(665),
+	    mapCacheGet = __webpack_require__(668),
+	    mapCacheHas = __webpack_require__(669),
+	    mapCacheSet = __webpack_require__(670);
 	
 	/**
 	 * Creates a map cache object to store key-value pairs.
@@ -64467,12 +64501,12 @@
 
 
 /***/ },
-/* 656 */
+/* 657 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Hash = __webpack_require__(657),
-	    ListCache = __webpack_require__(633),
-	    Map = __webpack_require__(646);
+	var Hash = __webpack_require__(658),
+	    ListCache = __webpack_require__(634),
+	    Map = __webpack_require__(647);
 	
 	/**
 	 * Removes all key-value entries from the map.
@@ -64494,14 +64528,14 @@
 
 
 /***/ },
-/* 657 */
+/* 658 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var hashClear = __webpack_require__(658),
-	    hashDelete = __webpack_require__(660),
-	    hashGet = __webpack_require__(661),
-	    hashHas = __webpack_require__(662),
-	    hashSet = __webpack_require__(663);
+	var hashClear = __webpack_require__(659),
+	    hashDelete = __webpack_require__(661),
+	    hashGet = __webpack_require__(662),
+	    hashHas = __webpack_require__(663),
+	    hashSet = __webpack_require__(664);
 	
 	/**
 	 * Creates a hash object.
@@ -64532,10 +64566,10 @@
 
 
 /***/ },
-/* 658 */
+/* 659 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(659);
+	var nativeCreate = __webpack_require__(660);
 	
 	/**
 	 * Removes all key-value entries from the hash.
@@ -64553,10 +64587,10 @@
 
 
 /***/ },
-/* 659 */
+/* 660 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(647);
+	var getNative = __webpack_require__(648);
 	
 	/* Built-in method references that are verified to be native. */
 	var nativeCreate = getNative(Object, 'create');
@@ -64565,7 +64599,7 @@
 
 
 /***/ },
-/* 660 */
+/* 661 */
 /***/ function(module, exports) {
 
 	/**
@@ -64588,10 +64622,10 @@
 
 
 /***/ },
-/* 661 */
+/* 662 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(659);
+	var nativeCreate = __webpack_require__(660);
 	
 	/** Used to stand-in for `undefined` hash values. */
 	var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -64624,10 +64658,10 @@
 
 
 /***/ },
-/* 662 */
+/* 663 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(659);
+	var nativeCreate = __webpack_require__(660);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -64653,10 +64687,10 @@
 
 
 /***/ },
-/* 663 */
+/* 664 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var nativeCreate = __webpack_require__(659);
+	var nativeCreate = __webpack_require__(660);
 	
 	/** Used to stand-in for `undefined` hash values. */
 	var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -64682,10 +64716,10 @@
 
 
 /***/ },
-/* 664 */
+/* 665 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getMapData = __webpack_require__(665);
+	var getMapData = __webpack_require__(666);
 	
 	/**
 	 * Removes `key` and its value from the map.
@@ -64706,10 +64740,10 @@
 
 
 /***/ },
-/* 665 */
+/* 666 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isKeyable = __webpack_require__(666);
+	var isKeyable = __webpack_require__(667);
 	
 	/**
 	 * Gets the data for `map`.
@@ -64730,7 +64764,7 @@
 
 
 /***/ },
-/* 666 */
+/* 667 */
 /***/ function(module, exports) {
 
 	/**
@@ -64751,10 +64785,10 @@
 
 
 /***/ },
-/* 667 */
+/* 668 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getMapData = __webpack_require__(665);
+	var getMapData = __webpack_require__(666);
 	
 	/**
 	 * Gets the map value for `key`.
@@ -64773,10 +64807,10 @@
 
 
 /***/ },
-/* 668 */
+/* 669 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getMapData = __webpack_require__(665);
+	var getMapData = __webpack_require__(666);
 	
 	/**
 	 * Checks if a map value for `key` exists.
@@ -64795,10 +64829,10 @@
 
 
 /***/ },
-/* 669 */
+/* 670 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getMapData = __webpack_require__(665);
+	var getMapData = __webpack_require__(666);
 	
 	/**
 	 * Sets the map `key` to `value`.
@@ -64823,11 +64857,11 @@
 
 
 /***/ },
-/* 670 */
+/* 671 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseAssignValue = __webpack_require__(671),
-	    eq = __webpack_require__(637);
+	var baseAssignValue = __webpack_require__(672),
+	    eq = __webpack_require__(638);
 	
 	/**
 	 * This function is like `assignValue` except that it doesn't assign
@@ -64849,10 +64883,10 @@
 
 
 /***/ },
-/* 671 */
+/* 672 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var defineProperty = __webpack_require__(672);
+	var defineProperty = __webpack_require__(673);
 	
 	/**
 	 * The base implementation of `assignValue` and `assignMergeValue` without
@@ -64880,10 +64914,10 @@
 
 
 /***/ },
-/* 672 */
+/* 673 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getNative = __webpack_require__(647);
+	var getNative = __webpack_require__(648);
 	
 	var defineProperty = (function() {
 	  try {
@@ -64897,10 +64931,10 @@
 
 
 /***/ },
-/* 673 */
+/* 674 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var createBaseFor = __webpack_require__(674);
+	var createBaseFor = __webpack_require__(675);
 	
 	/**
 	 * The base implementation of `baseForOwn` which iterates over `object`
@@ -64919,7 +64953,7 @@
 
 
 /***/ },
-/* 674 */
+/* 675 */
 /***/ function(module, exports) {
 
 	/**
@@ -64950,23 +64984,23 @@
 
 
 /***/ },
-/* 675 */
+/* 676 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assignMergeValue = __webpack_require__(670),
-	    cloneBuffer = __webpack_require__(676),
-	    cloneTypedArray = __webpack_require__(677),
-	    copyArray = __webpack_require__(680),
-	    initCloneObject = __webpack_require__(681),
-	    isArguments = __webpack_require__(684),
-	    isArray = __webpack_require__(686),
-	    isArrayLikeObject = __webpack_require__(687),
-	    isBuffer = __webpack_require__(690),
-	    isFunction = __webpack_require__(649),
-	    isObject = __webpack_require__(650),
+	var assignMergeValue = __webpack_require__(671),
+	    cloneBuffer = __webpack_require__(677),
+	    cloneTypedArray = __webpack_require__(678),
+	    copyArray = __webpack_require__(681),
+	    initCloneObject = __webpack_require__(682),
+	    isArguments = __webpack_require__(685),
+	    isArray = __webpack_require__(687),
+	    isArrayLikeObject = __webpack_require__(688),
+	    isBuffer = __webpack_require__(691),
+	    isFunction = __webpack_require__(650),
+	    isObject = __webpack_require__(651),
 	    isPlainObject = __webpack_require__(469),
-	    isTypedArray = __webpack_require__(692),
-	    toPlainObject = __webpack_require__(696);
+	    isTypedArray = __webpack_require__(693),
+	    toPlainObject = __webpack_require__(697);
 	
 	/**
 	 * A specialized version of `baseMerge` for arrays and objects which performs
@@ -65049,7 +65083,7 @@
 
 
 /***/ },
-/* 676 */
+/* 677 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(472);
@@ -65091,10 +65125,10 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(481)(module)))
 
 /***/ },
-/* 677 */
+/* 678 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var cloneArrayBuffer = __webpack_require__(678);
+	var cloneArrayBuffer = __webpack_require__(679);
 	
 	/**
 	 * Creates a clone of `typedArray`.
@@ -65113,10 +65147,10 @@
 
 
 /***/ },
-/* 678 */
+/* 679 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Uint8Array = __webpack_require__(679);
+	var Uint8Array = __webpack_require__(680);
 	
 	/**
 	 * Creates a clone of `arrayBuffer`.
@@ -65135,7 +65169,7 @@
 
 
 /***/ },
-/* 679 */
+/* 680 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var root = __webpack_require__(472);
@@ -65147,7 +65181,7 @@
 
 
 /***/ },
-/* 680 */
+/* 681 */
 /***/ function(module, exports) {
 
 	/**
@@ -65173,12 +65207,12 @@
 
 
 /***/ },
-/* 681 */
+/* 682 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseCreate = __webpack_require__(682),
+	var baseCreate = __webpack_require__(683),
 	    getPrototype = __webpack_require__(476),
-	    isPrototype = __webpack_require__(683);
+	    isPrototype = __webpack_require__(684);
 	
 	/**
 	 * Initializes an object clone.
@@ -65197,10 +65231,10 @@
 
 
 /***/ },
-/* 682 */
+/* 683 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(650);
+	var isObject = __webpack_require__(651);
 	
 	/** Built-in value references. */
 	var objectCreate = Object.create;
@@ -65233,7 +65267,7 @@
 
 
 /***/ },
-/* 683 */
+/* 684 */
 /***/ function(module, exports) {
 
 	/** Used for built-in method references. */
@@ -65257,10 +65291,10 @@
 
 
 /***/ },
-/* 684 */
+/* 685 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsArguments = __webpack_require__(685),
+	var baseIsArguments = __webpack_require__(686),
 	    isObjectLike = __webpack_require__(478);
 	
 	/** Used for built-in method references. */
@@ -65299,7 +65333,7 @@
 
 
 /***/ },
-/* 685 */
+/* 686 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var baseGetTag = __webpack_require__(470),
@@ -65323,7 +65357,7 @@
 
 
 /***/ },
-/* 686 */
+/* 687 */
 /***/ function(module, exports) {
 
 	/**
@@ -65355,10 +65389,10 @@
 
 
 /***/ },
-/* 687 */
+/* 688 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isArrayLike = __webpack_require__(688),
+	var isArrayLike = __webpack_require__(689),
 	    isObjectLike = __webpack_require__(478);
 	
 	/**
@@ -65394,11 +65428,11 @@
 
 
 /***/ },
-/* 688 */
+/* 689 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isFunction = __webpack_require__(649),
-	    isLength = __webpack_require__(689);
+	var isFunction = __webpack_require__(650),
+	    isLength = __webpack_require__(690);
 	
 	/**
 	 * Checks if `value` is array-like. A value is considered array-like if it's
@@ -65433,7 +65467,7 @@
 
 
 /***/ },
-/* 689 */
+/* 690 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -65474,11 +65508,11 @@
 
 
 /***/ },
-/* 690 */
+/* 691 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(472),
-	    stubFalse = __webpack_require__(691);
+	    stubFalse = __webpack_require__(692);
 	
 	/** Detect free variable `exports`. */
 	var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
@@ -65519,7 +65553,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(481)(module)))
 
 /***/ },
-/* 691 */
+/* 692 */
 /***/ function(module, exports) {
 
 	/**
@@ -65543,12 +65577,12 @@
 
 
 /***/ },
-/* 692 */
+/* 693 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseIsTypedArray = __webpack_require__(693),
-	    baseUnary = __webpack_require__(694),
-	    nodeUtil = __webpack_require__(695);
+	var baseIsTypedArray = __webpack_require__(694),
+	    baseUnary = __webpack_require__(695),
+	    nodeUtil = __webpack_require__(696);
 	
 	/* Node.js helper references. */
 	var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
@@ -65576,11 +65610,11 @@
 
 
 /***/ },
-/* 693 */
+/* 694 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var baseGetTag = __webpack_require__(470),
-	    isLength = __webpack_require__(689),
+	    isLength = __webpack_require__(690),
 	    isObjectLike = __webpack_require__(478);
 	
 	/** `Object#toString` result references. */
@@ -65642,7 +65676,7 @@
 
 
 /***/ },
-/* 694 */
+/* 695 */
 /***/ function(module, exports) {
 
 	/**
@@ -65662,7 +65696,7 @@
 
 
 /***/ },
-/* 695 */
+/* 696 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(473);
@@ -65691,11 +65725,11 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(481)(module)))
 
 /***/ },
-/* 696 */
+/* 697 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var copyObject = __webpack_require__(697),
-	    keysIn = __webpack_require__(699);
+	var copyObject = __webpack_require__(698),
+	    keysIn = __webpack_require__(700);
 	
 	/**
 	 * Converts `value` to a plain object flattening inherited enumerable string
@@ -65729,11 +65763,11 @@
 
 
 /***/ },
-/* 697 */
+/* 698 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var assignValue = __webpack_require__(698),
-	    baseAssignValue = __webpack_require__(671);
+	var assignValue = __webpack_require__(699),
+	    baseAssignValue = __webpack_require__(672);
 	
 	/**
 	 * Copies properties of `source` to `object`.
@@ -65775,11 +65809,11 @@
 
 
 /***/ },
-/* 698 */
+/* 699 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseAssignValue = __webpack_require__(671),
-	    eq = __webpack_require__(637);
+	var baseAssignValue = __webpack_require__(672),
+	    eq = __webpack_require__(638);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -65809,12 +65843,12 @@
 
 
 /***/ },
-/* 699 */
+/* 700 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var arrayLikeKeys = __webpack_require__(700),
-	    baseKeysIn = __webpack_require__(703),
-	    isArrayLike = __webpack_require__(688);
+	var arrayLikeKeys = __webpack_require__(701),
+	    baseKeysIn = __webpack_require__(704),
+	    isArrayLike = __webpack_require__(689);
 	
 	/**
 	 * Creates an array of the own and inherited enumerable property names of `object`.
@@ -65847,15 +65881,15 @@
 
 
 /***/ },
-/* 700 */
+/* 701 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseTimes = __webpack_require__(701),
-	    isArguments = __webpack_require__(684),
-	    isArray = __webpack_require__(686),
-	    isBuffer = __webpack_require__(690),
-	    isIndex = __webpack_require__(702),
-	    isTypedArray = __webpack_require__(692);
+	var baseTimes = __webpack_require__(702),
+	    isArguments = __webpack_require__(685),
+	    isArray = __webpack_require__(687),
+	    isBuffer = __webpack_require__(691),
+	    isIndex = __webpack_require__(703),
+	    isTypedArray = __webpack_require__(693);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -65902,7 +65936,7 @@
 
 
 /***/ },
-/* 701 */
+/* 702 */
 /***/ function(module, exports) {
 
 	/**
@@ -65928,7 +65962,7 @@
 
 
 /***/ },
-/* 702 */
+/* 703 */
 /***/ function(module, exports) {
 
 	/** Used as references for various `Number` constants. */
@@ -65956,12 +65990,12 @@
 
 
 /***/ },
-/* 703 */
+/* 704 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(650),
-	    isPrototype = __webpack_require__(683),
-	    nativeKeysIn = __webpack_require__(704);
+	var isObject = __webpack_require__(651),
+	    isPrototype = __webpack_require__(684),
+	    nativeKeysIn = __webpack_require__(705);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -65995,7 +66029,7 @@
 
 
 /***/ },
-/* 704 */
+/* 705 */
 /***/ function(module, exports) {
 
 	/**
@@ -66021,11 +66055,11 @@
 
 
 /***/ },
-/* 705 */
+/* 706 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseRest = __webpack_require__(706),
-	    isIterateeCall = __webpack_require__(714);
+	var baseRest = __webpack_require__(707),
+	    isIterateeCall = __webpack_require__(715);
 	
 	/**
 	 * Creates a function like `_.assign`.
@@ -66064,12 +66098,12 @@
 
 
 /***/ },
-/* 706 */
+/* 707 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var identity = __webpack_require__(707),
-	    overRest = __webpack_require__(708),
-	    setToString = __webpack_require__(710);
+	var identity = __webpack_require__(708),
+	    overRest = __webpack_require__(709),
+	    setToString = __webpack_require__(711);
 	
 	/**
 	 * The base implementation of `_.rest` which doesn't validate or coerce arguments.
@@ -66087,7 +66121,7 @@
 
 
 /***/ },
-/* 707 */
+/* 708 */
 /***/ function(module, exports) {
 
 	/**
@@ -66114,10 +66148,10 @@
 
 
 /***/ },
-/* 708 */
+/* 709 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var apply = __webpack_require__(709);
+	var apply = __webpack_require__(710);
 	
 	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeMax = Math.max;
@@ -66156,7 +66190,7 @@
 
 
 /***/ },
-/* 709 */
+/* 710 */
 /***/ function(module, exports) {
 
 	/**
@@ -66183,11 +66217,11 @@
 
 
 /***/ },
-/* 710 */
+/* 711 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var baseSetToString = __webpack_require__(711),
-	    shortOut = __webpack_require__(713);
+	var baseSetToString = __webpack_require__(712),
+	    shortOut = __webpack_require__(714);
 	
 	/**
 	 * Sets the `toString` method of `func` to return `string`.
@@ -66203,12 +66237,12 @@
 
 
 /***/ },
-/* 711 */
+/* 712 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var constant = __webpack_require__(712),
-	    defineProperty = __webpack_require__(672),
-	    identity = __webpack_require__(707);
+	var constant = __webpack_require__(713),
+	    defineProperty = __webpack_require__(673),
+	    identity = __webpack_require__(708);
 	
 	/**
 	 * The base implementation of `setToString` without support for hot loop shorting.
@@ -66231,7 +66265,7 @@
 
 
 /***/ },
-/* 712 */
+/* 713 */
 /***/ function(module, exports) {
 
 	/**
@@ -66263,7 +66297,7 @@
 
 
 /***/ },
-/* 713 */
+/* 714 */
 /***/ function(module, exports) {
 
 	/** Used to detect hot functions by number of calls within a span of milliseconds. */
@@ -66306,13 +66340,13 @@
 
 
 /***/ },
-/* 714 */
+/* 715 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var eq = __webpack_require__(637),
-	    isArrayLike = __webpack_require__(688),
-	    isIndex = __webpack_require__(702),
-	    isObject = __webpack_require__(650);
+	var eq = __webpack_require__(638),
+	    isArrayLike = __webpack_require__(689),
+	    isIndex = __webpack_require__(703),
+	    isObject = __webpack_require__(651);
 	
 	/**
 	 * Checks if the given arguments are from an iteratee call.
@@ -66342,7 +66376,7 @@
 
 
 /***/ },
-/* 715 */
+/* 716 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -66579,7 +66613,7 @@
 	}
 
 /***/ },
-/* 716 */
+/* 717 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66588,11 +66622,11 @@
 	  value: true
 	});
 	
-	var _colors = __webpack_require__(717);
+	var _colors = __webpack_require__(718);
 	
-	var _colorManipulator = __webpack_require__(715);
+	var _colorManipulator = __webpack_require__(716);
 	
-	var _spacing = __webpack_require__(718);
+	var _spacing = __webpack_require__(719);
 	
 	var _spacing2 = _interopRequireDefault(_spacing);
 	
@@ -66628,7 +66662,7 @@
 	    */
 
 /***/ },
-/* 717 */
+/* 718 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -66923,7 +66957,7 @@
 	var lightWhite = exports.lightWhite = 'rgba(255, 255, 255, 0.54)';
 
 /***/ },
-/* 718 */
+/* 719 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -66947,7 +66981,7 @@
 	};
 
 /***/ },
-/* 719 */
+/* 720 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -66969,7 +67003,7 @@
 	};
 
 /***/ },
-/* 720 */
+/* 721 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67018,7 +67052,7 @@
 	  }
 	};
 	
-	var _inlineStylePrefixer = __webpack_require__(721);
+	var _inlineStylePrefixer = __webpack_require__(722);
 	
 	var _inlineStylePrefixer2 = _interopRequireDefault(_inlineStylePrefixer);
 	
@@ -67031,7 +67065,7 @@
 	var hasWarnedAboutUserAgent = false;
 
 /***/ },
-/* 721 */
+/* 722 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67044,59 +67078,59 @@
 	// special flexbox specifications
 	
 	
-	var _prefixAll2 = __webpack_require__(722);
+	var _prefixAll2 = __webpack_require__(723);
 	
 	var _prefixAll3 = _interopRequireDefault(_prefixAll2);
 	
-	var _getBrowserInformation = __webpack_require__(736);
+	var _getBrowserInformation = __webpack_require__(737);
 	
 	var _getBrowserInformation2 = _interopRequireDefault(_getBrowserInformation);
 	
-	var _getPrefixedKeyframes = __webpack_require__(739);
+	var _getPrefixedKeyframes = __webpack_require__(740);
 	
 	var _getPrefixedKeyframes2 = _interopRequireDefault(_getPrefixedKeyframes);
 	
-	var _capitalizeString = __webpack_require__(724);
+	var _capitalizeString = __webpack_require__(725);
 	
 	var _capitalizeString2 = _interopRequireDefault(_capitalizeString);
 	
-	var _prefixProps = __webpack_require__(740);
+	var _prefixProps = __webpack_require__(741);
 	
 	var _prefixProps2 = _interopRequireDefault(_prefixProps);
 	
-	var _calc = __webpack_require__(741);
+	var _calc = __webpack_require__(742);
 	
 	var _calc2 = _interopRequireDefault(_calc);
 	
-	var _zoomCursor = __webpack_require__(743);
+	var _zoomCursor = __webpack_require__(744);
 	
 	var _zoomCursor2 = _interopRequireDefault(_zoomCursor);
 	
-	var _grabCursor = __webpack_require__(744);
+	var _grabCursor = __webpack_require__(745);
 	
 	var _grabCursor2 = _interopRequireDefault(_grabCursor);
 	
-	var _flex = __webpack_require__(745);
+	var _flex = __webpack_require__(746);
 	
 	var _flex2 = _interopRequireDefault(_flex);
 	
-	var _sizing = __webpack_require__(746);
+	var _sizing = __webpack_require__(747);
 	
 	var _sizing2 = _interopRequireDefault(_sizing);
 	
-	var _gradient = __webpack_require__(747);
+	var _gradient = __webpack_require__(748);
 	
 	var _gradient2 = _interopRequireDefault(_gradient);
 	
-	var _transition = __webpack_require__(748);
+	var _transition = __webpack_require__(749);
 	
 	var _transition2 = _interopRequireDefault(_transition);
 	
-	var _flexboxIE = __webpack_require__(750);
+	var _flexboxIE = __webpack_require__(751);
 	
 	var _flexboxIE2 = _interopRequireDefault(_flexboxIE);
 	
-	var _flexboxOld = __webpack_require__(751);
+	var _flexboxOld = __webpack_require__(752);
 	
 	var _flexboxOld2 = _interopRequireDefault(_flexboxOld);
 	
@@ -67257,7 +67291,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 722 */
+/* 723 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67267,43 +67301,43 @@
 	});
 	exports.default = prefixAll;
 	
-	var _prefixProps = __webpack_require__(723);
+	var _prefixProps = __webpack_require__(724);
 	
 	var _prefixProps2 = _interopRequireDefault(_prefixProps);
 	
-	var _capitalizeString = __webpack_require__(724);
+	var _capitalizeString = __webpack_require__(725);
 	
 	var _capitalizeString2 = _interopRequireDefault(_capitalizeString);
 	
-	var _calc = __webpack_require__(725);
+	var _calc = __webpack_require__(726);
 	
 	var _calc2 = _interopRequireDefault(_calc);
 	
-	var _cursor = __webpack_require__(728);
+	var _cursor = __webpack_require__(729);
 	
 	var _cursor2 = _interopRequireDefault(_cursor);
 	
-	var _flex = __webpack_require__(729);
+	var _flex = __webpack_require__(730);
 	
 	var _flex2 = _interopRequireDefault(_flex);
 	
-	var _sizing = __webpack_require__(730);
+	var _sizing = __webpack_require__(731);
 	
 	var _sizing2 = _interopRequireDefault(_sizing);
 	
-	var _gradient = __webpack_require__(731);
+	var _gradient = __webpack_require__(732);
 	
 	var _gradient2 = _interopRequireDefault(_gradient);
 	
-	var _transition = __webpack_require__(732);
+	var _transition = __webpack_require__(733);
 	
 	var _transition2 = _interopRequireDefault(_transition);
 	
-	var _flexboxIE = __webpack_require__(734);
+	var _flexboxIE = __webpack_require__(735);
 	
 	var _flexboxIE2 = _interopRequireDefault(_flexboxIE);
 	
-	var _flexboxOld = __webpack_require__(735);
+	var _flexboxOld = __webpack_require__(736);
 	
 	var _flexboxOld2 = _interopRequireDefault(_flexboxOld);
 	
@@ -67369,7 +67403,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 723 */
+/* 724 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -67381,7 +67415,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 724 */
+/* 725 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -67398,7 +67432,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 725 */
+/* 726 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67408,11 +67442,11 @@
 	});
 	exports.default = calc;
 	
-	var _joinPrefixedValue = __webpack_require__(726);
+	var _joinPrefixedValue = __webpack_require__(727);
 	
 	var _joinPrefixedValue2 = _interopRequireDefault(_joinPrefixedValue);
 	
-	var _isPrefixedValue = __webpack_require__(727);
+	var _isPrefixedValue = __webpack_require__(728);
 	
 	var _isPrefixedValue2 = _interopRequireDefault(_isPrefixedValue);
 	
@@ -67428,7 +67462,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 726 */
+/* 727 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -67453,7 +67487,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 727 */
+/* 728 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -67471,7 +67505,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 728 */
+/* 729 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67481,7 +67515,7 @@
 	});
 	exports.default = cursor;
 	
-	var _joinPrefixedValue = __webpack_require__(726);
+	var _joinPrefixedValue = __webpack_require__(727);
 	
 	var _joinPrefixedValue2 = _interopRequireDefault(_joinPrefixedValue);
 	
@@ -67502,7 +67536,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 729 */
+/* 730 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -67523,7 +67557,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 730 */
+/* 731 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67533,7 +67567,7 @@
 	});
 	exports.default = sizing;
 	
-	var _joinPrefixedValue = __webpack_require__(726);
+	var _joinPrefixedValue = __webpack_require__(727);
 	
 	var _joinPrefixedValue2 = _interopRequireDefault(_joinPrefixedValue);
 	
@@ -67564,7 +67598,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 731 */
+/* 732 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67574,11 +67608,11 @@
 	});
 	exports.default = gradient;
 	
-	var _joinPrefixedValue = __webpack_require__(726);
+	var _joinPrefixedValue = __webpack_require__(727);
 	
 	var _joinPrefixedValue2 = _interopRequireDefault(_joinPrefixedValue);
 	
-	var _isPrefixedValue = __webpack_require__(727);
+	var _isPrefixedValue = __webpack_require__(728);
 	
 	var _isPrefixedValue2 = _interopRequireDefault(_isPrefixedValue);
 	
@@ -67594,7 +67628,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 732 */
+/* 733 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67604,19 +67638,19 @@
 	});
 	exports.default = transition;
 	
-	var _hyphenateStyleName = __webpack_require__(733);
+	var _hyphenateStyleName = __webpack_require__(734);
 	
 	var _hyphenateStyleName2 = _interopRequireDefault(_hyphenateStyleName);
 	
-	var _capitalizeString = __webpack_require__(724);
+	var _capitalizeString = __webpack_require__(725);
 	
 	var _capitalizeString2 = _interopRequireDefault(_capitalizeString);
 	
-	var _isPrefixedValue = __webpack_require__(727);
+	var _isPrefixedValue = __webpack_require__(728);
 	
 	var _isPrefixedValue2 = _interopRequireDefault(_isPrefixedValue);
 	
-	var _prefixProps = __webpack_require__(723);
+	var _prefixProps = __webpack_require__(724);
 	
 	var _prefixProps2 = _interopRequireDefault(_prefixProps);
 	
@@ -67681,7 +67715,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 733 */
+/* 734 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -67703,7 +67737,7 @@
 
 
 /***/ },
-/* 734 */
+/* 735 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -67740,7 +67774,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 735 */
+/* 736 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -67781,7 +67815,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 736 */
+/* 737 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67790,7 +67824,7 @@
 	  value: true
 	});
 	
-	var _bowser = __webpack_require__(737);
+	var _bowser = __webpack_require__(738);
 	
 	var _bowser2 = _interopRequireDefault(_bowser);
 	
@@ -67894,7 +67928,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 737 */
+/* 738 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*!
@@ -67905,7 +67939,7 @@
 	
 	!function (name, definition) {
 	  if (typeof module != 'undefined' && module.exports) module.exports = definition()
-	  else if (true) __webpack_require__(738)(name, definition)
+	  else if (true) __webpack_require__(739)(name, definition)
 	  else this[name] = definition()
 	}('bowser', function () {
 	  /**
@@ -68480,14 +68514,14 @@
 
 
 /***/ },
-/* 738 */
+/* 739 */
 /***/ function(module, exports) {
 
 	module.exports = function() { throw new Error("define cannot be used indirect"); };
 
 
 /***/ },
-/* 739 */
+/* 740 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -68512,7 +68546,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 740 */
+/* 741 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -68524,7 +68558,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 741 */
+/* 742 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68534,7 +68568,7 @@
 	});
 	exports.default = calc;
 	
-	var _getPrefixedValue = __webpack_require__(742);
+	var _getPrefixedValue = __webpack_require__(743);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -68558,7 +68592,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 742 */
+/* 743 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -68574,7 +68608,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 743 */
+/* 744 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68584,7 +68618,7 @@
 	});
 	exports.default = zoomCursor;
 	
-	var _getPrefixedValue = __webpack_require__(742);
+	var _getPrefixedValue = __webpack_require__(743);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -68610,7 +68644,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 744 */
+/* 745 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68620,7 +68654,7 @@
 	});
 	exports.default = grabCursor;
 	
-	var _getPrefixedValue = __webpack_require__(742);
+	var _getPrefixedValue = __webpack_require__(743);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -68645,7 +68679,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 745 */
+/* 746 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68655,7 +68689,7 @@
 	});
 	exports.default = flex;
 	
-	var _getPrefixedValue = __webpack_require__(742);
+	var _getPrefixedValue = __webpack_require__(743);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -68681,7 +68715,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 746 */
+/* 747 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68691,7 +68725,7 @@
 	});
 	exports.default = sizing;
 	
-	var _getPrefixedValue = __webpack_require__(742);
+	var _getPrefixedValue = __webpack_require__(743);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -68731,7 +68765,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 747 */
+/* 748 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68741,7 +68775,7 @@
 	});
 	exports.default = gradient;
 	
-	var _getPrefixedValue = __webpack_require__(742);
+	var _getPrefixedValue = __webpack_require__(743);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -68767,7 +68801,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 748 */
+/* 749 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68780,11 +68814,11 @@
 	
 	exports.default = transition;
 	
-	var _hyphenateStyleName = __webpack_require__(733);
+	var _hyphenateStyleName = __webpack_require__(734);
 	
 	var _hyphenateStyleName2 = _interopRequireDefault(_hyphenateStyleName);
 	
-	var _unprefixProperty = __webpack_require__(749);
+	var _unprefixProperty = __webpack_require__(750);
 	
 	var _unprefixProperty2 = _interopRequireDefault(_unprefixProperty);
 	
@@ -68833,7 +68867,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 749 */
+/* 750 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -68850,7 +68884,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 750 */
+/* 751 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68860,7 +68894,7 @@
 	});
 	exports.default = flexboxIE;
 	
-	var _getPrefixedValue = __webpack_require__(742);
+	var _getPrefixedValue = __webpack_require__(743);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -68914,7 +68948,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 751 */
+/* 752 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68924,7 +68958,7 @@
 	});
 	exports.default = flexboxOld;
 	
-	var _getPrefixedValue = __webpack_require__(742);
+	var _getPrefixedValue = __webpack_require__(743);
 	
 	var _getPrefixedValue2 = _interopRequireDefault(_getPrefixedValue);
 	
@@ -68985,7 +69019,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 752 */
+/* 753 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69016,7 +69050,7 @@
 	}
 
 /***/ },
-/* 753 */
+/* 754 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -69106,7 +69140,7 @@
 	}
 
 /***/ },
-/* 754 */
+/* 755 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -69140,7 +69174,7 @@
 	}
 
 /***/ },
-/* 755 */
+/* 756 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69149,7 +69183,7 @@
 	  value: true
 	});
 	
-	var _colors = __webpack_require__(717);
+	var _colors = __webpack_require__(718);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -69176,11 +69210,11 @@
 	exports.default = new Typography();
 
 /***/ },
-/* 756 */
+/* 757 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var invariant = __webpack_require__(757);
-	var defaultClickRejectionStrategy = __webpack_require__(758);
+	var invariant = __webpack_require__(758);
+	var defaultClickRejectionStrategy = __webpack_require__(759);
 	
 	var alreadyInjected = false;
 	
@@ -69202,13 +69236,13 @@
 	  alreadyInjected = true;
 	
 	  __webpack_require__(337).injection.injectEventPluginsByName({
-	    'TapEventPlugin':       __webpack_require__(759)(shouldRejectClick)
+	    'TapEventPlugin':       __webpack_require__(760)(shouldRejectClick)
 	  });
 	};
 
 
 /***/ },
-/* 757 */
+/* 758 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -69262,7 +69296,7 @@
 	module.exports = invariant;
 
 /***/ },
-/* 758 */
+/* 759 */
 /***/ function(module, exports) {
 
 	module.exports = function(lastTouchEvent, clickTimestamp) {
@@ -69273,7 +69307,7 @@
 
 
 /***/ },
-/* 759 */
+/* 760 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -69301,10 +69335,10 @@
 	var EventPluginUtils = __webpack_require__(339);
 	var EventPropagators = __webpack_require__(336);
 	var SyntheticUIEvent = __webpack_require__(364);
-	var TouchEventUtils = __webpack_require__(760);
+	var TouchEventUtils = __webpack_require__(761);
 	var ViewportMetrics = __webpack_require__(365);
 	
-	var keyOf = __webpack_require__(761);
+	var keyOf = __webpack_require__(762);
 	var topLevelTypes = EventConstants.topLevelTypes;
 	
 	var isStartish = EventPluginUtils.isStartish;
@@ -69449,7 +69483,7 @@
 
 
 /***/ },
-/* 760 */
+/* 761 */
 /***/ function(module, exports) {
 
 	/**
@@ -69497,7 +69531,7 @@
 
 
 /***/ },
-/* 761 */
+/* 762 */
 /***/ function(module, exports) {
 
 	/**
@@ -69537,7 +69571,7 @@
 	module.exports = keyOf;
 
 /***/ },
-/* 762 */
+/* 763 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69554,7 +69588,7 @@
 	
 	var _ramda2 = _interopRequireDefault(_ramda);
 	
-	var _effects = __webpack_require__(763);
+	var _effects = __webpack_require__(764);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -69646,10 +69680,10 @@
 	exports.default = util;
 
 /***/ },
-/* 763 */
+/* 764 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(612)
+	module.exports = __webpack_require__(613)
 
 /***/ }
 /******/ ]);

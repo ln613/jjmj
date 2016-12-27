@@ -45,13 +45,27 @@ const H = {
   is1to9: l => H.containsList([1, 4, 7])(l),
   
   byGroup: hs => R.pipe(R.groupBy(x => R.is(Array, x) ? x[0][0] : x[0]), R.toPairs, H.arr(1))(hs),
-  byColor: t => R.pipe(R.filter(H.isDigitH), t ? (t === 1 ? R.filter(H.isS) : R.filter(H.isKG)) : R.identity, H.byGroup),
+  
+  byColor: t => R.pipe(
+    R.filter(H.isDigitH),
+    t ? (t === 1 ? R.filter(H.isS) : R.filter(H.isKG)) : R.identity,
+    H.byGroup
+  ),
+
   bySColor: hs => H.byColor(1)(hs),
   byKColor: hs => H.byColor(2)(hs),
   byFColor: hs => R.pipe(R.flatten, R.filter(H.isDigit), H.byGroup)(hs),
   byNumber: hs => R.pipe(R.filter(H.isS), R.groupBy(x => x[0][1]), R.toPairs, H.arr(1))(hs),
-  byColorN: t => R.pipe(H.byColor(t), x => x.map(y => y.map(H.arr(1)))),
-  byProd3: t => R.pipe(H.byColorN(t), R.apply(H.xprod3)),
+  
+  byColorN: t => R.pipe(
+    H.byColor(t),
+    x => x.map(y => y.map(H.arr(1)))
+  ),
+  
+  byProd3: t => R.pipe(
+    H.byColorN(t),
+    R.apply(H.xprod3)
+  ),
 
   isPure: hs => R.both(H.is1Suit, R.any(H.isDigitH))(hs),
   isHalfPure: hs => R.allPass([R.all(H.isH), R.any(H.isWordH), R.pipe(R.filter(H.isDigitH), H.isPure)])(hs),
@@ -69,7 +83,25 @@ const H = {
   isNSameK: n => R.pipe(R.filter(H.isDigitKG), R.flatten, H.maxByCountBy(R.nth(1)), R.nth(1), R.ifElse(x => n === 2, H.between(6, 8), H.gt(8))),
   is1Suit: hs => R.pipe(H.byGroup, H.lenEq(1))(hs),
   is5Suits: hs => R.either(R.pipe(H.byGroup, H.lenEq(5)), R.both(H.is7Pairs, R.pipe(R.flatten, R.groupBy(R.head), R.toPairs, H.lenEq(5))))(hs),
-  isNColor3Sth: (n, t, f) => R.pipe(R.ifElse(x => n === 1, H.byColorN(t), H.byProd3(t)), R.any(R.both(H.isNotNil, R.pipe(H.arrN(0), H.sort, H.cl, f)) )),
+  
+  isNColor3Sth: (n, t, f) => R.pipe(
+    R.ifElse(
+      x => n === 1,
+      H.byColorN(t),
+      H.byProd3(t)
+    ),
+    R.any(
+      R.both(
+        H.isNotNil,
+        R.pipe(
+          H.arrN(0),
+          H.sort,
+          f
+        )
+      )
+    )
+  ),
+  
   is4in1: hs => R.pipe(R.flatten, H.maxByCount, R.both(x => x[1] === 4, x => R.pipe(R.filter(R.contains(x[0])), H.lenGt(1))(hs)))(hs),
   is3Color2Dragon: hs => R.allPass([
     H.is3Color, 
@@ -267,7 +299,7 @@ const H = {
   isSameSetOf: a => R.both(H.isSubSetOf(a), H.isSuperSetOf(a)),
   isDistinct: l => R.equals(l.length, R.pipe(R.uniq, R.length)(l)),
   isSeq: l => R.pipe(H.sort, R.both(H.isDistinct, x => R.last(x) - x[0] === x.length - 1))(l),
-  isSeq2: l => R.pipe(H.sort, R.both(H.isDistinct, x => R.sum(x) == (x[0] + R.last(x)) * x.length / 2))(l),
+  isSeq2: l => R.pipe(H.sort, R.both(H.isDistinct, x => R.sum(x) == (x[0] + R.last(x)) * x.length / 2 && (R.last(x) - x[0]) / (x.length - 1) === 2))(l),
   isSeq1or2: l => R.either(H.isSeq, H.isSeq2)(l),
   isNStep: n => R.both(H.isNotEmptyArray, R.pipe(R.uniq, H.sort, R.aperture(n), R.any(H.isSeq))),
 }

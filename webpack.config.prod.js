@@ -45,7 +45,7 @@ module.exports = {
   },
 
   postcss: function() {
-    return [autoprefixer];
+    return [autoprefixer({ browsers: ['iOS >= 4', 'ie >= 8', 'ff > 10'] })];
   },
 
   plugins: [
