@@ -8,7 +8,7 @@ import routes from './routes';
 import configureStore from './store';
 //require('../favicon.ico'); // Tell webpack to load favicon.ico
 import 'font-awesome/css/font-awesome.css';
-import 'shortcss/dist/out.css';
+import './out.css';
 import './styles/styles.css';
 import { syncHistoryWithStore } from 'react-router-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';

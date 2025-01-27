@@ -50,7 +50,6 @@
     "redux-immutable-state-invariant": "1.2.3",
     "redux-logger": "^2.6.1",
     "redux-saga": "0.11.1",
-    "shortcss": "git+https://lynqu.visualstudio.com/DefaultCollection/_git/shortcss",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
