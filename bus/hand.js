@@ -303,5 +303,5 @@ const H = {
   isSeq1or2: l => R.either(H.isSeq, H.isSeq2)(l),
   isNStep: n => R.both(H.isNotEmptyArray, R.pipe(R.uniq, H.sort, R.aperture(n), R.any(H.isSeq))),
 }
-
+//window.H = H;
 export default H;

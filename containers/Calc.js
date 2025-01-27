@@ -34,7 +34,7 @@ class Calc extends React.Component {
   } 
 
   initHand = () => {
-    this.state = { hand: [3, 3, 3, 3, 2].map(x => R.range(0, x).map(y => 'w')), r: 0, c: 0 };
+    this.state = { hand: [3, 3, 3, 3, 2].map(x => R.range(0, x).map(y => 'w')), r: 0, c: 0, flowers: 0 };
     this.setState();
   }
 
@@ -147,6 +147,12 @@ class Calc extends React.Component {
       });
 
       if (rs1.length === 0) rs1.push(rs[42]);
+      
+      if (this.state.flowers) {
+        const f = [...rs[80]];
+        f[1] = this.state.flowers;
+        rs1.push(f);
+      }
 
       const rs2 = R.pipe(R.chain(R.nth(8)), R.uniq, x => rs1.filter(y => !R.contains(y[0], x)))(rs1);
       this.setState({ result: true, total: R.sum(rs2.map(x => +x[1])), rs: rs2 });
@@ -163,6 +169,10 @@ class Calc extends React.Component {
 
   changeWind = (t, v) => {
     this.setState(t === 0 ? { rw: v } : { dw: v });
+  }
+
+  flower = n => {
+    this.setState({ flowers: R.clamp(0, 8, (this.state.flowers || 0) + n) });
   }
 
   toggle = (i, e) => {
@@ -290,6 +300,14 @@ class Calc extends React.Component {
                   <Toggle className="toggle" toggled={s.sp ? s.sp[x[0].toString()] : false} onToggle={e => this.toggle(x[0], e)} />
                 </div>
               )}
+            </div>
+            <div>
+              <div className="f aic">
+                <div className="fg1">1 - 花牌 - Flower Tiles</div>
+                <div className={`btn c24 fc hYellowgreen`} onTouchTap={tap(this.flower, -1)}>-</div>
+                <div className="ph4">{s.flowers}</div>
+                <div className={`btn c24 fc hYellowgreen`} onTouchTap={tap(this.flower, 1)}>+</div>
+              </div>
             </div>
           </div>
         </Dialog>

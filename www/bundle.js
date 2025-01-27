@@ -57700,7 +57700,7 @@
 	    return _ramda2.default.both(H.isNotEmptyArray, _ramda2.default.pipe(_ramda2.default.uniq, H.sort, _ramda2.default.aperture(n), _ramda2.default.any(H.isSeq)));
 	  }
 	};
-	
+	//window.H = H;
 	exports.default = H;
 
 /***/ },
@@ -57867,6 +57867,8 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -57897,7 +57899,7 @@
 	          return _ramda2.default.range(0, x).map(function (y) {
 	            return 'w';
 	          });
-	        }), r: 0, c: 0 };
+	        }), r: 0, c: 0, flowers: 0 };
 	      _this.setState();
 	    };
 	
@@ -58020,6 +58022,12 @@
 	
 	          if (rs1.length === 0) rs1.push(rs[42]);
 	
+	          if (_this.state.flowers) {
+	            var f = [].concat(_toConsumableArray(rs[80]));
+	            f[1] = _this.state.flowers;
+	            rs1.push(f);
+	          }
+	
 	          var rs2 = _ramda2.default.pipe(_ramda2.default.chain(_ramda2.default.nth(8)), _ramda2.default.uniq, function (x) {
 	            return rs1.filter(function (y) {
 	              return !_ramda2.default.contains(y[0], x);
@@ -58042,6 +58050,10 @@
 	
 	    _this.changeWind = function (t, v) {
 	      _this.setState(t === 0 ? { rw: v } : { dw: v });
+	    };
+	
+	    _this.flower = function (n) {
+	      _this.setState({ flowers: _ramda2.default.clamp(0, 8, (_this.state.flowers || 0) + n) });
 	    };
 	
 	    _this.toggle = function (i, e) {
@@ -58297,6 +58309,34 @@
 	                    } })
 	                );
 	              })
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              null,
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'f aic' },
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'fg1' },
+	                  '1 - \u82B1\u724C - Flower Tiles'
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'btn c24 fc hYellowgreen', onTouchTap: (0, _util.tap)(this.flower, -1) },
+	                  '-'
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'ph4' },
+	                  s.flowers
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'btn c24 fc hYellowgreen', onTouchTap: (0, _util.tap)(this.flower, 1) },
+	                  '+'
+	                )
+	              )
 	            )
 	          )
 	        )
